@@ -1,0 +1,119 @@
+ 
+@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap-icons/font/bootstrap-icons';
+
+
+$bg-primary :#ffff;
+$bg-secondary :#F9F9F9;
+$text-primary-color :#222222;
+$text-secondary-color :#939393;
+$bg-green: #088178;
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    text-decoration: none !important;
+}
+
+body {
+    height: 100vh !important;
+    overflow-y: auto;
+}
+
+#app {
+    height: 100% !important;
+}
+
+main {
+    background-color: $bg-primary;
+    height: 100% !important;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Lato', sans-serif !important;
+}
+
+input[type="checkbox"]:focus,
+.form-check-input {
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+input[type="checkbox"]:checked {
+    background-color: $bg-green !important;
+    border-color: $bg-green !important;
+    outline: 0 !important;
+}
+
+.form-floating>label {
+    font-size: 11px !important;
+}
+
+a {
+    color: $bg-green;
+}
+
+ol,
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.bg-primary {
+    background-color: $bg-green !important;
+}
+
+.btn-primary {
+    background-color: $bg-green !important;
+    color: $bg-primary;
+    border: none;
+}
+
+.text-primary,
+.active {
+    color: $bg-green !important;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.btn-sm,
+.btn-group-sm>.btn {
+    font-size: 12px !important;
+}
+
+.spinner {
+    top: 50% !important;
+    right: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+.spinner .spinner-icon {
+    height: 35px !important;
+    width: 35px !important;
+}
+
+.page-404 {
+    height: 100%;
+    background-color: #fff;
+}
+
+.page-404 img {
+    max-width: 300px;
+}
+
+section.container {
+    padding-bottom: 40px !important;
+}
+
+@import './components/navbar.scss';
+@import './components/footer.scss';
+@import './components/card-product';
+@import './components/breadcrumb';
+@import './pages/product-detail-page';
+@import './pages/shop-page.scss';
+@import './pages/shopping-cart-page.scss';
+@import './pages/checkout-page.scss';
