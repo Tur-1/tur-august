@@ -15,9 +15,8 @@ return new class extends Migration
     {
         Schema::create('size_options', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 50)->unique();
+            $table->string('name', 50)->unique()->index();
             $table->string('slug')->unique();
-            $table->timestamps();
         });
     }
 

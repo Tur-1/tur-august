@@ -15,7 +15,7 @@ class SizeOption extends Model
 
     public function products()
     {
-        return $this->belongsToMany(Product::class, 'product_size_option', 'size_id', 'product_id')
+        return $this->belongsToMany(Product::class, 'product_size_options', 'size_id', 'product_id')
             ->wherePivot('stock', '!=', 0)
             ->withPivot(['id', 'stock']);
     }

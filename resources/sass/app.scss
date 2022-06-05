@@ -25,7 +25,7 @@ body {
 #app {
     height: 100% !important;
 }
-
+ 
 main {
     background-color: $bg-primary;
     height: 100% !important;
@@ -104,7 +104,12 @@ ul {
 .page-404 img {
     max-width: 300px;
 }
-
+#toast-alert {
+    position: absolute !important;
+    top: 5%;
+    right: 10px;
+    color: white;
+}
 section.container {
     padding-bottom: 40px !important;
 }
@@ -117,3 +122,4 @@ section.container {
 @import './pages/shop-page.scss';
 @import './pages/shopping-cart-page.scss';
 @import './pages/checkout-page.scss';
+@import './pages/login-page.scss';

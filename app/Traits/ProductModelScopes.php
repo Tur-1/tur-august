@@ -4,6 +4,7 @@ namespace App\Traits;
 
 use App\Models\product\Brand;
 use App\Models\product\Color;
+use App\Models\product\Category;
 use App\Models\product\ProductImage;
 use App\Services\Frontend\Product\ProductFilterService;
 
@@ -25,6 +26,24 @@ trait ProductModelScopes
             'color_id',
         );
     }
+    public function scopeProductDetailFields($query)
+    {
+        return $query->select(
+            'id',
+            'name',
+            'slug',
+            'price',
+            'details',
+            'stock',
+            'information',
+            'brand_id',
+            'color_id',
+            'meta_title',
+            'meta_keywords',
+            'meta_description'
+        );
+    }
+
     public function scopeWithMainProductImage($query)
     {
         return $query->addSelect([
@@ -56,6 +75,8 @@ trait ProductModelScopes
             'color_name' => Color::select('name')->whereColumn('id', 'products.color_id'),
         ]);
     }
+
+
     public function scopeWithBrandImage($query)
     {
         return $query->addSelect([

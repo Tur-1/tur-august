@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Inertia\Middleware;
 use Illuminate\Http\Request;
 use App\Services\Frontend\Pages\ShopPageService;
+use Illuminate\Support\Facades\Session;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -42,6 +43,9 @@ class HandleInertiaRequests extends Middleware
     {
         return array_merge(parent::share($request), [
             'sections' => app('allCategories')->where("is_section", true)->toArray(),
+            'flashMessage' => Session::get('flashMessage'),
+            'backgroundFlashMessage' => Session::get('backgroundFlashMessage'),
+
         ]);
     }
 }

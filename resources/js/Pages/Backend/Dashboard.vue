@@ -1,6 +1,5 @@
-<template >
+<template>
     <AdminLayout>
-
         <div class="content-header">
             <div>
                 <h2 class="content-title card-title">Dashboard </h2>
@@ -101,7 +100,8 @@
     </AdminLayout>
 </template>
 <script setup>
-import AdminLayout from "@/layouts/Backend/AdminLayout";
+import AdminLayout from '@/layouts/Backend/AdminLayout.vue';
+
 
 
 </script>

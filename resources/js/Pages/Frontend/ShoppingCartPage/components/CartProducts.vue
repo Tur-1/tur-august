@@ -3,16 +3,15 @@
     <div class="col-lg-7 mb-2">
         <div class="mb-3">
 
-            <div class="shopping-cart-product">
+            <div v-for="(cartItem, index) in $page.props.shoppingCartItems" :key="index" class="shopping-cart-product">
                 <a class="shopping-cart-product-img me-2">
-                    <img src="http://august.com/storage/images/products/product_5/22-02-22-13-13-24-1645535604-Screenshot-2021-07-23-132852.png"
-                        class="img-fluid" />
+                    <img src="{{ cartItem.main_image }}" class="img-fluid" />
                 </a>
                 <div class="shopping-cart-product-detail">
                     <div class="shopping-cart-product-info">
-                        <span class="shopping-cart-product-brand"> Vans </span>
-                        <span class="shopping-cart-product-description"> Cassandra Maldonado </span>
-                        <span class="shopping-cart-product-size"> size: S </span>
+                        <span class="shopping-cart-product-brand"> {{ cartItem.brand_name }} </span>
+                        <span class="shopping-cart-product-description"> {{ cartItem.name }} </span>
+                        <span class="shopping-cart-product-size"> size: {{ cartItem.pivot.size_name }} </span>
 
                         <div class="input-group shopping-cart-product-quantity">
                             <button class="quantity-btn" type="button" id="button-addon1">
@@ -31,9 +30,9 @@
                             <i class="fas fa-close"></i>
                         </a>
                         <div class="shopping-cart-product-price">
-                            <strong class="cart-discounted-product-price"> 423.00 SAR </strong>
+                            <!-- <strong class="cart-discounted-product-price"> {{ cartItem.price }} SAR </strong> -->
 
-                            <strong class="text-primary">423.00 SAR </strong>
+                            <strong class="text-primary"> {{ cartItem.price }} SAR </strong>
                         </div>
 
                         <a wire:click.prevent="moveToWishlist(5)" class="shopping-cart-product-actions save-action">

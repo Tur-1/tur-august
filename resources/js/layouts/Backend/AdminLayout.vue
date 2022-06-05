@@ -8,12 +8,12 @@
             <slot />
 
         </section>
+
     </main>
 </template>
 
 <script setup>
-import AdminHeader from '@/layouts/Backend/components/AdminHeader';
-import AdminSidebar from '@/layouts/Backend/components/AdminSidebar';
-
+import AdminHeader from '@/layouts/Backend/components/AdminHeader.vue';
+import AdminSidebar from '@/layouts/Backend/components/AdminSidebar.vue';
 
 </script>

@@ -4,20 +4,17 @@ namespace App\Models\product;
 
 use App\Traits\ActiveModel;
 use App\Traits\ProductModelScopes;
-use App\Models\product\ProductImage;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Product extends Model
 {
     use HasFactory, ActiveModel, ProductModelScopes;
 
-    public function ProductImages()
-    {
-        return $this->hasMany(ProductImage::class, 'product_id');
-    }
+
     public function brand(): BelongsTo
     {
         return $this->belongsTo(Brand::class);
@@ -32,13 +29,17 @@ class Product extends Model
     }
     public function sizeOptions(): BelongsToMany
     {
-        return $this->belongsToMany(SizeOption::class, 'product_size_option', 'product_id', 'size_id')->withPivot(['id', 'stock']);
+        return $this->belongsToMany(SizeOption::class, 'product_size_options', 'product_id', 'size_id')->withPivot(['id', 'stock']);
     }
 
     public function stockSizeOptions(): BelongsToMany
     {
-        return $this->belongsToMany(SizeOption::class, 'product_size_option', 'product_id', 'size_id')
+        return $this->belongsToMany(SizeOption::class, 'product_size_options', 'product_id', 'size_id')
             ->wherePivot('stock', '!=', 0)
             ->withPivot(['id', 'stock']);
+    }
+    public function productImages(): HasMany
+    {
+        return $this->hasMany(ProductImage::class, 'product_id');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\product\Product;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -41,4 +42,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function shoppingCart()
+    {
+        return $this->belongsToMany(Product::class, 'shopping_carts', 'user_id', 'product_id')
+            ->withPivot(['size_name', 'quantity', 'id'])
+            ->with(['sizeOptions'])
+            ->WithMainProductImage()
+            ->WithBrandName()
+            ->Active()
+            ->latest();
+    }
 }

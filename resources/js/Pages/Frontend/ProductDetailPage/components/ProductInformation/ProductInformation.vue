@@ -7,13 +7,13 @@
                 <Price />
                 <QualityInfo />
             </div>
-
-            <div wire:id="lwMAxlhl170kDFBgmvXo">
+ 
+                <SizeOptions @sizeSelected="getSizeSelected" />
                 <div class="add-product-warp">
-                    <AddToCartButton />
+                     <AddToCartButton :size_id="size_id" :product_id="$page.props.productDetail.id"/>
                     <AddToWshlistButton />
                 </div>
-            </div>
+             
         </div>
     </div>
 </template>
@@ -26,5 +26,14 @@ import Price from "./Price";
 import QualityInfo from "./QualityInfo";
 import SizeOptions from "./SizeOptions";
 
+import { ref, watch } from "vue";
+import { useForm } from "@inertiajs/inertia-vue3";
+
+let size_id = ref(0);
+
+const getSizeSelected = (sizeSelected) =>
+{
+    size_id.value = sizeSelected;
+}
 
 </script>

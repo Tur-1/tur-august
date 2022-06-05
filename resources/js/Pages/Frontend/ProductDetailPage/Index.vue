@@ -1,6 +1,6 @@
 <template>
     <app-layout title="jkdfh">
-        <Breadcrumb />
+        <Breadcrumb :categories="$page.props.breadcrumb" :pageTitle="$page.props.productDetail.name" />
         <section class="container product-detail-container">
 
             <div class="row justify-content-center">

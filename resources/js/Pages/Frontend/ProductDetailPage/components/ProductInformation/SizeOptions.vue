@@ -2,14 +2,28 @@
     <div class="attr-size">
         <strong class="me-3">Size</strong>
         <ul class="size-filter">
-            <li
-                wire:ignore=""
-                wire:click.prevent="getSelectedSize(1)"
-                id="size-1"
-                class="mb-1 me-1"
-            >
-                <span>S</span>
+            <li v-for="(size,index) in $page.props.productDetail.stock_size_options" :key="index">
+                <input
+                    type="radio"
+                    name="size"
+                    :value="size.id"
+                    @change="getSelectedSize(size.id)" 
+                    class="btn-check"
+                    :id="'size-'+size.id"
+                />
+                <label class="btn" :for="'size-'+size.id">{{size.name}}</label>
             </li>
         </ul>
     </div>
 </template>
+<script setup>
+import { ref, watch } from "vue";
+
+const emit = defineEmits(["sizeSelected"]);
+
+const getSelectedSize = (size_id) =>
+{
+
+    emit("sizeSelected", size_id);
+};
+</script>

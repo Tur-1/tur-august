@@ -17114,6 +17114,13 @@ ul {
   max-width: 300px;
 }
 
+#toast-alert {
+  position: absolute !important;
+  top: 5%;
+  right: 10px;
+  color: white;
+}
+
 section.container {
   padding-bottom: 40px !important;
 }
@@ -17418,21 +17425,26 @@ footer {
 
 .size-filter li {
   display: inline-block;
-  padding: 12px;
-  line-height: 5px;
   background-color: transparent;
   border: 1px solid rgba(85, 85, 85, 0.3215686275);
   border-radius: 5px;
+  margin: 0 3px;
   cursor: pointer;
 }
 
-.size-filter li a {
-  color: #000;
+.size-filter label {
+  color: #000 !important;
 }
 
-.size-filter li:hover {
-  background-color: #088178;
-  color: white;
+.size-filter label:hover {
+  background-color: #088178 !important;
+  color: white !important;
+}
+
+.size-filter .btn-check:checked + label {
+  background-color: #088178 !important;
+  color: white !important;
+  border: none !important;
 }
 
 .add-product-warp {
@@ -17935,4 +17947,94 @@ input[type=number] {
 
 .checkout-product-qty {
   font-size: 11px;
+}
+
+.auth-container {
+  padding: 7px;
+  background-color: white;
+  border: 1px solid #e2e9e1;
+}
+
+.auth-tabs-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  border-bottom: 1px solid #eee;
+}
+
+.auth-head-tab button {
+  color: #363636;
+  font-weight: 600;
+  font-size: 15px;
+  height: 45px;
+  width: 100%;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-head-tab button.active,
+.auth-head-tab:hover {
+  color: #51c0a9 !important;
+  border-bottom: 2px solid #51c0a9 !important;
+}
+
+.social-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
+  margin: 15px 0 25px;
+}
+
+.social-buttons li a {
+  border-radius: 5px;
+  padding: 8px;
+  color: #fff;
+  display: block;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 14px;
+}
+
+.social-buttons li .btn-dark {
+  background-color: #24292D !important;
+  border: none !important;
+}
+
+.auth-form-content form .form-floating > .form-control {
+  height: calc(3.3rem + 2px) !important;
+}
+
+.auth-form-content form button[type=submit] {
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  padding: 12px 40px !important;
+}
+
+.auth-form-content .text-danger {
+  font-size: 12px;
+}
+
+.gender-btns {
+  display: inline-block;
+  margin: 5px;
+}
+
+.gender-btns label {
+  background: #fff;
+  color: #999;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.btn-check:checked + .btn-outline-secondary,
+.btn-check:active + .btn-outline-secondary,
+.btn-outline-secondary:active,
+.btn-outline-secondary.active {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
 }
