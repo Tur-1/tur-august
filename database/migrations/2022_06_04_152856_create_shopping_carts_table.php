@@ -17,11 +17,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('product_id')->constrained('products')->cascadeOnDelete();
-            $table->string('size_name');
+            $table->foreignId('size_id')->constrained('size_options')->cascadeOnDelete();
             $table->integer('quantity');
             $table->timestamps();
-
-            $table->foreign('size_name')->references('name')->on('size_options')->cascadeOnDelete();
         });
     }
 

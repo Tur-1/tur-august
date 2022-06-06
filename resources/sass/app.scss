@@ -19,7 +19,8 @@ $bg-green: #088178;
 
 body {
     height: 100vh !important;
-    overflow-y: auto;
+ 
+    overflow-x: hidden !important;
 }
 
 #app {
@@ -32,6 +33,7 @@ main {
     display: flex;
     flex-direction: column;
     font-family: 'Lato', sans-serif !important;
+    overflow-x: hidden !important;
 }
 
 input[type="checkbox"]:focus,
@@ -107,13 +109,17 @@ ul {
 #toast-alert {
     position: absolute !important;
     top: 5%;
+    z-index: 999999999999999999999;
     right: 10px;
     color: white;
 }
 section.container {
     padding-bottom: 40px !important;
 }
-
+.add-wishlist-btn.in-wishlist{
+    background-color: $bg-green !important;
+    color: $bg-secondary;
+}
 @import './components/navbar.scss';
 @import './components/footer.scss';
 @import './components/card-product';

@@ -32,6 +32,8 @@ Route::get('/product-detail/{product_slug}', [ProductDetailPageController::class
 
 Route::get('/wishlist', [WishlistPageController::class, 'index'])->name('wishlistPage');
 
+Route::post('/add-to-wishlist', [WishlistPageController::class, 'addToWishlist'])->name('addToWishlist');
+
 Route::get('/cart', [ShoppingCartPageController::class, 'index'])->name('shoppingCartPage');
 
 Route::post('/add-to-cart', [ShoppingCartPageController::class, 'addToShoppingCart'])->name('addToShoppingCart');

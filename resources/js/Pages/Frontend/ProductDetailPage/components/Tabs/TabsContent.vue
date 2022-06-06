@@ -1,4 +1,4 @@
-<template lang="">
+<template >
     <div class="tab-content shop_info_tab entry-main-content">
         <div class="tab-pane fade show active" id="Description">
             <div class="">
@@ -13,12 +13,12 @@
 
         <!--Reviews-->
         <div class="tab-pane fade" id="Reviews">
-            <ProductReviews />
+            <Reviews />
         </div>
     </div>
 </template>
 <script setup>
-import ProductReviews from "./../Reviews/ProductReviews";
+import Reviews from '@/Pages/Frontend/ProductDetailPage/components/Reviews/Reviews.vue';
 
 </script>
  

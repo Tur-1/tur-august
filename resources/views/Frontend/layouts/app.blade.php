@@ -7,6 +7,8 @@
 
 <body>
     @inertia
+
+
 </body>
 
 </html>

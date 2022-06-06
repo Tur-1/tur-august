@@ -1,30 +1,49 @@
 <template>
-    <div v-if="isShown" id="toast-alert" class="toast align-items-center show"
-        :class="$page.props.backgroundFlashMessage" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="d-flex">
-            <div class="toast-body">
-                {{ $page.props.flashMessage }}
-            </div>
+    <Transition name="slide-fade">
+        <div v-if="message && showAlertMessage" id="toast-alert" class="toast align-items-center show"
+            :class="$page.props.backgroundFlashMessage" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    {{ $page.props.flashMessage }}
+                </div>
 
+            </div>
         </div>
-    </div>
+
+    </Transition>
 </template>
 <script setup>
-import { ref } from 'vue';
-
+import { onMounted, ref, } from 'vue';
 const props = defineProps({
-    flashMessage: String,
-});
+    message: String,
+})
+let showAlertMessage = ref(false);
 
-let isShown = ref(false);
-if (props.flashMessage)
+onMounted(() =>
 {
-    isShown.value = true;
+    showAlertMessage.value = true;
+
     setTimeout(() =>
     {
-        isShown.value = false;
-    }, 2000);
-}
+        showAlertMessage.value = false;
+    }, 4000);
+})
+
 
 
 </script>
+<style>
+.slide-fade-enter-active {
+    transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+    transform: translateX(20px);
+    opacity: 0;
+}
+</style>

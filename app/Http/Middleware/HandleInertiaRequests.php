@@ -41,11 +41,16 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
+
+
+        $wishlist = app('wishlistProductsIds');
+
         return array_merge(parent::share($request), [
             'sections' => app('allCategories')->where("is_section", true)->toArray(),
-            'flashMessage' => Session::get('flashMessage'),
-            'backgroundFlashMessage' => Session::get('backgroundFlashMessage'),
 
+            'cartCounter' => auth()->user()->shoppingCart()->count(),
+            'wishlistCounter' => count($wishlist),
+            'inWishlist' =>  $wishlist,
         ]);
     }
 }

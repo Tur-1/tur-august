@@ -28,5 +28,10 @@ class AppServiceProvider extends ServiceProvider
 
             return Category::tree();
         });
+
+        $this->app->singleton('wishlistProductsIds', function () {
+
+            return auth()->user()->wishlist()->pluck('product_id')->toArray();
+        });
     }
 }

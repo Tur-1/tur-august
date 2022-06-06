@@ -17,11 +17,9 @@
 <script setup>
 import AppLayout from "@/layouts/Frontend/AppLayout";
 import Breadcrumb from "@/components/Breadcrumb";
+import ProductImages from "@/Pages/Frontend/ProductDetailPage/components/ProductImages.vue";
+import ProductInformation from "@/Pages/Frontend/ProductDetailPage/components/ProductInformation.vue";
+import Tabs from "@/Pages/Frontend/ProductDetailPage/components/Tabs.vue";
+import RelatedProducts from "@/Pages/Frontend/ProductDetailPage/components/RelatedProducts.vue";
 
-import ProductImages from "@/Pages/Frontend/ProductDetailPage/components/ProductImages";
-import ProductInformation from "@/Pages/Frontend/ProductDetailPage/components/ProductInformation/ProductInformation";
-
-import Tabs from "@/Pages/Frontend/ProductDetailPage/components/Tabs/ProductTabs";
-
-import RelatedProducts from "@/Pages/Frontend/ProductDetailPage/components/RelatedProducts";
 </script>

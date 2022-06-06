@@ -17028,7 +17028,7 @@ textarea.form-control-lg {
 
 body {
   height: 100vh !important;
-  overflow-y: auto;
+  overflow-x: hidden !important;
 }
 
 #app {
@@ -17041,6 +17041,7 @@ main {
   display: flex;
   flex-direction: column;
   font-family: "Lato", sans-serif !important;
+  overflow-x: hidden !important;
 }
 
 input[type=checkbox]:focus,
@@ -17117,12 +17118,18 @@ ul {
 #toast-alert {
   position: absolute !important;
   top: 5%;
+  z-index: 1000000000000000100000;
   right: 10px;
   color: white;
 }
 
 section.container {
   padding-bottom: 40px !important;
+}
+
+.add-wishlist-btn.in-wishlist {
+  background-color: #088178 !important;
+  color: #F9F9F9;
 }
 
 /******** navbar *************/
@@ -17972,6 +17979,7 @@ input[type=number] {
   cursor: pointer;
   justify-content: center;
   align-items: center;
+  border: none !important;
 }
 
 .auth-head-tab button.active,
@@ -18027,6 +18035,8 @@ input[type=number] {
   border: 1px solid #eaeaea;
   border-radius: 4px;
   transition: all 0.2s;
+  padding: 5px 15px !important;
+  font-size: 13px !important;
   cursor: pointer;
 }
 

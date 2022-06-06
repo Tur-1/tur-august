@@ -6,7 +6,7 @@
             <div class="col-lg-10">
                 <div class="d-flex justify-content-between align-items-center">
                     <ShopPageBreadcrumb />
-                    <SortProducts :sortProducts="$page.props.sortProducts" />
+                    <SortProducts />
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
                     Back To Home
                 </a>
             </div>
-            <span class="items">4 styles</span>
+            <span class="items">{{ $page.props.products.data.length }} styles</span>
         </div>
 
         <hr class="mt-0 mb-0" />

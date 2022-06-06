@@ -31,11 +31,11 @@
                         <Link class="nav-icons" :href="route('wishlistPage')">
                         <img class="svgInject" alt="Evara" src="/assets/icons/icon-heart.svg" />
 
-                        <span class="badge badge-circle"> 9 </span>
+                        <span class="badge badge-circle"> {{ $page.props.wishlistCounter }} </span>
                         </Link>
                         <Link :href="route('shoppingCartPage')" class="nav-icons">
                         <img alt="Evara" src="/assets/icons/icon-cart.svg" />
-                        <span class="badge badge-circle"> 4 </span>
+                        <span class="badge badge-circle"> {{ $page.props.cartCounter }} </span>
                         </Link>
                     </div>
                 </div>

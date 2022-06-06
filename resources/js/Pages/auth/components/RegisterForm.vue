@@ -52,8 +52,8 @@
                 <label for="gender-btns" class="m-2">Gender</label>
                 <div class="gender-btns-wrap">
                     <div class="gender-btns">
-                        <input type="radio" class="btn-check" v-model="form.gender" id="gender_male" checked
-                            value="Male" autocomplete="off">
+                        <input type="radio" class="btn-check" v-model="form.gender" id="gender_male" value="Male"
+                            autocomplete="off" checked>
                         <label class="  btn btn-outline-secondary" for="gender_male">Male</label>
                     </div>
                     <div class="gender-btns">
@@ -79,7 +79,6 @@
     </div>
 </template>
 <script setup>
-import { ref, watch } from "vue";
 import { useForm } from "@inertiajs/inertia-vue3";
 
 
@@ -89,7 +88,7 @@ let form = useForm({
     register_email: '',
     register_password: '',
     password_confirmation: '',
-    gender: '',
+    gender: 'Male',
 });
 
 const register = () =>

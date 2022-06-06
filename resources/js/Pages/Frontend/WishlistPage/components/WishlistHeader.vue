@@ -4,7 +4,7 @@
             <h3 class="text-uppercase">Wishlist</h3>
         </div>
         <div class="text-center ">
-            <p class="text-uppercase">1 items</p>
+            <p class="text-uppercase">{{ $page.props.wishlistCounter }} items</p>
         </div>
     </div>
 </template>
