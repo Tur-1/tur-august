@@ -48,7 +48,7 @@ class HandleInertiaRequests extends Middleware
         return array_merge(parent::share($request), [
             'sections' => app('allCategories')->where("is_section", true)->toArray(),
 
-            'cartCounter' => auth()->user()->shoppingCart()->count(),
+            'cartCounter' => auth()->check() ? auth()->user()->shoppingCart()->count() : 0,
             'wishlistCounter' => count($wishlist),
             'inWishlist' =>  $wishlist,
         ]);

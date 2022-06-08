@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
 
         $this->app->singleton('wishlistProductsIds', function () {
 
-            return auth()->user()->wishlist()->pluck('product_id')->toArray();
+            return auth()->check() ? auth()->user()->wishlist()->pluck('product_id')->toArray() : [];
         });
     }
 }

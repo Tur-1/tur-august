@@ -14,9 +14,9 @@
         <div class="text-start text-dark d-flex align-content-center" style="font-size: 11px">
             <div class="me-5">
                 <i class="bi bi-caret-left-fill" style="font-size: 9px"></i>
-                <a id="catalog_return " class="ms-1 text-dark" title="Home" href="/">
-                    Back To Home
-                </a>
+                <Link id="catalog_return" class="ms-1 text-dark" title="Home" href="/">
+                Back To Home
+                </Link>
             </div>
             <span class="items">{{ $page.props.products.data.length }} styles</span>
         </div>

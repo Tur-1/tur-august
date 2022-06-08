@@ -1,13 +1,72 @@
-
 /******** footer *************/
 footer {
-
     margin-top: auto;
     background-color: $bg-primary;
     border-top: 1px solid #96969630;
-
 }
 
 .desktop-footer {
     padding: 15px;
+}
+
+#mobile-footer {
+    padding: 1px 10px 10px 10px;
+    z-index: 999999;
+}
+
+#mobile-footer .footer-items {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    text-align: center;
+}
+.footer-item {
+    position: relative;
+    color: #848484;
+    font-family: system-ui;
+    padding: 0 8px;
+}
+.footer-item a {
+    display: block;
+}
+
+.footer-item a span {
+    font-size: 11px;
+    display: block;
+    margin-top: -3px;
+
+    font-weight: 500;
+}
+.footer-item a i {
+    font-size: 20px;
+}
+.footer-item .badge-footer {
+    position: absolute;
+    top: 3px;
+    right: 0;
+    font-size: 12px;
+    background-color: #cf222e;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+    color: white;
+}
+.footer-item .badge-footer.wishlist {
+    right: 2px !important;
+}
+.footer-item .badge-footer.cart {
+    right: -5px !important;
+}
+.active-footer-item {
+    color: #51c0a9 !important;
+}
+
+@media (min-width: 1200px) {
+    .col-xl-2.category-card {
+        flex: 0 0 auto;
+        width: 13.66666667%;
+    }
 }

@@ -5,7 +5,7 @@
         <Categories />
         <Brands :filters="filters" />
         <Colors :filters="filters" />
-        <SizeOptions />
+        <SizeOptions :filters="filters" />
 
     </div>
 </template>
@@ -28,8 +28,10 @@ const props = defineProps({
 
 let colorsValues = props.queryString.color ?? [props.queryString.color];
 let brandsValues = props.queryString.brand ?? [props.queryString.brand];
+let sizeValues = props.queryString.sizeOptions ?? [props.queryString.sizeOptions];
 
-let filters = ref({ brand: brandsValues, color: colorsValues });
+
+let filters = ref({ brand: brandsValues, color: colorsValues, sizeOptions: sizeValues });
 
 watch(filters, (checked) => getfilters(checked, props.categorySlug), {
     deep: true,

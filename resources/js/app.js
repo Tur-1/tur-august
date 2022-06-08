@@ -3,8 +3,12 @@ import { createApp, h } from 'vue'
 import { createInertiaApp, Head, Link } from '@inertiajs/inertia-vue3'
 import { InertiaProgress } from '@inertiajs/progress'
 createInertiaApp({
-    resolve: name => require(`./Pages/${ name }`),
-    setup({ el, App, props, plugin }) {
+    resolve: async (name) =>
+    {
+        return (await import(`./Pages/${ name }`)).default;
+    },
+    setup({ el, App, props, plugin })
+    {
         createApp({ render: () => h(App, props) })
             .use(plugin)
             .mixin({ methods: { route } })
@@ -14,7 +18,7 @@ createInertiaApp({
     },
 })
 
- document.getElementById("app").dataset.page = '';
+document.getElementById("app").dataset.page = '';
 
 
 InertiaProgress.init({ color: '#088178', includeCSS: true, showSpinner: true, });

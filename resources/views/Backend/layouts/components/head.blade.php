@@ -12,11 +12,10 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
-<!-- Template CSS -->
-<link href="{{ asset('Backend/css/main.css') }}" rel="stylesheet" type="text/css" />
-<!-- Main Script -->
 
-<script src="{{ mix('/js/app.js') }}" defer></script>
-<link rel="manifest" href="{{ asset('manifest.json') }}" />
 @routes
+<link href="{{ asset('Backend/css/main.css') }}" rel="stylesheet" type="text/css" />
+<script src="{{ mix('js/vendor.js') }}" defer></script>
+<script src="{{ mix('js/app.js') }}" defer></script>
+<link rel="manifest" href="{{ asset('manifest.json') }}" />
 @inertiaHead

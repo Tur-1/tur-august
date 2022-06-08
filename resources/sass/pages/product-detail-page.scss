@@ -7,15 +7,13 @@
         font-size: 14px !important;
     }
 
-    .product-price span {
+    .product-detail-price span {
         font-size: 14px !important;
     }
 
     .tabs-description-additionalInfo-reviews .nav.nav-tabs.product-detail .nav-item .nav-link.active {
         box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%) !important;
     }
-
-
 
     .tabs-description-additionalInfo-reviews .nav-tabs .nav-item a {
         font-size: 12px;
@@ -38,11 +36,8 @@
     }
 }
 
-
-
 .product-detail-container {
     margin-top: 10px;
-  
 }
 
 .product-detail-container .row {
@@ -76,7 +71,6 @@
     align-items: center;
 }
 
-
 .product-detail-info .product-price-wrap .product-price ins {
     text-decoration: none;
     font-weight: 600;
@@ -96,7 +90,6 @@
     margin-bottom: 0.7rem !important;
 }
 
-
 .attr-size {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -107,8 +100,6 @@
     margin-bottom: 20px;
 }
 
-
-
 .size-filter li {
     display: inline-block;
     background-color: transparent;
@@ -116,25 +107,22 @@
     border-radius: 5px;
     margin: 0 3px;
     cursor: pointer;
-
 }
 
-.size-filter label  {
+.size-filter label {
     color: #000 !important;
-
 }
 
 .size-filter label:hover {
     background-color: #088178 !important;
     color: white !important;
-
 }
-.size-filter .btn-check:checked + label{
+.size-filter .btn-check:checked + label {
     background-color: #088178 !important;
     color: white !important;
     border: none !important;
 }
- 
+
 .add-product-warp {
     margin: 10px 0;
     display: flex;
@@ -143,7 +131,6 @@
 
 .cart-btn-wrraper {
     width: 80%;
-    
 }
 
 .cart-btn {
@@ -163,13 +150,11 @@
 .add-wishlist-btn:hover {
     background-color: #088178 !important;
     color: white;
-
 }
 
 .add-wishlist-btn.product-in-wishlist {
     background-color: #088178 !important;
     color: white;
-
 }
 
 /******** product Additional info and description *************/
@@ -199,11 +184,9 @@
     border-top: none;
     color: #000;
     font-size: 14px;
-
 }
 
 .tabs-description-additionalInfo-reviews .nav-tabs .nav-item a.active {
-
     border-bottom: 2px solid #088178 !important;
     color: #088178;
 }
@@ -212,20 +195,15 @@
     margin-top: -4px;
 }
 
-
-
-
-/******** reviews area *************/ 
-
+/******** reviews area *************/
 
 .reviews-area {
     font-size: 13px !important;
 }
 .review-form {
-    
-    background-color: #F9F9F9;
+    background-color: #f9f9f9;
 }
-.reviews-area .review-form form{
+.reviews-area .review-form form {
     padding: 15px;
 }
 
@@ -236,7 +214,6 @@
 .reviews-list {
     margin-top: 30px;
     text-transform: none;
-
 }
 
 .reviews-list .review-item {
@@ -249,7 +226,6 @@
 
 .reviews-list .review-item .review,
 .reviews-list .review-item .review-reply {
-
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -261,7 +237,6 @@
     color: #999999;
     margin-bottom: 0;
     text-transform: lowercase;
-
 }
 
 .reviews-list .review-item .review-reply {

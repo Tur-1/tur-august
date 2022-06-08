@@ -1,7 +1,19 @@
- 
-
+.mobile-navbar nav {
+    justify-content: unset !important;
+}
+.mobile-navbar nav i {
+    position: absolute;
+    padding-left: 10px;
+    font-size: 17px;
+}
+.mobile-navbar nav .page-title {
+    font-weight: 600;
+    flex: 1 1 auto !important;
+    text-align: center !important;
+}
 /******** navbar *************/
-.desktop-navbar {
+.desktop-navbar,
+.mobile-navbar {
     position: sticky !important;
     position: -webkit-sticky;
     top: 0 !important;
@@ -12,7 +24,6 @@
 }
 
 nav {
-
     background-color: $bg-primary;
 }
 
@@ -29,7 +40,7 @@ nav {
     padding: 0 17px;
 }
 
-.navbar-nav>li>a {
+.navbar-nav > li > a {
     display: inline-block;
     font-size: 16px;
     font-weight: 700;
@@ -37,7 +48,6 @@ nav {
 }
 
 .navbar-nav .active {
-
     color: $bg-green;
 }
 
@@ -51,7 +61,6 @@ nav {
 .nav-icons-container {
     display: flex;
     flex-direction: row;
-
 }
 
 .nav-icons {
@@ -61,7 +70,6 @@ nav {
     line-height: 1;
     display: inline-block;
     width: 1em;
-
 }
 
 .nav-icons img {
@@ -70,19 +78,17 @@ nav {
     opacity: 0.8;
 }
 
-
 .badge-circle {
-    background-color: $bg-green;
     position: absolute;
     right: -11px;
-    top: -5px;
-    color: #ffffff;
-    height: 18px;
-    width: 18px;
-    padding: 0 !important;
+    top: 2px;
+    font-size: 12px;
+    background-color: #cf222e;
     border-radius: 100%;
-    font-weight: 500;
-    font-size: 11px;
-    text-align: center;
-    line-height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+    color: white;
 }

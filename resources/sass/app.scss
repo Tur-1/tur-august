@@ -1,13 +1,12 @@
  
 @import "~bootstrap/scss/bootstrap";
 @import '~bootstrap-icons/font/bootstrap-icons';
-
-
+ 
 $bg-primary :#ffff;
 $bg-secondary :#F9F9F9;
 $text-primary-color :#222222;
 $text-secondary-color :#939393;
-$bg-green: #088178;
+$bg-green: #51c0a9;
 * {
     margin: 0;
     padding: 0;
@@ -15,11 +14,13 @@ $bg-green: #088178;
     box-sizing: border-box;
     scroll-behavior: smooth;
     text-decoration: none !important;
+   
 }
 
 body {
     height: 100vh !important;
- 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
     overflow-x: hidden !important;
 }
 
@@ -32,7 +33,7 @@ main {
     height: 100% !important;
     display: flex;
     flex-direction: column;
-    font-family: 'Lato', sans-serif !important;
+    
     overflow-x: hidden !important;
 }
 

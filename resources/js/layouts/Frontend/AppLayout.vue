@@ -7,21 +7,25 @@
     </Head>
     <Transition name="fade" mode="out-in">
         <main v-if="contentTrigger" :style="backgroundColor">
-            <LayoutNavbar />
+            <LayoutNavbar v-if="showDesktopLayout" />
+            <LayoutMobileNavbar :title="title" v-if="showMobileLayout" />
 
             <slot />
 
-            <LayoutFooter />
-
+            <LayoutFooter v-if="showDesktopLayout" />
+            <LayoutMobileFooter v-if="showMobileLayout" />
         </main>
     </Transition>
 </template>
 
 <script setup>
+
 import LayoutNavbar from "./components/LayoutNavbar";
 import LayoutFooter from "./components/LayoutFooter";
 import AlertMessage from "@/components/AlertMessage.vue";
 import { onMounted, ref } from "vue";
+import LayoutMobileNavbar from "@/layouts/Frontend/components/LayoutMobileNavbar.vue";
+import LayoutMobileFooter from "@/layouts/Frontend/components/LayoutMobileFooter.vue";
 
 const props = defineProps({
     backgroundColor: String,
@@ -29,6 +33,20 @@ const props = defineProps({
 
 })
 let contentTrigger = ref(false);
+
+let showDesktopLayout = ref(true);
+let showMobileLayout = ref(false);
+
+
+
+const mediaQueryWidth = window.matchMedia("(max-width: 756px)");
+
+
+if (mediaQueryWidth.matches)
+{
+    showMobileLayout.value = true;
+    showDesktopLayout.value = false;
+}
 onMounted(() =>
 {
     contentTrigger.value = true;
