@@ -133,11 +133,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     products: _ctx.$page.props.products.data
   }, null, 8
   /* PROPS */
-  , ["products"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Pagination"], {
+  , ["products"])]), _ctx.$page.props.products.data.length > 13 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Pagination"], {
+    key: 0,
     links: _ctx.$page.props.products.links
   }, null, 8
   /* PROPS */
-  , ["links"])]);
+  , ["links"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
 }
 
 /***/ }),

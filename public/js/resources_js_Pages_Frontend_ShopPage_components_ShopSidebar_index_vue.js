@@ -103,7 +103,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Colors__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Colors */ "./resources/js/Pages/Frontend/ShopPage/components/ShopSidebar/Colors.vue");
 /* harmony import */ var _SizeOptions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SizeOptions */ "./resources/js/Pages/Frontend/ShopPage/components/ShopSidebar/SizeOptions.vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _Helpers_getFilters__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Helpers/getFilters */ "./resources/js/Helpers/getFilters.js");
+/* harmony import */ var _Pages_Frontend_ShopPage_Helpers_GetFilters__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Pages/Frontend/ShopPage/Helpers/GetFilters */ "./resources/js/Pages/Frontend/ShopPage/Helpers/GetFilters.js");
 
 
 
@@ -131,7 +131,7 @@ __webpack_require__.r(__webpack_exports__);
       sizeOptions: sizeValues
     });
     (0,vue__WEBPACK_IMPORTED_MODULE_4__.watch)(filters, function (checked) {
-      return (0,_Helpers_getFilters__WEBPACK_IMPORTED_MODULE_5__["default"])(checked, props.categorySlug);
+      return (0,_Pages_Frontend_ShopPage_Helpers_GetFilters__WEBPACK_IMPORTED_MODULE_5__["default"])(checked, props.categorySlug);
     }, {
       deep: true
     });
@@ -147,7 +147,7 @@ __webpack_require__.r(__webpack_exports__);
       SizeOptions: _SizeOptions__WEBPACK_IMPORTED_MODULE_3__["default"],
       ref: vue__WEBPACK_IMPORTED_MODULE_4__.ref,
       watch: vue__WEBPACK_IMPORTED_MODULE_4__.watch,
-      getfilters: _Helpers_getFilters__WEBPACK_IMPORTED_MODULE_5__["default"]
+      GetFilters: _Pages_Frontend_ShopPage_Helpers_GetFilters__WEBPACK_IMPORTED_MODULE_5__["default"]
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -402,10 +402,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./resources/js/Helpers/getFilters.js":
-/*!********************************************!*\
-  !*** ./resources/js/Helpers/getFilters.js ***!
-  \********************************************/
+/***/ "./resources/js/Pages/Frontend/ShopPage/Helpers/GetFilters.js":
+/*!********************************************************************!*\
+  !*** ./resources/js/Pages/Frontend/ShopPage/Helpers/GetFilters.js ***!
+  \********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -415,7 +415,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
 
 
-var getfilters = function getfilters(checked, link) {
+var GetFilters = function GetFilters(checked, link) {
   _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.get(link, {
     brand: checked.brand,
     color: checked.color,
@@ -427,7 +427,7 @@ var getfilters = function getfilters(checked, link) {
   });
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getfilters);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GetFilters);
 
 /***/ }),
 

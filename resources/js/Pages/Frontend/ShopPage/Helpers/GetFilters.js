@@ -1,6 +1,6 @@
 import { Inertia } from "@inertiajs/inertia";
 
-const getfilters = (checked, link) =>
+const GetFilters = (checked, link) =>
 {
     Inertia.get(link, {
         brand: checked.brand,
@@ -13,4 +13,4 @@ const getfilters = (checked, link) =>
     });
 };
 
-export default getfilters;
+export default GetFilters;

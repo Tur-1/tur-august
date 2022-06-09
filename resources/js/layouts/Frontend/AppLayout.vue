@@ -14,12 +14,13 @@
 
             <LayoutFooter v-if="showDesktopLayout" />
             <LayoutMobileFooter v-if="showMobileLayout" />
+
+
         </main>
     </Transition>
 </template>
 
 <script setup>
-
 import LayoutNavbar from "./components/LayoutNavbar";
 import LayoutFooter from "./components/LayoutFooter";
 import AlertMessage from "@/components/AlertMessage.vue";

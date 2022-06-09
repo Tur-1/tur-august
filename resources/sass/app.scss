@@ -1,11 +1,10 @@
- 
 @import "~bootstrap/scss/bootstrap";
-@import '~bootstrap-icons/font/bootstrap-icons';
- 
-$bg-primary :#ffff;
-$bg-secondary :#F9F9F9;
-$text-primary-color :#222222;
-$text-secondary-color :#939393;
+@import "~bootstrap-icons/font/bootstrap-icons";
+
+$bg-primary: #ffff;
+$bg-secondary: #f9f9f9;
+$text-primary-color: #222222;
+$text-secondary-color: #939393;
 $bg-green: #51c0a9;
 * {
     margin: 0;
@@ -14,12 +13,12 @@ $bg-green: #51c0a9;
     box-sizing: border-box;
     scroll-behavior: smooth;
     text-decoration: none !important;
-   
 }
 
 body {
     height: 100vh !important;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
     overflow-x: hidden !important;
 }
@@ -27,13 +26,13 @@ body {
 #app {
     height: 100% !important;
 }
- 
+
 main {
     background-color: $bg-primary;
     height: 100% !important;
     display: flex;
     flex-direction: column;
-    
+
     overflow-x: hidden !important;
 }
 
@@ -49,7 +48,7 @@ input[type="checkbox"]:checked {
     outline: 0 !important;
 }
 
-.form-floating>label {
+.form-floating > label {
     font-size: 11px !important;
 }
 
@@ -84,7 +83,7 @@ ul {
 }
 
 .btn-sm,
-.btn-group-sm>.btn {
+.btn-group-sm > .btn {
     font-size: 12px !important;
 }
 
@@ -117,16 +116,18 @@ ul {
 section.container {
     padding-bottom: 40px !important;
 }
-.add-wishlist-btn.in-wishlist{
+.add-wishlist-btn.in-wishlist {
     background-color: $bg-green !important;
     color: $bg-secondary;
 }
-@import './components/navbar.scss';
-@import './components/footer.scss';
-@import './components/card-product';
-@import './components/breadcrumb';
-@import './pages/product-detail-page';
-@import './pages/shop-page.scss';
-@import './pages/shopping-cart-page.scss';
-@import './pages/checkout-page.scss';
-@import './pages/login-page.scss';
+@import "./components/navbar.scss";
+@import "./components/footer.scss";
+@import "./components/card-product";
+@import "./components/breadcrumb";
+@import "./pages/product-detail-page";
+@import "./pages/shop-page.scss";
+@import "./pages/shopping-cart-page.scss";
+@import "./pages/checkout-page.scss";
+@import "./pages/login-page.scss";
+
+@import "./pages/categories-page.scss";

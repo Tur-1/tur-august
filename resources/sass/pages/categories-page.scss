@@ -1,0 +1,98 @@
+/******** categories page *************/
+#categories-page-offcanvas {
+    height: 95% !important;
+    z-index: 9999;
+}
+
+#categories-page-offcanvas .offcanvas-header {
+    padding: 0 !important;
+}
+
+#categories-page-offcanvas .offcanvas-header .section-tab {
+    background-color: transparent;
+    color: #6e6e6e !important;
+    width: -webkit-fill-available;
+    text-align: center;
+    padding: 7px;
+    font-size: 14px;
+    border-bottom: 1px solid grey !important;
+    border-radius: 0 !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    -ms-border-radius: 0 !important;
+    -o-border-radius: 0 !important;
+}
+
+#categories-page-offcanvas .offcanvas-header .section-tab.active-section {
+    border-bottom: 3px solid #51c0a9 !important;
+    box-shadow: 0 0.125rem 0.25rem rgb(0 0 0 / 8%) !important;
+    color: #51c0a9 !important;
+}
+
+#categories-page-offcanvas .offcanvas-body {
+    padding: 0 !important;
+    display: flex !important;
+    margin-bottom: 80px;
+    width: 100% !important;
+}
+
+.section-content {
+    display: none;
+    width: 100% !important;
+}
+
+.section-content.active-section-content {
+    display: flex;
+}
+
+.category-content {
+    display: none;
+}
+
+.active-category-content {
+    display: flex;
+}
+
+#categories-page-offcanvas .offcanvas-body .sidebar {
+    width: 30% !important;
+    word-break: break-word;
+    height: 100%;
+    text-align: center;
+    background-color: $bg-secondary;
+    display: flex;
+    flex-direction: column;
+}
+
+#categories-page-offcanvas .offcanvas-body .sidebar button {
+    background-color: transparent;
+    color: #404040;
+    font-size: 13px !important;
+    padding: 10px !important;
+}
+
+#categories-page-offcanvas .offcanvas-body .sidebar button.active-category {
+    background-color: #d8d8d8 !important;
+    font-weight: 700;
+    color: #000;
+}
+
+#categories-page-offcanvas .offcanvas-body .content {
+    flex: 1;
+}
+
+#categories-page-offcanvas .offcanvas-body .content .card-category {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: #6e6e6e;
+
+    padding: 5px;
+}
+
+#categories-page-offcanvas .offcanvas-body .content .card-category img {
+    width: 100%;
+}
+#categories-page-offcanvas .offcanvas-body .content .card-category span {
+    font-size: 11px !important;
+    font-family: system-ui;
+}

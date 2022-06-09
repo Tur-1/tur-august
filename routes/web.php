@@ -30,14 +30,14 @@ Route::get('/shop/{category_slug}', [ShopPageController::class, 'index'])->name(
 
 Route::get('/product-detail/{product_slug}', [ProductDetailPageController::class, 'index'])->name('productDetailPage');
 
-Route::get('/wishlist', [WishlistPageController::class, 'index'])->name('wishlistPage');
+Route::get('/wishlist', [WishlistPageController::class, 'index'])->middleware('auth')->name('wishlistPage');
 
-Route::post('/add-to-wishlist', [WishlistPageController::class, 'addToWishlist'])->name('addToWishlist');
+Route::post('/add-to-wishlist', [WishlistPageController::class, 'addToWishlist'])->middleware('auth')->name('addToWishlist');
 
-Route::get('/cart', [ShoppingCartPageController::class, 'index'])->name('shoppingCartPage');
+Route::get('/cart', [ShoppingCartPageController::class, 'index'])->middleware('auth')->name('shoppingCartPage');
 
-Route::post('/add-to-cart', [ShoppingCartPageController::class, 'addToShoppingCart'])->name('addToShoppingCart');
+Route::post('/add-to-cart', [ShoppingCartPageController::class, 'addToShoppingCart'])->middleware('auth')->name('addToShoppingCart');
 
-Route::get('/checkout', [CheckoutPageController::class, 'index'])->name('checkoutPage');
+Route::get('/checkout', [CheckoutPageController::class, 'index'])->middleware('auth')->name('checkoutPage');
 
 Route::get('/my-account', [MyAccountPageController::class, 'index'])->middleware('auth')->name('myAccountPage');

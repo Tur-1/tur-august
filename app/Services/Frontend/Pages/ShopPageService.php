@@ -126,8 +126,11 @@ class ShopPageService
 
         $this->setBrandNameForEachProduct();
 
-
         return $this->products;
+    }
+    public function getProductsCount()
+    {
+        return  Product::WhereCategory($this->category->id)->WithFilters()->count();
     }
     public function getSortProducts()
     {

@@ -7,10 +7,12 @@
                 <i class="bi bi-chevron-right fa-lg"></i>
             </button>
 
-            <div class="filtered-items" v-if="filters.color[0]">
+            <div class="filtered-items" v-show="filters.color.length > 0">
                 <div class="filtered-items-card" v-for="(colorItem, index) in filters.color" :key="index">
                     <span class="me-2">{{ colorItem }}</span>
-                    <button class=""><i class="fas fa-close"></i></button>
+                    <button type="button"
+                        @click="removeFilteredValue($page.props.category.slug, filters.color, colorItem)"><i
+                            class="fas fa-close"></i></button>
                 </div>
             </div>
         </div>
@@ -18,7 +20,7 @@
         <div class="offcanvas offcanvas-end filter-item-offcanvas" id="filter-item-offcanvas-colors"
             aria-labelledby="staticBackdropLabel">
             <div class="offcanvas-header border-bottom">
-                <button type="button" class="bg-transparent border-0" data-bs-dismiss="offcanvas" aria-label="Close">
+                <button type="button" class="bg-transparent border-0" @click="closeColorsOffcanvas" aria-label="Close">
                     <i class="bi bi-chevron-left fa-lg"></i>
                 </button>
                 <span class="offcanvas-title">Colors</span>
@@ -47,13 +49,19 @@
 </template>
 <script setup>
 
-defineProps({
+const props = defineProps({
     filters: Object,
+    showFilteredProducts: Function,
+    removeFilteredValue: Function
 });
 const openColorsOffcanvas = () =>
 {
     $("#filter-item-offcanvas-colors").offcanvas('show');
 }
 
-
+const closeColorsOffcanvas = () =>
+{
+    props.showFilteredProducts();
+    $("#filter-item-offcanvas-colors").offcanvas('hide');
+}
 </script>

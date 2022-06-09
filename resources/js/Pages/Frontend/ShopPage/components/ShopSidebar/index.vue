@@ -16,10 +16,7 @@ import Brands from "./Brands";
 import Colors from "./Colors";
 import SizeOptions from "./SizeOptions";
 import { ref, watch } from "vue";
-import getfilters from "@/Helpers/getFilters";
-
-
-
+import GetFilters from "@/Pages/Frontend/ShopPage/Helpers/GetFilters";
 
 const props = defineProps({
     categorySlug: String,
@@ -33,7 +30,7 @@ let sizeValues = props.queryString.sizeOptions ?? [props.queryString.sizeOptions
 
 let filters = ref({ brand: brandsValues, color: colorsValues, sizeOptions: sizeValues });
 
-watch(filters, (checked) => getfilters(checked, props.categorySlug), {
+watch(filters, (checked) => GetFilters(checked, props.categorySlug), {
     deep: true,
 });
 </script>

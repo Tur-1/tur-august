@@ -58,10 +58,11 @@
 }
 /*    mobile sort products     **/
 #mobile-offcanvas-sort {
-    border-top-right-radius: 25px !important;
-    border-top-left-radius: 25px !important;
+    z-index: 99999999999999999999;
+    border-top-right-radius: 15px !important;
+    border-top-left-radius: 15px !important;
     padding: 0 !important;
-    height: 37%;
+    height: 31%;
 }
 .mobile-offcanvas-sort-header {
     display: flex;
@@ -98,10 +99,12 @@
 
 /*    mobile Filter products     **/
 #mobile-offcanvas-filter {
-    height: 66% !important;
+    z-index: 99999999999999999999;
+    min-height: 60% !important;
+    max-height: 66% !important;
     padding: 0 !important;
-    border-top-right-radius: 25px !important;
-    border-top-left-radius: 25px !important;
+    border-top-right-radius: 15px !important;
+    border-top-left-radius: 15px !important;
 }
 .mobile-offcanvas-filter-header {
     border-bottom: 1px solid #dee2e6 !important;
@@ -134,8 +137,15 @@
 
 .mobile-offcanvas-filter-body {
     padding: 0 !important;
+    position: relative;
 }
-
+.mobile-offcanvas-filter-footer {
+    padding: 10px 10px 20px 10px;
+}
+.mobile-offcanvas-filter-footer .filter-products-button {
+    width: 90%;
+    border-radius: 20px;
+}
 .mobile-offcanvas-filter-body .filter-item {
     display: flex;
     flex-direction: column;
@@ -175,12 +185,14 @@
 }
 
 .filter-item-offcanvas {
+    z-index: 99999999999999999999;
     top: unset !important;
     bottom: 0 !important;
-    height: 66% !important;
+    min-height: 60% !important;
+    max-height: 66% !important;
     padding: 0 !important;
-    border-top-right-radius: 25px !important;
-    border-top-left-radius: 25px !important;
+    border-top-right-radius: 15px !important;
+    border-top-left-radius: 15px !important;
     width: 100% !important;
 }
 .filter-item-offcanvas .offcanvas-header button {

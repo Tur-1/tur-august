@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Exceptions\PageNotFoundException;
+use App\Models\product\Product;
 use App\Http\Controllers\Controller;
+use App\Exceptions\PageNotFoundException;
 use App\Services\Frontend\Pages\ShopPageService;
 
 
@@ -15,6 +16,8 @@ class ShopPageController extends Controller
     {
 
 
+
+
         try {
             $category = $shopPageService->getCategory($category_slug)->toArray();
             $breadcrumb =  $shopPageService->getBreadcrumb()->toArray();
@@ -22,6 +25,7 @@ class ShopPageController extends Controller
             $brands =  $shopPageService->getBrands()->toArray();
             $colors =  $shopPageService->getColors()->toArray();
             $products =  $shopPageService->getProducts();
+            $productsCount = $products->count();
             $sortProducts =  $shopPageService->getSortProducts();
             $queryString = $shopPageService->getQueriesString();
         } catch (PageNotFoundException $ex) {
@@ -32,6 +36,7 @@ class ShopPageController extends Controller
 
             'category' => $category,
             'breadcrumb' => $breadcrumb,
+            'productsCount' => $productsCount,
             'sizeOptions' => $sizeOptions,
             'brands' => $brands,
             'colors' => $colors,

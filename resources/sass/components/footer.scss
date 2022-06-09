@@ -22,12 +22,13 @@ footer {
 }
 .footer-item {
     position: relative;
-    color: #848484;
+    color: #000 !important;
     font-family: system-ui;
     padding: 0 8px;
 }
 .footer-item a {
     display: block;
+    color: #000 !important;
 }
 
 .footer-item a span {

@@ -5,7 +5,7 @@
 
         </div>
 
-        <Pagination :links="$page.props.products.links" />
+        <Pagination :links="$page.props.products.links" v-if="$page.props.products.data.length > 13" />
     </div>
 </template>
 <script setup>

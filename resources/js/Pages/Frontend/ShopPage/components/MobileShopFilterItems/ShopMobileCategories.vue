@@ -7,14 +7,17 @@
                 <strong>Categories</strong>
                 <i class="bi bi-chevron-right fa-lg"></i>
             </button>
-
             <div class="filtered-items">
                 <div class="filtered-items-card">
-                    <span class="me-1">women </span>
+                    <Link v-for="(breadcrumbItem, index) in $page.props.breadcrumb" :key="index"
+                        :href="route('shopPage', { category_slug: breadcrumbItem.slug })">
+                    <span class="me-2">{{ breadcrumbItem.name }}</span>
                     <i class="bi bi-chevron-right me-1 fa-sm"></i>
-                    <span>clothing</span>
+                    </Link>
+                    <span>{{ $page.props.category.name }}</span>
                     <button class=""><i class="fas fa-close ms-1"></i></button>
                 </div>
+
             </div>
         </div>
 
@@ -29,6 +32,15 @@
             </div>
             <div class="offcanvas-body filter-item-offcanvas-body">
 
+                <div class="list-group">
+                    <label v-for="(category, index) in $page.props.category.children" :key="category.id">
+                        <Link class="form-check-input-warp "
+                            :href="route('shopPage', { category_slug: category.slug })">
+                        <i class="bi bi-caret-right-fill"></i>
+                        {{ category.name }}
+                        </Link>
+                    </label>
+                </div>
             </div>
         </div>
 
@@ -36,7 +48,10 @@
 
 </template>
 <script setup>
+const props = defineProps({
 
+    showFilteredProducts: Function
+});
 const openCategoriesOffcanvas = () =>
 {
     $("#filter-item-offcanvas-categories").offcanvas('show');

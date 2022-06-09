@@ -426,6 +426,22 @@ var map = {
 		"/js/vendor",
 		"resources_js_Pages_Frontend_ProductDetailPage_components_product-inforamtion_Title_vue"
 	],
+	"./Frontend/ShopPage/Helpers/GetFilters": [
+		"./resources/js/Pages/Frontend/ShopPage/Helpers/GetFilters.js",
+		"resources_js_Pages_Frontend_ShopPage_Helpers_GetFilters_js"
+	],
+	"./Frontend/ShopPage/Helpers/GetFilters.js": [
+		"./resources/js/Pages/Frontend/ShopPage/Helpers/GetFilters.js",
+		"resources_js_Pages_Frontend_ShopPage_Helpers_GetFilters_js"
+	],
+	"./Frontend/ShopPage/Helpers/useProductsFilters": [
+		"./resources/js/Pages/Frontend/ShopPage/Helpers/useProductsFilters.js",
+		"resources_js_Pages_Frontend_ShopPage_Helpers_useProductsFilters_js"
+	],
+	"./Frontend/ShopPage/Helpers/useProductsFilters.js": [
+		"./resources/js/Pages/Frontend/ShopPage/Helpers/useProductsFilters.js",
+		"resources_js_Pages_Frontend_ShopPage_Helpers_useProductsFilters_js"
+	],
 	"./Frontend/ShopPage/Index": [
 		"./resources/js/Pages/Frontend/ShopPage/Index.vue",
 		"/js/vendor",

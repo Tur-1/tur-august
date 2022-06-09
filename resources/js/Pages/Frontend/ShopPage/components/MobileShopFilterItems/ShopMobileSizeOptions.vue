@@ -7,10 +7,12 @@
                 <i class="bi bi-chevron-right fa-lg"></i>
             </button>
 
-            <div class="filtered-items" v-if="filters.sizeOptions[0]">
+            <div class="filtered-items" v-show="filters.sizeOptions.length > 0">
                 <div class="filtered-items-card" v-for="(size, index) in filters.sizeOptions" :key="index">
                     <span class="me-2">{{ size }}</span>
-                    <button class=""><i class="fas fa-close"></i></button>
+                    <button type="button"
+                        @click="removeFilteredValue($page.props.category.slug, filters.sizeOptions, size)"><i
+                            class="fas fa-close"></i></button>
                 </div>
             </div>
         </div>
@@ -18,7 +20,8 @@
         <div class="offcanvas offcanvas-end filter-item-offcanvas" id="filter-item-offcanvas-size"
             aria-labelledby="staticBackdropLabel">
             <div class="offcanvas-header border-bottom">
-                <button type="button" class="bg-transparent border-0" data-bs-dismiss="offcanvas" aria-label="Close">
+                <button type="button" class="bg-transparent border-0" @click="closeSizeOptionsOffcanvas"
+                    aria-label="Close">
                     <i class="bi bi-chevron-left fa-lg"></i>
                 </button>
                 <span class="offcanvas-title">Size</span>
@@ -41,13 +44,23 @@
 
 </template>
 <script setup>
-defineProps({
+const props = defineProps({
     filters: Object,
+    showFilteredProducts: Function,
+    removeFilteredValue: Function
 });
+
+
 const openSizeOffcanvas = () =>
 {
     $("#filter-item-offcanvas-size").offcanvas('show');
 }
 
+
+const closeSizeOptionsOffcanvas = () =>
+{
+    props.showFilteredProducts();
+    $("#filter-item-offcanvas-size").offcanvas('hide');
+}
 
 </script>
