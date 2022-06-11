@@ -1,6 +1,6 @@
 import { ref } from "vue";
 
-export const SelectedSize = ref({
+export const ProductSize = ref({
     size_id: 0,
     getSizeId(value)
     {

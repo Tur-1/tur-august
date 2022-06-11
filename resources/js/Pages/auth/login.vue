@@ -1,4 +1,3 @@
- 
 <template>
     <AppLayout title="Login">
         <Breadcrumb pageTitle="Login" />
@@ -22,12 +21,9 @@
 
 <script setup>
 import AppLayout from "@/layouts/Frontend/AppLayout";
-import Breadcrumb from "@/components/Breadcrumb";
+import Breadcrumb from "@/shared/Breadcrumb";
 import AuthTabsHeader from "@/Pages/auth/components/AuthTabsHeader";
 import SocialButtons from "@/Pages/auth/components/SocialButtons";
 import LoginForm from "@/Pages/auth/components/LoginForm";
 import RegisterForm from "@/Pages/auth/components/RegisterForm";
-
-
 </script>
-

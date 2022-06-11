@@ -12,7 +12,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
-/* harmony import */ var _stores_SelectedSize__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/stores/SelectedSize */ "./resources/js/stores/SelectedSize.js");
+/* harmony import */ var _Pages_Frontend_ProductDetailPage_store__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Pages/Frontend/ProductDetailPage/store */ "./resources/js/Pages/Frontend/ProductDetailPage/store/index.js");
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -21,25 +21,25 @@ __webpack_require__.r(__webpack_exports__);
     var expose = _ref.expose;
     expose();
     var form = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.useForm)({
-      size_id: '',
-      product_id: ''
+      size_id: "",
+      product_id: ""
     });
 
     var addToShoppingCart = function addToShoppingCart(product_id) {
-      if (_stores_SelectedSize__WEBPACK_IMPORTED_MODULE_1__.SelectedSize.value.size_id == 0) {
+      if (_Pages_Frontend_ProductDetailPage_store__WEBPACK_IMPORTED_MODULE_1__.ProductSize.value.size_id == 0) {
         return false;
       }
 
-      form.size_id = _stores_SelectedSize__WEBPACK_IMPORTED_MODULE_1__.SelectedSize.value.size_id;
+      form.size_id = _Pages_Frontend_ProductDetailPage_store__WEBPACK_IMPORTED_MODULE_1__.ProductSize.value.size_id;
       form.product_id = product_id;
-      form.post(route('addToShoppingCart'), form);
+      form.post(route("addToShoppingCart"), form);
     };
 
     var __returned__ = {
       form: form,
       addToShoppingCart: addToShoppingCart,
       useForm: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.useForm,
-      SelectedSize: _stores_SelectedSize__WEBPACK_IMPORTED_MODULE_1__.SelectedSize
+      ProductSize: _Pages_Frontend_ProductDetailPage_store__WEBPACK_IMPORTED_MODULE_1__.ProductSize
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -97,19 +97,19 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./resources/js/stores/SelectedSize.js":
-/*!*********************************************!*\
-  !*** ./resources/js/stores/SelectedSize.js ***!
-  \*********************************************/
+/***/ "./resources/js/Pages/Frontend/ProductDetailPage/store/index.js":
+/*!**********************************************************************!*\
+  !*** ./resources/js/Pages/Frontend/ProductDetailPage/store/index.js ***!
+  \**********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "SelectedSize": () => (/* binding */ SelectedSize)
+/* harmony export */   "ProductSize": () => (/* binding */ ProductSize)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-var SelectedSize = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)({
+var ProductSize = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)({
   size_id: 0,
   getSizeId: function getSizeId(value) {
     this.size_id = value;

@@ -1,3 +1,12 @@
+@media only screen and (max-width: 767px) {
+    .social-buttons li a {
+        font-size: 12px !important;
+    }
+    .auth-form-content form button[type="submit"] {
+        font-size: 13px !important;
+        padding: 9px 0 !important;
+    }
+}
 .auth-container {
     padding: 7px;
     background-color: $bg-primary;
@@ -10,8 +19,8 @@
     position: relative;
     border-bottom: 1px solid #eee;
 }
-.auth-head-tab button{
-    color: #363636 ;
+.auth-head-tab button {
+    color: #363636;
     font-weight: 600;
     font-size: 15px;
     height: 45px;
@@ -22,7 +31,7 @@
     align-items: center;
     border: none !important;
 }
- .auth-head-tab button.active,
+.auth-head-tab button.active,
 .auth-head-tab:hover {
     color: #51c0a9 !important;
     border-bottom: 2px solid #51c0a9 !important;
@@ -45,27 +54,25 @@
 }
 
 .social-buttons li .btn-dark {
-    background-color: #24292D !important;
+    background-color: #24292d !important;
     border: none !important;
 }
 
-.auth-form-content form .form-floating>.form-control {
+.auth-form-content form .form-floating > .form-control {
     height: calc(3.3rem + 2px) !important;
-
 }
 
 .auth-form-content form button[type="submit"] {
-    font-size: 15px !important;
-    font-weight: 500 !important;
-    padding: 12px 40px !important;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 12px 0;
 }
-.auth-form-content .text-danger{
+.auth-form-content .text-danger {
     font-size: 12px;
 }
 .gender-btns {
     display: inline-block;
     margin: 5px;
-
 }
 
 .gender-btns label {
@@ -77,15 +84,13 @@
     padding: 5px 15px !important;
     font-size: 13px !important;
     cursor: pointer;
-
 }
 
-.btn-check:checked+.btn-outline-secondary,
-.btn-check:active+.btn-outline-secondary,
+.btn-check:checked + .btn-outline-secondary,
+.btn-check:active + .btn-outline-secondary,
 .btn-outline-secondary:active,
 .btn-outline-secondary.active {
     color: #fff;
     background-color: #6c757d;
     border-color: #6c757d;
 }
- 

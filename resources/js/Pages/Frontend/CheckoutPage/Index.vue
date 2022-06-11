@@ -19,13 +19,10 @@
 
 <script setup>
 import AppLayout from "@/layouts/Frontend/AppLayout";
-import Breadcrumb from "@/components/Breadcrumb";
+import Breadcrumb from "@/shared/Breadcrumb";
 import CheckoutHeader from "@/Pages/Frontend/CheckoutPage/components/CheckoutHeader";
 import CheckoutUserAddresses from "@/Pages/Frontend/CheckoutPage/components/CheckoutUserAddresses";
 import CheckoutCouponForm from "@/Pages/Frontend/CheckoutPage/components/CheckoutCouponForm";
 import CheckoutProducts from "@/Pages/Frontend/CheckoutPage/components/CheckoutProducts";
 import CheckoutDetails from "@/Pages/Frontend/CheckoutPage/components/CheckoutDetails";
-
-
 </script>
-

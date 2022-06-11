@@ -186,6 +186,16 @@ var map = {
 		"/js/vendor",
 		"resources_js_Pages_Frontend_HomePage_Index_vue"
 	],
+	"./Frontend/MyAccountPage/Desktop/DesktopUi": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Desktop/DesktopUi.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_Desktop_DesktopUi_vue"
+	],
+	"./Frontend/MyAccountPage/Desktop/DesktopUi.vue": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Desktop/DesktopUi.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_Desktop_DesktopUi_vue"
+	],
 	"./Frontend/MyAccountPage/Index": [
 		"./resources/js/Pages/Frontend/MyAccountPage/Index.vue",
 		"/js/vendor",
@@ -195,6 +205,16 @@ var map = {
 		"./resources/js/Pages/Frontend/MyAccountPage/Index.vue",
 		"/js/vendor",
 		"resources_js_Pages_Frontend_MyAccountPage_Index_vue"
+	],
+	"./Frontend/MyAccountPage/Mobile/MobileUi": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Mobile/MobileUi.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_Mobile_MobileUi_vue"
+	],
+	"./Frontend/MyAccountPage/Mobile/MobileUi.vue": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Mobile/MobileUi.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_Mobile_MobileUi_vue"
 	],
 	"./Frontend/MyAccountPage/components/MyAccountHeader": [
 		"./resources/js/Pages/Frontend/MyAccountPage/components/MyAccountHeader.vue",
@@ -425,6 +445,22 @@ var map = {
 		"./resources/js/Pages/Frontend/ProductDetailPage/components/product-inforamtion/Title.vue",
 		"/js/vendor",
 		"resources_js_Pages_Frontend_ProductDetailPage_components_product-inforamtion_Title_vue"
+	],
+	"./Frontend/ProductDetailPage/store": [
+		"./resources/js/Pages/Frontend/ProductDetailPage/store/index.js",
+		"resources_js_Pages_Frontend_ProductDetailPage_store_index_js"
+	],
+	"./Frontend/ProductDetailPage/store/": [
+		"./resources/js/Pages/Frontend/ProductDetailPage/store/index.js",
+		"resources_js_Pages_Frontend_ProductDetailPage_store_index_js"
+	],
+	"./Frontend/ProductDetailPage/store/index": [
+		"./resources/js/Pages/Frontend/ProductDetailPage/store/index.js",
+		"resources_js_Pages_Frontend_ProductDetailPage_store_index_js"
+	],
+	"./Frontend/ProductDetailPage/store/index.js": [
+		"./resources/js/Pages/Frontend/ProductDetailPage/store/index.js",
+		"resources_js_Pages_Frontend_ProductDetailPage_store_index_js"
 	],
 	"./Frontend/ShopPage/Helpers/GetFilters": [
 		"./resources/js/Pages/Frontend/ShopPage/Helpers/GetFilters.js",
