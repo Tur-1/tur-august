@@ -29,7 +29,7 @@ class ShopPageController extends Controller
             $sortProducts =  $shopPageService->getSortProducts();
             $queryString = $shopPageService->getQueriesString();
         } catch (PageNotFoundException $ex) {
-            return inertia('Errors/404');
+            return inertia('frontend/Errors/404');
         }
 
         return inertia('Frontend/ShopPage/Index', [

@@ -106,15 +106,55 @@ var map = {
 		"/js/vendor",
 		"resources_js_Pages_Backend_Dashboard_vue"
 	],
-	"./Errors/404": [
-		"./resources/js/Pages/Errors/404.vue",
+	"./Frontend/Auth/components/AuthTabsHeader": [
+		"./resources/js/Pages/Frontend/Auth/components/AuthTabsHeader.vue",
 		"/js/vendor",
-		"resources_js_Pages_Errors_404_vue"
+		"resources_js_Pages_Frontend_Auth_components_AuthTabsHeader_vue"
 	],
-	"./Errors/404.vue": [
-		"./resources/js/Pages/Errors/404.vue",
+	"./Frontend/Auth/components/AuthTabsHeader.vue": [
+		"./resources/js/Pages/Frontend/Auth/components/AuthTabsHeader.vue",
 		"/js/vendor",
-		"resources_js_Pages_Errors_404_vue"
+		"resources_js_Pages_Frontend_Auth_components_AuthTabsHeader_vue"
+	],
+	"./Frontend/Auth/components/LoginForm": [
+		"./resources/js/Pages/Frontend/Auth/components/LoginForm.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_Auth_components_LoginForm_vue"
+	],
+	"./Frontend/Auth/components/LoginForm.vue": [
+		"./resources/js/Pages/Frontend/Auth/components/LoginForm.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_Auth_components_LoginForm_vue"
+	],
+	"./Frontend/Auth/components/RegisterForm": [
+		"./resources/js/Pages/Frontend/Auth/components/RegisterForm.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_Auth_components_RegisterForm_vue"
+	],
+	"./Frontend/Auth/components/RegisterForm.vue": [
+		"./resources/js/Pages/Frontend/Auth/components/RegisterForm.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_Auth_components_RegisterForm_vue"
+	],
+	"./Frontend/Auth/components/SocialButtons": [
+		"./resources/js/Pages/Frontend/Auth/components/SocialButtons.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_Auth_components_SocialButtons_vue"
+	],
+	"./Frontend/Auth/components/SocialButtons.vue": [
+		"./resources/js/Pages/Frontend/Auth/components/SocialButtons.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_Auth_components_SocialButtons_vue"
+	],
+	"./Frontend/Auth/login": [
+		"./resources/js/Pages/Frontend/Auth/login.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_Auth_login_vue"
+	],
+	"./Frontend/Auth/login.vue": [
+		"./resources/js/Pages/Frontend/Auth/login.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_Auth_login_vue"
 	],
 	"./Frontend/CheckoutPage/Index": [
 		"./resources/js/Pages/Frontend/CheckoutPage/Index.vue",
@@ -176,6 +216,16 @@ var map = {
 		"/js/vendor",
 		"resources_js_Pages_Frontend_CheckoutPage_components_CheckoutUserAddresses_vue"
 	],
+	"./Frontend/Errors/404": [
+		"./resources/js/Pages/Frontend/Errors/404.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_Errors_404_vue"
+	],
+	"./Frontend/Errors/404.vue": [
+		"./resources/js/Pages/Frontend/Errors/404.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_Errors_404_vue"
+	],
 	"./Frontend/HomePage/Index": [
 		"./resources/js/Pages/Frontend/HomePage/Index.vue",
 		"/js/vendor",
@@ -185,16 +235,6 @@ var map = {
 		"./resources/js/Pages/Frontend/HomePage/Index.vue",
 		"/js/vendor",
 		"resources_js_Pages_Frontend_HomePage_Index_vue"
-	],
-	"./Frontend/MyAccountPage/Desktop/DesktopUi": [
-		"./resources/js/Pages/Frontend/MyAccountPage/Desktop/DesktopUi.vue",
-		"/js/vendor",
-		"resources_js_Pages_Frontend_MyAccountPage_Desktop_DesktopUi_vue"
-	],
-	"./Frontend/MyAccountPage/Desktop/DesktopUi.vue": [
-		"./resources/js/Pages/Frontend/MyAccountPage/Desktop/DesktopUi.vue",
-		"/js/vendor",
-		"resources_js_Pages_Frontend_MyAccountPage_Desktop_DesktopUi_vue"
 	],
 	"./Frontend/MyAccountPage/Index": [
 		"./resources/js/Pages/Frontend/MyAccountPage/Index.vue",
@@ -206,55 +246,185 @@ var map = {
 		"/js/vendor",
 		"resources_js_Pages_Frontend_MyAccountPage_Index_vue"
 	],
-	"./Frontend/MyAccountPage/Mobile/MobileUi": [
-		"./resources/js/Pages/Frontend/MyAccountPage/Mobile/MobileUi.vue",
+	"./Frontend/MyAccountPage/Shared/MyAccountSettings": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAccountSettings/index.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_MyAccountPage_Mobile_MobileUi_vue"
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyAccountSettings_index_vue"
 	],
-	"./Frontend/MyAccountPage/Mobile/MobileUi.vue": [
-		"./resources/js/Pages/Frontend/MyAccountPage/Mobile/MobileUi.vue",
+	"./Frontend/MyAccountPage/Shared/MyAccountSettings/": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAccountSettings/index.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_MyAccountPage_Mobile_MobileUi_vue"
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyAccountSettings_index_vue"
 	],
-	"./Frontend/MyAccountPage/components/MyAccountHeader": [
-		"./resources/js/Pages/Frontend/MyAccountPage/components/MyAccountHeader.vue",
+	"./Frontend/MyAccountPage/Shared/MyAccountSettings/AccountInfo": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAccountSettings/AccountInfo.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_MyAccountPage_components_MyAccountHeader_vue"
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyAccountSettings_AccountInfo_vue"
 	],
-	"./Frontend/MyAccountPage/components/MyAccountHeader.vue": [
-		"./resources/js/Pages/Frontend/MyAccountPage/components/MyAccountHeader.vue",
+	"./Frontend/MyAccountPage/Shared/MyAccountSettings/AccountInfo.vue": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAccountSettings/AccountInfo.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_MyAccountPage_components_MyAccountHeader_vue"
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyAccountSettings_AccountInfo_vue"
 	],
-	"./Frontend/MyAccountPage/components/MyAccountSettings": [
-		"./resources/js/Pages/Frontend/MyAccountPage/components/MyAccountSettings.vue",
+	"./Frontend/MyAccountPage/Shared/MyAccountSettings/AccountPassword": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAccountSettings/AccountPassword.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_MyAccountPage_components_MyAccountSettings_vue"
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyAccountSettings_AccountPassword_vue"
 	],
-	"./Frontend/MyAccountPage/components/MyAccountSettings.vue": [
-		"./resources/js/Pages/Frontend/MyAccountPage/components/MyAccountSettings.vue",
+	"./Frontend/MyAccountPage/Shared/MyAccountSettings/AccountPassword.vue": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAccountSettings/AccountPassword.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_MyAccountPage_components_MyAccountSettings_vue"
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyAccountSettings_AccountPassword_vue"
 	],
-	"./Frontend/MyAccountPage/components/MyAddressBook": [
-		"./resources/js/Pages/Frontend/MyAccountPage/components/MyAddressBook.vue",
+	"./Frontend/MyAccountPage/Shared/MyAccountSettings/AccountPhoneNumber": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAccountSettings/AccountPhoneNumber.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_MyAccountPage_components_MyAddressBook_vue"
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyAccountSettings_AccountPhoneNumber_vue"
 	],
-	"./Frontend/MyAccountPage/components/MyAddressBook.vue": [
-		"./resources/js/Pages/Frontend/MyAccountPage/components/MyAddressBook.vue",
+	"./Frontend/MyAccountPage/Shared/MyAccountSettings/AccountPhoneNumber.vue": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAccountSettings/AccountPhoneNumber.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_MyAccountPage_components_MyAddressBook_vue"
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyAccountSettings_AccountPhoneNumber_vue"
 	],
-	"./Frontend/MyAccountPage/components/MyOrders": [
-		"./resources/js/Pages/Frontend/MyAccountPage/components/MyOrders.vue",
+	"./Frontend/MyAccountPage/Shared/MyAccountSettings/index": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAccountSettings/index.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_MyAccountPage_components_MyOrders_vue"
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyAccountSettings_index_vue"
 	],
-	"./Frontend/MyAccountPage/components/MyOrders.vue": [
-		"./resources/js/Pages/Frontend/MyAccountPage/components/MyOrders.vue",
+	"./Frontend/MyAccountPage/Shared/MyAccountSettings/index.vue": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAccountSettings/index.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_MyAccountPage_components_MyOrders_vue"
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyAccountSettings_index_vue"
+	],
+	"./Frontend/MyAccountPage/Shared/MyAddressBook": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAddressBook/index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyAddressBook_index_vue"
+	],
+	"./Frontend/MyAccountPage/Shared/MyAddressBook/": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAddressBook/index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyAddressBook_index_vue"
+	],
+	"./Frontend/MyAccountPage/Shared/MyAddressBook/index": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAddressBook/index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyAddressBook_index_vue"
+	],
+	"./Frontend/MyAccountPage/Shared/MyAddressBook/index.vue": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAddressBook/index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyAddressBook_index_vue"
+	],
+	"./Frontend/MyAccountPage/Shared/MyOrders": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyOrders/index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyOrders_index_vue"
+	],
+	"./Frontend/MyAccountPage/Shared/MyOrders/": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyOrders/index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyOrders_index_vue"
+	],
+	"./Frontend/MyAccountPage/Shared/MyOrders/OrderPage": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyOrders/OrderPage.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyOrders_OrderPage_vue"
+	],
+	"./Frontend/MyAccountPage/Shared/MyOrders/OrderPage.vue": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyOrders/OrderPage.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyOrders_OrderPage_vue"
+	],
+	"./Frontend/MyAccountPage/Shared/MyOrders/index": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyOrders/index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyOrders_index_vue"
+	],
+	"./Frontend/MyAccountPage/Shared/MyOrders/index.vue": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyOrders/index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyOrders_index_vue"
+	],
+	"./Frontend/MyAccountPage/views/Desktop/MyAccountDesktopView": [
+		"./resources/js/Pages/Frontend/MyAccountPage/views/Desktop/MyAccountDesktopView.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_views_Desktop_MyAccountDesktopView_vue"
+	],
+	"./Frontend/MyAccountPage/views/Desktop/MyAccountDesktopView.vue": [
+		"./resources/js/Pages/Frontend/MyAccountPage/views/Desktop/MyAccountDesktopView.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_views_Desktop_MyAccountDesktopView_vue"
+	],
+	"./Frontend/MyAccountPage/views/Desktop/components/MyAccountHeader": [
+		"./resources/js/Pages/Frontend/MyAccountPage/views/Desktop/components/MyAccountHeader.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_views_Desktop_components_MyAccountHeader_vue"
+	],
+	"./Frontend/MyAccountPage/views/Desktop/components/MyAccountHeader.vue": [
+		"./resources/js/Pages/Frontend/MyAccountPage/views/Desktop/components/MyAccountHeader.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_views_Desktop_components_MyAccountHeader_vue"
+	],
+	"./Frontend/MyAccountPage/views/Mobile/MyAccountMobileView": [
+		"./resources/js/Pages/Frontend/MyAccountPage/views/Mobile/MyAccountMobileView.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_views_Mobile_MyAccountMobileView_vue"
+	],
+	"./Frontend/MyAccountPage/views/Mobile/MyAccountMobileView.vue": [
+		"./resources/js/Pages/Frontend/MyAccountPage/views/Mobile/MyAccountMobileView.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_views_Mobile_MyAccountMobileView_vue"
+	],
+	"./Frontend/MyAccountPage/views/Mobile/components/Logout": [
+		"./resources/js/Pages/Frontend/MyAccountPage/views/Mobile/components/Logout.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_views_Mobile_components_Logout_vue"
+	],
+	"./Frontend/MyAccountPage/views/Mobile/components/Logout.vue": [
+		"./resources/js/Pages/Frontend/MyAccountPage/views/Mobile/components/Logout.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_views_Mobile_components_Logout_vue"
+	],
+	"./Frontend/MyAccountPage/views/Mobile/components/MyAccountAvatar": [
+		"./resources/js/Pages/Frontend/MyAccountPage/views/Mobile/components/MyAccountAvatar.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_views_Mobile_components_MyAccountAvatar_vue"
+	],
+	"./Frontend/MyAccountPage/views/Mobile/components/MyAccountAvatar.vue": [
+		"./resources/js/Pages/Frontend/MyAccountPage/views/Mobile/components/MyAccountAvatar.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_views_Mobile_components_MyAccountAvatar_vue"
+	],
+	"./Frontend/MyAccountPage/views/Mobile/components/MyAccountSettingsMobileUI": [
+		"./resources/js/Pages/Frontend/MyAccountPage/views/Mobile/components/MyAccountSettingsMobileUI.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_views_Mobile_components_MyAccountSettingsMobileUI_vue"
+	],
+	"./Frontend/MyAccountPage/views/Mobile/components/MyAccountSettingsMobileUI.vue": [
+		"./resources/js/Pages/Frontend/MyAccountPage/views/Mobile/components/MyAccountSettingsMobileUI.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_views_Mobile_components_MyAccountSettingsMobileUI_vue"
+	],
+	"./Frontend/MyAccountPage/views/Mobile/components/MyAddressBookMobileUI": [
+		"./resources/js/Pages/Frontend/MyAccountPage/views/Mobile/components/MyAddressBookMobileUI.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_views_Mobile_components_MyAddressBookMobileUI_vue"
+	],
+	"./Frontend/MyAccountPage/views/Mobile/components/MyAddressBookMobileUI.vue": [
+		"./resources/js/Pages/Frontend/MyAccountPage/views/Mobile/components/MyAddressBookMobileUI.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_views_Mobile_components_MyAddressBookMobileUI_vue"
+	],
+	"./Frontend/MyAccountPage/views/Mobile/components/MyOrdersMobileUI": [
+		"./resources/js/Pages/Frontend/MyAccountPage/views/Mobile/components/MyOrdersMobileUI.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_views_Mobile_components_MyOrdersMobileUI_vue"
+	],
+	"./Frontend/MyAccountPage/views/Mobile/components/MyOrdersMobileUI.vue": [
+		"./resources/js/Pages/Frontend/MyAccountPage/views/Mobile/components/MyOrdersMobileUI.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_views_Mobile_components_MyOrdersMobileUI_vue"
 	],
 	"./Frontend/ProductDetailPage/Index": [
 		"./resources/js/Pages/Frontend/ProductDetailPage/Index.vue",
@@ -789,56 +959,6 @@ var map = {
 		"./resources/js/Pages/Frontend/WishlistPage/components/WishlistProducts.vue",
 		"/js/vendor",
 		"resources_js_Pages_Frontend_WishlistPage_components_WishlistProducts_vue"
-	],
-	"./auth/components/AuthTabsHeader": [
-		"./resources/js/Pages/auth/components/AuthTabsHeader.vue",
-		"/js/vendor",
-		"resources_js_Pages_auth_components_AuthTabsHeader_vue"
-	],
-	"./auth/components/AuthTabsHeader.vue": [
-		"./resources/js/Pages/auth/components/AuthTabsHeader.vue",
-		"/js/vendor",
-		"resources_js_Pages_auth_components_AuthTabsHeader_vue"
-	],
-	"./auth/components/LoginForm": [
-		"./resources/js/Pages/auth/components/LoginForm.vue",
-		"/js/vendor",
-		"resources_js_Pages_auth_components_LoginForm_vue"
-	],
-	"./auth/components/LoginForm.vue": [
-		"./resources/js/Pages/auth/components/LoginForm.vue",
-		"/js/vendor",
-		"resources_js_Pages_auth_components_LoginForm_vue"
-	],
-	"./auth/components/RegisterForm": [
-		"./resources/js/Pages/auth/components/RegisterForm.vue",
-		"/js/vendor",
-		"resources_js_Pages_auth_components_RegisterForm_vue"
-	],
-	"./auth/components/RegisterForm.vue": [
-		"./resources/js/Pages/auth/components/RegisterForm.vue",
-		"/js/vendor",
-		"resources_js_Pages_auth_components_RegisterForm_vue"
-	],
-	"./auth/components/SocialButtons": [
-		"./resources/js/Pages/auth/components/SocialButtons.vue",
-		"/js/vendor",
-		"resources_js_Pages_auth_components_SocialButtons_vue"
-	],
-	"./auth/components/SocialButtons.vue": [
-		"./resources/js/Pages/auth/components/SocialButtons.vue",
-		"/js/vendor",
-		"resources_js_Pages_auth_components_SocialButtons_vue"
-	],
-	"./auth/login": [
-		"./resources/js/Pages/auth/login.vue",
-		"/js/vendor",
-		"resources_js_Pages_auth_login_vue"
-	],
-	"./auth/login.vue": [
-		"./resources/js/Pages/auth/login.vue",
-		"/js/vendor",
-		"resources_js_Pages_auth_login_vue"
 	]
 };
 function webpackAsyncContext(req) {

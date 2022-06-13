@@ -22,7 +22,7 @@
                 </i>
                 <span>Cart</span>
                 </Link>
-                <span class="badge-footer cart">1</span>
+                <span class="badge-footer cart">{{ $page.props.cartCounter }}</span>
             </li>
             <li class="footer-item">
                 <Link :href="route('wishlistPage')" :class="{ 'active-footer-item': route().current('wishlistPage') }">
@@ -30,7 +30,7 @@
                 </i>
                 <span>Wishlist</span>
                 </Link>
-                <span class="badge-footer wishlist">0</span>
+                <span class="badge-footer wishlist">{{ $page.props.wishlistCounter }}</span>
             </li>
             <li class="footer-item">
                 <Link :href="route('myAccountPage')"

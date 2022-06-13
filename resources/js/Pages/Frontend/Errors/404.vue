@@ -24,6 +24,6 @@
 </template>
 
 <script setup>
-import AppLayout from "./../../layouts/Frontend/AppLayout";
+import AppLayout from '@/layouts/Frontend/AppLayout.vue';
 </script>
  

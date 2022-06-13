@@ -1,8 +1,8 @@
 <template>
 
-    <div class="row mb-3 p-3">
-        <div class="col-4">
-            <div class="card border-0 mb-3 shadow-sm">
+    <div class="row mb-3">
+        <div class="col-md-4 mb-3">
+            <div class="card border-0 shadow-sm">
                 <div class="card-header bg-white d-flex justify-content-between align-items-center">
                     <span class="card-title">Turki Alharbi</span>
                     <div>
@@ -40,14 +40,15 @@
         </div>
 
     </div>
-
-
-    <div class="card border-0 mt-4 w-50 shadow-sm">
-        <a role="button" class="card-body text-dark" wire:click.prevent="OpenNewAddressModal">
-            <i class="fa-solid fa-circle-plus fa-lg me-2"></i>
-            <span class="text-bold">Add new address</span>
-        </a>
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <div class="card border-0 mt-4  shadow-sm">
+                <a role="button" class="card-body text-dark" wire:click.prevent="OpenNewAddressModal">
+                    <i class="fa-solid fa-circle-plus fa-lg me-2"></i>
+                    <span class="text-bold">Add new address</span>
+                </a>
+            </div>
+        </div>
     </div>
-
 
 </template>

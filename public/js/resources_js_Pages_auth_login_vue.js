@@ -102,6 +102,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Pages_auth_components_SocialButtons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Pages/auth/components/SocialButtons */ "./resources/js/Pages/auth/components/SocialButtons.vue");
 /* harmony import */ var _Pages_auth_components_LoginForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Pages/auth/components/LoginForm */ "./resources/js/Pages/auth/components/LoginForm.vue");
 /* harmony import */ var _Pages_auth_components_RegisterForm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Pages/auth/components/RegisterForm */ "./resources/js/Pages/auth/components/RegisterForm.vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
 
 
 
@@ -113,13 +115,23 @@ __webpack_require__.r(__webpack_exports__);
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
+    var isDesktop = (0,vue__WEBPACK_IMPORTED_MODULE_6__.ref)(true);
+    var mediaQueryWidth = window.matchMedia("(max-width: 756px)");
+
+    if (mediaQueryWidth.matches) {
+      isDesktop.value = false;
+    }
+
     var __returned__ = {
+      isDesktop: isDesktop,
+      mediaQueryWidth: mediaQueryWidth,
       AppLayout: _layouts_Frontend_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
       Breadcrumb: _shared_Breadcrumb__WEBPACK_IMPORTED_MODULE_1__["default"],
       AuthTabsHeader: _Pages_auth_components_AuthTabsHeader__WEBPACK_IMPORTED_MODULE_2__["default"],
       SocialButtons: _Pages_auth_components_SocialButtons__WEBPACK_IMPORTED_MODULE_3__["default"],
       LoginForm: _Pages_auth_components_LoginForm__WEBPACK_IMPORTED_MODULE_4__["default"],
-      RegisterForm: _Pages_auth_components_RegisterForm__WEBPACK_IMPORTED_MODULE_5__["default"]
+      RegisterForm: _Pages_auth_components_RegisterForm__WEBPACK_IMPORTED_MODULE_5__["default"],
+      ref: vue__WEBPACK_IMPORTED_MODULE_6__.ref
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -893,9 +905,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     title: "Login"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Breadcrumb"], {
+      return [$setup.isDesktop ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Breadcrumb"], {
+        key: 0,
         pageTitle: "Login"
-      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AuthTabsHeader"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["SocialButtons"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["LoginForm"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["RegisterForm"])])])])])])];
+      })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AuthTabsHeader"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["SocialButtons"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["LoginForm"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["RegisterForm"])])])])])])];
     }),
     _: 1
     /* STABLE */
@@ -1494,12 +1507,9 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+var _hoisted_10 = {
   "class": "badge-footer cart"
-}, "1", -1
-/* HOISTED */
-);
-
+};
 var _hoisted_11 = {
   "class": "footer-item"
 };
@@ -1508,12 +1518,9 @@ var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 /* HOISTED */
 );
 
-var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+var _hoisted_13 = {
   "class": "badge-footer wishlist"
-}, "0", -1
-/* HOISTED */
-);
-
+};
 var _hoisted_14 = {
   "class": "footer-item"
 };
@@ -1572,7 +1579,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href", "class"]), _hoisted_10]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+  , ["href", "class"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.cartCounter), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
     href: _ctx.route('wishlistPage'),
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
       'active-footer-item': _ctx.route().current('wishlistPage')
@@ -1590,7 +1599,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href", "class"]), _hoisted_13]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+  , ["href", "class"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.wishlistCounter), 1
+  /* TEXT */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
     href: _ctx.route('myAccountPage'),
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
       'active-footer-item': _ctx.route().current('myAccountPage')

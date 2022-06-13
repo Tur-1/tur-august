@@ -1,8 +1,8 @@
 <template>
     <AppLayout title="checkout" backgroundColor="background-color:#F9F9F9">
-        <Breadcrumb pageTitle="checkout" v-if="showDesktopLayout" />
+        <Breadcrumb pageTitle="checkout" v-if="isDesktop" />
         <section class="container mt-3">
-            <CheckoutHeader v-if="showDesktopLayout" />
+            <CheckoutHeader v-if="isDesktop" />
             <div class="row">
                 <div class="col-xl-8 col-lg-7 col-md-6">
                     <CheckoutUserAddresses />
@@ -29,14 +29,12 @@ import CheckoutDetails from "@/Pages/Frontend/CheckoutPage/components/CheckoutDe
 
 import { ref } from "vue";
 
-let showDesktopLayout = ref(true);
-let showMobileLayout = ref(false);
+let isDesktop = ref(true);
 
 const mediaQueryWidth = window.matchMedia("(max-width: 756px)");
 
 if (mediaQueryWidth.matches)
 {
-    showMobileLayout.value = true;
-    showDesktopLayout.value = false;
+    isDesktop.value = false;
 }
 </script>

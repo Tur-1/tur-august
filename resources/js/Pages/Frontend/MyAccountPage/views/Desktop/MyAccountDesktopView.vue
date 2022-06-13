@@ -3,6 +3,8 @@
         <MyAccountHeader />
         <div class=" nav nav-tabs d-flex flex-row justify-content-between" style="flex-wrap:unset !important"
             role="tablist">
+
+
             <button role="tab" class="card shadow-sm w-100 collapse-btn  me-1 active" id="account-settings-tab"
                 data-bs-toggle="tab" data-bs-target="#account-settings">
                 <div class="card-body text-center p-4">
@@ -33,7 +35,7 @@
             </button>
         </div>
 
-        <div class="tab-content bg-white shadow-sm mt-2 " id="myTabContent">
+        <div class="tab-content bg-white shadow-sm mt-2 " id="myAccountTabsContent">
             <div class="tab-pane fade show active p-3" id="account-settings" role="tabpanel" aria-labelledby="home-tab">
                 <MyAccountSettings />
             </div>
@@ -44,14 +46,16 @@
                 <MyAddressBook />
             </div>
         </div>
+
+
     </section>
 </template>
 
 <script setup>
-import MyAccountHeader from '@/Pages/Frontend/MyAccountPage/components/MyAccountHeader';
-import MyAccountSettings from "@/Pages/Frontend/MyAccountPage/components/MyAccountSettings";
-import MyOrders from "@/Pages/Frontend/MyAccountPage/components/MyOrders";
-import MyAddressBook from "@/Pages/Frontend/MyAccountPage/components/MyAddressBook";
+import MyAccountSettings from '@/Pages/Frontend/MyAccountPage/Shared/MyAccountSettings/index.vue';
+import MyAddressBook from '@/Pages/Frontend/MyAccountPage/Shared/MyAddressBook/index.vue';
+import MyOrders from '@/Pages/Frontend/MyAccountPage/Shared/MyOrders/index.vue';
+import MyAccountHeader from '@/Pages/Frontend/MyAccountPage/views/Desktop/components/MyAccountHeader.vue';
 
 
 const openAccountSettings = () =>

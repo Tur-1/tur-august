@@ -1,6 +1,6 @@
 <template>
     <AppLayout title="Login">
-        <Breadcrumb pageTitle="Login" />
+        <Breadcrumb pageTitle="Login" v-if="isDesktop" />
         <section class="container mt-5">
             <div class="row justify-content-center">
                 <div class="col-lg-5">
@@ -22,8 +22,18 @@
 <script setup>
 import AppLayout from "@/layouts/Frontend/AppLayout";
 import Breadcrumb from "@/shared/Breadcrumb";
-import AuthTabsHeader from "@/Pages/auth/components/AuthTabsHeader";
-import SocialButtons from "@/Pages/auth/components/SocialButtons";
-import LoginForm from "@/Pages/auth/components/LoginForm";
-import RegisterForm from "@/Pages/auth/components/RegisterForm";
+import AuthTabsHeader from "@/Pages/Frontend/Auth/components/AuthTabsHeader";
+import SocialButtons from "@/Pages/Frontend/Auth/components/SocialButtons";
+import LoginForm from "@/Pages/Frontend/Auth/components/LoginForm";
+import RegisterForm from "@/Pages/Frontend/Auth/components/RegisterForm";
+import { ref } from "vue";
+
+let isDesktop = ref(true);
+
+const mediaQueryWidth = window.matchMedia("(max-width: 756px)");
+
+if (mediaQueryWidth.matches)
+{
+    isDesktop.value = false;
+}
 </script>
