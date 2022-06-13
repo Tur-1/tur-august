@@ -1,9 +1,7 @@
 <template>
-    <app-layout title="jkdfh">
-        <Breadcrumb
-            :categories="$page.props.breadcrumb"
-            :pageTitle="$page.props.productDetail.name"
-        />
+    <app-layout :title="$page.props.productDetail.name">
+        <Breadcrumb v-if="showDesktopLayout" :categories="$page.props.breadcrumb"
+            :pageTitle="$page.props.productDetail.name" />
         <section class="container product-detail-container">
             <div class="row justify-content-center">
                 <ProductImages />
@@ -23,4 +21,15 @@ import ProductImages from "@/Pages/Frontend/ProductDetailPage/components/Product
 import ProductInformation from "@/Pages/Frontend/ProductDetailPage/components/ProductInformation.vue";
 import Tabs from "@/Pages/Frontend/ProductDetailPage/components/Tabs.vue";
 import RelatedProducts from "@/Pages/Frontend/ProductDetailPage/components/RelatedProducts.vue";
+
+import { ref } from "vue";
+
+let showDesktopLayout = ref(true);
+
+const mediaQueryWidth = window.matchMedia("(max-width: 756px)");
+
+if (mediaQueryWidth.matches)
+{
+    showDesktopLayout.value = false;
+}
 </script>

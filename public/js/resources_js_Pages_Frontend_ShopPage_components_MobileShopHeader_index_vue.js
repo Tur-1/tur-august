@@ -497,13 +497,6 @@ var _hoisted_13 = {
 var _hoisted_14 = {
   "class": "list-group"
 };
-
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "bi bi-caret-right-fill"
-}, null, -1
-/* HOISTED */
-);
-
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
 
@@ -538,13 +531,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", {
       key: category.id
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
-      "class": "form-check-input-warp",
+      "class": "text-dark",
       href: _ctx.route('shopPage', {
         category_slug: category.slug
       })
     }, {
       "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-        return [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category.name), 1
+        return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category.name), 1
         /* TEXT */
         )];
       }),
@@ -1018,10 +1011,84 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"col\"><button class=\"sort-filter-btns\" type=\"button\" data-bs-toggle=\"offcanvas\" data-bs-target=\"#mobile-offcanvas-sort\" aria-controls=\"offcanvasExample\"><span>sort</span></button></div><div class=\"offcanvas offcanvas-bottom\" tabindex=\"-1\" id=\"mobile-offcanvas-sort\" aria-labelledby=\"offcanvasBottomLabel\"><div class=\"offcanvas-header mobile-offcanvas-sort-header\"><span class=\"offcanvas-title\" id=\"offcanvasBottomLabel\">Sort</span><button type=\"button\" class=\"btn-close\" data-bs-dismiss=\"offcanvas\" data-bs-target=\"#mobile-offcanvas-sort\" aria-label=\"Close\"></button></div><div class=\"offcanvas-body small mobile-offcanvas-sort-body\"><div class=\"list-group\"><div class=\"list-group-item\"><div><i class=\"bi bi-card-list me-2\"></i> Sugssted </div><div class=\"circle-wrap\"><span class=\"active-sort\"></span></div></div><div class=\"list-group-item\"><div><i class=\"fas fa-fire me-2\"></i> New </div><div class=\"circle-wrap\"><span></span></div></div><div class=\"list-group-item\"><div><i class=\"fas fa-sort-amount-up me-2\"></i> Price: High to Low </div><div class=\"circle-wrap\"><span></span></div></div><div class=\"list-group-item\"><div><i class=\"fas fa-sort-amount-down-alt me-2\"></i> Price: Low to High </div><div class=\"circle-wrap\"><span></span></div></div></div></div></div>", 2);
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "col"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  "class": "sort-filter-btns",
+  type: "button",
+  "data-bs-toggle": "offcanvas",
+  "data-bs-target": "#mobile-offcanvas-sort",
+  "aria-controls": "offcanvasExample"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, "sort")])], -1
+/* HOISTED */
+);
 
+var _hoisted_2 = {
+  "class": "offcanvas offcanvas-bottom",
+  tabindex: "-1",
+  id: "mobile-offcanvas-sort",
+  "aria-labelledby": "offcanvasBottomLabel"
+};
+
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "offcanvas-header mobile-offcanvas-sort-header"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "offcanvas-title",
+  id: "offcanvasBottomLabel"
+}, "Sort"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  type: "button",
+  "class": "btn-close",
+  "data-bs-dismiss": "offcanvas",
+  "data-bs-target": "#mobile-offcanvas-sort",
+  "aria-label": "Close"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_4 = {
+  "class": "offcanvas-body small mobile-offcanvas-sort-body"
+};
+var _hoisted_5 = {
+  "class": "list-group"
+};
+var _hoisted_6 = {
+  "class": "circle-wrap"
+};
 function render(_ctx, _cache) {
-  return _hoisted_1;
+  var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.$page.props.sortProducts, function (sort, index) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
+      key: index,
+      "class": "text-dark list-group-item",
+      href: sort.url
+    }, {
+      "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+        return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+          "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(sort.icon)
+        }, null, 2
+        /* CLASS */
+        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(sort.name), 1
+        /* TEXT */
+        )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+          "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
+            'active-sort': sort.active
+          })
+        }, null, 2
+        /* CLASS */
+        )])];
+      }),
+      _: 2
+      /* DYNAMIC */
+
+    }, 1032
+    /* PROPS, DYNAMIC_SLOTS */
+    , ["href"]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])])])], 64
+  /* STABLE_FRAGMENT */
+  );
 }
 
 /***/ }),

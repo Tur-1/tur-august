@@ -17242,7 +17242,7 @@ footer {
 }
 
 #mobile-footer {
-  padding: 1px 10px 10px 10px;
+  padding: 1px 10px 5px 10px;
   z-index: 999999;
 }
 
@@ -17456,10 +17456,10 @@ footer {
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.08) !important;
   }
   .tabs-description-additionalInfo-reviews .nav-tabs .nav-item a {
-    font-size: 12px;
+    font-size: 12px !important;
   }
   .reviews-area .review-form form button {
-    font-size: 14px;
+    font-size: 14px !important;
   }
   .reviews-area .reviews-list .review-item .date {
     font-size: 10px !important;

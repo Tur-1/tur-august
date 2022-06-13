@@ -28,7 +28,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "col-lg-4 mb-3"
+  "class": "col-lg-4 mb-5"
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"card border-0 p-0\"><div class=\"card-body\"><ul class=\"list-group list-group-flush\"><li class=\"list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0\"> Cart Subtotal <span>423 SAR</span></li><li class=\"list-group-item d-flex justify-content-between align-items-center px-0\"> Shipment Fees <span> Free </span></li><li class=\"list-group-item d-flex justify-content-between align-items-center border-0 px-0\"><div><strong>The total amount </strong><strong><p class=\"mb-0\">(including VAT)</p></strong></div><span><strong>486.45 SAR</strong></span></li></ul></div></div>", 1);

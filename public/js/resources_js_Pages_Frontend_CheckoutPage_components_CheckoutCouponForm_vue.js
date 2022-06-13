@@ -21,24 +21,16 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "card-body"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
   "wire:submit.prevent": "ApplyCoupon",
-  "class": "p-0"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "input-group"
+  "class": "d-flex align-items-center"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
   type: "text",
   "wire:model.defer": "code",
   placeholder: "Enter Coupon Code...",
-  "class": "form-control"
+  "class": "form-control form-control-sm"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "wire:loading.attr": "disabled",
-  "wire:traget": "ApplyCoupon",
-  "class": "btn btn-primary",
-  type: "submit",
-  id: "button-addon2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "wire:loading.remove": "",
-  "wire:target": "ApplyCoupon"
-}, " Apply")])])])], -1
+  "class": "text-primary bg-transparent ms-2",
+  type: "submit"
+}, " Apply ")])], -1
 /* HOISTED */
 );
 

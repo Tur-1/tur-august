@@ -128,7 +128,6 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 
 var _hoisted_4 = {
   "class": "offcanvas offcanvas-end",
-  "data-bs-backdrop": "static",
   tabindex: "-1",
   id: "account-settings-offcanvas",
   "aria-labelledby": "staticBackdropLabel"
@@ -155,7 +154,6 @@ var _hoisted_6 = {
 };
 var _hoisted_7 = {
   "class": "offcanvas offcanvas-end",
-  "data-bs-backdrop": "static",
   tabindex: "-1",
   id: "my-orders-offcanvas",
   "aria-labelledby": "staticBackdropLabel"
@@ -182,7 +180,6 @@ var _hoisted_9 = {
 };
 var _hoisted_10 = {
   "class": "offcanvas offcanvas-end",
-  "data-bs-backdrop": "static",
   tabindex: "-1",
   id: "address-book-offcanvas",
   "aria-labelledby": "staticBackdropLabel"
@@ -423,14 +420,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "row p-3"
+  "class": "row"
 };
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<a class=\"col-4 mb-2 pb-1 mt-2\" href=\"http://august.com/my-account/orders/1 \"><div class=\"card shadow-sm p-2\"><div class=\"card-body d-flex justify-content-between\"><h5>order no #1</h5><span class=\"text-primary\">order details</span></div></div><div class=\"rounded text-center pt-2 pe-3 ps-3 d-flex justify-content-between bg-light text-primary\"><p>February 18 ,2022</p><p>269.10 SAR</p></div></a>", 1);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<a class=\"col-md-4 col-12 mb-2 pb-1 mt-2\" href=\"http://august.com/my-account/orders/1 \"><div class=\"card shadow-sm p-2\"><div class=\"card-body d-flex justify-content-between\"><h5>order no #1</h5><span class=\"text-primary\">order details</span></div></div><div class=\"rounded text-center pt-2 pe-3 ps-3 d-flex justify-content-between bg-light text-primary\"><p>February 18 ,2022</p><p>269.10 SAR</p></div></a><a class=\"col-md-4 col-12 mb-2 pb-1 mt-2\" href=\"http://august.com/my-account/orders/1 \"><div class=\"card shadow-sm p-2\"><div class=\"card-body d-flex justify-content-between\"><h5>order no #1</h5><span class=\"text-primary\">order details</span></div></div><div class=\"rounded text-center pt-2 pe-3 ps-3 d-flex justify-content-between bg-light text-primary\"><p>February 18 ,2022</p><p>269.10 SAR</p></div></a>", 2);
 
-var _hoisted_3 = [_hoisted_2];
+var _hoisted_4 = [_hoisted_2];
 function render(_ctx, _cache) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, _hoisted_3);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, _hoisted_4);
 }
 
 /***/ }),

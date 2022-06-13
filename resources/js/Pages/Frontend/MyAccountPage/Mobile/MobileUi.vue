@@ -64,7 +64,7 @@
             </li>
         </ul>
 
-        <div class="offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="account-settings-offcanvas"
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="account-settings-offcanvas"
             aria-labelledby="staticBackdropLabel">
             <div class="offcanvas-header ">
                 <button type="button" class="close-offcanvas-btn" data-bs-dismiss="offcanvas" aria-label="Close">
@@ -78,7 +78,7 @@
                 <MyAccountSettings />
             </div>
         </div>
-        <div class="offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="my-orders-offcanvas"
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="my-orders-offcanvas"
             aria-labelledby="staticBackdropLabel">
             <div class="offcanvas-header ">
                 <button type="button" class="close-offcanvas-btn" data-bs-dismiss="offcanvas" aria-label="Close">
@@ -93,7 +93,7 @@
             </div>
         </div>
 
-        <div class="offcanvas offcanvas-end" data-bs-backdrop="static" tabindex="-1" id="address-book-offcanvas"
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="address-book-offcanvas"
             aria-labelledby="staticBackdropLabel">
             <div class="offcanvas-header ">
                 <button type="button" class="close-offcanvas-btn" data-bs-dismiss="offcanvas" aria-label="Close">

@@ -462,14 +462,6 @@ var map = {
 		"./resources/js/Pages/Frontend/ProductDetailPage/store/index.js",
 		"resources_js_Pages_Frontend_ProductDetailPage_store_index_js"
 	],
-	"./Frontend/ShopPage/Helpers/GetFilters": [
-		"./resources/js/Pages/Frontend/ShopPage/Helpers/GetFilters.js",
-		"resources_js_Pages_Frontend_ShopPage_Helpers_GetFilters_js"
-	],
-	"./Frontend/ShopPage/Helpers/GetFilters.js": [
-		"./resources/js/Pages/Frontend/ShopPage/Helpers/GetFilters.js",
-		"resources_js_Pages_Frontend_ShopPage_Helpers_GetFilters_js"
-	],
 	"./Frontend/ShopPage/Helpers/useProductsFilters": [
 		"./resources/js/Pages/Frontend/ShopPage/Helpers/useProductsFilters.js",
 		"resources_js_Pages_Frontend_ShopPage_Helpers_useProductsFilters_js"
@@ -488,215 +480,245 @@ var map = {
 		"/js/vendor",
 		"resources_js_Pages_Frontend_ShopPage_Index_vue"
 	],
-	"./Frontend/ShopPage/components/MobileShopFilterItems/ShopMobileBrands": [
-		"./resources/js/Pages/Frontend/ShopPage/components/MobileShopFilterItems/ShopMobileBrands.vue",
+	"./Frontend/ShopPage/views/Desktop/ShopDesktopView": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/ShopDesktopView.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_MobileShopFilterItems_ShopMobileBrands_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_ShopDesktopView_vue"
 	],
-	"./Frontend/ShopPage/components/MobileShopFilterItems/ShopMobileBrands.vue": [
-		"./resources/js/Pages/Frontend/ShopPage/components/MobileShopFilterItems/ShopMobileBrands.vue",
+	"./Frontend/ShopPage/views/Desktop/ShopDesktopView.vue": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/ShopDesktopView.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_MobileShopFilterItems_ShopMobileBrands_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_ShopDesktopView_vue"
 	],
-	"./Frontend/ShopPage/components/MobileShopFilterItems/ShopMobileCategories": [
-		"./resources/js/Pages/Frontend/ShopPage/components/MobileShopFilterItems/ShopMobileCategories.vue",
+	"./Frontend/ShopPage/views/Desktop/components/ShopDesktopHeader": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopHeader/index.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_MobileShopFilterItems_ShopMobileCategories_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_components_ShopDesktopHeader_index_vue"
 	],
-	"./Frontend/ShopPage/components/MobileShopFilterItems/ShopMobileCategories.vue": [
-		"./resources/js/Pages/Frontend/ShopPage/components/MobileShopFilterItems/ShopMobileCategories.vue",
+	"./Frontend/ShopPage/views/Desktop/components/ShopDesktopHeader/": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopHeader/index.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_MobileShopFilterItems_ShopMobileCategories_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_components_ShopDesktopHeader_index_vue"
 	],
-	"./Frontend/ShopPage/components/MobileShopFilterItems/ShopMobileColors": [
-		"./resources/js/Pages/Frontend/ShopPage/components/MobileShopFilterItems/ShopMobileColors.vue",
+	"./Frontend/ShopPage/views/Desktop/components/ShopDesktopHeader/CurrentCategoryName": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopHeader/CurrentCategoryName.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_MobileShopFilterItems_ShopMobileColors_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_components_ShopDesktopHeader_CurrentCatego-2920d9"
 	],
-	"./Frontend/ShopPage/components/MobileShopFilterItems/ShopMobileColors.vue": [
-		"./resources/js/Pages/Frontend/ShopPage/components/MobileShopFilterItems/ShopMobileColors.vue",
+	"./Frontend/ShopPage/views/Desktop/components/ShopDesktopHeader/CurrentCategoryName.vue": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopHeader/CurrentCategoryName.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_MobileShopFilterItems_ShopMobileColors_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_components_ShopDesktopHeader_CurrentCatego-2920d9"
 	],
-	"./Frontend/ShopPage/components/MobileShopFilterItems/ShopMobileSizeOptions": [
-		"./resources/js/Pages/Frontend/ShopPage/components/MobileShopFilterItems/ShopMobileSizeOptions.vue",
+	"./Frontend/ShopPage/views/Desktop/components/ShopDesktopHeader/ShopDesktopBreadcrumb": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopHeader/ShopDesktopBreadcrumb.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_MobileShopFilterItems_ShopMobileSizeOptions_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_components_ShopDesktopHeader_ShopDesktopBr-d144ed"
 	],
-	"./Frontend/ShopPage/components/MobileShopFilterItems/ShopMobileSizeOptions.vue": [
-		"./resources/js/Pages/Frontend/ShopPage/components/MobileShopFilterItems/ShopMobileSizeOptions.vue",
+	"./Frontend/ShopPage/views/Desktop/components/ShopDesktopHeader/ShopDesktopBreadcrumb.vue": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopHeader/ShopDesktopBreadcrumb.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_MobileShopFilterItems_ShopMobileSizeOptions_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_components_ShopDesktopHeader_ShopDesktopBr-d144ed"
 	],
-	"./Frontend/ShopPage/components/MobileShopHeader": [
-		"./resources/js/Pages/Frontend/ShopPage/components/MobileShopHeader/index.vue",
+	"./Frontend/ShopPage/views/Desktop/components/ShopDesktopHeader/ShopDesktopSort": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopHeader/ShopDesktopSort.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_MobileShopHeader_index_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_components_ShopDesktopHeader_ShopDesktopSort_vue"
 	],
-	"./Frontend/ShopPage/components/MobileShopHeader/": [
-		"./resources/js/Pages/Frontend/ShopPage/components/MobileShopHeader/index.vue",
+	"./Frontend/ShopPage/views/Desktop/components/ShopDesktopHeader/ShopDesktopSort.vue": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopHeader/ShopDesktopSort.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_MobileShopHeader_index_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_components_ShopDesktopHeader_ShopDesktopSort_vue"
 	],
-	"./Frontend/ShopPage/components/MobileShopHeader/MobileHeaderCategories": [
-		"./resources/js/Pages/Frontend/ShopPage/components/MobileShopHeader/MobileHeaderCategories.vue",
+	"./Frontend/ShopPage/views/Desktop/components/ShopDesktopHeader/index": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopHeader/index.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_MobileShopHeader_MobileHeaderCategories_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_components_ShopDesktopHeader_index_vue"
 	],
-	"./Frontend/ShopPage/components/MobileShopHeader/MobileHeaderCategories.vue": [
-		"./resources/js/Pages/Frontend/ShopPage/components/MobileShopHeader/MobileHeaderCategories.vue",
+	"./Frontend/ShopPage/views/Desktop/components/ShopDesktopHeader/index.vue": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopHeader/index.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_MobileShopHeader_MobileHeaderCategories_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_components_ShopDesktopHeader_index_vue"
 	],
-	"./Frontend/ShopPage/components/MobileShopHeader/MobileShopFilter": [
-		"./resources/js/Pages/Frontend/ShopPage/components/MobileShopHeader/MobileShopFilter.vue",
+	"./Frontend/ShopPage/views/Desktop/components/ShopDesktopProducts": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopProducts.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_MobileShopHeader_MobileShopFilter_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_components_ShopDesktopProducts_vue"
 	],
-	"./Frontend/ShopPage/components/MobileShopHeader/MobileShopFilter.vue": [
-		"./resources/js/Pages/Frontend/ShopPage/components/MobileShopHeader/MobileShopFilter.vue",
+	"./Frontend/ShopPage/views/Desktop/components/ShopDesktopProducts.vue": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopProducts.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_MobileShopHeader_MobileShopFilter_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_components_ShopDesktopProducts_vue"
 	],
-	"./Frontend/ShopPage/components/MobileShopHeader/MobileSortProducts": [
-		"./resources/js/Pages/Frontend/ShopPage/components/MobileShopHeader/MobileSortProducts.vue",
+	"./Frontend/ShopPage/views/Desktop/components/ShopDesktopSidebar": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopSidebar/index.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_MobileShopHeader_MobileSortProducts_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_components_ShopDesktopSidebar_index_vue"
 	],
-	"./Frontend/ShopPage/components/MobileShopHeader/MobileSortProducts.vue": [
-		"./resources/js/Pages/Frontend/ShopPage/components/MobileShopHeader/MobileSortProducts.vue",
+	"./Frontend/ShopPage/views/Desktop/components/ShopDesktopSidebar/": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopSidebar/index.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_MobileShopHeader_MobileSortProducts_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_components_ShopDesktopSidebar_index_vue"
 	],
-	"./Frontend/ShopPage/components/MobileShopHeader/index": [
-		"./resources/js/Pages/Frontend/ShopPage/components/MobileShopHeader/index.vue",
+	"./Frontend/ShopPage/views/Desktop/components/ShopDesktopSidebar/ShopDesktopSidebarBrands": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopSidebar/ShopDesktopSidebarBrands.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_MobileShopHeader_index_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_components_ShopDesktopSidebar_ShopDesktopS-381cd1"
 	],
-	"./Frontend/ShopPage/components/MobileShopHeader/index.vue": [
-		"./resources/js/Pages/Frontend/ShopPage/components/MobileShopHeader/index.vue",
+	"./Frontend/ShopPage/views/Desktop/components/ShopDesktopSidebar/ShopDesktopSidebarBrands.vue": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopSidebar/ShopDesktopSidebarBrands.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_MobileShopHeader_index_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_components_ShopDesktopSidebar_ShopDesktopS-381cd1"
 	],
-	"./Frontend/ShopPage/components/ShopHeader": [
-		"./resources/js/Pages/Frontend/ShopPage/components/ShopHeader/index.vue",
+	"./Frontend/ShopPage/views/Desktop/components/ShopDesktopSidebar/ShopDesktopSidebarCategories": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopSidebar/ShopDesktopSidebarCategories.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_ShopHeader_index_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_components_ShopDesktopSidebar_ShopDesktopS-f93ead"
 	],
-	"./Frontend/ShopPage/components/ShopHeader/": [
-		"./resources/js/Pages/Frontend/ShopPage/components/ShopHeader/index.vue",
+	"./Frontend/ShopPage/views/Desktop/components/ShopDesktopSidebar/ShopDesktopSidebarCategories.vue": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopSidebar/ShopDesktopSidebarCategories.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_ShopHeader_index_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_components_ShopDesktopSidebar_ShopDesktopS-f93ead"
 	],
-	"./Frontend/ShopPage/components/ShopHeader/CurrentCategoryName": [
-		"./resources/js/Pages/Frontend/ShopPage/components/ShopHeader/CurrentCategoryName.vue",
+	"./Frontend/ShopPage/views/Desktop/components/ShopDesktopSidebar/ShopDesktopSidebarColors": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopSidebar/ShopDesktopSidebarColors.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_ShopHeader_CurrentCategoryName_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_components_ShopDesktopSidebar_ShopDesktopS-4bea79"
 	],
-	"./Frontend/ShopPage/components/ShopHeader/CurrentCategoryName.vue": [
-		"./resources/js/Pages/Frontend/ShopPage/components/ShopHeader/CurrentCategoryName.vue",
+	"./Frontend/ShopPage/views/Desktop/components/ShopDesktopSidebar/ShopDesktopSidebarColors.vue": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopSidebar/ShopDesktopSidebarColors.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_ShopHeader_CurrentCategoryName_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_components_ShopDesktopSidebar_ShopDesktopS-4bea79"
 	],
-	"./Frontend/ShopPage/components/ShopHeader/ShopPageBreadcrumb": [
-		"./resources/js/Pages/Frontend/ShopPage/components/ShopHeader/ShopPageBreadcrumb.vue",
+	"./Frontend/ShopPage/views/Desktop/components/ShopDesktopSidebar/ShopDesktopSidebarSizeOptions": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopSidebar/ShopDesktopSidebarSizeOptions.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_ShopHeader_ShopPageBreadcrumb_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_components_ShopDesktopSidebar_ShopDesktopS-7bff09"
 	],
-	"./Frontend/ShopPage/components/ShopHeader/ShopPageBreadcrumb.vue": [
-		"./resources/js/Pages/Frontend/ShopPage/components/ShopHeader/ShopPageBreadcrumb.vue",
+	"./Frontend/ShopPage/views/Desktop/components/ShopDesktopSidebar/ShopDesktopSidebarSizeOptions.vue": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopSidebar/ShopDesktopSidebarSizeOptions.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_ShopHeader_ShopPageBreadcrumb_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_components_ShopDesktopSidebar_ShopDesktopS-7bff09"
 	],
-	"./Frontend/ShopPage/components/ShopHeader/SortProducts": [
-		"./resources/js/Pages/Frontend/ShopPage/components/ShopHeader/SortProducts.vue",
+	"./Frontend/ShopPage/views/Desktop/components/ShopDesktopSidebar/index": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopSidebar/index.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_ShopHeader_SortProducts_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_components_ShopDesktopSidebar_index_vue"
 	],
-	"./Frontend/ShopPage/components/ShopHeader/SortProducts.vue": [
-		"./resources/js/Pages/Frontend/ShopPage/components/ShopHeader/SortProducts.vue",
+	"./Frontend/ShopPage/views/Desktop/components/ShopDesktopSidebar/index.vue": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopSidebar/index.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_ShopHeader_SortProducts_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Desktop_components_ShopDesktopSidebar_index_vue"
 	],
-	"./Frontend/ShopPage/components/ShopHeader/index": [
-		"./resources/js/Pages/Frontend/ShopPage/components/ShopHeader/index.vue",
+	"./Frontend/ShopPage/views/Mobile/ShopMobileView": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Mobile/ShopMobileView.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_ShopHeader_index_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Mobile_ShopMobileView_vue"
 	],
-	"./Frontend/ShopPage/components/ShopHeader/index.vue": [
-		"./resources/js/Pages/Frontend/ShopPage/components/ShopHeader/index.vue",
+	"./Frontend/ShopPage/views/Mobile/ShopMobileView.vue": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Mobile/ShopMobileView.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_ShopHeader_index_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Mobile_ShopMobileView_vue"
 	],
-	"./Frontend/ShopPage/components/ShopProducts": [
-		"./resources/js/Pages/Frontend/ShopPage/components/ShopProducts.vue",
+	"./Frontend/ShopPage/views/Mobile/components/ShopMobileFilter": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Mobile/components/ShopMobileFilter/index.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_ShopProducts_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Mobile_components_ShopMobileFilter_index_vue"
 	],
-	"./Frontend/ShopPage/components/ShopProducts.vue": [
-		"./resources/js/Pages/Frontend/ShopPage/components/ShopProducts.vue",
+	"./Frontend/ShopPage/views/Mobile/components/ShopMobileFilter/": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Mobile/components/ShopMobileFilter/index.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_ShopProducts_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Mobile_components_ShopMobileFilter_index_vue"
 	],
-	"./Frontend/ShopPage/components/ShopSidebar": [
-		"./resources/js/Pages/Frontend/ShopPage/components/ShopSidebar/index.vue",
+	"./Frontend/ShopPage/views/Mobile/components/ShopMobileFilter/ShopMobileBrands": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Mobile/components/ShopMobileFilter/ShopMobileBrands.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_ShopSidebar_index_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Mobile_components_ShopMobileFilter_ShopMobileBrands_vue"
 	],
-	"./Frontend/ShopPage/components/ShopSidebar/": [
-		"./resources/js/Pages/Frontend/ShopPage/components/ShopSidebar/index.vue",
+	"./Frontend/ShopPage/views/Mobile/components/ShopMobileFilter/ShopMobileBrands.vue": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Mobile/components/ShopMobileFilter/ShopMobileBrands.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_ShopSidebar_index_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Mobile_components_ShopMobileFilter_ShopMobileBrands_vue"
 	],
-	"./Frontend/ShopPage/components/ShopSidebar/Brands": [
-		"./resources/js/Pages/Frontend/ShopPage/components/ShopSidebar/Brands.vue",
+	"./Frontend/ShopPage/views/Mobile/components/ShopMobileFilter/ShopMobileCategories": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Mobile/components/ShopMobileFilter/ShopMobileCategories.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_ShopSidebar_Brands_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Mobile_components_ShopMobileFilter_ShopMobileCateg-d46ba2"
 	],
-	"./Frontend/ShopPage/components/ShopSidebar/Brands.vue": [
-		"./resources/js/Pages/Frontend/ShopPage/components/ShopSidebar/Brands.vue",
+	"./Frontend/ShopPage/views/Mobile/components/ShopMobileFilter/ShopMobileCategories.vue": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Mobile/components/ShopMobileFilter/ShopMobileCategories.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_ShopSidebar_Brands_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Mobile_components_ShopMobileFilter_ShopMobileCateg-d46ba2"
 	],
-	"./Frontend/ShopPage/components/ShopSidebar/Categories": [
-		"./resources/js/Pages/Frontend/ShopPage/components/ShopSidebar/Categories.vue",
+	"./Frontend/ShopPage/views/Mobile/components/ShopMobileFilter/ShopMobileColors": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Mobile/components/ShopMobileFilter/ShopMobileColors.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_ShopSidebar_Categories_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Mobile_components_ShopMobileFilter_ShopMobileColors_vue"
 	],
-	"./Frontend/ShopPage/components/ShopSidebar/Categories.vue": [
-		"./resources/js/Pages/Frontend/ShopPage/components/ShopSidebar/Categories.vue",
+	"./Frontend/ShopPage/views/Mobile/components/ShopMobileFilter/ShopMobileColors.vue": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Mobile/components/ShopMobileFilter/ShopMobileColors.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_ShopSidebar_Categories_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Mobile_components_ShopMobileFilter_ShopMobileColors_vue"
 	],
-	"./Frontend/ShopPage/components/ShopSidebar/Colors": [
-		"./resources/js/Pages/Frontend/ShopPage/components/ShopSidebar/Colors.vue",
+	"./Frontend/ShopPage/views/Mobile/components/ShopMobileFilter/ShopMobileSizeOptions": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Mobile/components/ShopMobileFilter/ShopMobileSizeOptions.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_ShopSidebar_Colors_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Mobile_components_ShopMobileFilter_ShopMobileSizeO-e206fd"
 	],
-	"./Frontend/ShopPage/components/ShopSidebar/Colors.vue": [
-		"./resources/js/Pages/Frontend/ShopPage/components/ShopSidebar/Colors.vue",
+	"./Frontend/ShopPage/views/Mobile/components/ShopMobileFilter/ShopMobileSizeOptions.vue": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Mobile/components/ShopMobileFilter/ShopMobileSizeOptions.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_ShopSidebar_Colors_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Mobile_components_ShopMobileFilter_ShopMobileSizeO-e206fd"
 	],
-	"./Frontend/ShopPage/components/ShopSidebar/SizeOptions": [
-		"./resources/js/Pages/Frontend/ShopPage/components/ShopSidebar/SizeOptions.vue",
+	"./Frontend/ShopPage/views/Mobile/components/ShopMobileFilter/index": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Mobile/components/ShopMobileFilter/index.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_ShopSidebar_SizeOptions_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Mobile_components_ShopMobileFilter_index_vue"
 	],
-	"./Frontend/ShopPage/components/ShopSidebar/SizeOptions.vue": [
-		"./resources/js/Pages/Frontend/ShopPage/components/ShopSidebar/SizeOptions.vue",
+	"./Frontend/ShopPage/views/Mobile/components/ShopMobileFilter/index.vue": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Mobile/components/ShopMobileFilter/index.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_ShopSidebar_SizeOptions_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Mobile_components_ShopMobileFilter_index_vue"
 	],
-	"./Frontend/ShopPage/components/ShopSidebar/index": [
-		"./resources/js/Pages/Frontend/ShopPage/components/ShopSidebar/index.vue",
+	"./Frontend/ShopPage/views/Mobile/components/ShopMobileHeader": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Mobile/components/ShopMobileHeader/index.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_ShopSidebar_index_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Mobile_components_ShopMobileHeader_index_vue"
 	],
-	"./Frontend/ShopPage/components/ShopSidebar/index.vue": [
-		"./resources/js/Pages/Frontend/ShopPage/components/ShopSidebar/index.vue",
+	"./Frontend/ShopPage/views/Mobile/components/ShopMobileHeader/": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Mobile/components/ShopMobileHeader/index.vue",
 		"/js/vendor",
-		"resources_js_Pages_Frontend_ShopPage_components_ShopSidebar_index_vue"
+		"resources_js_Pages_Frontend_ShopPage_views_Mobile_components_ShopMobileHeader_index_vue"
+	],
+	"./Frontend/ShopPage/views/Mobile/components/ShopMobileHeader/ShopMobileHeaderCategories": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Mobile/components/ShopMobileHeader/ShopMobileHeaderCategories.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_ShopPage_views_Mobile_components_ShopMobileHeader_ShopMobileHeade-f52fb2"
+	],
+	"./Frontend/ShopPage/views/Mobile/components/ShopMobileHeader/ShopMobileHeaderCategories.vue": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Mobile/components/ShopMobileHeader/ShopMobileHeaderCategories.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_ShopPage_views_Mobile_components_ShopMobileHeader_ShopMobileHeade-f52fb2"
+	],
+	"./Frontend/ShopPage/views/Mobile/components/ShopMobileHeader/ShopMobileSort": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Mobile/components/ShopMobileHeader/ShopMobileSort.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_ShopPage_views_Mobile_components_ShopMobileHeader_ShopMobileSort_vue"
+	],
+	"./Frontend/ShopPage/views/Mobile/components/ShopMobileHeader/ShopMobileSort.vue": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Mobile/components/ShopMobileHeader/ShopMobileSort.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_ShopPage_views_Mobile_components_ShopMobileHeader_ShopMobileSort_vue"
+	],
+	"./Frontend/ShopPage/views/Mobile/components/ShopMobileHeader/index": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Mobile/components/ShopMobileHeader/index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_ShopPage_views_Mobile_components_ShopMobileHeader_index_vue"
+	],
+	"./Frontend/ShopPage/views/Mobile/components/ShopMobileHeader/index.vue": [
+		"./resources/js/Pages/Frontend/ShopPage/views/Mobile/components/ShopMobileHeader/index.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_ShopPage_views_Mobile_components_ShopMobileHeader_index_vue"
 	],
 	"./Frontend/ShoppingCartPage/Index": [
 		"./resources/js/Pages/Frontend/ShoppingCartPage/Index.vue",
