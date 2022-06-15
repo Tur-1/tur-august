@@ -3,6 +3,12 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-capable" content="yes">
 
+
+<!-- CSRF Token -->
+<meta name="csrf-token" content="{{ csrf_token() }}">
+<title>{{ config('app.name', 'August') }} - @yield('title')</title>
+
+
 <link rel="shortcut icon" href="/assets/icons/apple-icon-180.png" type="image/x-icon">
 <link rel="apple-touch-icon" href="/assets/icons/apple-icon-180.png">
 
@@ -13,9 +19,14 @@
 
 
 
-@routes
-<link href="{{ asset('Backend/css/main.css') }}" rel="stylesheet" type="text/css" />
-<script src="{{ mix('js/vendor.js') }}" defer></script>
-<script src="{{ mix('js/app.js') }}" defer></script>
+<link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap">
+
+<link href="https://fonts.googleapis.com/css2?family=Spartan:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+
+<link href="{{ asset('Backend/css/main.css?v=').time() }}" rel="stylesheet" type="text/css" />
 <link rel="manifest" href="{{ asset('manifest.json') }}" />
-@inertiaHead
+<livewire:styles />

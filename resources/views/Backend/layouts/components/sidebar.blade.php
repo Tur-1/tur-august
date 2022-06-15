@@ -22,7 +22,7 @@
 
             {{-- users Management --}}
             {{-- @if (auth()->user()->can('viewAny', App\Models\users\User::class) ||
-            auth()->user()->can('viewAny', App\Models\users\Role::class)) --}}
+    auth()->user()->can('viewAny', App\Models\users\Role::class)) --}}
             <li class="menu-item has-submenu ">
                 <a class="menu-link" href="#"> <i class="icon material-icons md-people"></i>
                     <span class="text"> Users </span>
@@ -64,9 +64,10 @@
             {{-- Products --}}
 
             {{-- @if (auth()->user()->can('viewAny', App\Models\products\Product::class) ||
-            auth()->user()->can('create', App\Models\products\Product::class)) --}}
+    auth()->user()->can('create', App\Models\products\Product::class)) --}}
             <li class="menu-item has-submenu ">
-                <a class="menu-link" href="page-products-list.html"> <i class="icon material-icons md-shopping_bag"></i>
+                <a class="menu-link" href="page-products-list.html"> <i
+                        class="icon material-icons md-shopping_bag"></i>
                     <span class="text">Products</span>
                 </a>
                 <div class="submenu">
@@ -78,21 +79,13 @@
                     {{-- @endcan --}}
                 </div>
             </li>
-            {{-- @endif --}}
 
-            {{-- Sections && Categories --}}
-            {{-- @if (auth()->user()->can('viewAny', App\Models\sections\Category::class) ||
-            auth()->user()->can('viewAny', App\Models\sections\Section::class)) --}}
-            <li class="menu-item has-submenu ">
-                <a class="menu-link" href="page-products-list.html"> <i class="icon material-icons md-list_alt"></i>
-                    <span class="text">Sections</span>
+            <li class="menu-item ">
+                <a class="menu-link" href="{{ route('admin.categories.index') }}">
+                    <i class="icon material-icons md-list_alt"></i>
+                    <span class="text">Categories</span>
                 </a>
-                <div class="submenu">
-                    <a>Sections </a>
-                    <a> Categories </a>
-                </div>
             </li>
-            {{-- @endif --}}
 
             {{-- Banners --}}
             {{-- @can('viewAny', App\Models\sections\Banner::class) --}}
@@ -113,7 +106,7 @@
             {{-- @can('viewAny', App\Models\products\Coupon::class) --}}
             <li class="menu-item ">
                 <a class="menu-link""> <i
-                        class=" icon material-icons md-local_offer"></i>
+                        class="      icon material-icons md-local_offer"></i>
                     <span class="text">Coupons</span>
                 </a>
             </li>
@@ -122,7 +115,7 @@
             {{-- Brands --}}
             {{-- @can('viewAny', App\Models\products\Brand::class) --}}
             <li class="menu-item ">
-                <a class="menu-link" "> <i
+                <a class="menu-link" href="{{ route('admin.brands.index') }}"> <i
                         class=" icon material-icons md-stars"></i>
                     <span class="text">Brands</span> </a>
             </li>
@@ -131,7 +124,8 @@
             {{-- Colors --}}
             {{-- @can('viewAny', App\Models\products\Color::class) --}}
             <li class="menu-item">
-                <a class="menu-link"> <i class="icon material-icons md-palette"></i>
+                <a class="menu-link" href="{{ route('admin.colors.index') }}"> <i
+                        class="icon material-icons md-palette"></i>
                     <span class="text">Colors</span>
                 </a>
             </li>
@@ -140,8 +134,8 @@
             {{-- Size Options --}}
             {{-- @can('viewAny', App\Models\products\SizeOption::class) --}}
             <li class="menu-item ">
-                <a class="menu-link" "> <i
-                        class=" icon material-icons md-straighten"></i>
+                <a class="menu-link" href="{{ route('admin.sizeOptions.index') }}"> <i
+                        class="    icon material-icons md-straighten"></i>
                     <span class="text">Size Options</span>
                 </a>
             </li>
@@ -151,7 +145,7 @@
             {{-- @can('viewAny', App\Models\products\PriceList::class) --}}
             <li class="menu-item ">
                 <a class="menu-link" "> <i
-                        class=" icon material-icons md-view_list"></i>
+                        class="      icon material-icons md-view_list"></i>
                     <span class="text">Price List</span>
                 </a>
             </li>

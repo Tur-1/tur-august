@@ -8,27 +8,27 @@ trait AlertMessages
 
     public function showSuccessMessage($message)
     {
-        $this->dispatchBrowserEvent('showMessage', ['flashMessage' => $message, 'background' => "bg-alert-success"]);
+        $this->dispatchBrowserEvent('showMessage', ['alertMessage' => $message, 'backgroundAlertMessage' => "bg-alert-success"]);
     }
 
     public function showErrorMessage($message)
     {
-        $this->dispatchBrowserEvent('showMessage', ['flashMessage' => $message, 'background' => "bg-alert-error"]);
+        $this->dispatchBrowserEvent('showMessage', ['alertMessage' => $message, 'backgroundAlertMessage' => "bg-alert-error"]);
     }
-    public function RedirectWithSuccessMsg($RouteName, $message)
+    public function RedirectWithSuccessMsg($routeName, $message)
     {
-        return redirect()->route($RouteName)->with('flashMessage', $message);
+        return redirect()->route($routeName)->with(['alertMessage' => $message, 'backgroundAlertMessage' => "bg-alert-success"]);
     }
     public function RedirectToUrlWithSuccessMsg($url, $message)
     {
-        return redirect()->to($url)->with(['flashMessage' => $message, 'backgroundFlashMessage' => "bg-primary"]);
+        return redirect()->to($url)->with(['alertMessage' => $message, 'backgroundAlertMessage' => "bg-alert-success"]);
     }
     public function RedirectBackWithErrorMsg($message)
     {
-        return redirect()->back()->with(['flashMessage' => $message, 'backgroundFlashMessage' => "bg-alert-error"]);
+        return redirect()->back()->with(['alertMessage' => $message, 'backgroundAlertMessage' => "bg-alert-error"]);
     }
     public function RedirectBackWithSuccessMsg($message)
     {
-        return redirect()->back()->with(['flashMessage' => $message, 'backgroundFlashMessage' => "bg-primary"]);
+        return redirect()->back()->with(['alertMessage' => $message, 'backgroundAlertMessage' => "bg-alert-success"]);
     }
 }

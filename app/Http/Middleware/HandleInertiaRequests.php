@@ -4,8 +4,6 @@ namespace App\Http\Middleware;
 
 use Inertia\Middleware;
 use Illuminate\Http\Request;
-use App\Services\Frontend\Pages\ShopPageService;
-use Illuminate\Support\Facades\Session;
 
 class HandleInertiaRequests extends Middleware
 {

@@ -22,7 +22,7 @@ class Color extends Model
 
     public function getImageUrlAttribute()
     {
-        return asset('storage/images/colors/' . $this->image);
+        return $this->image ? asset('storage/images/colors/' . $this->image) : null;
     }
     public function products()
     {

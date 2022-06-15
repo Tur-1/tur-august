@@ -9,7 +9,11 @@
     </div>
     <div>
         {{-- @can('create', App\Models\products\Color::class) --}}
-        <a class="btn btn-primary"><i class="text-muted material-icons md-post_add"></i>new color</a>
+        <a class="btn btn-primary" href="{{ route('admin.colors.create') }}">
+            <i class="text-muted material-icons md-post_add"></i>
+            new color
+        </a>
+
         {{-- @endcan --}}
     </div>
 </div>
@@ -36,13 +40,13 @@
             <div class="col-xl-2 col-lg-3 col-md-4 col-6">
                 <figure class="card border-1">
                     <div class="card-header bg-transparent text-center">
-                        <img height="76" src="{{ $color->color_image_url }}" class="img-fluid" alt="Logo">
+                        <img height="76" src="{{ $color->image_url }}" class="img-fluid" alt="Logo">
                     </div>
 
                     <figcaption class="card-body  d-flex justify-content-between m-2">
                         <div class="colorname">
-                            <h6 class="card-title m-0">{{ $color->color_name }}</h6>
-                            <a href="{{ route('admin.colors.products', $color->slug) }}">
+                            <h6 class="card-title m-0">{{ $color->name }}</h6>
+                            <a href="">
                                 {{ $color->products_count }} items </a>
 
                         </div>
@@ -50,17 +54,14 @@
 
 
                         <div class="dropdown dropup ">
-                            <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"
-                                aria-expanded="false"> <i class="material-icons md-more_horiz"></i> </a>
-                            <div class="dropdown-menu" style="margin: 0px;">
+                            <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"> <i
+                                    class="material-icons md-more_horiz"></i> </a>
+                            <div class="dropdown-menu">
 
-                                @can('update', $color)
                                 <a href="{{ route('admin.colors.edit', $color) }}"
                                     class="dropdown-item btn  text-secondary ">
                                     Edit
                                 </a>
-                                @endcan
-                                @can('delete', $color)
                                 <form class="dropdown-item" onsubmit="return window.confirm('Are you sure')"
                                     action="{{ route('admin.colors.destroy', $color) }}" method="post">
                                     {{ method_field('DELETE') }}
@@ -71,7 +72,7 @@
                                         type="submit">Delete</button>
 
                                 </form>
-                                @endcan
+
                             </div>
                         </div> <!-- dropdown //end -->
                     </figcaption>

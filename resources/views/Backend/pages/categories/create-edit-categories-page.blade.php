@@ -1,117 +1,117 @@
 @extends('Backend.layouts.master')
+@section('title', isset($category) ? 'update category ' : 'new category')
 
-
-@section('title', isset($user) ? 'update user ' : 'new user')
 @section('content')
 
-<div class="container">
-    <div class="row">
-        <div class="{{ isset($user) ? 'col-md-5' : 'row' }}">
-            <div class="card">
-                <div class="card-header">
-                    <h4>{{ !isset($user) ? 'new' : 'update ' }} user</h4>
-                </div>
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ !isset($category) ? ' new' : 'update ' }} category</h4>
+            </div>
+            <div class="modal-body">
                 <form method="POST" enctype="multipart/form-data"
-                    action="{{ isset($user) ? route('admin.users.update', $user) : route('admin.users.store') }}">
+                    action="{{ isset($category) ? route('admin.categories.update', $category) : route('admin.categories.store') }}">
                     @csrf
-                    @if (isset($user))
-                    @method('PATCH')
+                    @if (isset($category))
+                        @method('PATCH')
                     @endif
-                    <div class="card-body">
 
-                        <div class="mb-3">
-                            <label for="name">user name</label>
-                            <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : ' ' }}"
-                                name="name" id="name" placeholder="Enter user"
-                                value="{{ old('name', $user->name ?? '') }}">
+                    <div class="row ">
+                        <div class="col-lg-6 ">
+                            <div class="card mb-4">
+                                <div class="card-body">
 
-                            <span class="text-danger">
-                                {{ $errors->first('name') }}
-                            </span>
+                                    <livewire:backend.select-category />
+
+                                    <div class="row mb-3">
+                                        <label class="col-lg-3 col-form-label" for="name"> name</label>
+                                        <div class="col-lg-9">
+
+                                            <input type="text"
+                                                class="form-control {{ $errors->has('name') ? 'is-invalid' : ' ' }}"
+                                                value="{{ old('name', $category->name ?? '') }}" name="name" id="name"
+                                                placeholder="Enter category">
+
+                                            @include('Backend.components.input-error-msg', [
+                                                'inputName' => 'name',
+                                            ])
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <label class="col-lg-3 col-form-label" for="name"> Image</label>
+                                        <div class="col-lg-9">
+                                            <livewire:backend.show-the-temporary-image inputName="image"
+                                                :imagePath="$category->image_url ?? null" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" name="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" value="{{ old('email', $user->email ?? '') }}">
+                        <div class="col-lg-6 ">
 
-                            <span class="text-danger">
-                                {{ $errors->first('email') }}
-                            </span>
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <h4>SEO</h4>
+                                </div>
+                                <div class="card-body">
 
-                            <span class="text-danger">
-                                {{ $errors->first('password') }}
-                            </span>
-                        </div>
-                        <div class="mb-3">
-                            <label for="Gender" class="form-label">Gender</label>
-                            <select name="gender" class="form-select {{ $errors->has('gender') ? 'is-invalid' : '' }}">
-                                @foreach ($Gender as $gen)
-                                <option value="{{ $gen }}" {{ old('gender', $user->gender ?? '') == $gen ? 'selected' :
-                                    '' }}>
-                                    {{ $gen }}
-                                </option>
-                                @endforeach
-                            </select>
-                            <span class="text-danger">
-                                {{ $errors->first('gender') }}
-                            </span>
-                        </div>
-                        {{-- Roles && Permissions --}}
-                        <div class="mb-3">
-                            @if (isset($user) && !is_null($user->role_id))
-                            @livewire('admin.users.select-role', [
-                            'UserRoleId' => $user->role_id,
-                            'permissionsIds' => $user->permissions->pluck('id')->toArray()
-                            ])
-                            @else
-                            @livewire('admin.users.select-role')
-                            @endif
+                                    <div class="row mb-4">
+                                        <label class="col-lg-3 col-form-label" for="meta_title">Meta Title -
+                                            Optional</label>
+                                        <div class="col-lg-8">
+
+                                            <input name="meta_title" type="text" class="form-control"
+                                                placeholder="Enter meta title"
+                                                value="{{ old('meta_title', $category->meta_title ?? '') }}">
+                                            @include('Backend.components.input-error-msg', [
+                                                'inputName' => 'meta_title',
+                                            ])
+                                        </div>
+                                    </div>
 
 
+                                    <div class="row mb-4">
+                                        <label class="col-lg-3 col-form-label" for="meta_keywords">Meta Keywords
+                                            -
+                                            Optional</label>
+                                        <div class="col-lg-8">
+
+                                            <textarea class="form-control {{ $errors->has('meta_keywords') ? 'is-invalid' : ' ' }}" name="meta_keywords" rows="3"
+                                                placeholder="Enter ..."> {{ old('meta_keywords', $category->meta_keywords ?? '') }} </textarea>
+
+                                            @include('Backend.components.input-error-msg', [
+                                                'inputName' => 'meta_keywords',
+                                            ])
+                                        </div>
+                                    </div>
+
+                                    <div class="row mb-4">
+                                        <label class="col-lg-3 col-form-label" for="meta_description">Meta
+                                            description - Optional</label>
+                                        <div class="col-lg-8">
+                                            <textarea class="form-control {{ $errors->has('meta_description') ? 'is-invalid' : ' ' }}" name="meta_description"
+                                                rows="3" placeholder="Enter ..."> {{ old('meta_description', $category->meta_description ?? '') }} </textarea>
+                                            @include('Backend.components.input-error-msg', [
+                                                'inputName' => 'meta_description',
+                                            ])
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
-                        <button type="submit" class="btn btn-primary">
-                            {{ isset($user) ? 'update ' : 'create ' }}
-                        </button>
                     </div>
 
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-light rounded font-sm mr-5 text-body hover-up"
+                            name="save_to_draft" value="Save to draft">
+                        <input type="submit" class="btn btn-md rounded font-sm hover-up" value="Publich" name="publich">
+                    </div>
 
                 </form>
-
             </div>
         </div>
-        @if (isset($user))
-        <div class="col-md-7">
-            <div class="card mb-4">
-                <header class="card-header">
-                    <h4 class="card-title"> orders</h4>
-                </header>
 
-                {{-- user orders --}}
-
-
-            </div>
-            @if (!$user->address->isEmpty())
-            <div class="card">
-                <div class="card-header">
-                    Addresses
-                </div>
-                <div class="card-body">
-                    @livewire('user-address.user-addresses', ['userId' => $user->id, 'InBackend' => true])
-
-                </div>
-            </div>
-            @endif
-
-        </div>
-        @endif
     </div>
-</div>
-
-
-
 @endsection
