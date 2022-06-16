@@ -21,9 +21,11 @@
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
-            <select wire:loading.remove class="form-select" name="parent_id">
-                <option value="null"> select category </option>
-                @include('Backend.pages.categories.components.categories', ['categories' => $categories])
+            <select wire:loading.remove class="form-select" name="category_id">
+                <option value=""> select category </option>
+                @include('livewire.Backend.components.category.categories', [
+                    'categories' => $categories,
+                ])
             </select>
         </div>
     </div>

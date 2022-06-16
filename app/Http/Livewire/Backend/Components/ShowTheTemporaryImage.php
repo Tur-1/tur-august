@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Backend;
+namespace App\Http\Livewire\Backend\Components;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -22,6 +22,6 @@ class ShowTheTemporaryImage extends Component
     }
     public function render()
     {
-        return view('livewire.backend.show-the-temporary-image');
+        return view('livewire.backend.components.show-the-temporary-image');
     }
 }

@@ -846,7 +846,7 @@ b {
 .btn.btn-primary {
     font-size: 14px;
     font-weight: 500;
-    padding: 10px 40px;
+    padding: 10px 20px;
     color: #ffffff;
     border: none;
     background-color: #088178;
@@ -4081,6 +4081,10 @@ body.dark {
     color: #fff;
 }
 
+.modal-xl {
+    max-width: 1400px;
+}
+
 .textWhite {
     color: #fff !important;
 }
@@ -4111,14 +4115,9 @@ body.dark .dropdown-item {
 
 .imageLabel.products-images:hover {
     cursor: pointer;
-}
-
-.card .admin-productsImages .card-body {
-    padding: 0px !important;
-    height: 100% !important;
-    width: 100% !important;
 
 }
+
 
 .form-check-input[type="radio"] {
     width: 20px;
@@ -4133,7 +4132,7 @@ body.dark .dropdown-item {
 }
 
 .opacity-10 {
-    opacity: 0.1 !important;
+    opacity: 0.4 !important;
 }
 
 

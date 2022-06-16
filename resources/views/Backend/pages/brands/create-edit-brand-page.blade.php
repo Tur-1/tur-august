@@ -29,7 +29,7 @@
                             <div class="form-group">
 
                                 <label for="image">Brand Image</label>
-                                <livewire:backend.show-the-temporary-image inputName="image" :imagePath="$brand->image_url ?? null" />
+                                <livewire:backend.components.show-the-temporary-image inputName="image" :imagePath="$brand->image_url ?? null" />
                             </div>
                         </div>
 

@@ -4,21 +4,22 @@ namespace App\Http\Controllers\Backend;
 
 use App\Traits\FileUpload;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use App\Traits\AlertMessages;
 use App\Models\product\Category;
 use App\Http\Controllers\Controller;
 use App\Actions\Backend\StoreModelImageAction;
 use App\Http\Requests\Backend\StoreCategoryRequest;
 
-class CategoryController extends Controller
+class CategorySectionController extends Controller
 {
     use AlertMessages, FileUpload;
     private $routeName = 'admin.categories.index';
     private $imageFolder = 'categories';
     public function index()
     {
-
-        return view('Backend.pages.categories.categories-page');
+        $categories = [];
+        return view('Backend.pages.categories.categories-page', compact('categories'));
     }
 
     /**
@@ -28,33 +29,16 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('Backend.pages.categories.create-edit-categories-page');
+        return view('Backend.pages.categories.create-edit-sections-page');
     }
     private function saveCategory($category, $request)
     {
-        if (is_null($request['category_id']) || empty($request['category_id'])) {
-            $parentId = $request['section_id'];
-        } else {
-
-            $parentId = $request['category_id'];
-        }
-        $parentCategory = app('allCategories')->where("id",  $parentId)->first();
-        $ids = $parentCategory['parents_ids'] ?? [intval($parentId)];
-
-        $ids[] = $parentCategory['id'];
-
-
-        $categorySlug = $parentCategory['slug'];
-
-        $category->parents_ids = array_unique($ids);
-        $category->parent_id = $parentId;
         $category->name = Str::title($request['name']);
-        $category->slug =  $categorySlug . '-' . Str::slug($request['name'], '_');
+        $category->slug =  Str::slug($request['name'], '_');
         $category->meta_keywords = $request['meta_keywords'];
         $category->meta_title = $request['meta_title'];
         $category->meta_description = $request['meta_description'];
-
-
+        $category->is_section = true;
         $category->image =  (new StoreModelImageAction)->saveImage($request, $this->getCategoryOldImagePath($category), $this->imageFolder);
         $category->save();
     }
@@ -63,15 +47,22 @@ class CategoryController extends Controller
     {
         return $this->imageFolder . '/' . $category->image;
     }
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(StoreCategoryRequest $request, Category $category)
     {
 
         $request->validated();
         $this->saveCategory($category, $request);
-        $message = $category->name . ' Category has been Added successfully';
+        $message = $category->name . ' section has been Added successfully';
 
         return $this->RedirectWithSuccessMsg($this->routeName, $message);
     }
+
 
     /**
      * Display the specified resource.
@@ -92,7 +83,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('Backend.pages.categories.create-edit-categories-page', compact('category'));
+        //
     }
 
     /**
@@ -107,11 +98,10 @@ class CategoryController extends Controller
 
         $request->validated();
         $this->saveCategory($category, $request);
-        $message = $category->name . ' Category has been updated successfully';
+        $message = $category->name . ' section has been updated successfully';
 
         return $this->RedirectWithSuccessMsg($this->routeName, $message);
     }
-
     /**
      * Remove the specified resource from storage.
      *

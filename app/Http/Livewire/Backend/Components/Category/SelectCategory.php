@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Http\Livewire\Backend;
+namespace App\Http\Livewire\Backend\Components\Category;
 
-use App\Models\product\Category;
 use Livewire\Component;
 
 class SelectCategory extends Component
@@ -19,13 +18,12 @@ class SelectCategory extends Component
     }
 
 
-
     public function mount()
     {
         $this->sections = app('allCategories')->where("is_section", true)->toArray();
     }
     public function render()
     {
-        return view('livewire.backend.select-category');
+        return view('livewire.backend.components.category.select-category');
     }
 }

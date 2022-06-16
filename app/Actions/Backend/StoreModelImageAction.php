@@ -10,6 +10,7 @@ class StoreModelImageAction
 
     public function saveImage($request, $oldPath, $imageFolder): string
     {
+        $newImageName = '';
         if ($request->hasFile('image')) {
 
             $this->deletePreviousImage($oldPath);

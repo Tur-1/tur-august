@@ -30,7 +30,7 @@ class ProductImage extends Model
         if ($this->image) {
             return asset('storage/images/products/product_' . $this->product_id . '/' . $this->image);
         } else {
-            return asset('Frontend/assets/icons/defult-input-image.png');
+            return  asset('assets/images/defult-input-image.png');
         }
     }
     public function getImagePathAttribute()

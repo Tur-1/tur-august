@@ -2,10 +2,10 @@
 
 namespace App\Models\product;
 
-use Attribute;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use phpDocumentor\Reflection\Types\Boolean;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Category extends Model
 {
@@ -47,5 +47,9 @@ class Category extends Model
     public function products()
     {
         return $this->belongsToMany(Product::class, 'product_category',  'category_id', 'product_id');
+    }
+    public function getImageUrlAttribute()
+    {
+        return $this->image ? asset('storage/images/categories/' . $this->image) : asset('assets/images/defult-input-image.png');
     }
 }

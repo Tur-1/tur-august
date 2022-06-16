@@ -5,45 +5,53 @@
 
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">{{ !isset($category) ? ' new' : 'update ' }} category</h4>
-            </div>
-            <div class="modal-body">
-                <form method="POST" enctype="multipart/form-data"
-                    action="{{ isset($category) ? route('admin.categories.update', $category) : route('admin.categories.store') }}">
-                    @csrf
-                    @if (isset($category))
-                        @method('PATCH')
-                    @endif
+            <form method="POST" enctype="multipart/form-data"
+                action="{{ isset($category) ? route('admin.categories.update', $category) : route('admin.categories.store') }}">
+                @csrf
+                @if (isset($category))
+                    @method('PATCH')
+                @endif
+                <div class="modal-header">
+                    <h4 class="modal-title">{{ !isset($category) ? ' new' : 'update ' }} category</h4>
+                    <div>
+                        <input type="submit" class="btn btn-light rounded font-sm mr-5 text-body hover-up"
+                            name="save_to_draft" value="Save to draft">
+                        <input type="submit" class="btn btn-md rounded font-sm hover-up" value="Publich" name="publich">
+                    </div>
+                </div>
+                <div class="modal-body">
+
 
                     <div class="row ">
                         <div class="col-lg-6 ">
                             <div class="card mb-4">
                                 <div class="card-body">
 
-                                    <livewire:backend.select-category />
+                                    <livewire:backend.components.category.select-category>
 
-                                    <div class="row mb-3">
-                                        <label class="col-lg-3 col-form-label" for="name"> name</label>
-                                        <div class="col-lg-9">
+                                        <div class="row mb-3">
+                                            <label class="col-lg-3 col-form-label" for="name"> name</label>
+                                            <div class="col-lg-9">
 
-                                            <input type="text"
-                                                class="form-control {{ $errors->has('name') ? 'is-invalid' : ' ' }}"
-                                                value="{{ old('name', $category->name ?? '') }}" name="name" id="name"
-                                                placeholder="Enter category">
+                                                <input type="text"
+                                                    class="form-control {{ $errors->has('name') ? 'is-invalid' : ' ' }}"
+                                                    value="{{ old('name', $category->name ?? '') }}" name="name"
+                                                    id="name" placeholder="Enter category">
 
-                                            @include('Backend.components.input-error-msg', [
-                                                'inputName' => 'name',
-                                            ])
+                                                @include('Backend.components.input-error-msg', [
+                                                    'inputName' => 'name',
+                                                ])
+                                            </div>
+
                                         </div>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <label class="col-lg-3 col-form-label" for="name"> Image</label>
-                                        <div class="col-lg-9">
-                                            <livewire:backend.show-the-temporary-image inputName="image"
-                                                :imagePath="$category->image_url ?? null" />
+
+                                        <div class="row mb-3">
+                                            <label class="col-lg-3 col-form-label" for="image"> Image</label>
+                                            <div class="col-lg-9">
+                                                <livewire:backend.components.show-the-temporary-image inputName="image"
+                                                    :imagePath="$category->image_url ?? null" />
+                                            </div>
                                         </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -77,8 +85,8 @@
                                             Optional</label>
                                         <div class="col-lg-8">
 
-                                            <textarea class="form-control {{ $errors->has('meta_keywords') ? 'is-invalid' : ' ' }}" name="meta_keywords" rows="3"
-                                                placeholder="Enter ..."> {{ old('meta_keywords', $category->meta_keywords ?? '') }} </textarea>
+                                            <textarea class="form-control {{ $errors->has('meta_keywords') ? 'is-invalid' : ' ' }}" name="meta_keywords"
+                                                rows="3" placeholder="Enter ..."> {{ old('meta_keywords', $category->meta_keywords ?? '') }} </textarea>
 
                                             @include('Backend.components.input-error-msg', [
                                                 'inputName' => 'meta_keywords',
@@ -103,14 +111,11 @@
                         </div>
                     </div>
 
-                    <div class="modal-footer">
-                        <input type="submit" class="btn btn-light rounded font-sm mr-5 text-body hover-up"
-                            name="save_to_draft" value="Save to draft">
-                        <input type="submit" class="btn btn-md rounded font-sm hover-up" value="Publich" name="publich">
-                    </div>
 
-                </form>
-            </div>
+
+
+                </div>
+            </form>
         </div>
 
     </div>

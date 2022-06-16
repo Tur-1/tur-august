@@ -31,7 +31,7 @@
                             <div class="form-group">
 
                                 <label for="image">color Image</label>
-                                <livewire:backend.show-the-temporary-image inputName="image" :imagePath="$color->image_url ?? null" />
+                                <livewire:backend.components.show-the-temporary-image inputName="image" :imagePath="$color->image_url ?? null" />
 
                             </div>
 
