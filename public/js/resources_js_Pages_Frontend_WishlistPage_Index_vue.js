@@ -1402,7 +1402,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
         return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
           loading: "lazy",
-          src: product.main_image,
+          src: product.main_image_url,
           "class": "card-img-top",
           alt: "..."
         }, null, 8

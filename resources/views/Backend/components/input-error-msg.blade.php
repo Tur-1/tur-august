@@ -1,5 +1,5 @@
 @if ($errors->has($inputName))
-<div class="invalid-feedback mt-1 mb-1">
-    {{ $errors->first($inputName) }}
-</div>
+    <span class="text-danger mt-2 mb-2">
+        {{ $errors->first($inputName) }}
+    </span>
 @endif

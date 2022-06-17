@@ -3,7 +3,7 @@
         v-for="(product, index) in products" :key="index">
         <div class="card product-card">
             <Link :href="route('productDetailPage', { product_slug: product.slug })">
-            <img loading="lazy" :src="product.main_image" class="card-img-top" alt="..." />
+            <img loading="lazy" :src="product.main_image_url" class="card-img-top" alt="..." />
             </Link>
 
             <button tabindex="-1" class="wishlist-btn text-center" @click="addToWishlist(product.id)"

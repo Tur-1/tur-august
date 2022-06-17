@@ -16,7 +16,7 @@ class CategoriesPage extends Component
         if (!is_null($this->selectedSection)) {
             $section = app('allCategories')->where("id", $this->selectedSection)->first();
             $this->categories = $section['children'] ?? [];
-            $this->sectioName = $section['name'];
+            $this->sectioName = $section['name'] ?? [];
         }
     }
 

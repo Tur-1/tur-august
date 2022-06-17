@@ -123,7 +123,6 @@ class ShopPageService
             ->paginate(12)
             ->withQueryString();
 
-
         $this->setBrandNameForEachProduct();
 
         return $this->products;

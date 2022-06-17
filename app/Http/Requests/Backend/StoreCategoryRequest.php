@@ -19,13 +19,14 @@ class StoreCategoryRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
 
             'name' => [
                 'required',
                 'max:60',
-                Rule::unique('categories')->where('id', $this->section_id)
-            ], 'section_id' => 'nullable',
+                Rule::unique('categories', 'name')->where('id', $this->section_id)
+            ], 'section_id' => 'required',
             'image' => ['file', 'image', 'mimes:jpeg,png,jpg,gif', 'max:5000']
 
         ];

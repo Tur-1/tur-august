@@ -13,8 +13,16 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Product extends Model
 {
     use HasFactory, ActiveModel, ProductModelScopes;
+    protected $appends = ['main_image_url'];
 
 
+    protected $fillable = [
+        'stock',
+
+    ];
+    protected $casts = [
+        'is_active' => 'boolean',
+    ];
     public function brand(): BelongsTo
     {
         return $this->belongsTo(Brand::class);
@@ -41,5 +49,13 @@ class Product extends Model
     public function productImages(): HasMany
     {
         return $this->hasMany(ProductImage::class, 'product_id');
+    }
+    public function getCategoryNameAttribute()
+    {
+        return $this->categories->last()['name'];
+    }
+    public function getSectionNameAttribute()
+    {
+        return $this->categories->first()['name'];
     }
 }

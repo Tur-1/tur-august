@@ -14,21 +14,18 @@
                 <div class="modal-header">
                     <h4 class="modal-title">{{ !isset($category) ? ' new' : 'update ' }} category</h4>
                     <div>
-                        <input type="submit" class="btn btn-light rounded font-sm mr-5 text-body hover-up"
-                            name="save_to_draft" value="Save to draft">
-                        <input type="submit" class="btn btn-md rounded font-sm hover-up" value="Publich" name="publich">
+                        <input type="submit" class="btn btn-light rounded font-sm mr-5 " name="save_to_draft"
+                            value="Save to draft">
+                        <input type="submit" class="btn btn-primary btn-md rounded font-sm " value="Publich"
+                            name="publich">
                     </div>
                 </div>
                 <div class="modal-body">
-
-
-                    <div class="row ">
+                    <div class="row">
                         <div class="col-lg-6 ">
                             <div class="card mb-4">
                                 <div class="card-body">
-
-                                    <livewire:backend.components.category.select-category>
-
+                                    <livewire:backend.components.category.select-category :sectionChildren="$sectionChildren ?? null">
                                         <div class="row mb-3">
                                             <label class="col-lg-3 col-form-label" for="name"> name</label>
                                             <div class="col-lg-9">
@@ -38,9 +35,11 @@
                                                     value="{{ old('name', $category->name ?? '') }}" name="name"
                                                     id="name" placeholder="Enter category">
 
-                                                @include('Backend.components.input-error-msg', [
-                                                    'inputName' => 'name',
-                                                ])
+                                                <div class="row">
+                                                    @include('Backend.components.input-error-msg', [
+                                                        'inputName' => 'name',
+                                                    ])
+                                                </div>
                                             </div>
 
                                         </div>
@@ -57,7 +56,6 @@
                         </div>
 
                         <div class="col-lg-6 ">
-
                             <div class="card mb-4">
                                 <div class="card-header">
                                     <h4>SEO</h4>
@@ -88,9 +86,11 @@
                                             <textarea class="form-control {{ $errors->has('meta_keywords') ? 'is-invalid' : ' ' }}" name="meta_keywords"
                                                 rows="3" placeholder="Enter ..."> {{ old('meta_keywords', $category->meta_keywords ?? '') }} </textarea>
 
-                                            @include('Backend.components.input-error-msg', [
-                                                'inputName' => 'meta_keywords',
-                                            ])
+                                            <div class="row">
+                                                @include('Backend.components.input-error-msg', [
+                                                    'inputName' => 'meta_keywords',
+                                                ])
+                                            </div>
                                         </div>
                                     </div>
 
@@ -100,23 +100,19 @@
                                         <div class="col-lg-8">
                                             <textarea class="form-control {{ $errors->has('meta_description') ? 'is-invalid' : ' ' }}" name="meta_description"
                                                 rows="3" placeholder="Enter ..."> {{ old('meta_description', $category->meta_description ?? '') }} </textarea>
-                                            @include('Backend.components.input-error-msg', [
-                                                'inputName' => 'meta_description',
-                                            ])
+                                            <div class="row">
+                                                @include('Backend.components.input-error-msg', [
+                                                    'inputName' => 'meta_description',
+                                                ])
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
-
-
-
-
                 </div>
             </form>
         </div>
-
     </div>
 @endsection

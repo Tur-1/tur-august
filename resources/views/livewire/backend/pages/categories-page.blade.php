@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card position-relative">
     <div class="card-header">
         <div class="col-lg-3">
             <select wire:model="selectedSection" class="form-select " id="section_slug">
@@ -40,20 +40,9 @@
                     @endif
 
                 </tbody>
-                <tbody>
-                    <tr>
-                        <td colspan="5">
-                            <div wire:loading wire:loading.class="d-flex justify-content-center text-center">
-                                <div class="spinner-border " role="status">
-                                    <span class="visually-hidden">Loading...</span>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
             </table>
         </div>
 
     </div>
-
+    @include('Backend.components.loading')
 </div>

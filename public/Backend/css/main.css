@@ -843,10 +843,16 @@ b {
     background-color: rgba(8, 129, 120, 0.2);
 }
 
-.btn.btn-primary {
+.btn.btn-primary,
+.btn.btn-secondary,
+.btn-danger {
     font-size: 14px;
     font-weight: 500;
     padding: 10px 20px;
+}
+
+.btn.btn-primary {
+
     color: #ffffff;
     border: none;
     background-color: #088178;
@@ -864,9 +870,7 @@ b {
 }
 
 .btn.btn-secondary {
-    font-size: 14px;
-    font-weight: 500;
-    padding: 10px 40px;
+
     color: #fff;
     background-color: #6c757d;
     border: none;
@@ -879,15 +883,11 @@ b {
 }
 
 .btn.btn-md {
-    padding: 0.5rem 0.95rem;
+    padding: 0.5rem 0.95rem !important;
     font-weight: 500;
-    background-color: #088178;
-    color: #ffffff;
 }
 
-.btn.btn-md:hover {
-    background-color: #046963;
-}
+
 
 .btn.btn-xs {
     background-color: #088178;
@@ -1622,7 +1622,7 @@ textarea.form-control {
 
 .badge.bg-success[href]:focus,
 .badge.bg-success[href]:hover {
-    background-color: #30b383 !important;
+    background-color: #088178 !important;
 }
 
 .badge.bg-light {

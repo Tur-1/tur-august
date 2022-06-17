@@ -5,11 +5,13 @@ namespace App\Models\product;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class ProductImage extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    protected $appends = ['image_url'];
 
     protected $casts = [
         'is_main_image' => 'boolean',
@@ -33,12 +35,13 @@ class ProductImage extends Model
             return  asset('assets/images/defult-input-image.png');
         }
     }
-    public function getImagePathAttribute()
-    {
-        return 'products/product_' . $this->product_id . '/' . $this->image;
-    }
+
     public function getProductImageFolderAttribute()
     {
         return 'products/product_' . $this->product_id;
+    }
+    public function getProductImagePathAttribute()
+    {
+        return 'products/product_' . $this->product_id . '/' . $this->image;
     }
 }

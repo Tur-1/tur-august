@@ -9,8 +9,6 @@ use function PHPUnit\Framework\isEmpty;
 trait FileUpload
 {
 
-
-
     public function uploadImageInStorage($ImageRequest, $Folder): string
     {
         $newImageName = $this->generateUniqueImageName($ImageRequest);

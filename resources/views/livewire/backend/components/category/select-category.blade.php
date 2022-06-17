@@ -1,4 +1,4 @@
-<div>
+<div class="position-relative">
     <div class="row mb-3">
         <label class="col-lg-3 col-form-label" for="name">Sections</label>
         <div class="col-lg-9">
@@ -10,23 +10,32 @@
                 @endforeach
 
             </select>
+            <div class="row">
+                @include('Backend.components.input-error-msg', [
+                    'inputName' => 'section_id',
+                ])
+            </div>
+
         </div>
+
     </div>
 
     <div class="row mb-3">
         <label class="col-lg-3 col-form-label" for="name">categories</label>
         <div class="col-lg-9">
-            <div wire:loading wire:loading.class="d-flex justify-content-center">
-                <div class="spinner-border" role="status">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-            </div>
-            <select wire:loading.remove class="form-select" name="category_id">
+            <select class="form-select" name="category_id" wire:model.defer='selectedCategory'>
                 <option value=""> select category </option>
                 @include('livewire.Backend.components.category.categories', [
                     'categories' => $categories,
                 ])
             </select>
+            <div class="row">
+                @include('Backend.components.input-error-msg', [
+                    'inputName' => 'category_id',
+                ])
+            </div>
         </div>
+
     </div>
+    @include('Backend.components.loading')
 </div>

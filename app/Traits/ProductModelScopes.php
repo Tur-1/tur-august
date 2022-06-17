@@ -53,6 +53,14 @@ trait ProductModelScopes
                 ->limit(1)
         ]);
     }
+    public function getMainImageUrlAttribute()
+    {
+        if ($this->main_image) {
+            return asset('storage/images/products/product_' . $this->id . '/' . $this->main_image);
+        } else {
+            return  asset('assets/images/defult-input-image.png');
+        }
+    }
     public function scopeWithFilters($query)
     {
         $FilterProductsSerivce = new ProductFilterService();
@@ -75,6 +83,9 @@ trait ProductModelScopes
             'color_name' => Color::select('name')->whereColumn('id', 'products.color_id'),
         ]);
     }
+
+
+
 
 
     public function scopeWithBrandImage($query)

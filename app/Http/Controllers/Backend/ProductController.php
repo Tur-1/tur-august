@@ -22,7 +22,17 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('Backend.pages.products.products-page');
+        $products = Product::WithFilters()
+            ->with('categories')
+            ->withColorName()
+            ->WithBrandName()
+            ->WithMainProductImage()
+            ->latest()
+            ->paginate(12)
+            ->withQueryString();
+
+
+        return view('Backend.pages.products.products-page', compact('products'));
     }
 
     /**
@@ -73,13 +83,23 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $product->load('productImages');
+        $product->load('categories');
+        $category =  $product->categories->last();
+
+        $section = app('allCategories')->whereIn("id", $category->parents_ids)->where("is_section", true)->first();
+        $productCategory = [
+            'selectedSection' => $section['id'],
+            'sectionChildren' =>  $section['children'],
+            'selectedCategory' => $category['id']
+        ];
+
+
         $brands = Brand::select('id', 'name', 'slug')->get();
         $colors = Color::select('id', 'name', 'slug')->get();
         $productSizeOptions =   ProductSizeOption::where('product_id',  $product->id)->get();
-        $productImages = $product->productImages;
 
-        return view('Backend.pages.products.create-edit-product-page', compact('brands', 'colors', 'product', 'productSizeOptions', 'productImages'));
+
+        return view('Backend.pages.products.create-edit-product-page', compact('brands', 'colors', 'product', 'productSizeOptions', 'productCategory'));
     }
 
     /**

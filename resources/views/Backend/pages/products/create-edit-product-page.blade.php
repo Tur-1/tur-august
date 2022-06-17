@@ -15,12 +15,11 @@
             <div class="row">
                 <div class="col-12">
                     <div class="content-header">
-                        <h4 class="content-title">new product</h4>
+                        <h4 class="content-title">{{ isset($product) ? 'update product ' : 'new product' }}</h4>
                         <div>
-
-                            <input type="submit" class="btn btn-light rounded font-sm mr-5 text-body hover-up"
-                                name="save_to_draft" value="Save to draft">
-                            <input type="submit" class="btn btn-md rounded font-sm hover-up" value="Publich"
+                            <input type="submit" class="btn btn-light rounded font-sm mr-5 " name="save_to_draft"
+                                value="Save to draft">
+                            <input type="submit" class="btn btn-primary btn-md rounded font-sm " value="Publich"
                                 name="publich">
                         </div>
                     </div>
@@ -95,7 +94,7 @@
                                                     <div class="col-lg-9">
                                                         <select
                                                             class=" form-select {{ $errors->has('id') ? 'is-invalid' : ' ' }}"
-                                                            data-style="border" name="id" id="brand_id"
+                                                            data-style="border" name="brand_id" id="brand_id"
                                                             aria-label="Default select example">
 
                                                             <option value="">Seclect a brand</option>
@@ -134,7 +133,7 @@
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <livewire:backend.components.category.select-category>
+                                                <livewire:backend.components.category.select-category :sectionChildren="$productCategory ?? null">
                                                     <div class="row mb-4">
                                                         <label class="col-lg-3 col-form-label"
                                                             for="shipping_cost">shipping
@@ -251,7 +250,8 @@
                                         </div>
                                         <div class="tab-pane fade" id="images" role="tabpanel">
                                             <section class="content-body p-xl-4">
-                                                <livewire:backend.components.product.product-images :productImages="$productImages ?? null">
+                                                <livewire:backend.components.product.product-images.product-images
+                                                    :productId="$product->id ?? null">
                                             </section>
                                         </div>
                                         <div class="tab-pane fade" id="Price_Discount" role="tabpanel">

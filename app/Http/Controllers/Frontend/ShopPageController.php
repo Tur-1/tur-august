@@ -25,6 +25,7 @@ class ShopPageController extends Controller
             $brands =  $shopPageService->getBrands()->toArray();
             $colors =  $shopPageService->getColors()->toArray();
             $products =  $shopPageService->getProducts();
+
             $productsCount = $products->count();
             $sortProducts =  $shopPageService->getSortProducts();
             $queryString = $shopPageService->getQueriesString();

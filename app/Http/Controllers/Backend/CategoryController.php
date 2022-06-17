@@ -92,7 +92,14 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('Backend.pages.categories.create-edit-categories-page', compact('category'));
+        $section = app('allCategories')->whereIn("id", $category->parents_ids)->where("is_section", true)->first();
+
+        $sectionChildren = [
+            'selectedSection' => $section['id'],
+            'sectionChildren' =>  $section['children'],
+            'selectedCategory' => $category['parent_id']
+        ];
+        return view('Backend.pages.categories.create-edit-categories-page', compact('category', 'sectionChildren'));
     }
 
     /**
