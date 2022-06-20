@@ -26,7 +26,7 @@ class StoreProductService
         $product->color_id = $request->color_id;
         $product->price = $request->price;
         $product->discount_type = $request->discount_type;
-        $product->discount_value = $request->discount_value;
+        $product->discount_amount = $request->discount_amount;
         $product->discount_start_at = $request->discount_start_at;
         $product->discount_expires_at = $request->discount_expires_at;
         $product->name = Str::title($request->name);

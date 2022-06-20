@@ -8,7 +8,7 @@
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <form method="POST" enctype="multipart/form-data"
-                action="{{ isset($category) ? route('admin.sections.update', $category) : route('admin.sections.store') }}">
+                action="{{ isset($category) ? route('admin.sections.update', ['section' => $category]) : route('admin.sections.store') }}">
                 @csrf
                 @if (isset($category))
                     @method('PATCH')

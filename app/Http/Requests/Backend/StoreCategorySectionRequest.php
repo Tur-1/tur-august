@@ -5,7 +5,7 @@ namespace App\Http\Requests\Backend;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCategoryRequest extends FormRequest
+class StoreCategorySectionRequest extends FormRequest
 {
     public function authorize()
     {
@@ -25,18 +25,17 @@ class StoreCategoryRequest extends FormRequest
             'name' => [
                 'required',
                 'max:60',
-                Rule::unique('categories', 'name')->where('section_id', $this->section_id)
-            ], 'section_id' => 'required',
+                Rule::unique('categories', 'name')
+            ],
             'image' => ['file', 'image', 'mimes:jpeg,png,jpg,gif', 'max:5000']
 
         ];
 
         if ($this->getMethod() != 'POST') {
-
             $rules['name'] = [
                 'required',
                 'max:60',
-                Rule::unique('categories', 'name')->where('section_id', $this->section_id)->ignore($this->category->id)
+                Rule::unique('categories', 'name')->ignore($this->section->id)
             ];
         }
 

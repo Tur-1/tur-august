@@ -9,12 +9,13 @@ use App\Models\product\Category;
 use App\Http\Controllers\Controller;
 use App\Actions\Backend\StoreModelImageAction;
 use App\Http\Requests\Backend\StoreCategoryRequest;
+use App\Services\Backend\Category\StoreCategoryService;
 
 class CategoryController extends Controller
 {
     use AlertMessages, FileUpload;
     private $routeName = 'admin.categories.index';
-    private $imageFolder = 'categories';
+
     public function index()
     {
 
@@ -30,44 +31,14 @@ class CategoryController extends Controller
     {
         return view('Backend.pages.categories.create-edit-categories-page');
     }
-    private function saveCategory($category, $request)
-    {
-        if (is_null($request['category_id']) || empty($request['category_id'])) {
-            $parentId = $request['section_id'];
-        } else {
-
-            $parentId = $request['category_id'];
-        }
-        $parentCategory = app('allCategories')->where("id",  $parentId)->first();
-        $ids = $parentCategory['parents_ids'] ?? [intval($parentId)];
-
-        $ids[] = $parentCategory['id'];
 
 
-        $categorySlug = $parentCategory['slug'];
 
-        $category->parents_ids = array_unique($ids);
-        $category->parent_id = $parentId;
-        $category->name = Str::title($request['name']);
-        $category->slug =  $categorySlug . '-' . Str::slug($request['name'], '_');
-        $category->meta_keywords = $request['meta_keywords'];
-        $category->meta_title = $request['meta_title'];
-        $category->meta_description = $request['meta_description'];
-
-
-        $category->image =  (new StoreModelImageAction)->saveImage($request, $this->getCategoryOldImagePath($category), $this->imageFolder);
-        $category->save();
-    }
-
-    private function getCategoryOldImagePath($category)
-    {
-        return $this->imageFolder . '/' . $category->image;
-    }
     public function store(StoreCategoryRequest $request, Category $category)
     {
 
         $request->validated();
-        $this->saveCategory($category, $request);
+        (new StoreCategoryService())->saveCategory($category, $request);
         $message = $category->name . ' Category has been Added successfully';
 
         return $this->RedirectWithSuccessMsg($this->routeName, $message);
@@ -113,7 +84,7 @@ class CategoryController extends Controller
     {
 
         $request->validated();
-        $this->saveCategory($category, $request);
+        (new StoreCategoryService())->saveCategory($category, $request);
         $message = $category->name . ' Category has been updated successfully';
 
         return $this->RedirectWithSuccessMsg($this->routeName, $message);
@@ -127,6 +98,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+
+        $message = $category->name . ' Category has been Deleted successfully';
+
+        $this->destroyModelWithImage($category, (new StoreCategoryService())->getCategoryOldImagePath($category));
+        return $this->RedirectWithSuccessMsg($this->routeName, $message);
     }
 }

@@ -9,12 +9,12 @@ class ProductDiscountService
         if ($this->isDiscountTypePercentage($request)) {
             return $this->calculateDiscountedPriceInPercentages($request);
         } else {
-            return $request->price - $request->discount_value;
+            return $request->price - $request->discount_amount;
         }
     }
     private function calculateDiscountedPriceInPercentages($request)
     {
-        return  $request->price - ($request->price * $request->discount_value / 100);
+        return  $request->price - ($request->price * $request->discount_amount / 100);
     }
 
 

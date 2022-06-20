@@ -25,7 +25,7 @@
                 </a>
                 <div class="submenu ">
 
-                    <a>
+                    <a href="{{ route('admin.users.index') }}">
                         <p>users</p>
                     </a>
 
@@ -36,8 +36,10 @@
                 </div>
             </li>
             <li class="menu-item ">
-                <a class="menu-link"> <i class="icon material-icons md-groups"></i>
-                    <span class="text">Customers</span> </a>
+                <a class="menu-link" href="{{ route('admin.customers') }}">
+                    <i class="icon material-icons md-groups"></i>
+                    <span class="text">Customers</span>
+                </a>
             </li>
             <li class="menu-item ">
                 <a class="menu-link"> <i class="icon material-icons md-all_inbox"></i>
@@ -47,8 +49,10 @@
 
 
             <li class="menu-item">
-                <a class="menu-link"> <i class="icon material-icons md-list_alt"></i>
-                    <span class="text">Orders Status</span> </a>
+                <a class="menu-link" href="{{ route('admin.status.index') }}">
+                    <i class="icon material-icons md-list_alt"></i>
+                    <span class="text">Orders Status</span>
+                </a>
             </li>
 
 
@@ -61,9 +65,9 @@
                 </a>
                 <div class="submenu">
 
-                    <a href="{{ route('admin.products.create') }}">Add product </a>
+                    <a href="{{ route('admin.products.create') }}">new product </a>
 
-                    <a href="{{ route('admin.products.index') }}">Products</a>
+                    <a href="{{ route('admin.products.index') }}">products</a>
 
                 </div>
             </li>
@@ -88,7 +92,8 @@
             </li>
 
             <li class="menu-item ">
-                <a class="menu-link""> <i class="      icon material-icons md-local_offer"></i>
+                <a class="menu-link" href="{{ route('admin.coupons.index') }}">
+                    <i class="icon material-icons md-local_offer"></i>
                     <span class="text">Coupons</span>
                 </a>
             </li>

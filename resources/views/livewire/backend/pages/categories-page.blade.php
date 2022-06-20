@@ -27,6 +27,9 @@
                     </tr>
                 </thead>
                 <tbody wire:loading.remove>
+                    @if (!empty($categoriesSection) || count($categoriesSection) > 0)
+                        @include('Backend.pages.categories.components.section-row')
+                    @endif
                     @if (count($categories) > 0)
                         @include('Backend.pages.categories.components.categories', [
                             'categories' => $categories,

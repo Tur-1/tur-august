@@ -42,7 +42,7 @@
                                     {{ $product->id }}
                                 </td>
                                 <td>
-                                    <img class="image-fluid  " width="100" src="{{ $product->image_url }}"
+                                    <img class="image-fluid  " width="100" src="{{ $product->main_image_url }}"
                                         alt="">
 
                                 </td>

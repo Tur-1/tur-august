@@ -3,77 +3,85 @@
 
 @section('content')
 
-<div class="container">
-    <div class="card">
-        <div class="card-header">
+@section('content')
+    <div class="content-header">
 
-            @can('create', App\Models\users\User::class)
-            <a class="btn btn-primary " href="{{ route('admin.users.create') }}">new user</a>
-            @endcan
+        <h2 class="content-title">users</h2>
+        <div class="">
+            <a class="btn btn-primary me-2" href="{{ route('admin.users.create') }}">
+                <i class="text-muted material-icons md-post_add"></i>
+                new user
+            </a>
+
         </div>
 
+
+    </div>
+    <div class="card">
         <div class="card-body">
+            <div class=" table-responsive">
+                <table class="table  table-responsive ">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($users as $user)
+                            <tr>
+                                <td style="text-align: left; vertical-align: middle;">
+                                    {{ $user->id }}
+                                </td>
 
-            <table id="example" class="table table-striped table-hover " style="width:100%">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Role</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($users as $user)
-                    <tr>
-                        <td>{{ $user->id }}</td>
-                        <td>
-                            {{ $user->name }}
-                        </td>
-                        <td>
-                            {{ $user->email }}
-                        </td>
-                        <td>
-                            {{ $user->role->name }}
-                        </td>
+                                <td style="text-align: left; vertical-align: middle;">
+                                    {{ $user->name }}
+                                </td>
+                                <td style="text-align: left; vertical-align: middle;">
+                                    {{ $user->email }}
+                                </td>
 
-                        <td>
-                            <div class="dropdown ">
-                                <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"
-                                    aria-expanded="false"> <i class="material-icons md-more_horiz"></i> </a>
-                                <div class="dropdown-menu" style="margin: 0px;">
+                                <td class="text-center" style="text-align: left; vertical-align: middle;">
+                                    <div class="dropdown dropup">
+                                        <a href="#" data-bs-toggle="dropdown" class="btn btn-light  btn-sm font-sm"
+                                            aria-expanded="false"> <i class="material-icons md-more_horiz"></i> </a>
+                                        <div class="dropdown-menu" style="margin: 0px;">
 
-                                    @can('update', $user)
-                                    <a href="{{ route('admin.users.edit', $user) }}"
-                                        class="dropdown-item btn  text-secondary ">
-                                        Edit
-                                    </a>
-                                    @endcan
+                                            <a href="{{ route('admin.users.edit', $user) }}"
+                                                class="dropdown-item btn  text-secondary ">
+                                                Edit
+                                            </a>
 
-                                    @can('delete', $user)
-                                    <form class="dropdown-item" onsubmit="return window.confirm('Are you sure')"
-                                        action="{{ route('admin.users.destroy', $user) }}" method="post"
-                                        class="  d-inline">
-                                        {{ method_field('DELETE') }}
-                                        {{ csrf_field() }}
+                                            <form class="dropdown-item" onsubmit="return window.confirm('Are you sure')"
+                                                action="{{ route('admin.users.destroy', $user) }}" method="post"
+                                                class="  d-inline">
+                                                {{ method_field('DELETE') }}
+                                                {{ csrf_field() }}
 
-                                        <button class="btn text-danger btn-sm w-100 text-start p-0 "
-                                            type="submit">Delete</button>
+                                                <button class="btn text-danger btn-sm w-100 text-start p-0 "
+                                                    type="submit">Delete</button>
 
-                                    </form>
-                                    @endcan
-                                </div>
-                            </div> <!-- dropdown //end -->
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
+                                            </form>
 
-            </table>
 
+                                        </div>
+                                    </div> <!-- dropdown //end -->
+                                </td>
+                            </tr>
+
+                        @empty
+                            <tr>
+                                <td valign="top" colspan="13" class="dataTables_empty text-center">
+                                    <h5>No users Found</h5>
+                                </td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
-
+@endsection
 @endsection

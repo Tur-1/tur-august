@@ -285,13 +285,14 @@
                                                                     <i class="fas fa-percent "></i>
                                                                 </span>
                                                             </div>
-                                                            <input name="discount" type="number" step=any id="discount"
-                                                                class="form-control {{ $errors->has('discount') ? 'is-invalid' : ' ' }}"
-                                                                value="{{ old('discount', $product->discount ?? null) }}"
+                                                            <input name="discount_amount" type="number" step=any
+                                                                id="discount_amount"
+                                                                class="form-control {{ $errors->has('discount_amount') ? 'is-invalid' : ' ' }}"
+                                                                value="{{ old('discount_amount', $product->discount_amount ?? null) }}"
                                                                 placeholder="Enter Discount">
                                                         </div>
                                                         <span class="text-danger">
-                                                            {{ $errors->first('discount') }}
+                                                            {{ $errors->first('discount_amount') }}
                                                         </span>
                                                     </div>
                                                 </div>

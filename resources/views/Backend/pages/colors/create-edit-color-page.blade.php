@@ -4,7 +4,7 @@
 @section('title', isset($color) ? 'update color ' : 'new color')
 @section('content')
     <!-- Modal -->
-    <div class=" container-sm">
+    <div class="container">
         <div class="modal-dialog">
 
             <div class="modal-content">
@@ -24,7 +24,8 @@
                                 <label for="name">color name</label>
                                 <input name="name" type="text"
                                     class="form-control {{ $errors->has('name') ? 'is-invalid' : ' ' }}" name="name"
-                                    id="name" placeholder="Enter color" value="{{ old('name', $color->name ?? '') }}">
+                                    id="name" placeholder="Enter color"
+                                    value="{{ old('name', $color->name ?? '') }}">
 
                                 @include('Backend.components.input-error-msg', ['inputName' => 'name'])
                             </div>
@@ -36,9 +37,6 @@
                             </div>
 
                         </div>
-
-
-
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">
                                 {{ isset($color) ? 'Update color' : 'save color' }}
@@ -55,8 +53,5 @@
         </div>
 
     </div>
-
-
-
 
 @endsection

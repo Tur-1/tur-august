@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug')->index();
             $table->string('image')->nullable();
+            $table->foreignId('section_id')->nullable()->constrained('categories')->cascadeOnDelete();
             $table->foreignId('parent_id')->nullable()->constrained('categories')->cascadeOnDelete();
             $table->json('parents_ids')->nullable();
             $table->string('meta_title')->nullable();

@@ -19,7 +19,7 @@ class Category extends Model
 
     public static function tree()
     {
-        // HasProducts()->
+
         $allCategories =  Category::get();
 
         $sections =  $allCategories->where('is_section', true);

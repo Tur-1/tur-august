@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('information')->nullable();
             $table->decimal('price', 6, 2);
             $table->decimal('shipping_cost', 6, 2)->nullable()->default(0);
-            $table->integer('discount_value')->nullable();
+            $table->integer('discount_amount')->nullable();
             $table->enum('discount_type', ['percentage', 'Fixed'])->nullable();
             $table->date('discount_start_at')->nullable();
             $table->date('discount_expires_at')->nullable();

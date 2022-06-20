@@ -4,7 +4,6 @@
 }
 
 .breadcrumb-wrap .breadcrumb {
-
     padding: 1rem !important;
     color: #6e6e6e;
     display: flex;
@@ -25,4 +24,7 @@
 
 .current-breadcrumb-item {
     margin-left: 3px;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+    content: none !important;
 }

@@ -4,12 +4,11 @@ namespace App\Http\Controllers\Backend;
 
 use App\Traits\FileUpload;
 use Illuminate\Support\Str;
-use Illuminate\Http\Request;
 use App\Traits\AlertMessages;
 use App\Models\product\Category;
 use App\Http\Controllers\Controller;
 use App\Actions\Backend\StoreModelImageAction;
-use App\Http\Requests\Backend\StoreCategoryRequest;
+use App\Http\Requests\Backend\StoreCategorySectionRequest;
 
 class CategorySectionController extends Controller
 {
@@ -31,21 +30,21 @@ class CategorySectionController extends Controller
     {
         return view('Backend.pages.categories.create-edit-sections-page');
     }
-    private function saveCategory($category, $request)
+    private function saveCategory($section, $request)
     {
-        $category->name = Str::title($request['name']);
-        $category->slug =  Str::slug($request['name'], '_');
-        $category->meta_keywords = $request['meta_keywords'];
-        $category->meta_title = $request['meta_title'];
-        $category->meta_description = $request['meta_description'];
-        $category->is_section = true;
-        $category->image =  (new StoreModelImageAction)->saveImage($request, $this->getCategoryOldImagePath($category), $this->imageFolder);
-        $category->save();
+        $section->name = Str::title($request['name']);
+        $section->slug =  Str::slug($request['name'], '_');
+        $section->meta_keywords = $request['meta_keywords'];
+        $section->meta_title = $request['meta_title'];
+        $section->meta_description = $request['meta_description'];
+        $section->is_section = true;
+        $section->image =  (new StoreModelImageAction)->saveImage($request, $this->getCategoryOldImagePath($section), $this->imageFolder);
+        $section->save();
     }
 
-    private function getCategoryOldImagePath($category)
+    private function getCategoryOldImagePath($section)
     {
-        return $this->imageFolder . '/' . $category->image;
+        return $this->imageFolder . '/' . $section->image;
     }
     /**
      * Store a newly created resource in storage.
@@ -53,12 +52,12 @@ class CategorySectionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCategoryRequest $request, Category $category)
+    public function store(StoreCategorySectionRequest $request, Category $section)
     {
 
         $request->validated();
-        $this->saveCategory($category, $request);
-        $message = $category->name . ' section has been Added successfully';
+        $this->saveCategory($section, $request);
+        $message = $section->name . ' section has been Added successfully';
 
         return $this->RedirectWithSuccessMsg($this->routeName, $message);
     }
@@ -67,10 +66,10 @@ class CategorySectionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\product\Category  $category
+     * @param  \App\Models\product\Category  $section
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Category $section)
     {
         //
     }
@@ -78,38 +77,42 @@ class CategorySectionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\product\Category  $category
+     * @param  \App\Models\product\Category  $section
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(Category $section)
     {
-        //
+        return view('Backend.pages.categories.create-edit-sections-page', ['category' => $section]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\product\Category  $category
+     * @param  \App\Models\product\Category  $section
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreCategoryRequest $request, Category $category)
+    public function update(StoreCategorySectionRequest $request, Category $section)
     {
 
         $request->validated();
-        $this->saveCategory($category, $request);
-        $message = $category->name . ' section has been updated successfully';
+        $this->saveCategory($section, $request);
+        $message = $section->name . ' section has been updated successfully';
 
         return $this->RedirectWithSuccessMsg($this->routeName, $message);
     }
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\product\Category  $category
+     * @param  \App\Models\product\Category  $section
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Category $section)
     {
-        //
+
+        $message = $section->name . ' Category has been Deleted successfully';
+
+        $this->destroyModelWithImage($section,  $this->getCategoryOldImagePath($section));
+        return $this->RedirectWithSuccessMsg($this->routeName, $message);
     }
 }

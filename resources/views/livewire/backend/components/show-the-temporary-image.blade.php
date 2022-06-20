@@ -8,7 +8,7 @@
             @elseif(!is_null($imagePath))
                 <img src="{{ $imagePath }}" alt="">
             @else
-                <img src="{{ asset('assets/images/defult-input-image.png') }}" alt="">
+                <img src="{{ asset('assets/images/defult-input-image.png') }}" alt="" width="100">
             @endif
         </div>
         <div wire:loading

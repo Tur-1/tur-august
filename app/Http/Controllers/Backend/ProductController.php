@@ -32,6 +32,7 @@ class ProductController extends Controller
             ->withQueryString();
 
 
+
         return view('Backend.pages.products.products-page', compact('products'));
     }
 
