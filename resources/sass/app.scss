@@ -121,6 +121,7 @@ section.container {
     background-color: $bg-green !important;
     color: $bg-secondary;
 }
+
 @import "./components/navbar.scss";
 @import "./components/footer.scss";
 @import "./components/card-product";

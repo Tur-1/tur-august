@@ -14,10 +14,11 @@ class ProductDetailPageController extends Controller
 
         $productDetail =  $productDetailPageService->getProductDetail($slug);
 
+        $relatedProducts = $productDetailPageService->getRelatedProducts();
 
         $breadcrumb = $productDetailPageService->getBreadcrumb();
 
 
-        return Inertia::render('Frontend/ProductDetailPage/Index', compact('productDetail', 'breadcrumb'));
+        return Inertia::render('Frontend/ProductDetailPage/Index', compact('productDetail', 'breadcrumb', 'relatedProducts'));
     }
 }

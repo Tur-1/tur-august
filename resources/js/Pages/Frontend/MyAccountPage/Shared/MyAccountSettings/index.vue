@@ -7,11 +7,11 @@ import AccountPhoneNumber from '@/Pages/Frontend/MyAccountPage/Shared/MyAccountS
 <template>
     <div class="row g-5">
         <div class="col-md-7">
-            <AccountInfo />
+            <AccountInfo :userInfo="$page.props.user" />
         </div>
         <div class="col-md-5">
             <AccountPassword />
-            <AccountPhoneNumber />
+            <AccountPhoneNumber :userPhoneNumber="$page.props.user.phone_number" />
         </div>
     </div>
 

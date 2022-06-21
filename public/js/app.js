@@ -266,6 +266,16 @@ var map = {
 		"/js/vendor",
 		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyAccountSettings_AccountInfo_vue"
 	],
+	"./Frontend/MyAccountPage/Shared/MyAccountSettings/AccountModal": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAccountSettings/AccountModal.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyAccountSettings_AccountModal_vue"
+	],
+	"./Frontend/MyAccountPage/Shared/MyAccountSettings/AccountModal.vue": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAccountSettings/AccountModal.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyAccountSettings_AccountModal_vue"
+	],
 	"./Frontend/MyAccountPage/Shared/MyAccountSettings/AccountPassword": [
 		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAccountSettings/AccountPassword.vue",
 		"/js/vendor",
@@ -285,6 +295,36 @@ var map = {
 		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAccountSettings/AccountPhoneNumber.vue",
 		"/js/vendor",
 		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyAccountSettings_AccountPhoneNumber_vue"
+	],
+	"./Frontend/MyAccountPage/Shared/MyAccountSettings/Forms/AccountInfoForm": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAccountSettings/Forms/AccountInfoForm.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyAccountSettings_Forms_AccountInfoForm_vue"
+	],
+	"./Frontend/MyAccountPage/Shared/MyAccountSettings/Forms/AccountInfoForm.vue": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAccountSettings/Forms/AccountInfoForm.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyAccountSettings_Forms_AccountInfoForm_vue"
+	],
+	"./Frontend/MyAccountPage/Shared/MyAccountSettings/Forms/AccountPasswordForm": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAccountSettings/Forms/AccountPasswordForm.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyAccountSettings_Forms_AccountPasswordForm_vue"
+	],
+	"./Frontend/MyAccountPage/Shared/MyAccountSettings/Forms/AccountPasswordForm.vue": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAccountSettings/Forms/AccountPasswordForm.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyAccountSettings_Forms_AccountPasswordForm_vue"
+	],
+	"./Frontend/MyAccountPage/Shared/MyAccountSettings/Forms/AccountPhoneNumberForm": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAccountSettings/Forms/AccountPhoneNumberForm.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyAccountSettings_Forms_AccountPhoneNumberForm_vue"
+	],
+	"./Frontend/MyAccountPage/Shared/MyAccountSettings/Forms/AccountPhoneNumberForm.vue": [
+		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAccountSettings/Forms/AccountPhoneNumberForm.vue",
+		"/js/vendor",
+		"resources_js_Pages_Frontend_MyAccountPage_Shared_MyAccountSettings_Forms_AccountPhoneNumberForm_vue"
 	],
 	"./Frontend/MyAccountPage/Shared/MyAccountSettings/index": [
 		"./resources/js/Pages/Frontend/MyAccountPage/Shared/MyAccountSettings/index.vue",

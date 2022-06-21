@@ -15,6 +15,7 @@ class ProductController extends Controller
 {
     use AlertMessages;
     private $routeName = 'admin.products.index';
+    private $couponTypes = ['percentage', 'Fixed'];
     /**
      * Display a listing of the resource.
      *
@@ -47,7 +48,14 @@ class ProductController extends Controller
         $brands = Brand::select('id', 'name', 'slug')->get();
         $colors = Color::select('id', 'name', 'slug')->get();
 
-        return view('Backend.pages.products.create-edit-product-page', compact('brands', 'colors'));
+        return view(
+            'Backend.pages.products.create-edit-product-page',
+            [
+                'brands' => $brands,
+                'colors' => $colors,
+                'couponTypes' => $this->couponTypes
+            ]
+        );
     }
 
     /**
@@ -99,8 +107,18 @@ class ProductController extends Controller
         $colors = Color::select('id', 'name', 'slug')->get();
         $productSizeOptions =   ProductSizeOption::where('product_id',  $product->id)->get();
 
+        return view(
+            'Backend.pages.products.create-edit-product-page',
+            [
+                'product' => $product,
+                'productSizeOptions' => $productSizeOptions,
+                'productCategory' => $productCategory,
+                'brands' => $brands,
+                'colors' => $colors,
+                'couponTypes' => $this->couponTypes
 
-        return view('Backend.pages.products.create-edit-product-page', compact('brands', 'colors', 'product', 'productSizeOptions', 'productCategory'));
+            ]
+        );
     }
 
     /**

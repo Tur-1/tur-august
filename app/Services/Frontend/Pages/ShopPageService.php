@@ -2,14 +2,15 @@
 
 namespace App\Services\Frontend\Pages;
 
-use App\Exceptions\PageNotFoundException;
+use Carbon\Carbon;
 use App\Models\product\Brand;
 use App\Models\product\Color;
 use App\Models\product\Product;
 use App\Models\product\Category;
-use App\Models\product\ProductCategory;
 use App\Models\product\SizeOption;
+use App\Models\product\ProductCategory;
 use Illuminate\Support\Facades\Session;
+use App\Exceptions\PageNotFoundException;
 
 class ShopPageService
 {
@@ -43,10 +44,14 @@ class ShopPageService
     }
     public function getBreadcrumb()
     {
+
         return  $this->allCategories->whereIn('id', $this->category->parents_ids);
     }
 
-
+    public function getPreviousCategory()
+    {
+        return  $this->allCategories->whereIn('id', $this->category->parents_ids)->last() ?? [];
+    }
     public function getBrands()
     {
 
@@ -125,6 +130,12 @@ class ShopPageService
 
         $this->setBrandNameForEachProduct();
 
+        $currentDate = Carbon::now('GMT+3');
+        $this->products->getCollection()->transform(function ($product, $key) use ($currentDate) {
+            return  $this->productItem($product, $currentDate);
+        });
+
+
         return $this->products;
     }
     public function getProductsCount()
@@ -169,6 +180,34 @@ class ShopPageService
     public function getQueriesString()
     {
         return request()->only(['brand', 'color', 'sort', 'sizeOptions']);
+    }
+    private function productItem($product, $currentDate)
+    {
+        $discounted_price = 0;
+
+        $discount_amount = $product->discount_amount . ' SAR';
+
+        if ($product->discount_type == 'percentage') {
+
+            $discount_amount = $product->discount_amount . ' %';
+        }
+
+        $original_price =  $product->price . ' SAR';
+        if (!is_null($product->discounted_price) && $currentDate->between($product->discount_start_at, $product->discount_expires_at)) {
+            $discounted_price =  $product->discounted_price . ' SAR';
+        }
+
+        return [
+            'id' => $product->id,
+            'name' => $product->name,
+            'product_link' => route('productDetailPage', $product->slug),
+            'in_stock' => $product->stock > 0 ? true : false,
+            'price' => $discounted_price != 0 ? $discounted_price : $original_price,
+            'discounted_price' => $discounted_price != 0 ? $original_price : '',
+            'discount_amount' => $discount_amount,
+            'brand_name' => $product->brand_name,
+            'main_image_url' => $product->main_image_url,
+        ];
     }
     private function setBrandNameForEachProduct(): void
     {

@@ -26,7 +26,18 @@
     border: none !important;
     background-color: transparent;
 }
-
+.product-card .discount-amount-badge {
+    position: absolute;
+    left: 0;
+    top: 15px;
+    color: #e95c5b;
+    background-color: rgba(242, 83, 82, 0.1);
+    border-radius: 4px;
+    padding: 3px 5px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 13px;
+}
 .product-card img {
     border-radius: 5px;
 }

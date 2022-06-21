@@ -17337,6 +17337,19 @@ footer {
   background-color: transparent;
 }
 
+.product-card .discount-amount-badge {
+  position: absolute;
+  left: 0;
+  top: 15px;
+  color: #e95c5b;
+  background-color: rgba(242, 83, 82, 0.1);
+  border-radius: 4px;
+  padding: 3px 5px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 13px;
+}
+
 .product-card img {
   border-radius: 5px;
 }
@@ -17450,7 +17463,7 @@ footer {
   .title-detail {
     font-size: 18px !important;
   }
-  .product-detail-title h5, .product-detail-title .h5 {
+  .product-detail-title span {
     font-size: 14px !important;
   }
   .product-detail-price span {
@@ -17484,32 +17497,44 @@ footer {
 }
 
 /******** product detail info *************/
-.product-detail-info {
-  padding: 25px 10px;
-}
-
 .product-detail-brand {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+.product-detail-title span {
+  font-size: 15px;
+}
+
 .product-detail-info .product-price-wrap {
   border-top: 1px solid #e2e9e1;
   border-bottom: 1px solid #e2e9e1;
   padding: 10px 0;
+}
+
+.product-detail-info .product-price-wrap .product-detail-price {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
-.product-detail-info .product-price-wrap .product-price ins {
-  text-decoration: none;
+.product-detail-info .product-price-wrap .product-detail-price .product-current-price {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
   font-weight: 600;
+  color: #51c0a9 !important;
 }
 
-.product-detail-info .product-price-wrap .product-price ins span {
-  font-size: 18px;
+.product-detail-info .product-price-wrap .product-detail-price .product-current-price .discount-amount-badge {
+  color: #e95c5b;
+  background-color: rgba(242, 83, 82, 0.1);
+  border-radius: 4px;
+  padding: 3px 5px;
+  text-align: center;
+  margin-left: 15px;
+  font-weight: 500;
+  font-size: 13px;
 }
 
 .quality-info {
@@ -17594,7 +17619,6 @@ footer {
   border-left: 0;
   border-right: 0;
   border-bottom: 2px solid rgba(0, 0, 0, 0);
-  text-transform: uppercase;
   border-radius: 0;
 }
 
@@ -17611,6 +17635,7 @@ footer {
   border-left: none;
   border-right: none;
   border-top: none;
+  text-transform: uppercase;
   color: #000;
   font-size: 14px;
 }
@@ -17624,9 +17649,18 @@ footer {
   margin-top: -4px;
 }
 
+.shop_info_tab #Description,
+.shop_info_tab #Additional-info {
+  line-height: 25px;
+  font-size: 14px !important;
+  font-weight: 400;
+  color: #444 !important;
+}
+
 /******** reviews area *************/
 .reviews-area {
   font-size: 13px !important;
+  color: #444 !important;
 }
 
 .review-form {
@@ -17945,23 +17979,30 @@ footer {
 }
 
 /*********** breadcrumb **************/
+.desktop-shop-page-header .current-category {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
+}
+
 .desktop-shop-page-header .breadcrumb {
   align-items: center;
   color: #6e6e6e;
 }
 
-.desktop-shop-page-header .breadcrumb .breadcrumb-item i {
+.desktop-shop-page-header #shop-desktop-breadcrumb .breadcrumb-item i {
   margin: 0 6px;
+  font-size: 10px;
 }
 
-.desktop-shop-page-header .breadcrumb .breadcrumb-item {
+.desktop-shop-page-header #shop-desktop-breadcrumb .breadcrumb-item {
   display: flex;
-  align-items: center;
+  align-items: baseline;
+  font-size: 13px;
 }
 
-.desktop-shop-page-header .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
-  font-weight: 800 !important;
-  font-family: monospace !important;
+.desktop-shop-page-header #shop-desktop-breadcrumb .breadcrumb-item + .breadcrumb-item {
+  padding-left: 0 !important;
 }
 
 /*********** sort products **************/
@@ -18497,6 +18538,17 @@ input[type=number] {
   width: 100%;
 }
 
+@media only screen and (max-width: 500px) {
+  .modal-content {
+    width: 90% !important;
+    margin: 0 auto !important;
+  }
+  .close-modal-btn {
+    position: absolute !important;
+    top: -23px !important;
+    right: 10px !important;
+  }
+}
 .account-image-wrap {
   height: 250px;
   width: 100%;
@@ -18576,4 +18628,30 @@ input[type=number] {
 
 .order-card div {
   font-size: 13px !important;
+}
+
+.account-desktop-tabs-btns {
+  color: #444;
+}
+
+.account-desktop-tabs-btns.active {
+  color: #000 !important;
+  border-bottom: 3px solid #51c0a9 !important;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  padding: 0.5rem !important;
+}
+
+.modal {
+  color: #444 !important;
+}
+
+.close-modal-btn {
+  position: absolute !important;
+  top: -23px !important;
+  right: -20px !important;
+}
+
+.modal label {
+  font-size: 12px !important;
+  font-weight: 500 !important;
 }

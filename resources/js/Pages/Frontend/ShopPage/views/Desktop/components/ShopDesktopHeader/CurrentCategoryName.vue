@@ -1,8 +1,8 @@
 <template >
-    <div class="col-lg-2 col-md-2">
-        <h6 class="text-start text-uppercase">
+    <div class="col-lg-2 col-md-2 ">
+        <span class="current-category">
             {{ $page.props.category.name }}
-        </h6>
+        </span>
     </div>
 </template>
  

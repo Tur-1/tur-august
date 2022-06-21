@@ -1,13 +1,14 @@
 <template >
     <div class="tab-content shop_info_tab entry-main-content">
         <div class="tab-pane fade show active" id="Description">
-            <div class="">
-                <p>sdgfsd</p>
+
+            <div v-html="$page.props.productDetail.details">
+
             </div>
         </div>
         <div class="tab-pane fade" id="Additional-info">
-            <div class="">
-                <p>dsgfsd</p>
+            <div v-html="$page.props.productDetail.information">
+
             </div>
         </div>
 

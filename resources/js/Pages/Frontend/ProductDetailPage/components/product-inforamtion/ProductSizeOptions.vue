@@ -4,7 +4,7 @@
         <ul class="size-filter">
             <li
                 v-for="(size, index) in $page.props.productDetail
-                    .stock_size_options"
+                    .stockSizeOptions"
                 :key="index"
             >
                 <input
@@ -23,6 +23,5 @@
     </div>
 </template>
 <script setup>
-import { ref, watch } from "vue";
 import { ProductSize } from "@/Pages/Frontend/ProductDetailPage/store";
 </script>

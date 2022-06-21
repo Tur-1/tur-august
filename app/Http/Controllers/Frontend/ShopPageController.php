@@ -25,7 +25,7 @@ class ShopPageController extends Controller
             $brands =  $shopPageService->getBrands()->toArray();
             $colors =  $shopPageService->getColors()->toArray();
             $products =  $shopPageService->getProducts();
-
+            $previousCategory = $shopPageService->getPreviousCategory();
             $productsCount = $products->count();
             $sortProducts =  $shopPageService->getSortProducts();
             $queryString = $shopPageService->getQueriesString();
@@ -33,10 +33,12 @@ class ShopPageController extends Controller
             return inertia('frontend/Errors/404');
         }
 
+
         return inertia('Frontend/ShopPage/Index', [
 
             'category' => $category,
             'breadcrumb' => $breadcrumb,
+            'previousCategory' => $previousCategory,
             'productsCount' => $productsCount,
             'sizeOptions' => $sizeOptions,
             'brands' => $brands,

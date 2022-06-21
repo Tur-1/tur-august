@@ -3,6 +3,7 @@
 namespace App\Services\Backend\Product;
 
 use App\Traits\FileUpload;
+use Illuminate\Support\Arr;
 use App\Models\product\ProductImage;
 use Illuminate\Database\Eloquent\Model;
 
@@ -28,7 +29,8 @@ class ProductImageService
         }
 
 
-        $this->setMainImageForFirstImage($images); // if there is no main image then the first image will be the main image
+        $images = $this->setMainImageForFirstImage($images); // if there is no main image then the first image will be the main image
+
 
         $product->productImages()->createMany($images);
     }
@@ -67,10 +69,11 @@ class ProductImageService
         ProductImage::query()->where('id', $image_id)->update(['is_main_image' => true]);
     }
 
-    private function setMainImageForFirstImage($images): void
+    private function setMainImageForFirstImage($images)
     {
-        if (!in_array(true, collect($images)->pluck('is_main_image')->toArray())) {
-            $images[0]['is_main_image']  = true;
+        if (!in_array(1, collect($images)->pluck('is_main_image')->toArray())) {
+            $images[0]['is_main_image'] = 1;
         }
+        return  $images;
     }
 }

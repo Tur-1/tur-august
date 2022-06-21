@@ -4,7 +4,7 @@
             <ProductCard :products="$page.props.products.data" />
         </div>
 
-        <Pagination :links="$page.props.products.links" v-if="$page.props.products.data.length > 13" />
+        <Pagination :links="$page.props.products.links" />
     </div>
 </template>
 <script setup>

@@ -1,8 +1,9 @@
 <template>
 
-    <app-layout title="My Account">
+    <app-layout title="My Account" backgroundColor="background-color:#F9F9F9">
         <MyAccountDesktopView v-if="isDesktop" />
         <MyAccountMobileView v-if="isMobile" />
+
     </app-layout>
 </template>
 <script setup>

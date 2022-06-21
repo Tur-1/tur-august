@@ -2,7 +2,7 @@
     <div :class="customClass ?? 'col-xl-3 col-lg-4 col-md-4 col-6 mb-4'" class=" product-item"
         v-for="(product, index) in products" :key="index">
         <div class="card product-card">
-            <Link :href="route('productDetailPage', { product_slug: product.slug })">
+            <Link :href="product.product_link">
             <img loading="lazy" :src="product.main_image_url" class="card-img-top" alt="..." />
             </Link>
 
@@ -30,13 +30,19 @@
                 </span>
 
                 <div class="product-price">
-                    <span> {{ product.price }} SAR</span>
-                    <span class="discounted-product-price">{{ product.price }} SAR</span>
-                    <!-- <span class="product-out-of-stock">
-                                out of stock
-                            </span> -->
+                    <span> {{ product.price }} </span>
+                    <span class="discounted-product-price" v-if="product.in_stock">
+                        {{ product.discounted_price }}
+                    </span>
+                    <span class="product-out-of-stock" v-if="!product.in_stock">
+                        out of stock
+                    </span>
                 </div>
+
             </div>
+            <span class="discount-amount-badge" v-if="product.discounted_price != 0">
+                {{ product.discount_amount }}
+            </span>
         </div>
     </div>
 </template>

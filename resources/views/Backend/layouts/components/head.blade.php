@@ -27,6 +27,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
 
-<link href="{{ asset('Backend/css/main.css?v=').time() }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('Backend/css/main.css?v=') . time() }}" rel="stylesheet" type="text/css" />
 <link rel="manifest" href="{{ asset('manifest.json') }}" />
 <livewire:styles />
+
+@stack('head')

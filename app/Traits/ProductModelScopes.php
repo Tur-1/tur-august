@@ -39,6 +39,7 @@ trait ProductModelScopes
             'brand_id',
             'color_id',
             'discount_amount',
+            'discount_type',
             'discounted_price',
             'discount_start_at',
             'discount_expires_at',
@@ -87,16 +88,17 @@ trait ProductModelScopes
             'color_name' => Color::select('name')->whereColumn('id', 'products.color_id'),
         ]);
     }
-
-
-
-
-
     public function scopeWithBrandImage($query)
     {
         return $query->addSelect([
             'brand_image' => Brand::select('image')->whereColumn('id', 'products.brand_id'),
         ]);
+    }
+    public function getBrandImageUrlAttribute()
+    {
+        if ($this->brand_image) {
+            return asset('storage/images/brands/' . $this->brand_image);
+        }
     }
     public function scopeWithBrandName($query)
     {

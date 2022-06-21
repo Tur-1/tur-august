@@ -3,7 +3,7 @@
         font-size: 18px !important;
     }
 
-    .product-detail-title h5 {
+    .product-detail-title span {
         font-size: 14px !important;
     }
 
@@ -47,7 +47,7 @@
 /******** product detail info *************/
 
 .product-detail-info {
-    padding: 25px 10px;
+    // padding: 25px 10px;
 }
 
 .product-detail-brand {
@@ -55,31 +55,38 @@
     justify-content: space-between;
     align-items: center;
 }
-
+.product-detail-title span {
+    font-size: 15px;
+}
 .product-detail-info .product-price-wrap {
     border-top: 1px solid #e2e9e1;
     border-bottom: 1px solid #e2e9e1;
     padding: 10px 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
+}
+
+.product-detail-info .product-price-wrap .product-detail-price {
     display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
     justify-content: space-between;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
 }
 
-.product-detail-info .product-price-wrap .product-price ins {
-    text-decoration: none;
+.product-detail-info .product-price-wrap .product-detail-price .product-current-price {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 16px;
     font-weight: 600;
+    color: $bg-green !important;
 }
-
-.product-detail-info .product-price-wrap .product-price ins span {
-    font-size: 18px;
+.product-detail-info .product-price-wrap .product-detail-price .product-current-price .discount-amount-badge {
+    color: #e95c5b;
+    background-color: rgba(242, 83, 82, 0.1);
+    border-radius: 4px;
+    padding: 3px 5px;
+    text-align: center;
+    margin-left: 15px;
+    font-weight: 500;
+    font-size: 13px;
 }
-
 .quality-info {
     padding-top: 10px;
     font-size: 13px;
@@ -165,7 +172,7 @@
     border-left: 0;
     border-right: 0;
     border-bottom: 2px solid rgba(0, 0, 0, 0);
-    text-transform: uppercase;
+
     border-radius: 0;
 }
 
@@ -182,6 +189,7 @@
     border-left: none;
     border-right: none;
     border-top: none;
+    text-transform: uppercase;
     color: #000;
     font-size: 14px;
 }
@@ -194,11 +202,18 @@
 .tabs-description-additionalInfo-reviews .nav-tabs .nav-item:hover {
     margin-top: -4px;
 }
-
+.shop_info_tab #Description,
+.shop_info_tab #Additional-info {
+    line-height: 25px;
+    font-size: 14px !important ;
+    font-weight: 400;
+    color: #444 !important;
+}
 /******** reviews area *************/
 
 .reviews-area {
     font-size: 13px !important;
+    color: #444 !important;
 }
 .review-form {
     background-color: #f9f9f9;

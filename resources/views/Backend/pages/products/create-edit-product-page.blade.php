@@ -1,7 +1,9 @@
 @extends('Backend.layouts.master')
-
-
 @section('title', isset($product) ? 'update product ' : 'new product')
+
+@push('head')
+    <script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
+@endpush
 @section('content')
 
     <div class="container-fluid">
@@ -161,8 +163,6 @@
                                         <div class="tab-pane fade" id="information_Details" role="tabpanel"
                                             aria-labelledby="settings-tab">
                                             <section class="content-body p-xl-4">
-
-
                                                 <div class="row mb-4">
                                                     <label for="ProductDetails" class="col-lg-3 col-form-label">
                                                         Details</label>
@@ -276,24 +276,36 @@
 
                                                 </div>
                                                 <div class="row mb-4">
+                                                    <label class="col-lg-3 col-form-label" for="type">
+                                                        discount type
+                                                    </label>
+                                                    <div class="col-lg-9">
+                                                        <select name="discount_type"
+                                                            class="form-select {{ $errors->has('discount_type') ? 'is-invalid' : ' ' }}"
+                                                            aria-label="Default select example">
+                                                            @foreach ($couponTypes as $index => $type)
+                                                                <option value="{{ $type }}">
+                                                                    {{ $type }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                        @include('Backend.components.input-error-msg', [
+                                                            'inputName' => 'discount_type',
+                                                        ])
+                                                    </div>
+                                                </div>
+                                                <div class="row mb-4">
                                                     <label class="col-lg-3 col-form-label" for="discount">Discount
                                                     </label>
                                                     <div class="col-lg-9">
-                                                        <div class="input-group">
-                                                            <div class="input-group-prepend">
-                                                                <span class="input-group-text w-100 h-100">
-                                                                    <i class="fas fa-percent "></i>
-                                                                </span>
-                                                            </div>
-                                                            <input name="discount_amount" type="number" step=any
-                                                                id="discount_amount"
-                                                                class="form-control {{ $errors->has('discount_amount') ? 'is-invalid' : ' ' }}"
-                                                                value="{{ old('discount_amount', $product->discount_amount ?? null) }}"
-                                                                placeholder="Enter Discount">
-                                                        </div>
-                                                        <span class="text-danger">
-                                                            {{ $errors->first('discount_amount') }}
-                                                        </span>
+                                                        <input name="discount_amount" type="number" step=any
+                                                            id="discount_amount"
+                                                            class="form-control {{ $errors->has('discount_amount') ? 'is-invalid' : ' ' }}"
+                                                            value="{{ old('discount_amount', $product->discount_amount ?? null) }}"
+                                                            placeholder="Enter Discount">
+                                                        @include('Backend.components.input-error-msg', [
+                                                            'inputName' => 'discount_amount',
+                                                        ])
                                                     </div>
                                                 </div>
                                                 <div class="row mb-4">
@@ -352,3 +364,16 @@
         </form>
     </div>
 @endsection
+@push('script')
+    <script>
+        ClassicEditor.create(document.querySelector('#ProductInformation'))
+            .catch(error => {
+                console.error(error);
+            });
+
+        ClassicEditor.create(document.querySelector('#ProductDetails'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+@endpush

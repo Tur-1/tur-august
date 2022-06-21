@@ -1,7 +1,7 @@
 <template >
     <div class="desktop-shop-page-header">
 
-        <div class=" d-flex align-items-center mb-2">
+        <div class="row">
             <CurrentCategoryName />
             <div class="col-lg-10">
                 <div class="d-flex justify-content-between align-items-center">
@@ -10,15 +10,17 @@
                 </div>
             </div>
         </div>
-
-        <div class="text-start text-dark d-flex align-content-center" style="font-size: 11px">
-            <div class="me-5">
-                <i class="bi bi-caret-left-fill" style="font-size: 9px"></i>
-                <Link id="catalog_return" class="ms-1 text-dark" title="Home" href="/">
-                Back To Home
-                </Link>
-            </div>
-            <span class="items">{{ $page.props.products.data.length }} styles</span>
+        <div class="text-start text-dark" style="font-size: 12px">
+            <i class="bi bi-caret-left-fill"></i>
+            <Link v-if="$page.props.previousCategory.length == 0" id="catalog_return" class="text-dark" title="Home"
+                :href="route('homePage')">
+            Back To Home
+            </Link>
+            <Link v-else="$page.props.previousCategory.length == 1" id="catalog_return" class="text-dark"
+                :title="$page.props.previousCategory.name"
+                :href="route('shopPage', { category_slug: $page.props.previousCategory.slug })">
+            Back To {{ $page.props.previousCategory.name }}
+            </Link>
         </div>
 
         <hr class="mt-0 mb-0" />
@@ -26,6 +28,7 @@
 </template>
 
 <script setup>
+
 import CurrentCategoryName from '@/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopHeader/CurrentCategoryName.vue';
 import ShopDesktopBreadcrumb from '@/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopHeader/ShopDesktopBreadcrumb.vue';
 import ShopDesktopSort from '@/Pages/Frontend/ShopPage/views/Desktop/components/ShopDesktopHeader/ShopDesktopSort.vue';

@@ -2,11 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,14 +15,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(1)->create();
+
 
         $categories = [
             [
                 'name' => Str::title('women'),
                 'slug' => Str::slug('women'),
-                'parent_id' => null,
-                'parents_ids' => null,
                 'is_section' => 1,
             ]
         ];

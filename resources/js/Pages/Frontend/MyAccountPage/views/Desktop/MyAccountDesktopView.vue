@@ -1,33 +1,33 @@
 <template>
     <section class="container mb-5 mt-5">
         <MyAccountHeader />
-        <div class=" nav nav-tabs d-flex flex-row justify-content-between" style="flex-wrap:unset !important"
-            role="tablist">
+        <div class=" nav nav-tabs d-flex flex-row justify-content-between bg-transparent"
+            style="flex-wrap:unset !important" role="tablist">
 
 
-            <button role="tab" class="card shadow-sm w-100 collapse-btn  me-1 active" id="account-settings-tab"
-                data-bs-toggle="tab" data-bs-target="#account-settings">
+            <button role="tab" class="account-desktop-tabs-btns active card  w-100 collapse-btn  me-1 "
+                id="account-settings-tab" data-bs-toggle="tab" data-bs-target="#account-settings">
                 <div class="card-body text-center p-4">
-                    <span class="card-title d-flex flex-row  align-items-center text-dark">
+                    <span class="card-title d-flex flex-row  align-items-center ">
                         <i class="fas fa-cog me-2"></i> Account Settings
                     </span>
                 </div>
             </button>
 
-            <button role="tab" class="card shadow-sm w-100 collapse-btn me-1" id="my-orders-tab" data-bs-toggle="tab"
-                data-bs-target="#my-orders">
+            <button role="tab" class="account-desktop-tabs-btns card  w-100 collapse-btn me-1" id="my-orders-tab"
+                data-bs-toggle="tab" data-bs-target="#my-orders">
                 <div class="card-body text-center p-4">
-                    <span class="card-title d-flex flex-row  align-items-center text-dark">
+                    <span class="card-title d-flex flex-row  align-items-center ">
                         <i class="fas fa-boxes me-2"></i> My Orders
                     </span>
                 </div>
             </button>
 
 
-            <button role="tab" class="card shadow-sm w-100 collapse-btn" id="address-book-tab" data-bs-toggle="tab"
-                data-bs-target="#address-book">
+            <button role="tab" class="account-desktop-tabs-btns card  w-100 collapse-btn" id="address-book-tab"
+                data-bs-toggle="tab" data-bs-target="#address-book">
                 <div class="card-body text-center p-4">
-                    <span class="card-title d-flex flex-row  align-items-center text-dark">
+                    <span class="card-title d-flex flex-row  align-items-center">
 
                         <i class="far fa-address-card me-2"></i> Address Book
                     </span>
