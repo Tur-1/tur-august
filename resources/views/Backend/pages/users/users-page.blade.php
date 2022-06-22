@@ -2,11 +2,9 @@
 @section('title', 'Users')
 
 @section('content')
-
-@section('content')
     <div class="content-header">
 
-        <h2 class="content-title">users</h2>
+        <span class="content-title">users</span>
         <div class="">
             <a class="btn btn-primary me-2" href="{{ route('admin.users.create') }}">
                 <i class="text-muted material-icons md-post_add"></i>
@@ -83,5 +81,4 @@
             </div>
         </div>
     </div>
-@endsection
 @endsection

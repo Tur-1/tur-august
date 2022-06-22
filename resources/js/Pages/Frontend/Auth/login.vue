@@ -21,7 +21,7 @@
 
 <script setup>
 import AppLayout from "@/layouts/Frontend/AppLayout";
-import Breadcrumb from "@/shared/Breadcrumb";
+import Breadcrumb from "@/components/Breadcrumb";
 import AuthTabsHeader from "@/Pages/Frontend/Auth/components/AuthTabsHeader";
 import SocialButtons from "@/Pages/Frontend/Auth/components/SocialButtons";
 import LoginForm from "@/Pages/Frontend/Auth/components/LoginForm";
@@ -32,8 +32,7 @@ let isDesktop = ref(true);
 
 const mediaQueryWidth = window.matchMedia("(max-width: 756px)");
 
-if (mediaQueryWidth.matches)
-{
+if (mediaQueryWidth.matches) {
     isDesktop.value = false;
 }
 </script>

@@ -86,7 +86,8 @@
             </li>
 
             <li class="menu-item">
-                <a class="menu-link"> <i class="icon material-icons md-comment"></i>
+                <a class="menu-link" href="{{ route('admin.reviews.index') }}">
+                    <i class="icon material-icons md-comment"></i>
                     <span class="text">Reviews</span>
                 </a>
             </li>

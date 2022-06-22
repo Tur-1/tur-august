@@ -4,7 +4,7 @@
 @section('content')
     <div class="content-header">
 
-        <h2 class="content-title">Products </h2>
+        <span class="content-title">Products </span>
         <div class="">
             <a class="btn btn-primary me-2" href="{{ route('admin.products.create') }}">
                 <i class="text-muted material-icons md-post_add"></i>

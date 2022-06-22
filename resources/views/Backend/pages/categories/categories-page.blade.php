@@ -6,7 +6,7 @@
 
     <div class="content-header">
 
-        <h2 class="content-title">Categories </h2>
+        <span class="content-title">Categories </span>
         <div class="">
             <a class="btn btn-primary me-2" href="{{ route('admin.sections.create') }}">
                 <i class="text-muted material-icons md-post_add"></i>

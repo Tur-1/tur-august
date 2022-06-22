@@ -5,11 +5,14 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Models\product\Brand;
 use App\Models\product\Color;
+use App\Traits\AlertMessages;
 use App\Models\product\Product;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 use App\Models\product\ProductSizeOption;
 use App\Services\Backend\Product\StoreProductService;
-use App\Traits\AlertMessages;
+
+use function PHPUnit\Framework\isEmpty;
 
 class ProductController extends Controller
 {
@@ -70,7 +73,7 @@ class ProductController extends Controller
         (new StoreProductService)->saveProduct($product, $request);
         $message = $product->name . ' Product has been Added successfully';
 
-        return $this->RedirectWithSuccessMsg($this->routeName, $message);
+        return $this->redirectWithSuccessMsg($this->routeName, $message);
     }
 
     /**
@@ -134,7 +137,7 @@ class ProductController extends Controller
         (new StoreProductService)->saveProduct($product, $request);
         $message = $product->name . ' Product has been updated successfully';
 
-        return $this->RedirectWithSuccessMsg($this->routeName, $message);
+        return $this->redirectWithSuccessMsg($this->routeName, $message);
     }
 
     /**
@@ -145,6 +148,15 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+
+        $message = $product->name . ' product has been deleted successfully';
+        $productId = $product->id;
+
+        $product->delete();
+        if (isEmpty($product)) {
+            Storage::disk('local')->deleteDirectory('public/images/products/product_' . $productId);
+        }
+
+        return $this->redirectBackWithSuccessMsg($message);
     }
 }

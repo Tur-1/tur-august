@@ -1,10 +1,10 @@
 @extends('Backend.layouts.master')
-@section('title', 'Size')
+@section('title', 'size options')
 
 @section('content')
     <div class="content-header">
         <div>
-            <h2 class="content-title card-title">size </h2>
+            <span class="content-title ">size options</span>
 
         </div>
         <div>
@@ -54,8 +54,9 @@
 
                                 <td>
                                     <div class="dropdown">
-                                        <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"
-                                            aria-expanded="false"> <i class="material-icons md-more_horiz"></i> </a>
+                                        <a href="#" data-bs-toggle="dropdown"
+                                            class="btn btn-light rounded btn-sm font-sm" aria-expanded="false"> <i
+                                                class="material-icons md-more_horiz"></i> </a>
                                         <div class="dropdown-menu" style="margin: 0px;">
 
                                             <a href="{{ route('admin.sizeOptions.edit', $size) }}"

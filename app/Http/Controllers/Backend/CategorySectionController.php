@@ -59,7 +59,7 @@ class CategorySectionController extends Controller
         $this->saveCategory($section, $request);
         $message = $section->name . ' section has been Added successfully';
 
-        return $this->RedirectWithSuccessMsg($this->routeName, $message);
+        return $this->redirectWithSuccessMsg($this->routeName, $message);
     }
 
 
@@ -99,7 +99,7 @@ class CategorySectionController extends Controller
         $this->saveCategory($section, $request);
         $message = $section->name . ' section has been updated successfully';
 
-        return $this->RedirectWithSuccessMsg($this->routeName, $message);
+        return $this->redirectWithSuccessMsg($this->routeName, $message);
     }
     /**
      * Remove the specified resource from storage.
@@ -113,6 +113,6 @@ class CategorySectionController extends Controller
         $message = $section->name . ' Category has been Deleted successfully';
 
         $this->destroyModelWithImage($section,  $this->getCategoryOldImagePath($section));
-        return $this->RedirectWithSuccessMsg($this->routeName, $message);
+        return $this->redirectWithSuccessMsg($this->routeName, $message);
     }
 }

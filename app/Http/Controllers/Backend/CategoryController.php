@@ -41,7 +41,7 @@ class CategoryController extends Controller
         (new StoreCategoryService())->saveCategory($category, $request);
         $message = $category->name . ' Category has been Added successfully';
 
-        return $this->RedirectWithSuccessMsg($this->routeName, $message);
+        return $this->redirectWithSuccessMsg($this->routeName, $message);
     }
 
     /**
@@ -87,7 +87,7 @@ class CategoryController extends Controller
         (new StoreCategoryService())->saveCategory($category, $request);
         $message = $category->name . ' Category has been updated successfully';
 
-        return $this->RedirectWithSuccessMsg($this->routeName, $message);
+        return $this->redirectWithSuccessMsg($this->routeName, $message);
     }
 
     /**
@@ -102,6 +102,6 @@ class CategoryController extends Controller
         $message = $category->name . ' Category has been Deleted successfully';
 
         $this->destroyModelWithImage($category, (new StoreCategoryService())->getCategoryOldImagePath($category));
-        return $this->RedirectWithSuccessMsg($this->routeName, $message);
+        return $this->redirectWithSuccessMsg($this->routeName, $message);
     }
 }

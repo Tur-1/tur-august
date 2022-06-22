@@ -3966,6 +3966,8 @@ body.offcanvas-active {
 
 .content-header .content-title {
     margin-bottom: 0;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .inner {
@@ -4650,4 +4652,71 @@ body.dark .dropdown-menu .dropdown-item.text-danger {
         top: 90%;
     }
 
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px 13px;
+}
+
+.review-header .review-name-image {
+    display: flex;
+    align-items: center;
+
+}
+
+.review-product-image {
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+
+}
+
+.review-product-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+.review-header .review-date {
+    font-size: 12px;
+    color: #999999;
+    margin-bottom: 0;
+    text-transform: lowercase;
+}
+
+.review-body {
+    display: flex;
+}
+
+.review-body .review-user-image {
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+.review-body .review-user-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+}
+
+.review-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.review-actions button {
+    border-radius: 3px;
+    border: 1px solid;
+    font-size: 14px;
+    padding: 3px 10px;
+}
+
+.border-top {
+    border-top: 1px solid rgb(210 210 210 / 25%) !important;
 }

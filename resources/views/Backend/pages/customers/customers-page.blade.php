@@ -2,37 +2,37 @@
 @section('title', 'Brands')
 
 @section('content')
-<div class="content-header">
-    <div>
-        <h2 class="content-title card-title">Brand </h2>
-
-    </div>
-    <div>
-        {{-- @can('create', App\Models\products\Brand::class) --}}
-        <a class="btn btn-primary"><i class="text-muted material-icons md-post_add"></i>new brand</a>
-        {{-- @endcan --}}
-    </div>
-</div>
-<div class="card mb-4">
-    <header class="card-header">
-        <div class="row gx-3">
-            <div class="col-lg-4 mb-lg-0 mb-15 me-auto">
-                <form method="get">
-                    <div class="input-group mb-3">
-                        <input type="text" placeholder="Search..." name="search" class="form-control">
-                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i
-                                class="fas fa-search"></i></button>
-                    </div>
-
-                </form>
-
-            </div>
+    <div class="content-header">
+        <div>
+            <span class="content-title card-title">Brand </span>
 
         </div>
-    </header> <!-- card-header end// -->
-    <div class="card-body">
-        <div class="row gx-3">
-            {{-- @forelse ($brands as $brand)
+        <div>
+            {{-- @can('create', App\Models\products\Brand::class) --}}
+            <a class="btn btn-primary"><i class="text-muted material-icons md-post_add"></i>new brand</a>
+            {{-- @endcan --}}
+        </div>
+    </div>
+    <div class="card mb-4">
+        <header class="card-header">
+            <div class="row gx-3">
+                <div class="col-lg-4 mb-lg-0 mb-15 me-auto">
+                    <form method="get">
+                        <div class="input-group mb-3">
+                            <input type="text" placeholder="Search..." name="search" class="form-control">
+                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i
+                                    class="fas fa-search"></i></button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </header> <!-- card-header end// -->
+        <div class="card-body">
+            <div class="row gx-3">
+                {{-- @forelse ($brands as $brand)
             <div class="col-xl-2 col-lg-3 col-md-4 col-6">
                 <figure class="card border-1">
                     <div class="card-header bg-white text-center">
@@ -79,15 +79,15 @@
                 </figure>
             </div> <!-- col.// -->
             @empty --}}
-            <h4 class="text-center">No Brands Found</h4>
-            {{-- @endforelse --}}
+                <h4 class="text-center">No Brands Found</h4>
+                {{-- @endforelse --}}
 
-        </div> <!-- row.// -->
-    </div> <!-- card-body end// -->
-    <div class="card-footer">
-        {{-- {{ $brands->links() }} --}}
-    </div>
-</div> <!-- card end// -->
+            </div> <!-- row.// -->
+        </div> <!-- card-body end// -->
+        <div class="card-footer">
+            {{-- {{ $brands->links() }} --}}
+        </div>
+    </div> <!-- card end// -->
 
 
 @endsection

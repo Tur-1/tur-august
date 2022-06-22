@@ -24,7 +24,7 @@
                 id="Reviews-tab"
                 data-bs-toggle="tab"
                 href="#Reviews"
-                >Reviews (0)</a
+                >Reviews ({{ $page.props.reviews.length }})</a
             >
         </li>
     </ul>

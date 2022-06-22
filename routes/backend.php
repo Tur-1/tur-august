@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\SizeOptionController;
 use App\Http\Controllers\Backend\OrderStatusController;
 use App\Http\Controllers\Backend\CategorySectionController;
 use App\Http\Controllers\Backend\CouponController;
+use App\Http\Controllers\Backend\ProductReviewController;
 
 Route::view('dashboard', 'Backend.pages.dashboard.dashboard-page');
 
@@ -32,3 +33,6 @@ Route::resource('products', ProductController::class);
 Route::resource('order/status', OrderStatusController::class)->parameters(['status' => 'orderStatus']);
 
 Route::resource('coupons', CouponController::class);
+
+Route::post('reply/{review_id}', [ProductReviewController::class, 'reply'])->name('reviews.reply');
+Route::resource('reviews', ProductReviewController::class);

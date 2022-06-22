@@ -32,13 +32,9 @@
 
             <li class="dropdown nav-item">
                 <a class="dropdown-toggle" data-bs-toggle="dropdown" id="dropdownAccount" aria-expanded="false">
-                    @if (auth()->check() && auth()->user()->gender == 'Female')
-                    <img class="img-sm rounded-circle"
-                        src="{{ asset('Backend/assets/images/avatars/avatar_female.png') }}" alt="User">
-                    @else
-                    <img class="img-sm rounded-circle"
-                        src="{{ asset('Backend/assets/images/avatars/avatar_male.png') }}" alt="User">
-                    @endif
+
+                    <img class="img-sm rounded-circle" src="{{ auth()->user()->avatar_url }}" alt="User">
+
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

@@ -1,7 +1,10 @@
 <template>
     <app-layout :title="$page.props.productDetail.name">
-        <Breadcrumb v-if="showDesktopLayout" :categories="$page.props.breadcrumb"
-            :pageTitle="$page.props.productDetail.name" />
+        <Breadcrumb
+            v-if="showDesktopLayout"
+            :categories="$page.props.breadcrumb"
+            :pageTitle="$page.props.productDetail.name"
+        />
         <section class="container product-detail-container">
             <div class="row justify-content-center">
                 <ProductImages />
@@ -16,7 +19,7 @@
 
 <script setup>
 import AppLayout from "@/layouts/Frontend/AppLayout";
-import Breadcrumb from "@/shared/Breadcrumb";
+import Breadcrumb from "@/components/Breadcrumb";
 import ProductImages from "@/Pages/Frontend/ProductDetailPage/components/ProductImages.vue";
 import ProductInformation from "@/Pages/Frontend/ProductDetailPage/components/ProductInformation.vue";
 import Tabs from "@/Pages/Frontend/ProductDetailPage/components/Tabs.vue";
@@ -28,8 +31,7 @@ let showDesktopLayout = ref(true);
 
 const mediaQueryWidth = window.matchMedia("(max-width: 756px)");
 
-if (mediaQueryWidth.matches)
-{
+if (mediaQueryWidth.matches) {
     showDesktopLayout.value = false;
 }
 </script>

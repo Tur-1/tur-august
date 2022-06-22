@@ -46,7 +46,7 @@ class SizeOptionController extends Controller
         $this->saveSizeOption($sizeOption, $request);
         $message = $sizeOption->name . ' size has been Added successfully';
 
-        return $this->RedirectWithSuccessMsg($this->RouteName, $message);
+        return $this->redirectWithSuccessMsg($this->RouteName, $message);
     }
 
     /**
@@ -85,7 +85,7 @@ class SizeOptionController extends Controller
         $this->saveSizeOption($sizeOption, $request);
         $message = $sizeOption->name . ' size has been Updated successfully';
 
-        return $this->RedirectBackWithSuccessMsg($message);
+        return $this->redirectBackWithSuccessMsg($message);
     }
 
     /**
@@ -100,6 +100,6 @@ class SizeOptionController extends Controller
         $sizeOption->delete();
         $message = $sizeOption->name . ' size has been Deleted successfully';
 
-        return $this->RedirectWithSuccessMsg($this->RouteName, $message);
+        return $this->redirectWithSuccessMsg($this->RouteName, $message);
     }
 }

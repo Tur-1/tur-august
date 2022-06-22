@@ -2,12 +2,13 @@
 
 namespace App\Models\user;
 
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use App\Models\product\Product;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -27,7 +28,9 @@ class User extends Authenticatable
         'gender',
         'phone_number'
     ];
-
+    protected $appebds = [
+        'avatar_url',
+    ];
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -89,5 +92,19 @@ class User extends Authenticatable
     public function wishlistHas($product_id)
     {
         return  $this->wishlist()->where('product_id', $product_id)->exists('product_id');
+    }
+
+    public function productReviews(): HasMany
+    {
+        return $this->hasMany(ProductReview::class);
+    }
+
+    public function getAvatarUrlAttribute()
+    {
+        if ($this->gender == 'Male') {
+            return asset('assets/images/avatars/avatar_male.png');
+        }
+
+        return asset('assets/images/avatars/avatar_female.png');
     }
 }

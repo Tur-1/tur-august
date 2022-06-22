@@ -44,7 +44,8 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web/Frontend/MyAccountPage.php'));
             Route::middleware('web')
                 ->group(base_path('routes/web/Frontend/CheckoutPage.php'));
-
+            Route::middleware('web')
+                ->group(base_path('routes/web/Frontend/ProductDetailPage.php'));
 
             Route::middleware('web')
                 ->prefix('/admin/')

@@ -47,7 +47,7 @@ class CouponController extends Controller
 
         $message = $coupon->code . 'coupon has been added successfully';
 
-        return $this->RedirectWithSuccessMsg($this->routeName, $message);
+        return $this->redirectWithSuccessMsg($this->routeName, $message);
     }
 
     /**
@@ -89,7 +89,7 @@ class CouponController extends Controller
 
         $message = $coupon->code . 'coupon has been updated successfully';
 
-        return $this->RedirectWithSuccessMsg($this->routeName, $message);
+        return $this->redirectWithSuccessMsg($this->routeName, $message);
     }
 
     /**
@@ -104,6 +104,6 @@ class CouponController extends Controller
         $message = $coupon->code . ' has been Deleted successfully';
 
         $coupon->delete();
-        return $this->RedirectWithSuccessMsg($this->routeName, $message);
+        return $this->redirectWithSuccessMsg($this->routeName, $message);
     }
 }

@@ -55,7 +55,7 @@ class ColorController extends Controller
         $this->saveColor($color, $request);
         $message = $color->name . ' Color has been Added successfully';
 
-        return $this->RedirectWithSuccessMsg($this->routeName, $message);
+        return $this->redirectWithSuccessMsg($this->routeName, $message);
     }
 
     /**
@@ -94,7 +94,7 @@ class ColorController extends Controller
         $this->saveColor($color, $request);
         $message = $color->name . ' color has been updated successfully';
 
-        return $this->RedirectWithSuccessMsg($this->routeName, $message);
+        return $this->redirectWithSuccessMsg($this->routeName, $message);
     }
 
     /**
@@ -110,6 +110,6 @@ class ColorController extends Controller
 
 
         $this->destroyModelWithImage($color,  $this->getColorOldImagePath($color));
-        return $this->RedirectWithSuccessMsg($this->routeName, $message);
+        return $this->redirectWithSuccessMsg($this->routeName, $message);
     }
 }

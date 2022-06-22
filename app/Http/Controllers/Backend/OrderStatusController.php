@@ -58,7 +58,7 @@ class OrderStatusController extends Controller
         $this->saveStatus($orderStatus, $request);
         $message = $orderStatus->status . ' status has been Added successfully';
 
-        return $this->RedirectWithSuccessMsg($this->routeName, $message);
+        return $this->redirectWithSuccessMsg($this->routeName, $message);
     }
 
     /**
@@ -96,7 +96,7 @@ class OrderStatusController extends Controller
         $this->saveStatus($orderStatus, $request);
         $message = $orderStatus->status . ' status has been updated successfully';
 
-        return $this->RedirectWithSuccessMsg($this->routeName, $message);
+        return $this->redirectWithSuccessMsg($this->routeName, $message);
     }
 
     /**
@@ -107,11 +107,11 @@ class OrderStatusController extends Controller
      */
     public function destroy(OrderStatus $orderStatus)
     {
-        if (OrderStatus::count() == 1) return $this->RedirectBackWithErrorMsg('you can\'t delete the first status');
+        if (OrderStatus::count() == 1) return $this->redirectBackWithErrorMsg('you can\'t delete the first status');
 
         $message = $orderStatus->name . 'status has been Deleted successfully';
 
         $this->destroyModelWithImage($orderStatus,  $this->getStatusOldImagePath($orderStatus));
-        return $this->RedirectWithSuccessMsg($this->routeName, $message);
+        return $this->redirectWithSuccessMsg($this->routeName, $message);
     }
 }

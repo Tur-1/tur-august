@@ -4,6 +4,7 @@ namespace App\Services\Frontend\Pages;
 
 use Carbon\Carbon;
 use App\Models\product\Product;
+use App\Models\product\ProductReview;
 use App\Exceptions\PageNotFoundException;
 
 class ProductDetailPageService
@@ -29,6 +30,39 @@ class ProductDetailPageService
         }
         return $this->productDetail;
     }
+    public function reviews()
+    {
+        return ProductReview::where('product_id', $this->productDetail['id'])
+            ->whereNull('review_id')
+            ->with('user', 'reply')
+            ->select('id', 'comment', 'user_id', 'created_at', 'review_id')
+            ->latest()
+            ->get()->map(fn ($review) =>  $this->reviewItem($review));
+    }
+    private function reviewItem($review)
+    {
+
+        return [
+            'id' => $review->id,
+            'user_name' => $review->user->name,
+            'user_avatar' => $review->user->avatar_url,
+            'review_id' => $review->review_id,
+            'comment' => $review->comment,
+            'date' =>  $review->created_at->diffForHumans(),
+            'reply' => $review->reply ? $this->replyReviewItem($review->reply) : []
+        ];
+    }
+    private function replyReviewItem($review)
+    {
+        return [
+            'id' => $review->id,
+            'user_name' => $review->user->name,
+            'user_avatar' => $review->user->avatar_url,
+            'review_id' => $review->review_id,
+            'comment' => $review->comment,
+            'date' =>  $review->created_at->diffForHumans()
+        ];
+    }
     private function productItem($product, $currentDate)
     {
         $discounted_price = 0;
@@ -48,6 +82,7 @@ class ProductDetailPageService
         return [
             'id' => $product->id,
             'name' => $product->name,
+            'slug' => $product->slug,
             'details' => $product->details,
             'brand_name' =>  $product->brand_name,
             'brand_image_url' =>  $product->brand_image_url,
@@ -62,6 +97,7 @@ class ProductDetailPageService
             'meta_description' => $product->meta_description,
             'productImages' => $product->productImages,
             'categories' => $product->categories,
+            'productReviews' => $product->productReviews,
             'stockSizeOptions' => $product->stockSizeOptions,
         ];
     }

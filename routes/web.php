@@ -25,5 +25,3 @@ Auth::routes();
 Route::get('/', [HomePageController::class, 'index'])->name('homePage');
 
 Route::get('/shop/{category_slug}', [ShopPageController::class, 'index'])->name('shopPage');
-
-Route::get('/product-detail/{product_slug}', [ProductDetailPageController::class, 'index'])->name('productDetailPage');

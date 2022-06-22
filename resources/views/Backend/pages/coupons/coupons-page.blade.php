@@ -6,7 +6,7 @@
 @section('content')
     <div class="content-header">
 
-        <h2 class="content-title">coupons</h2>
+        <span class="content-title">coupons</span>
         <div class="">
             <a class="btn btn-primary me-2" href="{{ route('admin.coupons.create') }}">
                 <i class="text-muted material-icons md-post_add"></i>

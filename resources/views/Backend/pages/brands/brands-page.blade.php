@@ -4,7 +4,7 @@
 @section('content')
     <div class="content-header">
         <div>
-            <h2 class="content-title card-title">Brand </h2>
+            <span class="content-title">Brands</span>
 
         </div>
         <div>

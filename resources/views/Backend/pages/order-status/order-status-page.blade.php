@@ -4,7 +4,7 @@
 @section('content')
     <div class="content-header">
 
-        <h2 class="content-title">status</h2>
+        <span class="content-title">status</span>
         <div class="">
             <a class="btn btn-primary me-2" href="{{ route('admin.status.create') }}">
                 <i class="text-muted material-icons md-post_add"></i>

@@ -58,4 +58,8 @@ class Product extends Model
     {
         return $this->categories->first()['name'];
     }
+    public function productReviews(): HasMany
+    {
+        return $this->hasMany(ProductReview::class, 'product_id');
+    }
 }

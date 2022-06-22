@@ -1,7 +1,7 @@
 <template lang="">
     <div class="tab-pane fade active show" id="Reviews">
         <div class="reviews-area">
-            <ReviewForm />
+            <ReviewForm :productSlug="$page.props.productDetail.slug"/>
 
             <ReviewItem />
         </div>

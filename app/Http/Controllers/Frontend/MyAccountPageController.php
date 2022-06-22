@@ -36,7 +36,7 @@ class MyAccountPageController extends Controller
             ]
         );
 
-        return $this->RedirectBackWithSuccessMsg('account information has ben updated successfully');
+        return $this->redirectBackWithSuccessMsg('account information has ben updated successfully');
     }
     public function updateAccountPhoneNumber(Request $request)
     {
@@ -45,7 +45,7 @@ class MyAccountPageController extends Controller
 
         auth()->user()->update(['phone_number' => intval($request->phone_number)]);
 
-        return $this->RedirectBackWithSuccessMsg('phone number has been updated successfully');
+        return $this->redirectBackWithSuccessMsg('phone number has been updated successfully');
     }
 
     public function updateAccountPassword(Request $request)
@@ -62,6 +62,6 @@ class MyAccountPageController extends Controller
 
         auth()->user()->update(['password' => $request->new_password]);
 
-        return $this->RedirectBackWithSuccessMsg('your password has been updated successfully');
+        return $this->redirectBackWithSuccessMsg('your password has been updated successfully');
     }
 }

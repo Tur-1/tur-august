@@ -64,7 +64,7 @@ class BrandController extends Controller
         $this->saveBrand($brand, $request);
         $message = $brand->name . ' Brand has been Added successfully';
 
-        return $this->RedirectWithSuccessMsg($this->routeName, $message);
+        return $this->redirectWithSuccessMsg($this->routeName, $message);
     }
 
     /**
@@ -103,7 +103,7 @@ class BrandController extends Controller
         $this->saveBrand($brand, $request);
         $message = $brand->name . ' brand has been updated successfully';
 
-        return $this->RedirectWithSuccessMsg($this->routeName, $message);
+        return $this->redirectWithSuccessMsg($this->routeName, $message);
     }
 
     /**
@@ -118,6 +118,6 @@ class BrandController extends Controller
         $message = $brand->name . ' Brand has been Deleted successfully';
 
         $this->destroyModelWithImage($brand,  $this->getBrandOldImagePath($brand));
-        return $this->RedirectWithSuccessMsg($this->routeName, $message);
+        return $this->redirectWithSuccessMsg($this->routeName, $message);
     }
 }

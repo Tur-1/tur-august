@@ -46,7 +46,7 @@ class UserController extends Controller
 
         $message = $user->name . 'has been Added successfully';
 
-        return $this->RedirectWithSuccessMsg($this->routeName, $message);
+        return $this->redirectWithSuccessMsg($this->routeName, $message);
     }
     /**
      * Display the specified resource.
@@ -83,7 +83,7 @@ class UserController extends Controller
         $user->update($userRequest);
         $message = $user->name . ' has been Updated successfully';
 
-        return $this->RedirectBackWithSuccessMsg($message);
+        return $this->redirectBackWithSuccessMsg($message);
     }
 
     /**
@@ -98,6 +98,6 @@ class UserController extends Controller
         $message = $user->name . ' has been Deleted successfully';
 
         $user->delete();
-        return $this->RedirectWithSuccessMsg($this->routeName, $message);
+        return $this->redirectWithSuccessMsg($this->routeName, $message);
     }
 }
