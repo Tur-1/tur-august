@@ -13,6 +13,6 @@ class HomePageController extends Controller
     public function index()
     {
 
-        return Inertia::render('Frontend/HomePage/Index');
+        return Inertia::render('HomePage/Index');
     }
 }

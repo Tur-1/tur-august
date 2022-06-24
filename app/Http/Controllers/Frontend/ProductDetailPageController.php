@@ -23,7 +23,7 @@ class ProductDetailPageController extends Controller
         $relatedProducts = $productDetailPageService->getRelatedProducts();
         $breadcrumb = $productDetailPageService->getBreadcrumb();
 
-        return Inertia::render('Frontend/ProductDetailPage/Index', compact('productDetail', 'breadcrumb', 'relatedProducts', 'reviews'));
+        return Inertia::render('ProductDetailPage/Index', compact('productDetail', 'breadcrumb', 'relatedProducts', 'reviews'));
     }
     public function sendComment($slug, Request $request)
     {

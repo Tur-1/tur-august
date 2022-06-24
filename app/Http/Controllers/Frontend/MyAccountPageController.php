@@ -18,7 +18,7 @@ class MyAccountPageController extends Controller
     {
         $user = auth()->user();
 
-        return Inertia::render('Frontend/MyAccountPage/Index', ['user' => $user, 'genders' => $this->genders]);
+        return Inertia::render('MyAccountPage/Index', ['user' => $user, 'genders' => $this->genders]);
     }
     public function updateAccountInformation(Request $request)
     {

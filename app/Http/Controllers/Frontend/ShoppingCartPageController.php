@@ -17,7 +17,7 @@ class ShoppingCartPageController extends Controller
 
         $shoppingCartItems =  $shoppingCartPageService->getUserShoppingCart();
 
-        return Inertia::render('Frontend/ShoppingCartPage/Index', compact('shoppingCartItems'));
+        return Inertia::render('ShoppingCartPage/Index', compact('shoppingCartItems'));
     }
 
     public function addToShoppingCart(Request $request)

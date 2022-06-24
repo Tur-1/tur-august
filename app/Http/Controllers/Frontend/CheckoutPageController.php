@@ -10,6 +10,6 @@ class CheckoutPageController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Frontend/CheckoutPage/Index');
+        return Inertia::render('CheckoutPage/Index');
     }
 }

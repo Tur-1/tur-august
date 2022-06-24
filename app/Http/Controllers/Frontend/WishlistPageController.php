@@ -17,7 +17,7 @@ class WishlistPageController extends Controller
             $products = auth()->user()->wishlistProducts;
         }
 
-        return Inertia::render('Frontend/WishlistPage/Index', compact('products'));
+        return Inertia::render('WishlistPage/Index', compact('products'));
     }
     public function addToWishlist(Request $request)
     {

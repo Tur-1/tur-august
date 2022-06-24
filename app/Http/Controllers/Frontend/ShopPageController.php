@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Models\product\Product;
+use Inertia\Inertia;
 use App\Http\Controllers\Controller;
 use App\Exceptions\PageNotFoundException;
 use App\Services\Frontend\Pages\ShopPageService;
-
-
 
 class ShopPageController extends Controller
 {
@@ -30,12 +28,11 @@ class ShopPageController extends Controller
             $sortProducts =  $shopPageService->getSortProducts();
             $queryString = $shopPageService->getQueriesString();
         } catch (PageNotFoundException $ex) {
-            return inertia('frontend/Errors/404');
+            return Inertia::render('Errors/404');
         }
 
 
-        return inertia('Frontend/ShopPage/Index', [
-
+        return Inertia::render('ShopPage/Index', [
             'category' => $category,
             'breadcrumb' => $breadcrumb,
             'previousCategory' => $previousCategory,
