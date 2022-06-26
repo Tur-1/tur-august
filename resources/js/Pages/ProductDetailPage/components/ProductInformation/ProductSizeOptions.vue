@@ -2,11 +2,7 @@
     <div class="attr-size">
         <strong class="me-3">Size</strong>
         <ul class="size-filter">
-            <li
-                v-for="(size, index) in $page.props.productDetail
-                    .stockSizeOptions"
-                :key="index"
-            >
+            <li v-for="(size, index) in $page.props.sizeOptions" :key="index">
                 <input
                     type="radio"
                     name="size"

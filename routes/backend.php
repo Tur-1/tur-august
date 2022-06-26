@@ -12,7 +12,7 @@ use App\Http\Controllers\Backend\CategorySectionController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\ProductReviewController;
 
-Route::view('dashboard', 'Backend.pages.dashboard.dashboard-page');
+Route::view('dashboard', 'Backend.pages.dashboard.dashboard-page')->name('dashboard');
 
 Route::get('customers', [UserController::class, 'customers'])->name('customers');
 

@@ -3,19 +3,25 @@
 namespace App\Http\Livewire\Backend\Components\Category;
 
 use Livewire\Component;
+use App\Models\product\Category;
 
 class SelectCategory extends Component
 {
     public $selectedCategory;
+
     public $selectedSection;
     public $categories = [];
     public $sections = [];
 
 
-
     public function updatedSelectedSection()
     {
-        $this->categories = app('allCategories')->where("id", $this->selectedSection)->first()['children'];
+
+        if (!empty($this->selectedSection)) {
+
+            $section = Category::tree()->where("id", $this->selectedSection)->first();
+            $this->categories =  $section['children'] ?? [];
+        }
     }
 
 
@@ -28,14 +34,14 @@ class SelectCategory extends Component
             $this->selectedCategory = $sectionChildren['selectedCategory'];
         }
 
-        $this->sections = app('allCategories')->where("is_section", true)->toArray();
+        $this->sections = Category::tree()->where("is_section", true)->toArray();
         $this->getOldValues();
     }
     public function getOldValues()
     {
         if (old('section_id')) {
             $this->selectedSection = old('section_id');
-            $this->categories = app('allCategories')->where("id", $this->selectedSection)->first()['children'];
+            $this->categories = Category::tree()->where("id", $this->selectedSection)->first()['children'];
         }
         if (old('category_id')) {
             $this->selectedCategory = old('category_id');

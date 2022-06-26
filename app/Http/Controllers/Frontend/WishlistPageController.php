@@ -13,11 +13,20 @@ class WishlistPageController extends Controller
     public function index()
     {
         $products = [];
-        if (count(app('wishlistProductsIds')) > 0) {
+        $inWishlist = auth()->user()->wishlist()->pluck('product_id')->toArray();
+        if ($inWishlist > 0) {
             $products = auth()->user()->wishlistProducts;
         }
 
-        return Inertia::render('WishlistPage/Index', compact('products'));
+        return Inertia::render(
+            'WishlistPage/Index',
+            [
+                'wishlistCounter' => count($inWishlist),
+                'inWishlist' => $inWishlist,
+                'products' =>  $products,
+
+            ]
+        );
     }
     public function addToWishlist(Request $request)
     {

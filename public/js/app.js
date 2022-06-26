@@ -356,6 +356,16 @@ var map = {
 		"/js/vendor",
 		"resources_js_Pages_MyAccountPage_components_MyAddressBook_index_vue"
 	],
+	"./MyAccountPage/components/MyAddressBook/AddNewAddress": [
+		"./resources/js/Pages/MyAccountPage/components/MyAddressBook/AddNewAddress.vue",
+		"/js/vendor",
+		"resources_js_Pages_MyAccountPage_components_MyAddressBook_AddNewAddress_vue"
+	],
+	"./MyAccountPage/components/MyAddressBook/AddNewAddress.vue": [
+		"./resources/js/Pages/MyAccountPage/components/MyAddressBook/AddNewAddress.vue",
+		"/js/vendor",
+		"resources_js_Pages_MyAccountPage_components_MyAddressBook_AddNewAddress_vue"
+	],
 	"./MyAccountPage/components/MyAddressBook/MyAddressForm": [
 		"./resources/js/Pages/MyAccountPage/components/MyAddressBook/MyAddressForm.vue",
 		"/js/vendor",
@@ -365,6 +375,16 @@ var map = {
 		"./resources/js/Pages/MyAccountPage/components/MyAddressBook/MyAddressForm.vue",
 		"/js/vendor",
 		"resources_js_Pages_MyAccountPage_components_MyAddressBook_MyAddressForm_vue"
+	],
+	"./MyAccountPage/components/MyAddressBook/MyAddressList": [
+		"./resources/js/Pages/MyAccountPage/components/MyAddressBook/MyAddressList.vue",
+		"/js/vendor",
+		"resources_js_Pages_MyAccountPage_components_MyAddressBook_MyAddressList_vue"
+	],
+	"./MyAccountPage/components/MyAddressBook/MyAddressList.vue": [
+		"./resources/js/Pages/MyAccountPage/components/MyAddressBook/MyAddressList.vue",
+		"/js/vendor",
+		"resources_js_Pages_MyAccountPage_components_MyAddressBook_MyAddressList_vue"
 	],
 	"./MyAccountPage/components/MyAddressBook/index": [
 		"./resources/js/Pages/MyAccountPage/components/MyAddressBook/index.vue",

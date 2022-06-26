@@ -48,15 +48,8 @@
                             role="tabpanel"
                             aria-labelledby="v-pills-home-tab"
                         >
-                            <Link
-                                class="card-category"
-                                :href="
-                                    route('shopPage', {
-                                        category_slug: category.slug,
-                                    })
-                                "
-                            >
-                                <img src="" />
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
 
                                 <span> view all </span>
                             </Link>
@@ -66,13 +59,12 @@
                                     subcategory, subcategoryIndex
                                 ) in category.children"
                                 :key="subcategory.id"
-                                :href="
-                                    route('shopPage', {
-                                        category_slug: subcategory.slug,
-                                    })
-                                "
+                                :href="subcategory.link"
                             >
-                                <img src="" />
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
 
                                 <span> {{ subcategory.name }} </span>
                             </Link>

@@ -4,7 +4,7 @@
             <ProductCard :products="$page.props.products.data" />
         </div>
 
-        <Pagination :links="$page.props.products.links" />
+        <Pagination :links="$page.props.products.meta.links" />
     </div>
 </template>
 <script setup>

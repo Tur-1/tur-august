@@ -18,12 +18,21 @@ class ProductDetailPageController extends Controller
     {
 
         $productDetail =  $productDetailPageService->getProductDetail($slug);
-        $reviews = $productDetailPageService->reviews();
-
-        $relatedProducts = $productDetailPageService->getRelatedProducts();
+        $sizeOptions =  $productDetailPageService->getSizeOptions();
         $breadcrumb = $productDetailPageService->getBreadcrumb();
+        $productImages = $productDetailPageService->getProductImages();
+        $reviews = $productDetailPageService->reviews();
+        $relatedProducts = $productDetailPageService->getRelatedProducts();
 
-        return Inertia::render('ProductDetailPage/Index', compact('productDetail', 'breadcrumb', 'relatedProducts', 'reviews'));
+        $data =  [
+            'productDetail' => $productDetail,
+            'productImages' =>  $productImages,
+            'sizeOptions' =>  $sizeOptions,
+            'breadcrumb' => $breadcrumb,
+            'relatedProducts' => $relatedProducts,
+            'reviews' => $reviews,
+        ];
+        return Inertia::render('ProductDetailPage/Index', $data);
     }
     public function sendComment($slug, Request $request)
     {

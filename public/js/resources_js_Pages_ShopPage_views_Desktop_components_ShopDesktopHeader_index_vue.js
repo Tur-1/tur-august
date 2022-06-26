@@ -151,9 +151,7 @@ function render(_ctx, _cache) {
       "class": "breadcrumb-item",
       key: breadcrumbItem.id
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
-      href: _ctx.route('shopPage', {
-        category_slug: breadcrumbItem.slug
-      })
+      href: breadcrumbItem.link
     }, {
       "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
         return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(breadcrumbItem.name), 1

@@ -4,6 +4,9 @@ namespace App\Http\Middleware;
 
 use Inertia\Middleware;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use App\Http\Resources\Category\CategoriesResource;
+use App\Services\Frontend\Inertia\ShareInertiaDataService;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -39,15 +42,12 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
-
-
-        $wishlist = app('wishlistProductsIds');
-
+        $inertiaDataService = new ShareInertiaDataService();
         return array_merge(parent::share($request), [
-            'sections' => app('allCategories')->where("is_section", true)->toArray(),
-            'cartCounter' => auth()->check() ? auth()->user()->shoppingCart()->count() : 0,
-            'wishlistCounter' => count($wishlist),
-            'inWishlist' =>  $wishlist,
+            'sections' => $inertiaDataService->getCategoriesSections(),
+            'cartCounter' => $inertiaDataService->getCartCounter(),
+
+            'user' => $inertiaDataService->getAuthenticatedUser(),
         ]);
     }
 }

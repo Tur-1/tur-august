@@ -2,22 +2,25 @@
 
 namespace App\Http\Livewire\Backend\Pages;
 
-use Illuminate\Support\Facades\Session;
 use Livewire\Component;
+use App\Models\product\Category;
+use Illuminate\Support\Facades\Session;
 
 class CategoriesPage extends Component
 {
     public $selectedSection = null;
+    public $allcategories = [];
     public $categories = [];
     public $sections = [];
     public $categoriesSection = [];
     public $sectioName;
 
+
     public function updatedSelectedSection()
     {
         Session::put('selectedSection', $this->selectedSection);
         if (!empty($this->selectedSection) || !is_null($this->selectedSection)) {
-            $this->categoriesSection = app('allCategories')->where("id", $this->selectedSection)->first() ?? [];
+            $this->categoriesSection =  Category::tree()->where("id", $this->selectedSection)->first() ?? [];
 
             $this->categories = $this->categoriesSection['children'] ?? [];
             $this->sectioName = $this->categoriesSection['name'] ?? [];
@@ -27,17 +30,16 @@ class CategoriesPage extends Component
 
     public function mount()
     {
-
+        $this->allcategories = Category::tree();
         if (Session::has('selectedSection')) {
             $this->selectedSection = Session::get('selectedSection');
-            $this->categoriesSection = app('allCategories')->where("id", $this->selectedSection)->first() ?? [];
+            $this->categoriesSection = $this->allcategories->where("id", $this->selectedSection)->first() ?? [];
 
             $this->categories = $this->categoriesSection['children'] ?? [];
             $this->sectioName = $this->categoriesSection['name'] ?? [];
         }
 
-
-        $this->sections = app('allCategories')->where("is_section", true)->toArray();
+        $this->sections = $this->allcategories->where("is_section", true)->toArray();
     }
     public function render()
     {

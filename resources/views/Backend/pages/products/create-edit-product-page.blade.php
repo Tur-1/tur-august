@@ -249,7 +249,7 @@
                                             </section>
                                         </div>
                                         <div class="tab-pane fade" id="images" role="tabpanel">
-                                            <section class="content-body p-xl-4">
+                                            <section class="content-body ">
                                                 <livewire:backend.components.product.product-images.product-images
                                                     :productId="$product->id ?? null">
                                             </section>

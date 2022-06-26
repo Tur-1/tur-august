@@ -3,38 +3,35 @@
 namespace App\Http\Controllers\Frontend;
 
 use Inertia\Inertia;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Traits\AlertMessages;
-use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Frontend\StoreUserAccountInformationRequest;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\Frontend\StoreUserAddressRequest;
+use App\Services\Frontend\UserAddress\UserAddressService;
 
 class MyAccountPageController extends Controller
 {
     use AlertMessages;
     public $genders = ['Female', 'Male'];
-    public function index()
+    public function index(UserAddressService $userAddressService)
     {
         $user = auth()->user();
+        $userAddresses = $userAddressService->getUserAdresses();
 
-        return Inertia::render('MyAccountPage/Index', ['user' => $user, 'genders' => $this->genders]);
-    }
-    public function updateAccountInformation(Request $request)
-    {
-        $request->validate([
-            'name' => 'required',
-            'email' => ['required', 'email', Rule::unique('users')->ignore(auth()->id())],
-            'gender' => 'required|in:Female,Male'
+
+        return Inertia::render('MyAccountPage/Index', [
+            'user' => $user,
+            'genders' => $this->genders,
+            'userAddresses' => $userAddresses,
+
         ]);
+    }
+    public function updateAccountInformation(StoreUserAccountInformationRequest $request)
+    {
 
-        auth()->user()->update(
-            [
-                'name' =>  Str::title($request->name),
-                'email' => $request->email,
-                'gender' => $request->gender,
-            ]
-        );
+        auth()->user()->update($request->validated());
 
         return $this->redirectBackWithSuccessMsg('account information has ben updated successfully');
     }
@@ -63,5 +60,31 @@ class MyAccountPageController extends Controller
         auth()->user()->update(['password' => $request->new_password]);
 
         return $this->redirectBackWithSuccessMsg('your password has been updated successfully');
+    }
+
+
+    public function storeNewAddress(StoreUserAddressRequest $request, UserAddressService $userAddressService)
+    {
+
+        $userAddressService->createAddress($request->validated());
+
+        return $this->redirectBackWithSuccessMsg('new address has been added successfully');
+    }
+
+    public function updateUserAddress(StoreUserAddressRequest $request, UserAddressService $userAddressService, $id)
+    {
+        $address = $userAddressService->findUserAddress($id);
+
+        $address->update($request->validated());
+
+        return $this->redirectBackWithSuccessMsg(' address has been updated successfully');
+    }
+    public function destroyUserAddress(UserAddressService $userAddressService, $id)
+    {
+        $address = $userAddressService->findUserAddress($id);
+
+        $address->delete();
+
+        return $this->redirectBackWithSuccessMsg('address has been deleted successfully');
     }
 }

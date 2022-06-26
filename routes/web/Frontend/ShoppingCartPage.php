@@ -19,5 +19,6 @@ Route::middleware('auth')->controller(ShoppingCartPageController::class)->group(
 
     Route::get('/cart', 'index')->name('shoppingCartPage');
 
+
     Route::post('/add-to-cart', 'addToShoppingCart')->name('addToShoppingCart');
 });

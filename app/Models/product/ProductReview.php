@@ -33,7 +33,7 @@ class ProductReview extends Model
     }
     public function reply()
     {
-        return $this->hasOne(ProductReview::class, 'review_id');
+        return $this->hasOne(ProductReview::class, 'review_id')->with('user');
     }
     public function scopeIsNotRead($query)
     {

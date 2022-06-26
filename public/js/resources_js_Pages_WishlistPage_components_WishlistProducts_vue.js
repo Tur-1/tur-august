@@ -54,12 +54,12 @@ __webpack_require__.r(__webpack_exports__);
     expose();
     var props = __props;
     var form = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.useForm)({
-      product_id: ''
+      product_id: ""
     });
 
     var addToWishlist = function addToWishlist(product_id) {
       form.product_id = product_id;
-      form.post(route('addToWishlist'));
+      form.post(route("addToWishlist"));
     };
 
     var __returned__ = {
@@ -193,7 +193,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       disabled: $setup.form.processing
     }, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("svg", {
       xmlns: "http://www.w3.org/2000/svg",
-      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["wishlist-icon", _ctx.$page.props.inWishlist.includes(product.id) ? 'in-wishlist' : '']),
+      "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["wishlist-icon", {
+        'in-wishlist': product.inWishlist
+      }]),
       width: "22",
       height: "22",
       viewBox: "0 0 24 24"

@@ -3,6 +3,7 @@
 namespace App\Services\Backend\Category;
 
 use Illuminate\Support\Str;
+use App\Models\product\Category;
 use App\Actions\Backend\StoreModelImageAction;
 
 class StoreCategoryService
@@ -16,7 +17,7 @@ class StoreCategoryService
 
             $parentId = $request['category_id'];
         }
-        $parentCategory = app('allCategories')->where("id",  $parentId)->first();
+        $parentCategory = Category::tree()->where("id",  $parentId)->first();
         $ids = $parentCategory['parents_ids'] ?? [intval($parentId)];
 
         $ids[] = $parentCategory['id'];

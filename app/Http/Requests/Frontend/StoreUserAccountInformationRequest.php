@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Backend;
+namespace App\Http\Requests\Frontend;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUserAddressRequest extends FormRequest
+class StoreUserAccountInformationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +14,7 @@ class StoreUserAddressRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,9 @@ class StoreUserAddressRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required',
+            'email' => ['required', 'email', Rule::unique('users')->ignore(auth()->id())],
+            'gender' => 'required|in:Female,Male'
         ];
     }
 }

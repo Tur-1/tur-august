@@ -11,6 +11,11 @@ use App\Models\product\SizeOption;
 use App\Models\product\ProductCategory;
 use Illuminate\Support\Facades\Session;
 use App\Exceptions\PageNotFoundException;
+use App\Http\Resources\Brand\BrandsResource;
+use App\Http\Resources\Category\CategoriesResource;
+use App\Http\Resources\Color\ColorsResource;
+use App\Http\Resources\Product\ProductsListResource;
+use App\Http\Resources\SizeOption\SizeOptionsResource;
 
 class ShopPageService
 {
@@ -24,28 +29,22 @@ class ShopPageService
     public  function __construct()
     {
 
-
         $this->firstParamKey =  collect(array_keys(request()->only(['brand', 'color', 'sizeOptions'])))->first();
         $this->firstParamValues = request()->input($this->firstParamKey);
     }
 
     public function getCategory($slug)
     {
-
-        $this->allCategories = app('allCategories');
+        $this->allCategories = app('categoriesHasProducts');
         $this->category = $this->allCategories->where("slug", $slug)->first();
 
-
-        if (is_null($this->category)) {
-            throw new PageNotFoundException('Page Not Found', 404);
-        }
-
-        return $this->category;
+        $category = $this->category;
+        return CategoriesResource::make($category);
     }
     public function getBreadcrumb()
     {
 
-        return  $this->allCategories->whereIn('id', $this->category->parents_ids);
+        return CategoriesResource::collection($this->allCategories->whereIn('id', $this->category->parents_ids));
     }
 
     public function getPreviousCategory()
@@ -75,7 +74,7 @@ class ShopPageService
             return [$brand->id => $brand->name];
         });
 
-        return  $brands;
+        return  BrandsResource::collection($brands);
     }
     public function getColors()
     {
@@ -94,7 +93,7 @@ class ShopPageService
 
         $colors =  $colors->get();
 
-        return  $colors;
+        return  ColorsResource::collection($colors);
     }
     public function getSizeOptions()
     {
@@ -114,7 +113,7 @@ class ShopPageService
 
         $SizeOptions = $sizeOptions->get();
 
-        return $SizeOptions;
+        return SizeOptionsResource::collection($SizeOptions);
     }
 
     public function getProducts()
@@ -130,18 +129,9 @@ class ShopPageService
 
         $this->setBrandNameForEachProduct();
 
-        $currentDate = Carbon::now('GMT+3');
-        $this->products->getCollection()->transform(function ($product, $key) use ($currentDate) {
-            return  $this->productItem($product, $currentDate);
-        });
-
-
-        return $this->products;
+        return  ProductsListResource::collection($this->products)->response()->getData(true);
     }
-    public function getProductsCount()
-    {
-        return  Product::WhereCategory($this->category->id)->WithFilters()->count();
-    }
+
     public function getSortProducts()
     {
         return [
@@ -181,34 +171,7 @@ class ShopPageService
     {
         return request()->only(['brand', 'color', 'sort', 'sizeOptions']);
     }
-    private function productItem($product, $currentDate)
-    {
-        $discounted_price = 0;
 
-        $discount_amount = $product->discount_amount . ' SAR';
-
-        if ($product->discount_type == 'percentage') {
-
-            $discount_amount = $product->discount_amount . ' %';
-        }
-
-        $original_price =  $product->price . ' SAR';
-        if (!is_null($product->discounted_price) && $currentDate->between($product->discount_start_at, $product->discount_expires_at)) {
-            $discounted_price =  $product->discounted_price . ' SAR';
-        }
-
-        return [
-            'id' => $product->id,
-            'name' => $product->name,
-            'product_link' => route('productDetailPage', $product->slug),
-            'in_stock' => $product->stock > 0 ? true : false,
-            'price' => $discounted_price != 0 ? $discounted_price : $original_price,
-            'discounted_price' => $discounted_price != 0 ? $original_price : '',
-            'discount_amount' => $discount_amount,
-            'brand_name' => $product->brand_name,
-            'main_image_url' => $product->main_image_url,
-        ];
-    }
     private function setBrandNameForEachProduct(): void
     {
         $this->products->each(function ($product) {
@@ -217,6 +180,6 @@ class ShopPageService
     }
     private function isNotFirstParamKey(string $queryStringKey)
     {
-        return (!empty(request()->query()) && in_array('brand', array_keys(request()->only(['brand', 'color', 'sizeOptions']))) && $this->firstParamKey != $queryStringKey);
+        return (!empty(request()->query()) && in_array($queryStringKey, array_keys(request()->only(['brand', 'color', 'sizeOptions']))) && $this->firstParamKey != $queryStringKey);
     }
 }

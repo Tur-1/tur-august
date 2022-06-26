@@ -6,10 +6,7 @@
             :key="review.id"
         >
             <Review :review="review" />
-            <ReviewReply
-                v-if="review.reply.length > 0"
-                :reviewReply="review.reply"
-            />
+            <ReviewReply v-if="review.reply" :reviewReply="review.reply" />
         </div>
     </div>
 </template>

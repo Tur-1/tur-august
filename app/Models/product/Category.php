@@ -10,13 +10,23 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Category extends Model
 {
     use HasFactory;
+    protected $appends = ['image_url'];
     protected $casts = [
         'parents_ids' => 'array',
         'is_section' => 'boolean',
         'is_active' => 'boolean'
 
     ];
+    public static function childrenHasProducts()
+    {
 
+        $allCategories =  Category::query()->whereHas('products', fn ($product) => $product->select('product_id'))->get();
+
+        $sections =  $allCategories->where('is_section', true);
+
+        self::formatTree($sections, $allCategories);
+        return $allCategories;
+    }
     public static function tree()
     {
 

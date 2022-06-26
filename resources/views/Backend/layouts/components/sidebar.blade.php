@@ -14,7 +14,7 @@
         <ul class="menu-aside">
 
             <li class="menu-item  ">
-                <a class="menu-link"> <i class="icon material-icons md-home"></i>
+                <a class="menu-link" href="{{ route('admin.dashboard') }}"> <i class="icon material-icons md-home"></i>
 
                     <span class="text">Dashboard</span>
                 </a>

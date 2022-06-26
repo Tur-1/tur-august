@@ -98,7 +98,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(ProductReview::class);
     }
-
+    public function addresses(): HasMany
+    {
+        return $this->hasMany(UserAddress::class);
+    }
     public function getAvatarUrlAttribute()
     {
         if ($this->gender == 'Male') {

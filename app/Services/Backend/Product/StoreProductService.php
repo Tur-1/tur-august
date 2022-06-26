@@ -4,6 +4,7 @@ namespace App\Services\Backend\Product;
 
 use Illuminate\Support\Str;
 use App\Models\product\Product;
+use App\Models\product\Category;
 use Illuminate\Database\Eloquent\Model;
 use App\Services\Backend\Product\ProductImageService;
 use App\Services\Backend\Product\ProductDiscountService;
@@ -75,7 +76,7 @@ class StoreProductService
             $parentId = $request['category_id'];
         }
 
-        $category = app('allCategories')->where("id",  $parentId)->first();
+        $category = Category::tree()->where("id",  $parentId)->first();
         $ids = $category['parents_ids'] ?? [intval($parentId)];
 
         $ids[] = $category['id'];

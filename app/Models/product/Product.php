@@ -52,14 +52,27 @@ class Product extends Model
     }
     public function getCategoryNameAttribute()
     {
-        return $this->categories->last()['name'];
+
+        return $this->categories->last()->name;
     }
     public function getSectionNameAttribute()
     {
-        return $this->categories->first()['name'];
+        return $this->categories->first()->name;
     }
     public function productReviews(): HasMany
     {
         return $this->hasMany(ProductReview::class, 'product_id');
+    }
+    public function scopeRelatedProducts($query, $productId, $categoriesIds)
+    {
+        return $query->whereHas('categories', function ($query) use ($categoriesIds) {
+            $query->whereIn('id', collect($categoriesIds));
+        })->where('id', '!=', $productId)
+            ->SelectFrontendFields()
+            ->WithMainProductImage()
+            ->WithBrandName()
+            ->Active()
+            ->inRandomOrder()
+            ->limit(20);
     }
 }

@@ -17133,6 +17133,11 @@ section.container {
   color: #f9f9f9;
 }
 
+@media screen and (display-mode: fullscreen) {
+  .mobile-navbar nav {
+    padding-top: 27px;
+  }
+}
 .mobile-navbar nav {
   justify-content: unset !important;
 }
@@ -17231,6 +17236,11 @@ nav {
 }
 
 /******** footer *************/
+@media screen and (display-mode: fullscreen) {
+  #mobile-footer {
+    padding-bottom: 20px;
+  }
+}
 footer {
   margin-top: auto;
   background-color: white;
@@ -18529,13 +18539,15 @@ input[type=number] {
   flex-direction: column;
   text-align: center;
   color: #6e6e6e;
-  margin: 3px;
+  margin: 3px 6px;
   font-size: 11px !important;
   font-family: system-ui;
+  height: 150px !important;
 }
 
 #categories-page-offcanvas .offcanvas-body .card-category img {
   width: 100%;
+  height: 100%;
 }
 
 @media only screen and (max-width: 500px) {

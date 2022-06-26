@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Models\product\Category;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Route;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,14 +26,19 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->singleton('allCategories', function () {
+        JsonResource::withoutWrapping();
 
-            return Category::tree();
+        $this->app->singleton('categoriesHasProducts', function ($app) {
+            if (!Route::is('admin.*')) {
+                return  Category::childrenHasProducts();
+            }
         });
-
-        $this->app->singleton('wishlistProductsIds', function () {
-
-            return auth()->check() ? auth()->user()->wishlist()->pluck('product_id')->toArray() : [];
+        $this->app->singleton('inWishlist', function ($app) {
+            $inWishlist = [];
+            if (Route::is('shopPage') || Route::is('productDetailPage')) {
+                $inWishlist = auth()->check() ? auth()->user()->wishlist()->pluck('product_id')->toArray() : [];
+            }
+            return $inWishlist;
         });
     }
 }

@@ -8,6 +8,7 @@ use App\Models\product\Color;
 use App\Traits\AlertMessages;
 use App\Models\product\Product;
 use App\Http\Controllers\Controller;
+use App\Models\product\Category;
 use Illuminate\Support\Facades\Storage;
 use App\Models\product\ProductSizeOption;
 use App\Services\Backend\Product\StoreProductService;
@@ -98,7 +99,7 @@ class ProductController extends Controller
         $product->load('categories');
         $category =  $product->categories->last();
 
-        $section = app('allCategories')->whereIn("id", $category->parents_ids)->where("is_section", true)->first();
+        $section = Category::tree()->whereIn("id", $category->parents_ids)->where("is_section", true)->first();
         $productCategory = [
             'selectedSection' => $section['id'],
             'sectionChildren' =>  $section['children'],
