@@ -104,7 +104,8 @@ class User extends Authenticatable
     }
     public function getAvatarUrlAttribute()
     {
-        if ($this->gender == 'Male') {
+
+        if ($this->gender === "Male") {
             return asset('assets/images/avatars/avatar_male.png');
         }
 

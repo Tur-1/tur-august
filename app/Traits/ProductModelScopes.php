@@ -23,6 +23,7 @@ trait ProductModelScopes
             'discount_amount',
             'discounted_price',
             'discount_start_at',
+            'discount_type',
             'discount_expires_at',
             'brand_id',
             'color_id',

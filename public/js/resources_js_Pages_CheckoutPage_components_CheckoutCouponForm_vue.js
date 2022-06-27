@@ -20,13 +20,11 @@ var _hoisted_1 = {
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "card-body"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
-  "wire:submit.prevent": "ApplyCoupon",
   "class": "d-flex align-items-center"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
   type: "text",
-  "wire:model.defer": "code",
   placeholder: "Enter Coupon Code...",
-  "class": "form-control form-control-sm"
+  "class": "form-control form-control-sm border-0 shadow-none"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": "text-primary bg-transparent ms-2",
   type: "submit"

@@ -17,7 +17,7 @@ class ReviewsResource extends JsonResource
     {
         return   [
             'id' => $this->id,
-            'user' => ReviewUserResource::make($this->whenLoaded('user'))->resolve(),
+            'user' => ReviewUserResource::make($this->whenLoaded('user')),
             'review_id' => $this->review_id,
             'comment' => $this->comment,
             'date' =>  $this->created_at->diffForHumans(),

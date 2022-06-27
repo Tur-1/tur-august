@@ -17,14 +17,16 @@ class ProductDiscountService
     public function getValidProductDiscount($discounteData): array
     {
 
-
         $discounted_price = 0;
 
-        $discount_amount = $discounteData['discount_amount'] . ' SAR';
+        $discount_amount = $discounteData['discount_amount'];
 
         if ($discounteData['discount_type'] == 'percentage') {
 
-            $discount_amount = $discounteData['discount_amount'] . ' %';
+            $discount_amount = $discount_amount . '% OFF';
+        } else {
+
+            $discount_amount = $discount_amount . 'SAR';
         }
 
         $original_price =  $discounteData['price'] . ' SAR';

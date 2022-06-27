@@ -1,7 +1,7 @@
 <template>
     <AppLayout title="checkout" backgroundColor="background-color:#F9F9F9">
         <Breadcrumb pageTitle="checkout" v-if="isDesktop" />
-        <section class="container mt-3">
+        <section class="container">
             <CheckoutHeader v-if="isDesktop" />
             <div class="row">
                 <div class="col-xl-8 col-lg-7 col-md-6">

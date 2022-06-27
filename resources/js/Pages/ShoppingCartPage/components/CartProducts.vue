@@ -49,16 +49,18 @@ const saveForLater = (productId, index) => {
                 <img :src="product.main_image_url" class="img-fluid" />
             </a>
             <div class="shopping-cart-product-detail">
-                <div class="shopping-cart-product-info">
-                    <span class="shopping-cart-product-brand">
-                        {{ product.brand_name }}
-                    </span>
-                    <span class="shopping-cart-product-description">
-                        {{ product.name }}
-                    </span>
-                    <span class="shopping-cart-product-size">
-                        size: {{ product.size }}
-                    </span>
+                <div class="shopping-cart-product-info justify-content-between">
+                    <div class="d-flex flex-column justify-content-between">
+                        <span class="shopping-cart-product-brand">
+                            {{ product.brand_name }}
+                        </span>
+                        <span class="shopping-cart-product-description">
+                            {{ product.name }}
+                        </span>
+                        <span class="shopping-cart-product-size">
+                            size: {{ product.size }}
+                        </span>
+                    </div>
 
                     <div class="shopping-cart-product-quantity">
                         <button
@@ -66,7 +68,7 @@ const saveForLater = (productId, index) => {
                             :disabled="
                                 product.quantity == 1 || productForm.processing
                             "
-                            class="quantity-btn"
+                            class="quantity-btn rounded-start"
                             type="button"
                             id="button-addon1"
                         >
@@ -79,7 +81,7 @@ const saveForLater = (productId, index) => {
                                 product.quantity == product.stock_size ||
                                 productForm.processing
                             "
-                            class="quantity-btn"
+                            class="quantity-btn rounded-end"
                             type="button"
                             id="button-addon1"
                         >

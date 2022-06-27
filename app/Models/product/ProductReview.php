@@ -22,7 +22,7 @@ class ProductReview extends Model
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class)->select('name', 'id');
+        return $this->belongsTo(User::class)->select('name', 'id', 'gender');
     }
 
     public function product(): BelongsTo

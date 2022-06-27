@@ -18196,7 +18196,7 @@ ul.shop-sidebar-categories {
   border: 1px solid rgba(211, 211, 211, 0.2509803922);
   border-radius: 8px;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   text-align: center;
 }
 
