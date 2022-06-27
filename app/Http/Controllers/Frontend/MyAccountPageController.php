@@ -9,16 +9,17 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Frontend\StoreUserAccountInformationRequest;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\Frontend\StoreUserAddressRequest;
+use App\Services\Frontend\Pages\MyAccountPageService;
 use App\Services\Frontend\UserAddress\UserAddressService;
 
 class MyAccountPageController extends Controller
 {
     use AlertMessages;
     public $genders = ['Female', 'Male'];
-    public function index(UserAddressService $userAddressService)
+    public function index(MyAccountPageService $myAccountPageService)
     {
-        $user = auth()->user();
-        $userAddresses = $userAddressService->getUserAdresses();
+        $user = $myAccountPageService->getAuthenticatedUser();
+        $userAddresses = $myAccountPageService->getUserAddresses();
 
 
         return Inertia::render('MyAccountPage/Index', [

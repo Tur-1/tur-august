@@ -679,7 +679,7 @@ __webpack_require__.r(__webpack_exports__);
     expose();
 
     var Logout = function Logout() {
-      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.post(route('logout'));
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__.Inertia.post(route("logout"));
     };
 
     var __returned__ = {

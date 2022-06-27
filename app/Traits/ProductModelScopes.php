@@ -6,6 +6,8 @@ use App\Models\product\Brand;
 use App\Models\product\Color;
 use App\Models\product\Category;
 use App\Models\product\ProductImage;
+use App\Models\product\ProductSizeOption;
+use App\Models\product\SizeOption;
 use App\Services\Frontend\Product\ProductFilterService;
 
 trait ProductModelScopes
@@ -94,6 +96,7 @@ trait ProductModelScopes
             'brand_image' => Brand::select('image')->whereColumn('id', 'products.brand_id'),
         ]);
     }
+
     public function getBrandImageUrlAttribute()
     {
         if ($this->brand_image) {

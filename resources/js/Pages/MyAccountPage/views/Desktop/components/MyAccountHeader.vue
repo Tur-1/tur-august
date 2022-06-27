@@ -11,7 +11,8 @@
 
         <div>
             <Link
-                :href="route('logout')"
+                as="button"
+                @click="Logout"
                 method="post"
                 class="text-dark bg-transparent"
             >
@@ -25,3 +26,10 @@
         </div>
     </div>
 </template>
+<script setup>
+import { Inertia } from "@inertiajs/inertia";
+
+const Logout = () => {
+    Inertia.post(route("logout"));
+};
+</script>

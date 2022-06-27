@@ -814,15 +814,7 @@ var _hoisted_2 = {
   "class": "list-group"
 };
 var _hoisted_3 = ["id", "value", "onUpdate:modelValue"];
-
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "http://august.com/storage/images/colors/18-02-22-04-03-31-1645157011-black.png",
-  width: "20",
-  alt: "Black"
-}, null, -1
-/* HOISTED */
-);
-
+var _hoisted_4 = ["src"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.$page.props.colors, function (color, index) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", {
@@ -841,7 +833,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* PROPS */
     , _hoisted_3), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox, $props.filters.color]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(color.name) + " (" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(color.products_count) + ")", 1
     /* TEXT */
-    )]), _hoisted_4]);
+    )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      src: color.image_url,
+      width: "20",
+      alt: "Black"
+    }, null, 8
+    /* PROPS */
+    , _hoisted_4)]);
   }), 128
   /* KEYED_FRAGMENT */
   ))])], 64

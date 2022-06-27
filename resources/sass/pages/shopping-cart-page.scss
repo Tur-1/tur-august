@@ -23,8 +23,7 @@
     .cart-detalis {
         font-size: 13px !important;
     }
-    .shopping-cart-product-quantity input,
-    .shopping-cart-product-quantity .quantity-btn {
+    .shopping-cart-product-quantity {
         height: 19px !important;
     }
     .shopping-cart-product-actions.save-action {
@@ -79,45 +78,27 @@
     font-weight: 700 !important;
     color: #333 !important;
 }
-
-.shopping-cart-product-quantity input {
-    width: 30px;
-    border-left: none;
-    border-right: none;
-    border-top: 1px solid rgb(182 182 182 / 20%);
-    border-bottom: 1px solid rgb(182 182 182 / 20%);
+.shopping-cart-product-quantity {
+    height: 24px;
+    width: 90px;
+    border: 1px solid #d3d3d340;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
     text-align: center;
 }
-
-.shopping-cart-product-quantity .quantity-btn {
-    border-radius: 8px 8px;
-    width: 30px;
-    -webkit-border-radius: 8px 8px;
-    -moz-border-radius: 8px 8px;
-    -ms-border-radius: 8px 8px;
-    -o-border-radius: 8px 8px;
+.shopping-cart-product-quantity .quantity {
+    width: 40%;
+    height: 100%;
 }
 
-.shopping-cart-product-quantity input,
 .shopping-cart-product-quantity .quantity-btn {
-    height: 24px;
+    width: 30%;
+    height: 100%;
 }
 
 .shopping-cart-product-quantity .quantity-btn i {
     font-size: 10px;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-
-/* Firefox */
-
-input[type=number] {
-    -moz-appearance: textfield;
 }
 
 .shopping-cart-product-price--actions {

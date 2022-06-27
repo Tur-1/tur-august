@@ -7,7 +7,7 @@
         <section class="container">
             <CartHeader v-if="showDesktopLayout" />
             <div class="row d-flex justify-content-center">
-                <CartProducts />
+                <CartProducts :products="$page.props.products" />
                 <CartDetails />
             </div>
         </section>

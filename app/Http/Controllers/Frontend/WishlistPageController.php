@@ -6,23 +6,24 @@ use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Models\product\Product;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Product\ProductsListResource;
 use Illuminate\Support\Facades\Session;
 
 class WishlistPageController extends Controller
 {
     public function index()
     {
+
         $products = [];
-        $inWishlist = auth()->user()->wishlist()->pluck('product_id')->toArray();
+        $inWishlist = app('inWishlist');
         if ($inWishlist > 0) {
-            $products = auth()->user()->wishlistProducts;
+            $products = ProductsListResource::collection(auth()->user()->wishlistProducts)->resolve();
         }
 
         return Inertia::render(
             'WishlistPage/Index',
             [
                 'wishlistCounter' => count($inWishlist),
-                'inWishlist' => $inWishlist,
                 'products' =>  $products,
 
             ]

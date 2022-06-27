@@ -1,21 +1,18 @@
 <?php
 
-namespace App\Http\Resources\Product;
+namespace App\Http\Resources\ShoppingCart;
 
-use Carbon\Carbon;
-use Illuminate\Http\Resources\Json\ResourceCollection;
+use Illuminate\Http\Resources\Json\JsonResource;
 use App\Services\Backend\Product\ProductDiscountService;
 
-class ProductsListResource extends ResourceCollection
+class ShoppingCartItemsResource extends JsonResource
 {
-
-    public function __construct($resource)
-    {
-
-        // Ensure you call the parent constructor
-        parent::__construct($resource);
-        $this->resource = $resource;
-    }
+    /**
+     * Transform the resource into an array.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
+     */
     public function toArray($request)
     {
         $discounteData = [
@@ -26,6 +23,9 @@ class ProductsListResource extends ResourceCollection
             'discount_start_at' =>  $this->discount_start_at,
             'discount_expires_at' =>   $this->discount_expires_at
         ];
+        $size = $this->sizeOptions->find($this->pivot->size_id);
+
+        // $product_quantity =   $size->pivot->stock < $this->pivot->quantity ? $size->pivot->stock : $this->pivot->quantity;
 
         $discountService = (new ProductDiscountService())->getValidProductDiscount($discounteData);
         $discounted_price =   $discountService['discounted_price'];
@@ -34,7 +34,8 @@ class ProductsListResource extends ResourceCollection
 
 
         return [
-            'id' => $this->id,
+            'cart_id' => $this->pivot->id,
+            'product_id' => $this->id,
             'name' => $this->name,
             'product_link' => route('productDetailPage', $this->slug),
             'in_stock' => $this->stock > 0 ? true : false,
@@ -43,7 +44,11 @@ class ProductsListResource extends ResourceCollection
             'discount_amount' => $discount_amount,
             'brand_name' => $this->brand_name,
             'main_image_url' => $this->main_image_url,
-            'inWishlist' => in_array($this->id, app('inWishlist')),
+            'quantity' =>  $this->pivot->quantity,
+            'stock_size' => $size->pivot->stock,
+            'size' => $size->name,
+            'size_id' => $this->pivot->size_id,
+
         ];
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Resources\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\Category\CategoriesResource;
+use App\Services\Backend\Product\ProductDiscountService;
 use App\Http\Resources\Category\ProductDetailCategoriesResource;
 
 class ProductDetailResource extends JsonResource
@@ -17,21 +18,19 @@ class ProductDetailResource extends JsonResource
      */
     public function toArray($request)
     {
-        $currentDate = Carbon::now('GMT+3');
+        $discounteData = [
+            'price' =>  $this->price,
+            'discounted_price' => $this->discounted_price,
+            'discount_amount' =>  $this->discount_amount,
+            'discount_type' =>  $this->discount_type,
+            'discount_start_at' =>  $this->discount_start_at,
+            'discount_expires_at' =>   $this->discount_expires_at
+        ];
 
-        $discounted_price = 0;
-
-        $discount_amount = $this->discount_amount . ' SAR OFF';
-
-        if ($this->discount_type == 'percentage') {
-
-            $discount_amount = $this->discount_amount . '% OFF';
-        }
-
-        $original_price =  $this->price . ' SAR';
-        if (!is_null($this->discounted_price) && $currentDate->between($this->discount_start_at, $this->discount_expires_at)) {
-            $discounted_price =  $this->discounted_price . ' SAR';
-        }
+        $discountService = (new ProductDiscountService())->getValidProductDiscount($discounteData);
+        $discounted_price =   $discountService['discounted_price'];
+        $original_price =   $discountService['original_price'];
+        $discount_amount =   $discountService['discount_amount'];
 
         return [
             'id' => $this->id,

@@ -24,12 +24,12 @@ __webpack_require__.r(__webpack_exports__);
     var props = __props;
 
     var openColorsOffcanvas = function openColorsOffcanvas() {
-      $("#filter-item-offcanvas-colors").offcanvas('show');
+      $("#filter-item-offcanvas-colors").offcanvas("show");
     };
 
     var closeColorsOffcanvas = function closeColorsOffcanvas() {
       props.showFilteredProducts();
-      $("#filter-item-offcanvas-colors").offcanvas('hide');
+      $("#filter-item-offcanvas-colors").offcanvas("hide");
     };
 
     var __returned__ = {
@@ -121,15 +121,7 @@ var _hoisted_16 = {
 var _hoisted_17 = {
   "class": "d-flex flex-row"
 };
-
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
-  src: "http://august.com/storage/images/colors/18-02-22-04-03-31-1645157011-black.png",
-  width: "20",
-  alt: "Black"
-}, null, -1
-/* HOISTED */
-);
-
+var _hoisted_18 = ["src"];
 var _hoisted_19 = {
   "class": "ms-2"
 };
@@ -171,7 +163,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, _hoisted_13), _hoisted_14]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.$page.props.colors, function (color, index) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("label", {
       key: index
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(color.name) + " (" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(color.products_count) + ")", 1
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      src: color.image_url,
+      width: "20",
+      alt: "Black"
+    }, null, 8
+    /* PROPS */
+    , _hoisted_18), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(color.name) + " (" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(color.products_count) + ")", 1
     /* TEXT */
     )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
       "class": "form-check-input",

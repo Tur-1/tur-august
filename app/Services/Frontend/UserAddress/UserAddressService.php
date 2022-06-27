@@ -2,11 +2,13 @@
 
 namespace App\Services\Frontend\UserAddress;
 
+use App\Http\Resources\User\UserAddressesListResource;
+
 class UserAddressService
 {
-    public function getUserAdresses()
+    public function getUserAddresses()
     {
-        return auth()->user()->addresses->map(fn ($address) =>  $this->userAddressItem($address));
+        return  UserAddressesListResource::collection(auth()->user()->addresses);
     }
     public function findUserAddress($address_id)
     {
@@ -15,16 +17,5 @@ class UserAddressService
     public function createAddress($validatedRequest)
     {
         auth()->user()->addresses()->create($validatedRequest);
-    }
-    private function userAddressItem($address)
-    {
-        return [
-            'address_id' => $address->id,
-            'full_name' => $address->full_name,
-            'address' =>  $address->address,
-            'city' =>  $address->city,
-            'phone_number' => $address->phone_number,
-            'street' =>  $address->street,
-        ];
     }
 }

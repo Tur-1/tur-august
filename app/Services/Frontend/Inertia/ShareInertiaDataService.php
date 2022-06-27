@@ -17,19 +17,12 @@ class ShareInertiaDataService
     public function getCartCounter()
     {
         $cartCounter = 0;
-        if (!Route::is('admin.*') && auth()->check()) {
+        if (!Route::is('admin.*') && !Route::is('shoppingCartPage') && auth()->check()) {
             $cartCounter = auth()->user()->shoppingCart()->count('product_id');
         }
         return $cartCounter;
     }
-    public function getProductsInWishlist()
-    {
-        $inWishlist = [];
-        if (Route::is('shopPage') || Route::is('productDetailPage')) {
-            $inWishlist = auth()->check() ? auth()->user()->wishlist()->pluck('product_id')->toArray() : [];
-        }
-        return $inWishlist;
-    }
+
     public function getCategoriesSections()
     {
         $sections = [];

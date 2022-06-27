@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Review;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\Review\ReviewUserResource;
 
 class ReviewsResource extends JsonResource
 {
@@ -16,7 +17,7 @@ class ReviewsResource extends JsonResource
     {
         return   [
             'id' => $this->id,
-            'user' => UserResource::make($this->whenLoaded('user'))->resolve(),
+            'user' => ReviewUserResource::make($this->whenLoaded('user'))->resolve(),
             'review_id' => $this->review_id,
             'comment' => $this->comment,
             'date' =>  $this->created_at->diffForHumans(),

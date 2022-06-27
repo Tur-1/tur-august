@@ -46,7 +46,6 @@ class HandleInertiaRequests extends Middleware
         return array_merge(parent::share($request), [
             'sections' => $inertiaDataService->getCategoriesSections(),
             'cartCounter' => $inertiaDataService->getCartCounter(),
-
             'user' => $inertiaDataService->getAuthenticatedUser(),
         ]);
     }
