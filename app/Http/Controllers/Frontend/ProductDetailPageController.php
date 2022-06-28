@@ -34,6 +34,19 @@ class ProductDetailPageController extends Controller
         ];
         return Inertia::render('ProductDetailPage/Index', $data);
     }
+    public function addToShoppingCart(Request $request)
+    {
+        if (is_null($request->size_id)) {
+            return;
+        }
+        if (!auth()->user()->shoppingCartHas($request->product_id, $request->size_id)) {
+
+            auth()->user()->shoppingCart()->attach($request->product_id, ['size_id' => $request->size_id, 'quantity' => 1]);
+        }
+
+
+        $message = 'The product was added to your cart!';
+    }
     public function sendComment($slug, Request $request)
     {
         $product = Product::where('slug', $slug)->select('id')->first();

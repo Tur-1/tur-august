@@ -13,11 +13,22 @@ use Inertia\Inertia;
 
 class ShoppingCartPageController extends Controller
 {
-    public $products = [];
+    public $cartPageService;
+    public $products;
+    public $outOfStockProducts;
+    public $cartSubTotal;
+    public $cartTotal;
+    public $shipmentFees;
+
     public function __construct()
     {
         $this->middleware(function ($request, $next) {
-            $this->products =  (new ShoppingCartPageService)->getUserShoppingCart();
+            $this->cartPageService = new ShoppingCartPageService();
+            $this->products =  $this->cartPageService->getUserShoppingCart();
+            $this->outOfStockProducts = $this->cartPageService->getOutOfStockProducts();
+            $this->shipmentFees =  $this->cartPageService->getShipmentFees();
+            $this->cartSubTotal = $this->cartPageService->getCartSubTotal();
+            $this->cartTotal = $this->cartPageService->getCartTotal();
 
             return $next($request);
         });
@@ -30,14 +41,17 @@ class ShoppingCartPageController extends Controller
             'ShoppingCartPage/Index',
             [
                 'cartCounter' => count($this->products),
-                'products' => $this->products
+                'products' => $this->products,
+                'shipmentFees' => $this->shipmentFees,
+                'cartSubTotal' => $this->cartSubTotal,
+                'cartTotal' => $this->cartTotal,
             ]
         );
     }
     public function increaseProductQuantity($cartItemId)
     {
 
-        $cartItem =  collect($this->products)->where('cart_id', $cartItemId)->first();
+        $cartItem =  $this->products->where('cart_id', $cartItemId)->first();
 
         if (is_null($cartItem) || $cartItem['quantity'] > $cartItem['stock_size']) {
             return;
@@ -52,7 +66,7 @@ class ShoppingCartPageController extends Controller
     public function decreaseProductQuantity($cartItemId)
     {
 
-        $cartItem =  collect($this->products)->where('cart_id', $cartItemId)->first();
+        $cartItem =  $this->products->where('cart_id', $cartItemId)->first();
 
         if (is_null($cartItem) || $cartItem['quantity'] == 1) {
             return;
@@ -71,21 +85,32 @@ class ShoppingCartPageController extends Controller
             ->where(['user_id' => auth()->id(), 'id' =>  $cartItemId])
             ->delete();
     }
-    public function addToShoppingCart(Request $request)
+
+    public function saveProductforLater($productId, $cartItemId)
     {
 
-        if (!auth()->user()->shoppingCartHas($request->product_id, $request->size_id)) {
+        if (!auth()->user()->wishlistHas($productId)) {
 
-            auth()->user()->shoppingCart()->attach($request->product_id, ['size_id' => $request->size_id, 'quantity' => 1]);
+            auth()->user()->wishlist()->attach($productId);
         }
 
-
-        $message = 'The product was added to your cart!';
+        ShoppingCart::where(['user_id' => auth()->id(), 'id' => $cartItemId])->delete();
     }
-    public function saveProductforLater($productId)
+    public function saveOutOfStockforLater()
     {
-        auth()->user()->wishlist()->attach($productId);
 
-        auth()->user()->shoppingCart()->detach($productId);
+        $productIds = $this->outOfStockProducts->pluck('product_id');
+        $cartIds = $this->outOfStockProducts->pluck('cart_id');
+
+
+        if (!auth()->user()->wishlistHasProducts($productIds)) {
+
+            auth()->user()->wishlist()->attach($productIds);
+        }
+
+        ShoppingCart::query()
+            ->where('user_id', auth()->id())
+            ->whereIn('id', $cartIds)
+            ->delete();
     }
 }

@@ -19,7 +19,7 @@ Route::middleware('auth')->controller(ShoppingCartPageController::class)->group(
 
     Route::get('/cart', 'index')->name('shoppingCartPage');
 
-    Route::post('/add-to-cart', 'addToShoppingCart')->name('addToShoppingCart');
+
 
     Route::post('/increase-product-quantity/{cartItemId}', 'increaseProductQuantity')->name('increaseProductQuantity');
 
@@ -27,5 +27,6 @@ Route::middleware('auth')->controller(ShoppingCartPageController::class)->group(
 
     Route::delete('/remove-cart-item/{cartItemId}', 'removeCartItem')->name('removeCartItem');
 
-    Route::post('/save-for-later/{productId}', 'saveProductforLater')->name('saveProductforLater');
+    Route::post('/save-for-later/{productId}/{cartItemId}', 'saveProductforLater')->name('saveProductforLater');
+    Route::post('/save-out-of-stock-for-later', 'saveOutOfStockforLater')->name('saveOutOfStockforLater');
 });

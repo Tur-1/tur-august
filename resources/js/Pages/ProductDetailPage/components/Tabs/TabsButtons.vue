@@ -1,12 +1,12 @@
 <template lang="">
-    <ul class="nav nav-tabs text-uppercase">
+    <ul class="nav nav-tabs">
         <li class="nav-item">
             <a
                 class="nav-link active"
                 id="Description-tab"
                 data-bs-toggle="tab"
                 href="#Description"
-                >Description</a
+                >Details</a
             >
         </li>
         <li class="nav-item">
@@ -15,7 +15,7 @@
                 id="Additional-info-tab"
                 data-bs-toggle="tab"
                 href="#Additional-info"
-                >Additional info</a
+                >Info & care</a
             >
         </li>
         <li class="nav-item">

@@ -19,5 +19,7 @@ Route::controller(ProductDetailPageController::class)->group(function () {
 
     Route::get('/product-detail/{product_slug}', 'index')->name('productDetailPage');
 
+    Route::post('/product-detail/add-to-cart', 'addToShoppingCart')->middleware('auth')->name('addToShoppingCart');
+
     Route::post('/product-detail/{product_slug}/comment', 'sendComment')->name('sendComment');
 });

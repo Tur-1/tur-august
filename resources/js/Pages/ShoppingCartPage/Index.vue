@@ -3,12 +3,23 @@
         title="shopping cart"
         backgroundColor="background-color:#F9F9F9"
     >
-        <Breadcrumb pageTitle="shopping cart" v-if="showDesktopLayout" />
+        <Breadcrumb pageTitle="shopping cart" v-if="isDesktop" />
         <section class="container">
-            <CartHeader v-if="showDesktopLayout" />
-            <div class="row d-flex justify-content-center">
-                <CartProducts :products="$page.props.products" />
+            <CartHeader v-if="isDesktop" />
+            <div
+                class="row d-flex justify-content-center"
+                :class="{ 'd-none': $page.props.cartCounter == 0 }"
+            >
+                <CartProducts />
                 <CartDetails />
+            </div>
+            <div
+                class="row justify-content-center text-center mt-5"
+                v-show="$page.props.cartCounter == 0"
+            >
+                <h4 class="mb-3">Your Shopping Bag is Empty</h4>
+
+                <Link href="/">CONTINUE SHOPPING</Link>
             </div>
         </section>
     </app-layout>
@@ -23,13 +34,13 @@ import CartDetails from "@/Pages/ShoppingCartPage/components/CartDetails";
 
 import { ref } from "vue";
 
-let showDesktopLayout = ref(true);
-let showMobileLayout = ref(false);
+let isDesktop = ref(true);
+let isMobile = ref(false);
 
 const mediaQueryWidth = window.matchMedia("(max-width: 756px)");
 
 if (mediaQueryWidth.matches) {
-    showMobileLayout.value = true;
-    showDesktopLayout.value = false;
+    isMobile.value = true;
+    isDesktop.value = false;
 }
 </script>

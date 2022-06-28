@@ -29,6 +29,24 @@ trait ProductModelScopes
             'color_id',
         );
     }
+    public function scopeWithShoppingCartFields($query)
+    {
+        return $query->select(
+            'products.id',
+            'products.name',
+            'products.slug',
+            'products.price',
+            'products.stock',
+            'products.shipping_cost',
+            'products.discount_amount',
+            'products.discounted_price',
+            'products.discount_start_at',
+            'products.discount_type',
+            'products.discount_expires_at',
+            'products.brand_id',
+            'products.created_at'
+        );
+    }
     public function scopeProductDetailFields($query)
     {
         return $query->select(

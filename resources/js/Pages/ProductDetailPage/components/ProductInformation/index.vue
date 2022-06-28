@@ -8,10 +8,17 @@
                 <QualityInfo />
             </div>
 
-            <ProductSizeOptions />
-            <div class="add-product-warp">
-                <AddToCartButton />
-                <AddToWshlistButton />
+            <div v-if="$page.props.productDetail.in_stock">
+                <ProductSizeOptions />
+                <div class="add-product-warp">
+                    <AddToCartButton />
+                    <AddToWshlistButton />
+                </div>
+            </div>
+            <div v-if="!$page.props.productDetail.in_stock">
+                <div class="alert alert-danger w-100 text-center">
+                    <span>out of stock</span>
+                </div>
             </div>
         </div>
     </div>

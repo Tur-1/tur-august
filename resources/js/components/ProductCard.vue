@@ -35,34 +35,35 @@
                         ></path>
                     </svg>
                 </button>
-
-                <div class="card-body product-content-card-body">
-                    <span class="product-title">
-                        <a href="/" class="text-wrap text-dark">
-                            {{ product.brand_name }}
-                        </a>
-                    </span>
-
-                    <span class="product-description">
-                        {{ product.name }}
-                    </span>
-
-                    <div class="product-price">
-                        <span> {{ product.price }} </span>
-                        <span
-                            class="discounted-product-price"
-                            v-if="product.in_stock"
-                        >
-                            {{ product.discounted_price }}
+                <Link :href="product.product_link">
+                    <div class="card-body product-content-card-body">
+                        <span class="product-title">
+                            <a href="/" class="text-wrap text-dark">
+                                {{ product.brand_name }}
+                            </a>
                         </span>
-                        <span
-                            class="product-out-of-stock"
-                            v-if="!product.in_stock"
-                        >
-                            out of stock
+
+                        <span class="product-description">
+                            {{ product.name }}
                         </span>
+
+                        <div class="product-price">
+                            <span> {{ product.price }} </span>
+                            <span
+                                class="discounted-product-price"
+                                v-if="product.in_stock"
+                            >
+                                {{ product.discounted_price }}
+                            </span>
+                            <span
+                                class="product-out-of-stock"
+                                v-if="!product.in_stock"
+                            >
+                                out of stock
+                            </span>
+                        </div>
                     </div>
-                </div>
+                </Link>
                 <span
                     class="discount-amount-badge"
                     v-if="product.discounted_price != 0"

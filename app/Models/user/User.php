@@ -59,6 +59,7 @@ class User extends Authenticatable
     public function shoppingCartProducts()
     {
         return $this->belongsToMany(Product::class, 'shopping_carts', 'user_id', 'product_id')
+            ->WithShoppingCartFields()
             ->withPivot(['size_id', 'quantity', 'id'])
             ->with(['sizeOptions'])
             ->WithMainProductImage()
@@ -92,6 +93,10 @@ class User extends Authenticatable
     public function wishlistHas($product_id)
     {
         return  $this->wishlist()->where('product_id', $product_id)->exists('product_id');
+    }
+    public function wishlistHasProducts($productIds)
+    {
+        return  $this->wishlist()->whereIn('product_id', $productIds)->exists('product_id');
     }
 
     public function productReviews(): HasMany
