@@ -9,28 +9,33 @@ trait AlertMessages
     public function showSuccessMessage($message)
     {
         //  for livewire
-        $this->dispatchBrowserEvent('showMessage', ['alertMessage' => $message, 'backgroundAlertMessage' => "bg-alert-success"]);
+        $this->dispatchBrowserEvent('showMessage', $this->toastMessage($message, "bg-alert-success"));
     }
 
     public function showErrorMessage($message)
     {
         //  for livewire
-        $this->dispatchBrowserEvent('showMessage', ['alertMessage' => $message, 'backgroundAlertMessage' => "bg-alert-error"]);
+        $this->dispatchBrowserEvent('showMessage', $this->toastMessage($message, "bg-alert-danger"));
     }
-    public function redirectWithSuccessMsg($routeName, $message)
+    public function redirectWithSuccessMsg($routeName, string $message)
     {
-        return redirect()->route($routeName)->with(['alertMessage' => $message, 'backgroundAlertMessage' => "bg-alert-success"]);
+        return redirect()->route($routeName)->with($this->toastMessage($message, "bg-alert-success"));
     }
-    public function redirectToUrlWithSuccessMsg($url, $message)
+    public function redirectBackWithSuccessMsg(string $message)
     {
-        return redirect()->to($url)->with(['alertMessage' => $message, 'backgroundAlertMessage' => "bg-alert-success"]);
+        return redirect()->back()->with($this->toastMessage($message, "bg-alert-success"));
     }
-    public function redirectBackWithErrorMsg($message)
+    public function redirectBackWithErrorMsg(string $message)
     {
-        return redirect()->back()->with(['alertMessage' => $message, 'backgroundAlertMessage' => "bg-alert-error"]);
+        return redirect()->back()->with($this->toastMessage($message, "bg-alert-danger"));
     }
-    public function redirectBackWithSuccessMsg($message)
+    private function toastMessage(string $message, string $bakground)
     {
-        return redirect()->back()->with(['alertMessage' => $message, 'backgroundAlertMessage' => "bg-alert-success"]);
+        return [
+            'toast' => [
+                'message' => $message,
+                'background' => $bakground
+            ]
+        ];
     }
 }

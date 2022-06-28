@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\Category\CategoriesResource;
 use App\Services\Frontend\Inertia\ShareInertiaDataService;
+use Illuminate\Support\Facades\Session;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -47,6 +48,7 @@ class HandleInertiaRequests extends Middleware
             'sections' => $inertiaDataService->getCategoriesSections(),
             'cartCounter' => $inertiaDataService->getCartCounter(),
             'user' => $inertiaDataService->getAuthenticatedUser(),
+            'toast' => Session::get('toast'),
         ]);
     }
 }

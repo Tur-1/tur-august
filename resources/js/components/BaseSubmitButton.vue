@@ -3,7 +3,7 @@ defineProps(["title", "formProcessing"]);
 </script>
 
 <template>
-    <button type="submit" class="btn btn-primary" :disabled="formProcessing">
+    <button type="submit" class="submit-btn" :disabled="formProcessing">
         {{ title }}
         <div
             class="spinner-border spinner-border-sm"

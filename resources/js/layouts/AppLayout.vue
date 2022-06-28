@@ -14,12 +14,14 @@
     >
         <slot />
     </MobileLayout>
+    <Toast :toast="$page.props.toast" />
 </template>
 
 <script setup>
 import { ref } from "vue";
 import DesktopLayout from "@/layouts/Desktop/DesktopLayout.vue";
 import MobileLayout from "@/layouts/Mobile/MobileLayout.vue";
+import Toast from "@/components/Toast.vue";
 
 defineProps({
     backgroundColor: String,

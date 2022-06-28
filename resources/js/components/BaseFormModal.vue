@@ -25,7 +25,7 @@
 
                     <form @submit.prevent="$emit('formSubmited')">
                         <slot />
-                        <div class="text-end mt-2">
+                        <div class="cancel-submit-btns mt-2">
                             <BaseCancelButton
                                 v-if="cancelButtonTitle"
                                 :title="cancelButtonTitle"

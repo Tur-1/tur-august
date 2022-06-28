@@ -234,7 +234,7 @@ input:focus::-moz-placeholder {
     color: white;
 }
 
-.bg-alert-error {
+.bg-alert-danger {
     background-color: #dc3545;
     color: white;
 }

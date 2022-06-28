@@ -94,6 +94,15 @@ ul {
     transform: translate(-50%, -50%) !important;
 }
 
+.bg-alert-success {
+    background-color: $bg-green !important;
+    color: white;
+}
+
+.bg-alert-danger {
+    background-color: #dc3545 !important;
+    color: white;
+}
 .spinner .spinner-icon {
     height: 35px !important;
     width: 35px !important;
@@ -108,11 +117,25 @@ ul {
     max-width: 300px;
 }
 #toast-alert {
-    position: absolute !important;
-    top: 5%;
+    position: fixed !important;
+    top: 8%;
     z-index: 999999999999999999999;
-    right: 10px;
+    right: 15px;
     color: white;
+    width: 350px;
+    max-width: 100%;
+    visibility: visible;
+    font-size: 0.875rem;
+    pointer-events: auto;
+    background-color: rgba(255, 255, 255, 0.85);
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
+    border-radius: 0.25rem;
+    -webkit-border-radius: 0.25rem;
+    -moz-border-radius: 0.25rem;
+    -ms-border-radius: 0.25rem;
+    -o-border-radius: 0.25rem;
 }
 section.container {
     padding-bottom: 40px !important;
@@ -121,7 +144,46 @@ section.container {
     background-color: $bg-green !important;
     color: $bg-secondary;
 }
+@media only screen and (max-width: 500px) {
+    .modal-content {
+        width: 95% !important;
+        margin: 0 auto !important;
+    }
+    .close-modal-btn {
+        top: -28px !important;
+        right: -5px !important;
+    }
+    .modal-title {
+        font-size: 13px !important;
+    }
+}
+.modal {
+    color: #444 !important;
+}
+.close-modal-btn {
+    position: absolute !important;
+    top: -23px !important;
+    right: -20px !important;
+}
+.modal label {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+}
 
+.cancel-submit-btns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.cancel-submit-btns button {
+    background-color: transparent;
+}
+.cancel-submit-btns .cancel-btn {
+    color: #444;
+    border-right: 1px solid rgb(123 123 123 / 27%);
+}
+.cancel-submit-btns .submit-btn {
+    color: $bg-green;
+}
 @import "./components/navbar.scss";
 @import "./components/footer.scss";
 @import "./components/card-product";

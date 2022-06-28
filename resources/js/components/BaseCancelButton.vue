@@ -4,11 +4,7 @@ defineEmits(["cancelRequest"]);
 </script>
 
 <template>
-    <button
-        type="button"
-        class="btn btn-secondary me-2"
-        @click="$emit('cancelRequest')"
-    >
+    <button type="button" class="cancel-btn" @click="$emit('cancelRequest')">
         {{ title }}
     </button>
 </template>
