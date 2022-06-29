@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Traits\AlertMessages;
+use App\Traits\RedirectWithMessageTrait;
 use App\Models\product\SizeOption;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\StoreSizeOptionRequest;
@@ -12,7 +12,7 @@ use App\Http\Requests\Backend\StoreSizeOptionRequest;
 class SizeOptionController extends Controller
 {
 
-    use AlertMessages;
+    use RedirectWithMessageTrait;
 
     private $RouteName = 'admin.sizeOptions.index';
 

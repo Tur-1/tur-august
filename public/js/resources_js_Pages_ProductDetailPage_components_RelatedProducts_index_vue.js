@@ -34,7 +34,7 @@ __webpack_require__.r(__webpack_exports__);
         responsive: [{
           breakpoint: 768,
           settings: {
-            arrows: false,
+            infinite: true,
             centerMode: false,
             centerPadding: "40px",
             slidesToShow: 3.5
@@ -42,7 +42,7 @@ __webpack_require__.r(__webpack_exports__);
         }, {
           breakpoint: 480,
           settings: {
-            arrows: false,
+            infinite: true,
             centerPadding: "40px",
             centerMode: false,
             slidesToShow: 2.5

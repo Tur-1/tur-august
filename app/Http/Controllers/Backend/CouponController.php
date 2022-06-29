@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\order\Coupon;
 use Illuminate\Http\Request;
-use App\Traits\AlertMessages;
+use App\Traits\RedirectWithMessageTrait;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\StoreCouponRequest;
 
 class CouponController extends Controller
 {
-    use AlertMessages;
+    use RedirectWithMessageTrait;
     private $routeName = 'admin.coupons.index';
     private $couponTypes = ['percentage', 'Fixed'];
 

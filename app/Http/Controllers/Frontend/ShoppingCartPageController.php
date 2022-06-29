@@ -4,11 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\shopping_cart\ShoppingCart;
-use App\Models\User;
 use App\Services\Frontend\Pages\ShoppingCartPageService;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
 
 class ShoppingCartPageController extends Controller
@@ -35,7 +31,6 @@ class ShoppingCartPageController extends Controller
     }
     public function index()
     {
-
 
         return Inertia::render(
             'ShoppingCartPage/Index',

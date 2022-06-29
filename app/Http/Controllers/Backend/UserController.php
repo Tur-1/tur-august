@@ -4,13 +4,13 @@ namespace App\Http\Controllers\Backend;
 
 use App\Models\user\User;
 use Illuminate\Http\Request;
-use App\Traits\AlertMessages;
+use App\Traits\RedirectWithMessageTrait;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\StoreUserRequest;
 
 class UserController extends Controller
 {
-    use AlertMessages;
+    use RedirectWithMessageTrait;
 
     private $routeName = 'admin.users.index';
     public $gender = ['Female', 'Male'];

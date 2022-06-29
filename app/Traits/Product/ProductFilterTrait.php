@@ -1,24 +1,27 @@
 <?php
 
-namespace App\Services\Frontend\Product;
+namespace App\Traits\Product;
 
-use App\Services\Frontend\Product\ProductSearchService;
+use App\Traits\Product\ProductSearchTrait;
 
-class ProductFilterService
+
+trait ProductFilterTrait
 {
-    public function FilterByBrands($query)
+    use ProductSearchTrait;
+
+    public function filterByBrands($query)
     {
         return  $query->whereHas('brand', function ($query) {
             $query->whereIn('slug', request()->input('brand'))->select('id', 'slug');
         });
     }
-    public function FilterByColors($query)
+    public function filterByColors($query)
     {
         return $query->whereHas('color', function ($query) {
             $query->whereIn('slug', request()->input('color'))->select('id', 'slug');
         });
     }
-    public function FilterBySizeOptions($query)
+    public function filterBySizeOptions($query)
     {
 
         return  $query->whereHas('stockSizeOptions', function ($query) {
@@ -26,31 +29,29 @@ class ProductFilterService
         });
     }
 
-    public function FilterBySearching($query)
+    public function filterBySearching($query)
     {
 
-        $searchProductService = new ProductSearchService();
-
-        return $query->where(function ($query) use ($searchProductService) {
-            $query->whereHas('brand', fn ($query) => $searchProductService->searchByBrand($query))
-                ->OrwhereHas('color', fn ($query) => $searchProductService->searchByColor($query))
-                ->OrwhereHas('category', fn ($query) => $searchProductService->searchByCategory($query))
+        return $query->where(function ($query) {
+            $query->whereHas('brand', fn ($query) => $this->searchByBrand($query))
+                ->OrwhereHas('color', fn ($query) => $this->searchByColor($query))
+                ->OrwhereHas('categories', fn ($query) => $this->searchByCategories($query))
                 ->orWhere('name', 'like', '%' . request()->input('search') . '%');
         });
     }
 
-    public function FilterByStatus($query)
+    public function filterByStatus($query)
     {
         return $query->when(request()->input('status') == 'Active', fn ($query) => $query->Active())
             ->when(request()->input('status') == 'inactive', fn ($query) => $query->InActive());
     }
-    public function FilterBySorting($query)
+    public function filterBySorting($query)
     {
         return $query->when(request('sort') == 'new', fn ($query) => $query->latest())
             ->when(request('sort') == 'price-low-to-high', fn ($query) => $query->orderBy('price', 'Asc'))
             ->when(request('sort') == 'price-high-to-low', fn ($query) => $query->orderByDesc('price'));
     }
-    public function FilterByPrice($query)
+    public function filterByPrice($query)
     {
         $priceArray = request()->input('price');
 

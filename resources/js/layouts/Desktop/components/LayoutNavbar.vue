@@ -44,14 +44,22 @@
                     </ul>
 
                     <div class="nav-icons-container">
-                        <Link :href="route('myAccountPage')" class="nav-icons">
+                        <Link
+                            :href="route('myAccountPage')"
+                            preserve-state
+                            class="nav-icons"
+                        >
                             <img
                                 class="svgInject"
                                 alt="Evara"
                                 src="/assets/icons/account.svg"
                             />
                         </Link>
-                        <Link class="nav-icons" :href="route('wishlistPage')">
+                        <Link
+                            class="nav-icons"
+                            :href="route('wishlistPage')"
+                            preserve-state
+                        >
                             <img
                                 class="svgInject"
                                 alt="Evara"
@@ -60,6 +68,7 @@
                         </Link>
                         <Link
                             :href="route('shoppingCartPage')"
+                            preserve-state
                             class="nav-icons"
                         >
                             <img

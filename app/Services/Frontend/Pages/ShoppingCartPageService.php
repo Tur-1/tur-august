@@ -2,6 +2,7 @@
 
 namespace App\Services\Frontend\Pages;
 
+use Illuminate\Support\Facades\Session;
 use App\Http\Resources\ShoppingCart\ShoppingCartItemsResource;
 
 
@@ -51,7 +52,19 @@ class ShoppingCartPageService
 
         return number_format($cartTotal, 2, '.', '');
     }
+    public function attachProductToShoppingCart($request = null)
+    {
+        if (is_null($request)) {
+            $request = Session::get('productDetail');
+            Session::remove('productDetail');
+        }
 
+
+        if (!auth()->user()->shoppingCartHas($request['product_id'], $request['size_id'])) {
+
+            auth()->user()->shoppingCart()->attach($request['product_id'], ['size_id' => $request['size_id'], 'quantity' => 1]);
+        }
+    }
     private function getCartTotalWithVat($cartTotal)
     {
         $vat = 15;

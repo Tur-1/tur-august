@@ -23,7 +23,7 @@ class ProductDetailPageService
         $this->productDetail =  Product::query()
             ->with(['productImages:product_id,image', 'stockSizeOptions', 'categories'])
             ->where('slug', $productSlug)
-            ->ProductDetailFields()
+            ->WithProductDetailFields()
             ->WithBrandName()
             ->WithBrandImage()
             ->Active()
@@ -70,5 +70,17 @@ class ProductDetailPageService
             ->get();
 
         return ProductsListResource::collection($relatedProducts);
+    }
+
+    public function createComment($product_id, $comment)
+    {
+        $currentDate = Carbon::now('GMT+3');
+
+        ProductReview::create([
+            'user_id' => auth()->id(),
+            'product_id' => $product_id,
+            'comment' => $comment,
+            'create_at' =>  $currentDate
+        ]);
     }
 }

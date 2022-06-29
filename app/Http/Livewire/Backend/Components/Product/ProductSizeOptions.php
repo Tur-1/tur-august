@@ -3,13 +3,13 @@
 namespace App\Http\Livewire\Backend\Components\Product;
 
 use Livewire\Component;
-use App\Traits\AlertMessages;
+use App\Traits\RedirectWithMessageTrait;
 use App\Models\product\SizeOption;
 use App\Models\product\ProductSizeOption;
 
 class ProductSizeOptions extends Component
 {
-    use AlertMessages;
+    use RedirectWithMessageTrait;
     public $showModal;
     public $inputFields = [];
     public $indexInput;

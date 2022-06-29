@@ -3,14 +3,14 @@
         <title>August - {{ title }}</title>
     </Head>
 
-    <DesktopLayout :backgroundColor="backgroundColor" v-if="showDesktopLayout">
+    <DesktopLayout :backgroundColor="backgroundColor" v-if="isDesktop">
         <slot />
     </DesktopLayout>
 
     <MobileLayout
         :backgroundColor="backgroundColor"
         :title="title"
-        v-if="showMobileLayout"
+        v-if="isMobile"
     >
         <slot />
     </MobileLayout>
@@ -26,16 +26,15 @@ import Toast from "@/components/Toast.vue";
 defineProps({
     backgroundColor: String,
     title: String,
-    MobileSlot: String,
 });
 
-let showDesktopLayout = ref(true);
-let showMobileLayout = ref(false);
+let isDesktop = ref(true);
+let isMobile = ref(false);
 
 const mediaQueryWidth = window.matchMedia("(max-width: 756px)");
 
 if (mediaQueryWidth.matches) {
-    showMobileLayout.value = true;
-    showDesktopLayout.value = false;
+    isMobile.value = true;
+    isDesktop.value = false;
 }
 </script>

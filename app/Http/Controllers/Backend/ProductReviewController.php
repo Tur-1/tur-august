@@ -6,11 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\product\ProductReview;
 use App\Services\Backend\Review\ReviewService;
-use App\Traits\AlertMessages;
+use App\Traits\RedirectWithMessageTrait;
 
 class ProductReviewController extends Controller
 {
-    use AlertMessages;
+    use RedirectWithMessageTrait;
     public $reviewService;
     public function __construct(ReviewService $reviewService)
     {

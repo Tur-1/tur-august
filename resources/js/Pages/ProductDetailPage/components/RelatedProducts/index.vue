@@ -30,7 +30,8 @@ onMounted(() => {
             {
                 breakpoint: 768,
                 settings: {
-                    arrows: false,
+                    infinite: true,
+
                     centerMode: false,
                     centerPadding: "40px",
                     slidesToShow: 3.5,
@@ -39,7 +40,8 @@ onMounted(() => {
             {
                 breakpoint: 480,
                 settings: {
-                    arrows: false,
+                    infinite: true,
+
                     centerPadding: "40px",
                     centerMode: false,
                     slidesToShow: 2.5,

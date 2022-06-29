@@ -3,7 +3,7 @@
 namespace App\Traits;
 
 
-trait AlertMessages
+trait RedirectWithMessageTrait
 {
 
     public function showSuccessMessage($message)

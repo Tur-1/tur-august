@@ -15,9 +15,9 @@ use App\Http\Controllers\Frontend\WishlistPageController;
 
 
 
-Route::middleware('auth')->controller(WishlistPageController::class)->group(function () {
+Route::controller(WishlistPageController::class)->group(function () {
 
-    Route::get('/wishlist', 'index')->name('wishlistPage');
+    Route::get('/wishlist', 'index')->middleware('auth')->name('wishlistPage');
 
     Route::post('/add-to-wishlist', 'addToWishlist')->name('addToWishlist');
 });

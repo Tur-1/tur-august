@@ -25,7 +25,7 @@
 
             <button
                 type="submit"
-                class="btn btn-primary w-100"
+                class="btn btn-primary w-100 mt-2"
                 :disabled="loginForm.processing"
                 name="sign_up"
             >

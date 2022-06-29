@@ -1,0 +1,18 @@
+// offcanvas  bottom
+.base-bottom-offcanvas {
+    height: 90%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.base-bottom-offcanvas .offcanvas-header {
+    border: none !important;
+    display: flex;
+    justify-content: space-between;
+}
+.base-bottom-offcanvas .offcanvas-header .border-top {
+    width: 10%;
+    border-top-width: 3px !important;
+}
+.base-bottom-offcanvas .offcanvas-body {
+    padding: 0 !important;
+}

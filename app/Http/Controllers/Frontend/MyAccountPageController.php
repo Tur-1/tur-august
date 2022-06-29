@@ -4,17 +4,17 @@ namespace App\Http\Controllers\Frontend;
 
 use Inertia\Inertia;
 use Illuminate\Http\Request;
-use App\Traits\AlertMessages;
+use App\Traits\RedirectWithMessageTrait;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Frontend\StoreUserAccountInformationRequest;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\Frontend\StoreUserAddressRequest;
 use App\Services\Frontend\Pages\MyAccountPageService;
-use App\Services\Frontend\UserAddress\UserAddressService;
+use App\Services\Frontend\User\UserAddressService;
 
 class MyAccountPageController extends Controller
 {
-    use AlertMessages;
+    use RedirectWithMessageTrait;
     public $genders = ['Female', 'Male'];
     public function index(MyAccountPageService $myAccountPageService)
     {

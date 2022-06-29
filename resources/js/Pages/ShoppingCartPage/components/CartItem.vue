@@ -38,7 +38,7 @@
                             type="button"
                             id="button-addon1"
                         >
-                            <i class="fa-solid fa-minus"></i>
+                            <i class="bi bi-dash"></i>
                         </button>
                         <small class="quantity">{{ product.quantity }}</small>
                         <button
@@ -51,7 +51,7 @@
                             type="button"
                             id="button-addon1"
                         >
-                            <i class="fa-solid fa-plus"></i>
+                            <i class="bi bi-plus"></i>
                         </button>
                     </div>
                 </div>

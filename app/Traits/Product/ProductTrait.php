@@ -1,18 +1,29 @@
 <?php
 
-namespace App\Traits;
+namespace App\Traits\Product;
 
 use App\Models\product\Brand;
+
 use App\Models\product\Color;
-use App\Models\product\Category;
+use App\Models\product\Product;
 use App\Models\product\ProductImage;
-use App\Models\product\ProductSizeOption;
-use App\Models\product\SizeOption;
+use App\Traits\Product\ProductFilterTrait;
 use App\Services\Frontend\Product\ProductFilterService;
 
-trait ProductModelScopes
+trait ProductTrait
 {
-    public function scopeSelectFrontendFields($query)
+    use ProductFilterTrait;
+
+    public function isProductDoesntExist($product_id): bool
+    {
+        return is_null($product_id) || Product::where('id', $product_id)->select('id')->doesntExist('id');
+    }
+
+    /**
+     * 
+     * scopes
+     */
+    public function scopeWithShopPageFields($query)
     {
         return $query->select(
             'id',
@@ -47,7 +58,7 @@ trait ProductModelScopes
             'products.created_at'
         );
     }
-    public function scopeProductDetailFields($query)
+    public function scopeWithProductDetailFields($query)
     {
         return $query->select(
             'id',
@@ -79,24 +90,17 @@ trait ProductModelScopes
                 ->limit(1)
         ]);
     }
-    public function getMainImageUrlAttribute()
-    {
-        if ($this->main_image) {
-            return asset('storage/images/products/product_' . $this->id . '/' . $this->main_image);
-        } else {
-            return  asset('assets/images/defult-input-image.png');
-        }
-    }
+
     public function scopeWithFilters($query)
     {
-        $FilterProductsSerivce = new ProductFilterService();
-        return $query->when(request()->has('brand'), fn ($query) => $FilterProductsSerivce->FilterByBrands($query))
-            ->when(request()->has('color'), fn ($query) => $FilterProductsSerivce->FilterByColors($query))
-            ->when(request()->has('sizeOptions'), fn ($query) => $FilterProductsSerivce->FilterBySizeOptions($query))
-            ->when(request()->has('price'), fn ($query) => $FilterProductsSerivce->FilterByPrice($query))
-            ->when(request()->has('sort'), fn ($query) => $FilterProductsSerivce->FilterBySorting($query))
-            ->when(request()->has('search'), fn ($query) => $FilterProductsSerivce->FilterBySearching($query))
-            ->when(request()->has('status'), fn ($query) => $FilterProductsSerivce->FilterByStatus($query));
+
+        return $query->when(request()->has('brand'), fn ($query) => $this->filterByBrands($query))
+            ->when(request()->has('color'), fn ($query) => $this->filterByColors($query))
+            ->when(request()->has('sizeOptions'), fn ($query) => $this->filterBySizeOptions($query))
+            ->when(request()->has('price'), fn ($query) => $this->filterByPrice($query))
+            ->when(request()->has('sort'), fn ($query) => $this->filterBySorting($query))
+            ->when(request()->has('search'), fn ($query) => $this->filterBySearching($query))
+            ->when(request()->has('status'), fn ($query) => $this->filterByStatus($query));
     }
     public function scopeWhereCategory($query, $category_id)
     {
@@ -115,17 +119,50 @@ trait ProductModelScopes
             'brand_image' => Brand::select('image')->whereColumn('id', 'products.brand_id'),
         ]);
     }
+    public function scopeWithBrandName($query)
+    {
+        return $query->addSelect([
+            'brand_name' => Brand::select('name')->whereColumn('id', 'products.brand_id'),
+        ]);
+    }
+    public function scopeRelatedProducts($query, $productId, $categoriesIds)
+    {
+        return $query->whereHas('categories', function ($query) use ($categoriesIds) {
+            $query->whereIn('id', collect($categoriesIds));
+        })->where('id', '!=', $productId)
+            ->WithShopPageFields()
+            ->WithMainProductImage()
+            ->WithBrandName()
+            ->Active()
+            ->inRandomOrder()
+            ->limit(20);
+    }
 
+    /**
+     * 
+     * Accessors
+     */
     public function getBrandImageUrlAttribute()
     {
         if ($this->brand_image) {
             return asset('storage/images/brands/' . $this->brand_image);
         }
     }
-    public function scopeWithBrandName($query)
+    public function getMainImageUrlAttribute()
     {
-        return $query->addSelect([
-            'brand_name' => Brand::select('name')->whereColumn('id', 'products.brand_id'),
-        ]);
+        if ($this->main_image) {
+            return asset('storage/images/products/product_' . $this->id . '/' . $this->main_image);
+        } else {
+            return  asset('assets/images/defult-input-image.png');
+        }
+    }
+    public function getCategoryNameAttribute()
+    {
+
+        return $this->categories->last()->name;
+    }
+    public function getSectionNameAttribute()
+    {
+        return $this->categories->first()->name;
     }
 }

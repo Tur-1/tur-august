@@ -3,8 +3,9 @@ import LayoutMobileNavbar from "@/layouts/Mobile/components/LayoutMobileNavbar.v
 import LayoutMobileFooter from "@/layouts/Mobile/components/LayoutMobileFooter.vue";
 import CategoriesPage from "@/layouts/Mobile/components/Categories/CategoriesPage.vue";
 import { onMounted, ref } from "vue";
+import AuthOffcanvas from "@/layouts/Mobile/components/AuthOffcanvas.vue";
 
-defineProps({
+const props = defineProps({
     backgroundColor: String,
     title: String,
 });
@@ -22,6 +23,7 @@ onMounted(() => {
 
             <slot />
 
+            <AuthOffcanvas :requireAuth="$page.props.requireAuth" />
             <CategoriesPage />
             <LayoutMobileFooter />
         </main>

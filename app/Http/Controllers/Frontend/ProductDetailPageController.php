@@ -5,17 +5,21 @@ namespace App\Http\Controllers\Frontend;
 use Carbon\Carbon;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
-use App\Traits\AlertMessages;
 use App\Models\product\Product;
 use App\Http\Controllers\Controller;
+use App\Traits\Product\ProductTrait;
 use App\Models\product\ProductReview;
+use Illuminate\Support\Facades\Session;
+use App\Traits\RedirectWithMessageTrait;
+use App\Services\Frontend\Pages\ShoppingCartPageService;
 use App\Services\Frontend\Pages\ProductDetailPageService;
 
 class ProductDetailPageController extends Controller
 {
-    use AlertMessages;
+    use RedirectWithMessageTrait, ProductTrait;
     public function index($slug, ProductDetailPageService $productDetailPageService)
     {
+
 
         $productDetail =  $productDetailPageService->getProductDetail($slug);
         $sizeOptions =  $productDetailPageService->getSizeOptions();
@@ -36,33 +40,46 @@ class ProductDetailPageController extends Controller
     }
     public function addToShoppingCart(Request $request)
     {
-        if (is_null($request->size_id)) {
-            return;
+        if (is_null($request->size_id) || $this->isProductDoesntExist($request->product_id)) return;
+
+        if (!auth()->check()) {
+            Session::put('productDetail', [
+                'product_id' => $request->product_id,
+                'size_id' => $request->size_id
+            ]);
+
+            return  redirect()->back()->with('requireAuth', ['status' => true, 'time' => time()]);
         }
-        if (!auth()->user()->shoppingCartHas($request->product_id, $request->size_id)) {
-
-            auth()->user()->shoppingCart()->attach($request->product_id, ['size_id' => $request->size_id, 'quantity' => 1]);
-        }
 
 
-        $message = 'The product was added to your cart!';
+        (new ShoppingCartPageService())->attachProductToShoppingCart($request);
+
+        return $this->redirectBackWithSuccessMsg('The product was added to your cart!');
     }
     public function sendComment($slug, Request $request)
     {
+
+        $request->validate(['comment' => 'required|string']);
+
+
         $product = Product::where('slug', $slug)->select('id')->first();
-        if (is_null($product) || is_null($slug)) {
-            return $this->redirectBackWithErrorMsg('please try again !');
+        if (is_null($slug) || is_null($product)) {
+            return;
         }
 
 
-        $request->validate(['comment' => 'required|string']);
-        $currentDate = Carbon::now('GMT+3');
-        ProductReview::create([
-            'user_id' => auth()->id(),
-            'product_id' => $product->id,
-            'comment' => $request->comment,
-            'create_at' =>  $currentDate
-        ]);
+
+        if (!auth()->check()) {
+            Session::put('productReview', [
+                'product_id' => $product->id,
+                'comment' => $request->comment,
+            ]);
+
+            return  redirect()->back()->with('requireAuth', ['status' => true, 'time' => time()]);
+        }
+
+
+        (new ProductDetailPageService())->createComment($product->id, $request->comment);
 
 
         return $this->redirectBackWithSuccessMsg('Your comment has been added successfully');

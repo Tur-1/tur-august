@@ -6,14 +6,14 @@ use App\Traits\FileUpload;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\product\Brand;
-use App\Traits\AlertMessages;
+use App\Traits\RedirectWithMessageTrait;
 use App\Http\Controllers\Controller;
 use App\Actions\Backend\StoreModelImageAction;
 use App\Http\Requests\Backend\StoreBrandRequest;
 
 class BrandController extends Controller
 {
-    use AlertMessages, FileUpload;
+    use RedirectWithMessageTrait, FileUpload;
     private $routeName = 'admin.brands.index';
     private $imageFolder = 'brands';
     /**

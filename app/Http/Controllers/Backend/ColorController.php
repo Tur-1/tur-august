@@ -7,13 +7,13 @@ use Illuminate\Support\Str;
 use App\Models\product\Color;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Backend\StoreColorRequest;
-use App\Traits\AlertMessages;
+use App\Traits\RedirectWithMessageTrait;
 use App\Traits\FileUpload;
 
 class ColorController extends Controller
 {
 
-    use AlertMessages, FileUpload;
+    use RedirectWithMessageTrait, FileUpload;
     private $routeName = 'admin.colors.index';
     private $imageFolder = 'colors';
 

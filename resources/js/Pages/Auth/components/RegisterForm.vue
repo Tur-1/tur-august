@@ -34,7 +34,7 @@
                 label="confirm password *"
                 v-model="form.password_confirmation"
                 type="password"
-                id="register_password"
+                id="password_confirmation"
                 :customClass="{
                     'is-invalid': form.errors.password_confirmation,
                 }"
@@ -84,7 +84,7 @@
 
             <button
                 type="submit"
-                class="btn btn-primary w-100"
+                class="btn btn-primary w-100 mt-2"
                 :disabled="form.processing"
                 name="sign_up"
             >

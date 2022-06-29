@@ -2,15 +2,10 @@
 
 namespace App\Services\Frontend\Pages;
 
-use Carbon\Carbon;
 use App\Models\product\Brand;
 use App\Models\product\Color;
 use App\Models\product\Product;
-use App\Models\product\Category;
 use App\Models\product\SizeOption;
-use App\Models\product\ProductCategory;
-use Illuminate\Support\Facades\Session;
-use App\Exceptions\PageNotFoundException;
 use App\Http\Resources\Brand\BrandsResource;
 use App\Http\Resources\Category\CategoriesResource;
 use App\Http\Resources\Color\ColorsResource;
@@ -119,7 +114,7 @@ class ShopPageService
     public function getProducts()
     {
         $this->products =  Product::WhereCategory($this->category->id)
-            ->SelectFrontendFields()
+            ->WithShopPageFields()
             ->WithMainProductImage()
             ->WithFilters()
             ->Active()

@@ -96,6 +96,16 @@ __webpack_require__.r(__webpack_exports__);
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 var map = {
+	"./Auth/Auth": [
+		"./resources/js/Pages/Auth/Auth.vue",
+		"/js/vendor",
+		"resources_js_Pages_Auth_Auth_vue"
+	],
+	"./Auth/Auth.vue": [
+		"./resources/js/Pages/Auth/Auth.vue",
+		"/js/vendor",
+		"resources_js_Pages_Auth_Auth_vue"
+	],
 	"./Auth/components/AuthTabsHeader": [
 		"./resources/js/Pages/Auth/components/AuthTabsHeader.vue",
 		"/js/vendor",
@@ -135,16 +145,6 @@ var map = {
 		"./resources/js/Pages/Auth/components/SocialButtons.vue",
 		"/js/vendor",
 		"resources_js_Pages_Auth_components_SocialButtons_vue"
-	],
-	"./Auth/login": [
-		"./resources/js/Pages/Auth/login.vue",
-		"/js/vendor",
-		"resources_js_Pages_Auth_login_vue"
-	],
-	"./Auth/login.vue": [
-		"./resources/js/Pages/Auth/login.vue",
-		"/js/vendor",
-		"resources_js_Pages_Auth_login_vue"
 	],
 	"./CheckoutPage/Index": [
 		"./resources/js/Pages/CheckoutPage/Index.vue",

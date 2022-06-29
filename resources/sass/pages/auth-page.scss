@@ -31,10 +31,11 @@
     align-items: center;
     border: none !important;
 }
-.auth-head-tab button.active,
-.auth-head-tab:hover {
+.auth-head-tab button.active {
     color: #51c0a9 !important;
     border-bottom: 2px solid #51c0a9 !important;
+    box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%) !important;
+    padding: 0.2rem !important;
 }
 .social-buttons {
     display: grid;
@@ -93,4 +94,8 @@
     color: #fff;
     background-color: #6c757d;
     border-color: #6c757d;
+}
+
+.base-bottom-offcanvas .offcanvas-body .auth-container {
+    border: none !important;
 }

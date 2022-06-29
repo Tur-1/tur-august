@@ -3,13 +3,13 @@
 namespace App\Http\Livewire\Backend\Components\Product\ProductImages;
 
 use App\Services\Backend\Product\ProductImageService;
-use App\Traits\AlertMessages;
+use App\Traits\RedirectWithMessageTrait;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
 class ProductImages extends Component
 {
-    use WithFileUploads, AlertMessages;
+    use WithFileUploads, RedirectWithMessageTrait;
     public $showConfirmModal = false;
     public $productImages = [];
     public $productId;

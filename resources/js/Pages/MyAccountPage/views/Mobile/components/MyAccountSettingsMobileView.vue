@@ -6,8 +6,7 @@
             role="button"
             class="text-dark"
         >
-            <i class="far fa-address-card pb-2 me-2"></i>
-
+            <i class="bi bi-person-video2 pb-2 me-2"></i>
             <div
                 class="d-flex align-items-center justify-content-between w-100 border-bottom pb-2"
             >

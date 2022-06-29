@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Models\product\Brand;
 use App\Models\product\Color;
-use App\Traits\AlertMessages;
+use App\Traits\RedirectWithMessageTrait;
 use App\Models\product\Product;
 use App\Http\Controllers\Controller;
 use App\Models\product\Category;
@@ -17,7 +17,7 @@ use function PHPUnit\Framework\isEmpty;
 
 class ProductController extends Controller
 {
-    use AlertMessages;
+    use RedirectWithMessageTrait;
     private $routeName = 'admin.products.index';
     private $couponTypes = ['percentage', 'Fixed'];
     /**

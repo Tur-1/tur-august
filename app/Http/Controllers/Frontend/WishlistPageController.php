@@ -6,11 +6,15 @@ use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Models\product\Product;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Product\ProductsListResource;
+use App\Traits\Product\ProductTrait;
 use Illuminate\Support\Facades\Session;
+use App\Http\Resources\Product\ProductsListResource;
+use App\Services\Frontend\Pages\WishlistPageService;
 
 class WishlistPageController extends Controller
 {
+    use ProductTrait;
+
     public function index()
     {
 
@@ -19,7 +23,16 @@ class WishlistPageController extends Controller
         if ($inWishlist > 0) {
             $products = ProductsListResource::collection(auth()->user()->wishlistProducts)->resolve();
         }
+        // if (!auth()->check()) {
+        //     $inWishlist  =  Session::get('wishlist');
+        //     $products =  Product::query()->whereIn('id', $inWishlist)
+        //         ->WithShopPageFields()
+        //         ->WithMainProductImage()
+        //         ->WithBrandName()
+        //         ->Active()->get();
 
+        //     $products = ProductsListResource::collection($products)->resolve();
+        // }
         return Inertia::render(
             'WishlistPage/Index',
             [
@@ -31,13 +44,15 @@ class WishlistPageController extends Controller
     }
     public function addToWishlist(Request $request)
     {
-
-        if (auth()->user()->WishlistHas($request->product_id)) {
-
-            auth()->user()->wishlist()->detach($request->product_id);
-        } else {
-
-            auth()->user()->wishlist()->attach($request->product_id);
+        if ($this->isProductDoesntExist($request->product_id)) {
+            return;
         }
+        if (!auth()->check()) {
+            Session::put('wishlist', ['product_id' => $request->product_id]);
+
+            return  redirect()->back()->with('requireAuth', ['status' => true, 'time' => time()]);
+        }
+
+        (new WishlistPageService())->attachProductToWishlist($request->product_id);
     }
 }

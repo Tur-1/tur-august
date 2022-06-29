@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Traits\FileUpload;
 use Illuminate\Support\Str;
-use App\Traits\AlertMessages;
+use App\Traits\RedirectWithMessageTrait;
 use App\Models\product\Category;
 use App\Http\Controllers\Controller;
 use App\Actions\Backend\StoreModelImageAction;
@@ -13,7 +13,7 @@ use App\Services\Backend\Category\StoreCategoryService;
 
 class CategoryController extends Controller
 {
-    use AlertMessages, FileUpload;
+    use RedirectWithMessageTrait, FileUpload;
     private $routeName = 'admin.categories.index';
 
     public function index()

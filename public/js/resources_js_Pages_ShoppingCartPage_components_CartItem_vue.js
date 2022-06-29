@@ -63,7 +63,7 @@ var _hoisted_6 = {
 var _hoisted_7 = ["onClick", "disabled"];
 
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fa-solid fa-minus"
+  "class": "bi bi-dash"
 }, null, -1
 /* HOISTED */
 );
@@ -75,7 +75,7 @@ var _hoisted_10 = {
 var _hoisted_11 = ["onClick", "disabled"];
 
 var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fa-solid fa-plus"
+  "class": "bi bi-plus"
 }, null, -1
 /* HOISTED */
 );
