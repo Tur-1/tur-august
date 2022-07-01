@@ -12,7 +12,13 @@ import ShopMobileHeader from "@/Pages/ShopPage/views/Mobile/components/ShopMobil
         </div>
         <Pagination
             :links="$page.props.products.links"
-            v-if="$page.props.products.data.length > 13"
+            v-if="$page.props.productsCount > 1"
         />
+        <div
+            v-show="$page.props.productsCount == 0"
+            class="justify-content-center text-center"
+        >
+            <h5>No Products Found</h5>
+        </div>
     </section>
 </template>

@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Models\order\Coupon;
-use Illuminate\Http\Request;
-use App\Traits\RedirectWithMessageTrait;
+use App\Models\Coupon\Coupon;
 use App\Http\Controllers\Controller;
+use App\Traits\RedirectWithMessageTrait;
 use App\Http\Requests\Backend\StoreCouponRequest;
 
 class CouponController extends Controller

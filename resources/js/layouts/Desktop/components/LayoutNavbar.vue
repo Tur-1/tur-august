@@ -36,7 +36,11 @@
                         >
                             <Link
                                 :href="section.link"
-                                :class="section.activeSectionClass"
+                                :class="{
+                                    active:
+                                        section.active_section_slug ==
+                                        section.slug,
+                                }"
                             >
                                 {{ section.name }}
                             </Link>

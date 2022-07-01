@@ -4,23 +4,31 @@ namespace App\Http\Controllers\Frontend;
 
 use Inertia\Inertia;
 use Illuminate\Http\Request;
-use App\Traits\RedirectWithMessageTrait;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Frontend\StoreUserAccountInformationRequest;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\Frontend\StoreUserAddressRequest;
+use App\Traits\RedirectWithMessageTrait;
+use App\Models\user\Services\UserAddressService;
 use App\Services\Frontend\Pages\MyAccountPageService;
-use App\Services\Frontend\User\UserAddressService;
+use App\Http\Requests\Frontend\StoreUserAddressRequest;
+use App\Http\Requests\Frontend\StoreUserAccountInformationRequest;
 
 class MyAccountPageController extends Controller
 {
     use RedirectWithMessageTrait;
     public $genders = ['Female', 'Male'];
-    public function index(MyAccountPageService $myAccountPageService)
-    {
-        $user = $myAccountPageService->getAuthenticatedUser();
-        $userAddresses = $myAccountPageService->getUserAddresses();
+    private $userAddressService;
+    private $myAccountService;
 
+    public function __construct()
+    {
+        $this->userAddressService =  new UserAddressService();
+        $this->myAccountService =  new MyAccountPageService();
+    }
+
+    public function index()
+    {
+        $user = $this->myAccountService->getAuthenticatedUser();
+        $userAddresses = $this->userAddressService->getUserAddresses();
 
         return Inertia::render('MyAccountPage/Index', [
             'user' => $user,
@@ -32,7 +40,7 @@ class MyAccountPageController extends Controller
     public function updateAccountInformation(StoreUserAccountInformationRequest $request)
     {
 
-        auth()->user()->update($request->validated());
+        $this->myAccountService->updateAccountInfo($request->validated());
 
         return $this->redirectBackWithSuccessMsg('account information has ben updated successfully');
     }
@@ -41,7 +49,8 @@ class MyAccountPageController extends Controller
 
         $request->validate(['phone_number' => 'required|digits_between:10,20|numeric']);
 
-        auth()->user()->update(['phone_number' => intval($request->phone_number)]);
+
+        $this->myAccountService->updatePhoneNumber($request->phone_number);
 
         return $this->redirectBackWithSuccessMsg('phone number has been updated successfully');
     }
@@ -58,31 +67,31 @@ class MyAccountPageController extends Controller
             'new_password_confirmation' => 'required',
         ]);
 
-        auth()->user()->update(['password' => $request->new_password]);
+        $this->myAccountService->updatePassword($request->new_password);
 
         return $this->redirectBackWithSuccessMsg('your password has been updated successfully');
     }
 
 
-    public function storeNewAddress(StoreUserAddressRequest $request, UserAddressService $userAddressService)
+    public function storeNewAddress(StoreUserAddressRequest $request)
     {
 
-        $userAddressService->createAddress($request->validated());
+        $this->userAddressService->createAddress($request->validated());
 
         return $this->redirectBackWithSuccessMsg('new address has been added successfully');
     }
 
-    public function updateUserAddress(StoreUserAddressRequest $request, UserAddressService $userAddressService, $id)
+    public function updateUserAddress(StoreUserAddressRequest $request,  $id)
     {
-        $address = $userAddressService->findUserAddress($id);
+        $address = $this->userAddressService->findUserAddress($id);
 
         $address->update($request->validated());
 
         return $this->redirectBackWithSuccessMsg(' address has been updated successfully');
     }
-    public function destroyUserAddress(UserAddressService $userAddressService, $id)
+    public function destroyUserAddress($id)
     {
-        $address = $userAddressService->findUserAddress($id);
+        $address = $this->userAddressService->findUserAddress($id);
 
         $address->delete();
 

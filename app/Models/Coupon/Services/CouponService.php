@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services\Frontend\Coupon;
+namespace App\Models\Coupon\Services;
 
-use App\Models\order\Coupon;
+use App\Models\Coupon\Coupon;
 use App\Exceptions\InValidCouponCodeException;
 
 class CouponService

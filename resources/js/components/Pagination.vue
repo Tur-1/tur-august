@@ -5,8 +5,11 @@
                 <li
                     class="page-item"
                     v-for="link in links"
-                    :class="(!link.url ? 'disabled' : '',link.active ? 'active' : '')">
-                   
+                    :class="
+                        (!link.url ? 'disabled' : '',
+                        link.active ? 'active' : '')
+                    "
+                >
                     <Component
                         :is="!link.url ? 'span' : 'Link'"
                         :href="link.url"
@@ -20,6 +23,6 @@
 </template>
 <script setup>
 defineProps({
-    links: Array,
+    links: Object,
 });
 </script>

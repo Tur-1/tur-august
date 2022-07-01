@@ -24,8 +24,8 @@ trait ProductFilterTrait
     public function filterBySizeOptions($query)
     {
 
-        return  $query->whereHas('stockSizeOptions', function ($query) {
-            $query->whereIn('slug', request()->input('sizeOptions'))->select('id', 'slug');
+        return  $query->whereHas('sizeOptions', function ($query) {
+            $query->whereIn('slug', request()->input('sizeOptions'));
         });
     }
 

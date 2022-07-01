@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Frontend\User;
+namespace App\Models\user\Services;
 
 use App\Http\Resources\User\UserAddressesListResource;
 

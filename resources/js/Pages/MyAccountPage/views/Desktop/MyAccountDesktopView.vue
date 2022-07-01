@@ -13,11 +13,12 @@
                 data-bs-toggle="tab"
                 data-bs-target="#account-settings"
             >
-                <div class="card-body text-center p-4">
-                    <span class="card-title d-flex flex-row align-items-center">
-                        <i class="fas fa-cog me-2"></i> Account Settings
-                    </span>
-                </div>
+                <span class="d-flex flex-row align-items-center">
+                    <div class="icon-circle">
+                        <i class="bi bi-gear"></i>
+                    </div>
+                    Account Settings
+                </span>
             </button>
 
             <button
@@ -27,11 +28,12 @@
                 data-bs-toggle="tab"
                 data-bs-target="#my-orders"
             >
-                <div class="card-body text-center p-4">
-                    <span class="card-title d-flex flex-row align-items-center">
-                        <i class="fas fa-boxes me-2"></i> My Orders
-                    </span>
-                </div>
+                <span class="d-flex flex-row align-items-center">
+                    <div class="icon-circle">
+                        <i class="bi bi-boxes"></i>
+                    </div>
+                    My Orders
+                </span>
             </button>
 
             <button
@@ -41,11 +43,12 @@
                 data-bs-toggle="tab"
                 data-bs-target="#address-book"
             >
-                <div class="card-body text-center p-4">
-                    <span class="card-title d-flex flex-row align-items-center">
-                        <i class="far fa-address-card me-2"></i> Address Book
-                    </span>
-                </div>
+                <span class="d-flex flex-row align-items-center">
+                    <div class="icon-circle">
+                        <i class="bi bi-card-list"></i>
+                    </div>
+                    Address Book
+                </span>
             </button>
         </div>
 

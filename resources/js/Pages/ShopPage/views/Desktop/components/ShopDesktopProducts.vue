@@ -4,7 +4,16 @@
             <ProductCard :products="$page.props.products.data" />
         </div>
 
-        <Pagination :links="$page.props.products.meta.links" />
+        <Pagination
+            :links="$page.props.products.meta.links"
+            v-if="$page.props.productsCount > 1"
+        />
+        <div
+            v-show="$page.props.productsCount == 0"
+            class="justify-content-center text-center"
+        >
+            <h5>No Products Found</h5>
+        </div>
     </div>
 </template>
 <script setup>

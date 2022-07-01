@@ -17,10 +17,10 @@ class CategoriesResource extends JsonResource
      */
     public function toArray($request)
     {
-        $activeSectionClass = '';
+
         $activeCategoryClass = '';
         if (Route::is('shopPage')) {
-            $activeSectionClass = Str::title(collect(explode('-', $this->slug))->first()) == $this->name ? 'active' : '';
+
             $activeCategoryClass = url()->current() == route('shopPage', ['category_slug' => $this->slug]) ? 'active' : '';
         }
 
@@ -30,7 +30,7 @@ class CategoriesResource extends JsonResource
             'slug' => $this->slug,
             'link' => route('shopPage', ['category_slug' => $this->slug]),
             'image_url' => $this->image_url,
-            'activeSectionClass' =>  $activeSectionClass,
+            'active_section_slug' => collect(explode('-', request()->route()->parameter('category_slug')))->first(),
             'activeClass' => $activeCategoryClass,
             'children' => $this->children ? CategoriesResource::collection($this->children) : [],
         ];

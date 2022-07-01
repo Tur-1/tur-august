@@ -11,8 +11,17 @@ class MyAccountPageService
     {
         return AuthUserResource::make(auth()->user());
     }
-    public function getUserAddresses()
+
+    public function updatePhoneNumber($phoneNumber)
     {
-        return UserAddressesListResource::collection(auth()->user()->addresses);
+        auth()->user()->update(['phone_number' => intval($phoneNumber)]);
+    }
+    public function updatePassword($password)
+    {
+        auth()->user()->update(['password' => $password]);
+    }
+    public function updateAccountInfo($information)
+    {
+        auth()->user()->update($information);
     }
 }

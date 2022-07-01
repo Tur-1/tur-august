@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\order;
+namespace App\Models\Coupon;
 
 use App\Traits\ActiveModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
