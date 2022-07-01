@@ -32,20 +32,10 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('api')
                 ->prefix('api')
                 ->group(base_path('routes/api/api.php'));
-
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
 
-            Route::middleware('web')
-                ->group(base_path('routes/web/Frontend/WishlistPage.php'));
-            Route::middleware('web')
-                ->group(base_path('routes/web/Frontend/ShoppingCartPage.php'));
-            Route::middleware('web')
-                ->group(base_path('routes/web/Frontend/MyAccountPage.php'));
-            Route::middleware('web')
-                ->group(base_path('routes/web/Frontend/CheckoutPage.php'));
-            Route::middleware('web')
-                ->group(base_path('routes/web/Frontend/ProductDetailPage.php'));
+            $this->frontendPagesRoutes();
 
             Route::middleware('web')
                 ->prefix('/admin/')
@@ -59,6 +49,36 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
+    protected  function frontendPagesRoutes()
+    {
+
+
+
+        // shop page
+        Route::middleware('web')
+            ->group(base_path('routes/web/Frontend/ShopPageRoute.php'));
+
+        //  wishlist page
+        Route::middleware('web')
+            ->group(base_path('routes/web/Frontend/WishlistPageRoute.php'));
+
+        // shopping cart page
+        Route::middleware('web')
+            ->group(base_path('routes/web/Frontend/ShoppingCartPageRoute.php'));
+
+        // my account page
+        Route::middleware('web')
+            ->group(base_path('routes/web/Frontend/MyAccountPageRoute.php'));
+
+        // checkout page
+        Route::middleware('web')
+            ->group(base_path('routes/web/Frontend/CheckoutPageRoute.php'));
+
+        // product detail page
+        Route::middleware('web')
+            ->group(base_path('routes/web/Frontend/ProductDetailPageRoute.php'));
+    }
     protected function configureRateLimiting()
     {
         RateLimiter::for('api', function (Request $request) {

@@ -62,9 +62,6 @@ const closeMobileOffcanvasFilter = () => {
             </div>
         </div>
         <div class="offcanvas-body small mobile-offcanvas-filter-body">
-            <ShopMobileCategories
-                :showFilteredProducts="showFilteredProducts"
-            />
             <ShopMobileBrands
                 :filters="filters"
                 :removeFilteredValue="removeFilteredValue"

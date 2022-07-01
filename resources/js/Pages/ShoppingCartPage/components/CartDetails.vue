@@ -39,7 +39,7 @@
             @click="proceedToCheckout"
             class="btn btn-primary w-100 p-2 mt-3"
         >
-            <i class="fas fa-credit-card me-2"></i>
+            <i class="bi bi-credit-card me-2"></i>
             proceed to checkout
         </Link>
     </div>

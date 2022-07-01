@@ -58,6 +58,7 @@ class Category extends Model
     {
         return $this->belongsToMany(Product::class, 'product_category',  'category_id', 'product_id');
     }
+
     public function getImageUrlAttribute()
     {
         return $this->image ? asset('storage/images/categories/' . $this->image) : asset('assets/images/defult-input-image.png');

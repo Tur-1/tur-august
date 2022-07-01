@@ -84,7 +84,7 @@ var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 );
 
 var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fas fa-credit-card me-2"
+  "class": "bi bi-credit-card me-2"
 }, null, -1
 /* HOISTED */
 );

@@ -61,7 +61,7 @@
                         class="shopping-cart-product-actions remove-action"
                         @click="$emit('removeCartItem', product.cart_id)"
                     >
-                        <i class="fas fa-close"></i>
+                        <i class="bi bi-x"></i>
                     </a>
                     <div class="shopping-cart-product-price">
                         <span
@@ -70,16 +70,16 @@
                         >
                             out of stock
                         </span>
-                        <strong
+                        <span
                             class="cart-discounted-product-price"
                             v-if="product.in_stock"
                         >
                             {{ product.discounted_price }}
-                        </strong>
+                        </span>
 
-                        <strong class="text-primary">
+                        <span class="text-primary">
                             {{ product.price }}
-                        </strong>
+                        </span>
                     </div>
 
                     <a
@@ -92,8 +92,7 @@
                             )
                         "
                     >
-                        <i class="far fa-heart mr-1"></i>
-                        Save for Later
+                        save for later
                     </a>
                 </div>
             </div>

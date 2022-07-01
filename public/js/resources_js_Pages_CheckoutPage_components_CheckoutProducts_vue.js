@@ -14,14 +14,83 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "checkout-product"
+  "class": "checkout-product-img me-2"
 };
-
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<a class=\"checkout-product-img me-2\"><img src=\"http://august.com/storage/images/products/product_5/22-02-22-13-13-24-1645535604-Screenshot-2021-07-23-132852.png\" class=\"img-fluid\"></a><div class=\"checkout-product-detail\"><div class=\"checkout-product-info\"><span class=\"checkout-product-brand\"> Vans </span><span class=\"checkout-product-description\"> Cassandra Maldonado Maldonado Maldonado Maldonado </span><span class=\"checkout-product-size\"> size: S </span></div><div class=\"checkout-product-price\"><div class=\"d-flex flex-column\"><span class=\"checkout-product-discounted-price\">423.00 SAR </span><span class=\"checkout-product-current-price text-primary\">423.00 SAR </span></div><span class=\"checkout-product-qty\"> Quantity: 1 </span></div></div>", 2);
-
-var _hoisted_4 = [_hoisted_2];
+var _hoisted_2 = ["src"];
+var _hoisted_3 = {
+  "class": "checkout-product-detail"
+};
+var _hoisted_4 = {
+  "class": "checkout-product-info"
+};
+var _hoisted_5 = {
+  "class": "checkout-product-brand"
+};
+var _hoisted_6 = {
+  "class": "checkout-product-description"
+};
+var _hoisted_7 = {
+  "class": "checkout-product-size"
+};
+var _hoisted_8 = {
+  "class": "checkout-product-qty"
+};
+var _hoisted_9 = {
+  "class": "checkout-product-price"
+};
+var _hoisted_10 = {
+  "class": "d-flex flex-column"
+};
+var _hoisted_11 = {
+  key: 0,
+  "class": "product-out-of-stock"
+};
+var _hoisted_12 = {
+  key: 1,
+  "class": "checkout-product-discounted-price"
+};
+var _hoisted_13 = {
+  "class": "checkout-product-current-price text-primary"
+};
 function render(_ctx, _cache) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, _hoisted_4);
+  var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.$page.props.products, function (product, index) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+      "class": "checkout-product",
+      key: product.cart_id
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      src: product.main_image_url,
+      "class": "img-fluid"
+    }, null, 8
+    /* PROPS */
+    , _hoisted_2)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+      href: product.link
+    }, {
+      "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+        return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.brand_name), 1
+        /* TEXT */
+        )];
+      }),
+      _: 2
+      /* DYNAMIC */
+
+    }, 1032
+    /* PROPS, DYNAMIC_SLOTS */
+    , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.name), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_7, " size: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.size), 1
+    /* TEXT */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_8, " Quantity: " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.quantity), 1
+    /* TEXT */
+    )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [!product.in_stock ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_11, " out of stock ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), product.in_stock ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.discounted_price), 1
+    /* TEXT */
+    )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(product.price), 1
+    /* TEXT */
+    )])])])]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  );
 }
 
 /***/ }),

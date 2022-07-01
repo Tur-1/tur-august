@@ -44,7 +44,7 @@ trait HasProductsWithCount
     public function scopeWithCountRequestParam($query)
     {
         return $query->withCount(['products' =>  function ($product) {
-            $product->whereHas($this->firstParamKey, function ($query) {
+            $product->select('id')->whereHas($this->firstParamKey, function ($query) {
                 $query->whereIn('slug', $this->firstParamValues);
             })->WhereCategory($this->category_id);
         }]);

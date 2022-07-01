@@ -18350,7 +18350,7 @@ ul.shop-sidebar-categories {
 
 .shopping-cart-product-actions.save-action {
   font-size: 12px;
-  color: #666666 !important;
+  color: #828282 !important;
 }
 
 .shopping-cart-product-actions.remove-action {
@@ -18379,6 +18379,9 @@ ul.shop-sidebar-categories {
   .add-new-address-btn {
     font-size: 13px !important;
   }
+  .checkout-deatils li {
+    font-size: 13px;
+  }
 }
 .checkout-product {
   background-color: white;
@@ -18402,14 +18405,13 @@ ul.shop-sidebar-categories {
 .checkout-product-detail {
   display: flex;
   justify-content: space-between;
-  font-family: "Lato";
   width: 100%;
 }
 
 .checkout-product-info {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 70%;
 }
 
@@ -18433,15 +18435,14 @@ ul.shop-sidebar-categories {
 }
 
 .checkout-product-current-price {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
-  font-family: "Lato";
 }
 
 .checkout-product-discounted-price {
   color: #999;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 16px;
   text-decoration: line-through !important;
 }

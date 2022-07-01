@@ -1,10 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Frontend\HomePageController;
-
-
+use App\Http\Controllers\Frontend\CheckoutPageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,6 +13,13 @@ use App\Http\Controllers\Frontend\HomePageController;
 |
 */
 
-Auth::routes();
 
-Route::get('/', [HomePageController::class, 'index'])->name('homePage');
+
+Route::middleware('auth')->controller(CheckoutPageController::class)->group(function () {
+
+
+    Route::get('/checkout', 'index')->name('checkoutPage');
+
+
+    Route::post('/checkout/apply-coupon', 'applyCoupon')->name('applyCoupon');
+});

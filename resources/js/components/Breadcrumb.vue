@@ -5,7 +5,7 @@
                 <div class="breadcrumb text-wrap">
                     <div class="breadcrumb-item">
                         <Link href="/"> Home</Link>
-                        <i class="fas fa-chevron-right"></i>
+                        <i class="bi bi-chevron-right"></i>
                     </div>
                     <div
                         v-if="categories"
@@ -14,7 +14,7 @@
                         class="breadcrumb-item"
                     >
                         <Link :href="category.link"> {{ category.name }}</Link>
-                        <i class="fas fa-chevron-right"></i>
+                        <i class="bi bi-chevron-right"></i>
                     </div>
                     <span class="current-breadcrumb-item">
                         {{ pageTitle }}</span

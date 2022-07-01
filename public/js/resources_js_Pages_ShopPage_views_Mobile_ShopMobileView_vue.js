@@ -1042,9 +1042,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $setup.clearProductsFilters($setup.props.categorySlug);
     })
-  }, " clear All ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ShopMobileCategories"], {
-    showFilteredProducts: $setup.showFilteredProducts
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ShopMobileBrands"], {
+  }, " clear All ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ShopMobileBrands"], {
     filters: $setup.filters,
     removeFilteredValue: $setup.removeFilteredValue,
     showFilteredProducts: $setup.showFilteredProducts

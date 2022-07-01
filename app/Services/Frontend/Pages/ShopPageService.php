@@ -51,16 +51,9 @@ class ShopPageService
 
         $brands = Brand::query();
 
-        if ($this->isNotFirstParamKey('brand')) {
 
-            $brands->Where_Has_Products_Based_On_First_Param_Key(
-                $this->category->id,
-                $this->firstParamKey,
-                $this->firstParamValues
-            );
-        } else {
-            $brands->WhereHasProductsWithCount($this->category->id);
-        }
+        $brands->WhereHasProductsWithCount($this->category->id);
+
 
         $brands =  $brands->get();
 
@@ -75,16 +68,9 @@ class ShopPageService
     {
         $colors = Color::query();
 
-        if ($this->isNotFirstParamKey('color')) {
 
-            $colors->Where_Has_Products_Based_On_First_Param_Key(
-                $this->category->id,
-                $this->firstParamKey,
-                $this->firstParamValues
-            );
-        } else {
-            $colors->WhereHasProductsWithCount($this->category->id);
-        }
+        $colors->WhereHasProductsWithCount($this->category->id);
+
 
         $colors =  $colors->get();
 
@@ -94,21 +80,15 @@ class ShopPageService
     {
         $sizeOptions =  SizeOption::query();
 
-        if ($this->isNotFirstParamKey('sizeOptions')) {
-
-            $sizeOptions->Where_Has_Products_Based_On_First_Param_Key(
-                $this->category->id,
-                $this->firstParamKey,
-                $this->firstParamValues
-            );
-        } else {
-            $sizeOptions->WhereHasProductsWithCount($this->category->id);
-        }
 
 
-        $SizeOptions = $sizeOptions->get();
+        $sizeOptions->WhereHasProductsWithCount($this->category->id);
 
-        return SizeOptionsResource::collection($SizeOptions);
+
+
+        $sizeOptions = $sizeOptions->get();
+
+        return SizeOptionsResource::collection($sizeOptions);
     }
 
     public function getProducts()
@@ -175,6 +155,6 @@ class ShopPageService
     }
     private function isNotFirstParamKey(string $queryStringKey)
     {
-        return (!empty(request()->query()) && in_array($queryStringKey, array_keys(request()->only(['brand', 'color', 'sizeOptions']))) && $this->firstParamKey != $queryStringKey);
+        // return (!empty(request()->query()) && in_array($queryStringKey, array_keys(request()->only(['brand', 'color', 'sizeOptions']))) && $this->firstParamKey != $queryStringKey);
     }
 }

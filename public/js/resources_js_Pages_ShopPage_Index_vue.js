@@ -944,7 +944,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'InputErrorMsg',
-  props: ['error'],
+  props: ["error"],
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
@@ -3118,9 +3118,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $setup.clearProductsFilters($setup.props.categorySlug);
     })
-  }, " clear All ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ShopMobileCategories"], {
-    showFilteredProducts: $setup.showFilteredProducts
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ShopMobileBrands"], {
+  }, " clear All ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ShopMobileBrands"], {
     filters: $setup.filters,
     removeFilteredValue: $setup.removeFilteredValue,
     showFilteredProducts: $setup.showFilteredProducts
@@ -3497,13 +3495,13 @@ var _hoisted_5 = {
 var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Home");
 
 var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fas fa-chevron-right"
+  "class": "bi bi-chevron-right"
 }, null, -1
 /* HOISTED */
 );
 
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fas fa-chevron-right"
+  "class": "bi bi-chevron-right"
 }, null, -1
 /* HOISTED */
 );
@@ -3566,7 +3564,10 @@ __webpack_require__.r(__webpack_exports__);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", {
-    "class": "text-danger"
+    "class": "text-danger",
+    style: {
+      "font-size": "12px"
+    }
   }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.error), 513
   /* TEXT, NEED_PATCH */
   )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $props.error]]);

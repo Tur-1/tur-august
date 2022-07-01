@@ -90,7 +90,10 @@ trait ProductTrait
                 ->limit(1)
         ]);
     }
-
+    public function scopeActive($query)
+    {
+        return $query->where('products.is_active', true);
+    }
     public function scopeWithFilters($query)
     {
 
@@ -104,7 +107,7 @@ trait ProductTrait
     }
     public function scopeWhereCategory($query, $category_id)
     {
-        return $query->whereHas('categories', fn ($query) => $query->where('category_id', $category_id));
+        return $query->whereHas('categories', fn ($query) => $query->where('categories.id', $category_id)->select('categories.id'));
     }
 
     public function scopeWithColorName($query)

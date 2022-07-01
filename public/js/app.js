@@ -146,6 +146,14 @@ var map = {
 		"/js/vendor",
 		"resources_js_Pages_Auth_components_SocialButtons_vue"
 	],
+	"./CheckoutPage/Helpers/useCartTotal": [
+		"./resources/js/Pages/CheckoutPage/Helpers/useCartTotal.js",
+		"resources_js_Pages_CheckoutPage_Helpers_useCartTotal_js"
+	],
+	"./CheckoutPage/Helpers/useCartTotal.js": [
+		"./resources/js/Pages/CheckoutPage/Helpers/useCartTotal.js",
+		"resources_js_Pages_CheckoutPage_Helpers_useCartTotal_js"
+	],
 	"./CheckoutPage/Index": [
 		"./resources/js/Pages/CheckoutPage/Index.vue",
 		"/js/vendor",

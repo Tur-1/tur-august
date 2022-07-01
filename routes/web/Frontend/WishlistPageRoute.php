@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Frontend\CheckoutPageController;
+use App\Http\Controllers\Frontend\ShopPageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +14,7 @@ use App\Http\Controllers\Frontend\CheckoutPageController;
 */
 
 
+Route::controller(ShopPageController::class)->group(function () {
 
-Route::middleware('auth')->controller(CheckoutPageController::class)->group(function () {
-
-
-    Route::get('/checkout', 'index')->name('checkoutPage');
+    Route::get('/shop/{category_slug}', 'index')->name('shopPage');
 });
