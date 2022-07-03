@@ -22,4 +22,6 @@ Route::middleware('auth')->controller(CheckoutPageController::class)->group(func
 
 
     Route::post('/checkout/apply-coupon', 'applyCoupon')->name('applyCoupon');
+
+    Route::post('/checkout/buy-now', 'buyNow')->name('buyNow');
 });

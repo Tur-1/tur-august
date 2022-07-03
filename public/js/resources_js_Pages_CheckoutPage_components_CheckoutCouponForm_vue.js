@@ -11,10 +11,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
-/* harmony import */ var _components_InputErrorMsg_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/InputErrorMsg.vue */ "./resources/js/components/InputErrorMsg.vue");
-/* harmony import */ var _components_InputSuccessMsg_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/components/InputSuccessMsg.vue */ "./resources/js/components/InputSuccessMsg.vue");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var _components_InputErrorMsg_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/components/InputErrorMsg.vue */ "./resources/js/components/InputErrorMsg.vue");
+/* harmony import */ var _components_InputSuccessMsg_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/InputSuccessMsg.vue */ "./resources/js/components/InputSuccessMsg.vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
 
@@ -24,30 +24,38 @@ __webpack_require__.r(__webpack_exports__);
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
-    var couponForm = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.useForm)({
-      code: ""
+
+    var _usePage = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.usePage)(),
+        $props = _usePage.props;
+
+    var cartTotalWithCoupon = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)({
+      data: (0,vue__WEBPACK_IMPORTED_MODULE_3__.computed)(function () {
+        return $props.value.cartTotalWithCoupon;
+      })
     });
-    var successMsg = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)("");
+    var couponForm = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.useForm)({
+      code: cartTotalWithCoupon.value.data ? cartTotalWithCoupon.value.data.coupon.code : ""
+    });
 
     var applyCoupon = function applyCoupon() {
-      couponForm.post(route("applyCoupon"), {
-        onSuccess: function onSuccess(page) {
-          successMsg.value = "coupon applied";
-        },
-        onError: function onError(page) {
-          successMsg.value = "";
-        }
-      });
+      couponForm.post(route("applyCoupon"));
+
+      if (cartTotalWithCoupon.value.data) {
+        couponForm.code = "";
+      }
     };
 
     var __returned__ = {
+      $props: $props,
+      cartTotalWithCoupon: cartTotalWithCoupon,
       couponForm: couponForm,
-      successMsg: successMsg,
       applyCoupon: applyCoupon,
-      ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
-      useForm: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.useForm,
-      InputErrorMsg: _components_InputErrorMsg_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-      InputSuccessMsg: _components_InputSuccessMsg_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+      useForm: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.useForm,
+      usePage: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.usePage,
+      InputErrorMsg: _components_InputErrorMsg_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+      InputSuccessMsg: _components_InputSuccessMsg_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+      computed: vue__WEBPACK_IMPORTED_MODULE_3__.computed,
+      ref: vue__WEBPACK_IMPORTED_MODULE_3__.ref
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -128,18 +136,15 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = {
   "class": "card border-0 mt-3 mb-3"
 };
-var _hoisted_2 = {
-  "class": "p-2"
-};
-var _hoisted_3 = ["onSubmit"];
-var _hoisted_4 = ["disabled"];
-var _hoisted_5 = {
-  "class": "mt-1"
+var _hoisted_2 = ["onSubmit"];
+var _hoisted_3 = ["disabled"];
+var _hoisted_4 = {
+  "class": "pb-1 ps-2"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
     onSubmit: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)($setup.applyCoupon, ["prevent"]),
-    "class": "d-flex align-items-center"
+    "class": "checkout_coupon_form"
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
     placeholder: "Enter Coupon Code...",
@@ -153,19 +158,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "text-primary bg-transparent ms-2",
     type: "submit",
     disabled: !$setup.couponForm.code
-  }, " Apply ", 8
-  /* PROPS */
-  , _hoisted_4)], 40
+  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.cartTotalWithCoupon.data ? "remove" : "Apply"), 9
+  /* TEXT, PROPS */
+  , _hoisted_3)], 40
   /* PROPS, HYDRATE_EVENTS */
-  , _hoisted_3), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["InputErrorMsg"], {
+  , _hoisted_2), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["InputErrorMsg"], {
     error: $setup.couponForm.errors.code
   }, null, 8
   /* PROPS */
-  , ["error"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["InputSuccessMsg"], {
-    message: $setup.successMsg
+  , ["error"]), $setup.cartTotalWithCoupon.data ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["InputSuccessMsg"], {
+    key: 0,
+    message: $setup.cartTotalWithCoupon.data.coupon.successMsg
   }, null, 8
   /* PROPS */
-  , ["message"])])])]);
+  , ["message"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]);
 }
 
 /***/ }),

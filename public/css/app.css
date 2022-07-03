@@ -18382,6 +18382,13 @@ ul.shop-sidebar-categories {
   .checkout-deatils li {
     font-size: 13px;
   }
+  .checkout_coupon_form {
+    padding: 0 6px !important;
+    font-size: 13px !important;
+  }
+  .checkout_coupon_form input {
+    font-size: 13px !important;
+  }
 }
 .checkout-product {
   background-color: white;
@@ -18449,6 +18456,13 @@ ul.shop-sidebar-categories {
 
 .checkout-product-qty {
   font-size: 11px;
+}
+
+.checkout_coupon_form {
+  display: flex;
+  align-items: center;
+  padding: 1px 7px;
+  font-size: 15px;
 }
 
 @media only screen and (max-width: 767px) {

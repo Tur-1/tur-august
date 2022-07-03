@@ -23,13 +23,15 @@
                         </span>
                     </li>
                     <li
-                        v-if="$page.props.cartDetails.coupon"
+                        v-if="$page.props.cartTotalWithCoupon"
                         class="list-group-item d-flex justify-content-between align-items-center px-0"
                     >
-                        Discount: ( {{ $page.props.cartDetails.coupon.code }} )
+                        Discount: (
+                        {{ $page.props.cartTotalWithCoupon.coupon.code }} )
                         <span>
                             {{
-                                $page.props.cartDetails.coupon.discounted_value
+                                $page.props.cartTotalWithCoupon.coupon
+                                    .discounted_value
                             }}
                             SAR
                         </span>
@@ -44,17 +46,29 @@
                             </strong>
                         </div>
                         <span>
-                            <strong
-                                >{{
-                                    $page.props.cartDetails.cartTotal
+                            <strong>
+                                {{
+                                    $page.props.cartTotalWithCoupon
+                                        ? $page.props.cartTotalWithCoupon
+                                              .cartTotal
+                                        : $page.props.cartDetails.cartTotal
                                 }}
-                                SAR</strong
-                            >
+                                SAR
+                            </strong>
                         </span>
                     </li>
                 </ul>
             </div>
         </div>
-        <button class="btn btn-primary p-2 mt-3 w-100">Buy Now</button>
+        <button class="btn btn-primary p-2 mt-3 w-100" @click="buyNow">
+            Buy Now
+        </button>
     </div>
 </template>
+<script setup>
+import { Inertia } from "@inertiajs/inertia";
+
+const buyNow = () => {
+    Inertia.post(route("buyNow"));
+};
+</script>
