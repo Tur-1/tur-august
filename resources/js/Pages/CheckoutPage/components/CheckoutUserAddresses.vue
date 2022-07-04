@@ -1,9 +1,11 @@
 <template>
     <div class="mb-3">
-        <div class="card border-0">
+        <div
+            class="card border-0 mb-1"
+            v-for="(address, index) in $page.props.userAddresses"
+            :key="address.address_id"
+        >
             <label
-                v-for="(address, index) in $page.props.userAddresses"
-                :key="address.address_id"
                 class="user-address d-flex align-items-center flex-row m-0 p-0"
                 :for="'address_id-' + address.address_id"
             >
@@ -12,6 +14,7 @@
                     type="radio"
                     :id="'address_id-' + address.address_id"
                     :value="address.address_id"
+                    v-model="checkoutForm.address_id"
                 />
                 <div
                     class="d-flex justify-content-between align-items-center card-body"
@@ -42,3 +45,6 @@
         </div>
     </div>
 </template>
+<script setup>
+defineProps(["checkoutForm"]);
+</script>

@@ -28,26 +28,24 @@ __webpack_require__.r(__webpack_exports__);
     var _usePage = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.usePage)(),
         $props = _usePage.props;
 
-    var cartTotalWithCoupon = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)({
-      data: (0,vue__WEBPACK_IMPORTED_MODULE_3__.computed)(function () {
-        return $props.value.cartTotalWithCoupon;
-      })
-    });
+    var coupon = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)((0,vue__WEBPACK_IMPORTED_MODULE_3__.computed)(function () {
+      return $props.value.cartDetails.coupon;
+    }));
     var couponForm = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.useForm)({
-      code: cartTotalWithCoupon.value.data ? cartTotalWithCoupon.value.data.coupon.code : ""
+      code: coupon.value ? coupon.value.code : ""
     });
 
     var applyCoupon = function applyCoupon() {
       couponForm.post(route("applyCoupon"));
 
-      if (cartTotalWithCoupon.value.data) {
+      if (coupon.value) {
         couponForm.code = "";
       }
     };
 
     var __returned__ = {
       $props: $props,
-      cartTotalWithCoupon: cartTotalWithCoupon,
+      coupon: coupon,
       couponForm: couponForm,
       applyCoupon: applyCoupon,
       useForm: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.useForm,
@@ -155,10 +153,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, null, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.couponForm.code]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    "class": "text-primary bg-transparent ms-2",
+    "class": "text-primary bg-transparent me-2",
     type: "submit",
     disabled: !$setup.couponForm.code
-  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.cartTotalWithCoupon.data ? "remove" : "Apply"), 9
+  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.coupon ? "remove" : "Apply"), 9
   /* TEXT, PROPS */
   , _hoisted_3)], 40
   /* PROPS, HYDRATE_EVENTS */
@@ -166,12 +164,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     error: $setup.couponForm.errors.code
   }, null, 8
   /* PROPS */
-  , ["error"]), $setup.cartTotalWithCoupon.data ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["InputSuccessMsg"], {
-    key: 0,
-    message: $setup.cartTotalWithCoupon.data.coupon.successMsg
+  , ["error"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["InputSuccessMsg"], {
+    message: $setup.coupon ? $setup.coupon.successMsg : ''
   }, null, 8
   /* PROPS */
-  , ["message"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]);
+  , ["message"])])]);
 }
 
 /***/ }),

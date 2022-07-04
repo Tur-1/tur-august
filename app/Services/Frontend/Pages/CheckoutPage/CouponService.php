@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Models\Coupon\Services;
+namespace App\Services\Frontend\Pages\CheckoutPage;
 
 use App\Models\Coupon\Coupon;
+use Illuminate\Support\Facades\Session;
 use App\Exceptions\InValidCouponCodeException;
 
 class CouponService
 {
+    public $coupon;
 
     public function getCoupon(string $code)
     {
@@ -24,14 +26,17 @@ class CouponService
 
         return $this->coupon;
     }
-
-    public function calculateDiscountInPercentages($cartTotal)
+    public function putCartTotalAndCouponInSession($cartTotal)
+    {
+        Session::put('cartTotalWithCoupon', $this->getCartTotalWithCoupon($cartTotal));
+    }
+    private function calculateDiscountInPercentages($cartTotal)
     {
         $cartTotal = $cartTotal - ($cartTotal * $this->getCouponAmount() / 100);
 
         return number_format($cartTotal, 2);
     }
-    public function calculateDiscountInFixedAmount($cartTotal)
+    private function calculateDiscountInFixedAmount($cartTotal)
     {
         $cartTotal =  $cartTotal - $this->getCouponAmount();
         return number_format($cartTotal, 2);
@@ -40,7 +45,7 @@ class CouponService
     {
         return $this->coupon->amount;
     }
-    public function getCartTotal($cartTotal)
+    private function getCartTotalAfterDiscount($cartTotal)
     {
         if ($this->isCouponTypePercentage()) {
 
@@ -49,12 +54,12 @@ class CouponService
 
         return $this->calculateDiscountInFixedAmount($cartTotal);
     }
-    public function isCouponTypePercentage()
+    private function isCouponTypePercentage()
     {
         return $this->coupon->type == 'percentage';
     }
 
-    public function getDiscountedValue($cartTotal)
+    private function getDiscountedValue($cartTotal)
     {
 
         if ($this->isCouponTypePercentage()) {
@@ -65,5 +70,16 @@ class CouponService
 
 
         return number_format($discounted_Value, 2);
+    }
+    private function getCartTotalWithCoupon($cartTotal)
+    {
+        return [
+            'cartTotal' => $this->getCartTotalAfterDiscount($cartTotal),
+            'coupon' => [
+                'code' => $this->coupon->code,
+                'discounted_value' =>  $this->getDiscountedValue($cartTotal),
+                'successMsg' => 'coupon applied',
+            ]
+        ];
     }
 }

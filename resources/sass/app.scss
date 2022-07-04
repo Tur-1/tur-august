@@ -32,7 +32,7 @@ main {
     height: 100% !important;
     display: flex;
     flex-direction: column;
-
+    padding-bottom: 80px !important;
     overflow-x: hidden !important;
 }
 
@@ -138,9 +138,6 @@ ul {
     -moz-border-radius: 0.25rem;
     -ms-border-radius: 0.25rem;
     -o-border-radius: 0.25rem;
-}
-section.container {
-    padding-bottom: 40px !important;
 }
 
 //components

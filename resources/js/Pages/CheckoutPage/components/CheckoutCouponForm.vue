@@ -9,19 +9,16 @@
             />
 
             <button
-                class="text-primary bg-transparent ms-2"
+                class="text-primary bg-transparent me-2"
                 type="submit"
                 :disabled="!couponForm.code"
             >
-                {{ cartTotalWithCoupon.data ? "remove" : "Apply" }}
+                {{ coupon ? "remove" : "Apply" }}
             </button>
         </form>
         <div class="pb-1 ps-2">
             <InputErrorMsg :error="couponForm.errors.code" />
-            <InputSuccessMsg
-                v-if="cartTotalWithCoupon.data"
-                :message="cartTotalWithCoupon.data.coupon.successMsg"
-            />
+            <InputSuccessMsg :message="coupon ? coupon.successMsg : ''" />
         </div>
     </div>
 </template>
@@ -33,19 +30,15 @@ import { computed, ref } from "vue";
 
 let { props: $props } = usePage();
 
-let cartTotalWithCoupon = ref({
-    data: computed(() => $props.value.cartTotalWithCoupon),
-});
+let coupon = ref(computed(() => $props.value.cartDetails.coupon));
 
 let couponForm = useForm({
-    code: cartTotalWithCoupon.value.data
-        ? cartTotalWithCoupon.value.data.coupon.code
-        : "",
+    code: coupon.value ? coupon.value.code : "",
 });
 
 const applyCoupon = () => {
     couponForm.post(route("applyCoupon"));
-    if (cartTotalWithCoupon.value.data) {
+    if (coupon.value) {
         couponForm.code = "";
     }
 };
