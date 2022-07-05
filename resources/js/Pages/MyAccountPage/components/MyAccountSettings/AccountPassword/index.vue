@@ -1,6 +1,6 @@
 <script setup>
 import { useForm } from "@inertiajs/inertia-vue3";
-import BaseFormModal from "@/components/BaseFormModal.vue";
+import BaseFormModal from "@/components/Base/BaseFormModal.vue";
 import AccountPasswordForm from "./../../MyAccountSettings/AccountPassword/AccountPasswordForm.vue";
 
 let accountPasswordForm = useForm({

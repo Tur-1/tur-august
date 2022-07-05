@@ -11,7 +11,7 @@ import ShopMobileHeader from "@/Pages/ShopPage/views/Mobile/components/ShopMobil
             <ProductCard :products="$page.props.products.data" />
         </div>
         <Pagination
-            :links="$page.props.products.links"
+            :links="$page.props.products.meta.links"
             v-if="$page.props.productsCount > 1"
         />
         <div

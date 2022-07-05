@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Traits\Product;
+namespace App\Models\product\Traits;
 
 use App\Models\product\Brand;
 
 use App\Models\product\Color;
 use App\Models\product\Product;
 use App\Models\product\ProductImage;
-use App\Traits\Product\ProductFilterTrait;
-use App\Services\Frontend\Product\ProductFilterService;
+use App\Models\product\Traits\ProductFilterTrait;
 
-trait ProductTrait
+
+trait ProductScopesTrait
 {
     use ProductFilterTrait;
 
@@ -153,33 +153,5 @@ trait ProductTrait
             ->Active()
             ->inRandomOrder()
             ->limit(20);
-    }
-
-    /**
-     * 
-     * Accessors
-     */
-    public function getBrandImageUrlAttribute()
-    {
-        if ($this->brand_image) {
-            return asset('storage/images/brands/' . $this->brand_image);
-        }
-    }
-    public function getMainImageUrlAttribute()
-    {
-        if ($this->main_image) {
-            return asset('storage/images/products/product_' . $this->id . '/' . $this->main_image);
-        } else {
-            return  asset('assets/images/defult-input-image.png');
-        }
-    }
-    public function getCategoryNameAttribute()
-    {
-
-        return $this->categories->last()->name;
-    }
-    public function getSectionNameAttribute()
-    {
-        return $this->categories->first()->name;
     }
 }

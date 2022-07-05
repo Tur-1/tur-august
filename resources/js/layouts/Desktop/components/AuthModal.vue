@@ -4,7 +4,7 @@
     </BaseModal>
 </template>
 <script setup>
-import BaseModal from "@/components/BaseModal.vue";
+import BaseModal from "@/components/Base/BaseModal.vue";
 
 import Auth from "@/Pages/Auth/Auth.vue";
 import { watch, onMounted } from "vue";

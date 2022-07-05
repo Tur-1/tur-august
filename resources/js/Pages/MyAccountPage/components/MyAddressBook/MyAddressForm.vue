@@ -53,7 +53,7 @@
 </template>
 
 <script setup>
-import BaseInput from "@/components/BaseInput.vue";
+import BaseInput from "@/components/Base/BaseInput.vue";
 defineProps({
     myAddressForm: Object,
 });

@@ -1048,16 +1048,6 @@ var map = {
 		"/js/vendor",
 		"resources_js_Pages_ShoppingCartPage_components_CartItem_vue"
 	],
-	"./ShoppingCartPage/components/CartOutOfStockProductsModal": [
-		"./resources/js/Pages/ShoppingCartPage/components/CartOutOfStockProductsModal.vue",
-		"/js/vendor",
-		"resources_js_Pages_ShoppingCartPage_components_CartOutOfStockProductsModal_vue"
-	],
-	"./ShoppingCartPage/components/CartOutOfStockProductsModal.vue": [
-		"./resources/js/Pages/ShoppingCartPage/components/CartOutOfStockProductsModal.vue",
-		"/js/vendor",
-		"resources_js_Pages_ShoppingCartPage_components_CartOutOfStockProductsModal_vue"
-	],
 	"./ShoppingCartPage/components/CartProducts": [
 		"./resources/js/Pages/ShoppingCartPage/components/CartProducts.vue",
 		"/js/vendor",
@@ -1067,6 +1057,16 @@ var map = {
 		"./resources/js/Pages/ShoppingCartPage/components/CartProducts.vue",
 		"/js/vendor",
 		"resources_js_Pages_ShoppingCartPage_components_CartProducts_vue"
+	],
+	"./ShoppingCartPage/components/ProductsNoLongerInStock": [
+		"./resources/js/Pages/ShoppingCartPage/components/ProductsNoLongerInStock.vue",
+		"/js/vendor",
+		"resources_js_Pages_ShoppingCartPage_components_ProductsNoLongerInStock_vue"
+	],
+	"./ShoppingCartPage/components/ProductsNoLongerInStock.vue": [
+		"./resources/js/Pages/ShoppingCartPage/components/ProductsNoLongerInStock.vue",
+		"/js/vendor",
+		"resources_js_Pages_ShoppingCartPage_components_ProductsNoLongerInStock_vue"
 	],
 	"./WishlistPage/Index": [
 		"./resources/js/Pages/WishlistPage/Index.vue",

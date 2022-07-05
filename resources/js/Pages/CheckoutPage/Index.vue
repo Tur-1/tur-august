@@ -20,11 +20,16 @@
                     </button>
                 </div>
             </div>
+            <!-- Modal -->
+            <ProductsNoLongerInStock />
         </section>
     </AppLayout>
 </template>
 
 <script setup>
+import { ref } from "vue";
+import { useForm } from "@inertiajs/inertia-vue3";
+
 import AppLayout from "@/layouts/AppLayout";
 import Breadcrumb from "@/components/Breadcrumb";
 import CheckoutHeader from "@/Pages/CheckoutPage/components/CheckoutHeader";
@@ -32,9 +37,7 @@ import CheckoutUserAddresses from "@/Pages/CheckoutPage/components/CheckoutUserA
 import CheckoutCouponForm from "@/Pages/CheckoutPage/components/CheckoutCouponForm";
 import CheckoutProducts from "@/Pages/CheckoutPage/components/CheckoutProducts";
 import CheckoutDetails from "@/Pages/CheckoutPage/components/CheckoutDetails";
-import { ref } from "vue";
-
-import { useForm } from "@inertiajs/inertia-vue3";
+import ProductsNoLongerInStock from "@/Pages/ShoppingCartPage/components/ProductsNoLongerInStock.vue";
 
 let checkoutForm = useForm({
     address_id: "",

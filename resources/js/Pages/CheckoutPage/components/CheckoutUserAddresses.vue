@@ -36,9 +36,13 @@
             </label>
         </div>
 
-        <div class="row mb-3 d-flex justify-content-center">
-            <div class="border-top border-bottom mt-4 p-2 text-center">
-                <a role="button">
+        <div class="mb-3 card mt-4 border-0">
+            <div class="card-body">
+                <a
+                    role="button"
+                    class="d-flex align-items-center text-secondary"
+                >
+                    <i class="bi bi-plus-circle me-2"></i>
                     <span class="text-bold"> new address</span>
                 </a>
             </div>

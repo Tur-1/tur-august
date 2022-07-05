@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits\Product;
+namespace App\Models\product\Traits;
 
 trait ProductSearchTrait
 {

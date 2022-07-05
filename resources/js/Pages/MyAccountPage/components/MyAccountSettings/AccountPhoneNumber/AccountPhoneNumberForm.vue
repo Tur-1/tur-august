@@ -24,12 +24,14 @@
                 placeholder="51 234 5678"
             />
         </div>
-        <InputErrorMsg :error="accountPhoneNumberForm.errors.phone_number" />
+        <BaseInputErrorMsg
+            :error="accountPhoneNumberForm.errors.phone_number"
+        />
     </div>
 </template>
 
 <script setup>
-import InputErrorMsg from "@/components/InputErrorMsg.vue";
+import BaseInputErrorMsg from "@/components/Base/BaseInputErrorMsg.vue";
 defineProps({
     accountPhoneNumberForm: Object,
 });

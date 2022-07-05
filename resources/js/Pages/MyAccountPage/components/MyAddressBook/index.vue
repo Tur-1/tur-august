@@ -1,5 +1,5 @@
 <script setup>
-import BaseFormModal from "@/components/BaseFormModal.vue";
+import BaseFormModal from "@/components/Base/BaseFormModal.vue";
 import { Inertia } from "@inertiajs/inertia";
 import { useForm } from "@inertiajs/inertia-vue3";
 import { ref } from "vue";
@@ -60,11 +60,12 @@ const destroyUserAddress = (address_id) => {
 };
 </script>
 <template>
+    <AddNewAddress @openMyAddressBookModal="openMyAddressBookModal" />
     <MyAddressList
         @openMyAddressBookModal="openMyAddressBookModal"
         @destroyUserAddress="destroyUserAddress"
     />
-    <AddNewAddress @openMyAddressBookModal="openMyAddressBookModal" />
+
     <!-- Modal -->
     <BaseFormModal
         id="my-address-book-modal"

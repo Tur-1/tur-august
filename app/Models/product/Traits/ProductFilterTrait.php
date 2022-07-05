@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Traits\Product;
+namespace App\Models\product\Traits;
 
-use App\Traits\Product\ProductSearchTrait;
+use App\Models\product\Traits\ProductSearchTrait;
+
 
 
 trait ProductFilterTrait

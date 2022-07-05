@@ -2,16 +2,19 @@
 
 namespace App\Models\product;
 
-use App\Traits\ActiveModel;
-use App\Traits\Product\ProductRelationshipsTrait;
-use App\Traits\Product\ProductTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+
+use App\Models\product\Traits\ProductAccessorsTrait;
+use App\Models\product\Traits\ProductRelationshipsTrait;
+use App\Models\product\Traits\ProductScopesTrait;
+
 
 class Product extends Model
 {
     use HasFactory,
-        ProductTrait,
+        ProductScopesTrait,
+        ProductAccessorsTrait,
         ProductRelationshipsTrait;
 
     protected $appends = ['main_image_url'];

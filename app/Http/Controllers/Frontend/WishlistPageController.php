@@ -6,14 +6,14 @@ use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Models\product\Product;
 use App\Http\Controllers\Controller;
-use App\Traits\Product\ProductTrait;
 use Illuminate\Support\Facades\Session;
 use App\Http\Resources\Product\ProductsListResource;
+use App\Models\product\Traits\ProductScopesTrait;
 use App\Services\Frontend\Pages\WishlistPageService;
 
 class WishlistPageController extends Controller
 {
-    use ProductTrait;
+    use ProductScopesTrait;
 
     public function index()
     {
@@ -23,16 +23,7 @@ class WishlistPageController extends Controller
         if ($inWishlist > 0) {
             $products = ProductsListResource::collection(auth()->user()->wishlistProducts)->resolve();
         }
-        // if (!auth()->check()) {
-        //     $inWishlist  =  Session::get('wishlist');
-        //     $products =  Product::query()->whereIn('id', $inWishlist)
-        //         ->WithShopPageFields()
-        //         ->WithMainProductImage()
-        //         ->WithBrandName()
-        //         ->Active()->get();
 
-        //     $products = ProductsListResource::collection($products)->resolve();
-        // }
         return Inertia::render(
             'WishlistPage/Index',
             [

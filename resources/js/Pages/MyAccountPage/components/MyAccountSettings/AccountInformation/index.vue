@@ -1,6 +1,6 @@
 <script setup>
 import AccountInformationForm from "./AccountInformationForm.vue";
-import BaseFormModal from "@/components/BaseFormModal.vue";
+import BaseFormModal from "@/components/Base/BaseFormModal.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
 const props = defineProps({
     userInfo: Object,

@@ -17,12 +17,12 @@
                 {{ option }}
             </option>
         </select>
-        <InputErrorMsg v-if="errorMsg" :error="errorMsg" />
+        <BaseInputErrorMsg v-if="errorMsg" :message="errorMsg" />
     </div>
 </template>
 
 <script setup>
-import InputErrorMsg from "@/components/InputErrorMsg.vue";
+import BaseInputErrorMsg from "@/components/Base/BaseInputErrorMsg.vue";
 defineProps([
     "modelValue",
     "id",

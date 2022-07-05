@@ -1,7 +1,7 @@
 <script setup>
 import { useForm } from "@inertiajs/inertia-vue3";
 import AccountPhoneNumberForm from "@/Pages/MyAccountPage/components/MyAccountSettings/AccountPhoneNumber/AccountPhoneNumberForm.vue";
-import BaseFormModal from "@/components/BaseFormModal.vue";
+import BaseFormModal from "@/components/Base/BaseFormModal.vue";
 
 const props = defineProps({
     userPhoneNumber: Number,

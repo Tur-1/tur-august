@@ -21,7 +21,7 @@
     </BaseBottomOffcanvas>
 </template>
 <script setup>
-import BaseBottomOffcanvas from "@/components/BaseBottomOffcanvas.vue";
+import BaseBottomOffcanvas from "@/components/Base/BaseBottomOffcanvas.vue";
 import Auth from "@/Pages/Auth/Auth.vue";
 import { onMounted, watch } from "vue";
 const props = defineProps({

@@ -45,8 +45,8 @@
     </div>
 </template>
 <script setup>
-import BaseSubmitButton from "@/components/BaseSubmitButton.vue";
-import BaseCancelButton from "@/components/BaseCancelButton.vue";
+import BaseSubmitButton from "@/components/Base/BaseSubmitButton.vue";
+import BaseCancelButton from "@/components/Base/BaseCancelButton.vue";
 const porps = defineProps([
     "id",
     "title",

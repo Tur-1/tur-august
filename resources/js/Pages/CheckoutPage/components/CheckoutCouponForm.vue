@@ -1,43 +1,45 @@
 <template>
-    <div class="card border-0 mt-3 mb-3">
-        <form @submit.prevent="applyCoupon" class="checkout_coupon_form">
+    <div class="card card_checkout_coupon_form">
+        <form
+            @submit.prevent="applyCoupon"
+            class="checkout_coupon_form"
+            :class="{ 'is-invalid': ErrorMsg }"
+        >
             <input
                 type="text"
                 placeholder="Enter Coupon Code..."
-                v-model="couponForm.code"
-                class="form-control form-control-sm border-0 shadow-none"
+                v-model="code"
+                class="form-control form-control-sm border-0 shadow-none bg-transparent"
             />
 
             <button
                 class="text-primary bg-transparent me-2"
                 type="submit"
-                :disabled="!couponForm.code"
+                :disabled="!code"
             >
                 {{ coupon ? "remove" : "Apply" }}
             </button>
         </form>
         <div class="pb-1 ps-2">
-            <InputErrorMsg :error="couponForm.errors.code" />
-            <InputSuccessMsg :message="coupon ? coupon.successMsg : ''" />
+            <BaseInputErrorMsg :message="ErrorMsg" />
+            <BaseInputSuccessMsg :message="coupon ? coupon.successMsg : ''" />
         </div>
     </div>
 </template>
 <script setup>
-import { useForm, usePage } from "@inertiajs/inertia-vue3";
-import InputErrorMsg from "@/components/InputErrorMsg.vue";
-import InputSuccessMsg from "@/components/InputSuccessMsg.vue";
+import { usePage } from "@inertiajs/inertia-vue3";
+import BaseInputErrorMsg from "@/components/Base/BaseInputErrorMsg.vue";
+import BaseInputSuccessMsg from "@/components/Base/BaseInputSuccessMsg.vue";
 import { computed, ref } from "vue";
+import { Inertia } from "@inertiajs/inertia";
 
-let { props: $props } = usePage();
+let coupon = ref(computed(() => usePage().props.value.cartDetails.coupon));
+let ErrorMsg = ref(computed(() => usePage().props.value.errors.code));
 
-let coupon = ref(computed(() => $props.value.cartDetails.coupon));
-
-let couponForm = useForm({
-    code: coupon.value ? coupon.value.code : "",
-});
+let code = ref(coupon.value ? coupon.value.code : "");
 
 const applyCoupon = () => {
-    couponForm.post(route("applyCoupon"));
+    Inertia.post(route("applyCoupon"), { code: code.value });
     if (coupon.value) {
         couponForm.code = "";
     }

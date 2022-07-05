@@ -1,19 +1,20 @@
 <script setup>
-import { onMounted, ref } from "vue";
-import BaseFormModal from "@/components/BaseFormModal.vue";
-import { useForm } from "@inertiajs/inertia-vue3";
-const props = defineProps({
-    products: Array,
-});
+import { computed, onMounted, ref } from "vue";
+import BaseFormModal from "@/components/Base/BaseFormModal.vue";
+import { useForm, usePage } from "@inertiajs/inertia-vue3";
 
 let outOfStockForm = useForm();
 
 let outOfStockProducts = ref(
-    props.products.filter((product) => product.in_stock == false)
+    computed(() => usePage().props.value.outOfStockProducts)
 );
+let outOfStockCounter = ref(
+    computed(() => usePage().props.value.outOfStockProductsCounter)
+);
+
 // methods
 onMounted(() => {
-    if (outOfStockProducts.value.length > 0) {
+    if (outOfStockCounter.value > 0) {
         openCartProductsModal();
     }
 });
@@ -34,6 +35,7 @@ const closeCartProductsModal = () => {
         id="cart-products-modal"
         title="these products are out of stock"
         submitButtonTitle="save for later"
+        cancelButtonTitle="cancel"
         @cancelRequest="closeCartProductsModal"
         @formSubmited="saveOutOfstockProductsForLater"
         :formProcessing="outOfStockForm.processing"

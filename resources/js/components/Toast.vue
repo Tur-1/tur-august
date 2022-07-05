@@ -1,7 +1,7 @@
 <template>
     <Transition name="slide-fade">
         <div
-            v-if="isShown == true"
+            v-if="isShown && toast !== null"
             id="toast-alert"
             class="align-items-center"
             role="alert"
@@ -19,14 +19,13 @@
 import { usePage } from "@inertiajs/inertia-vue3";
 import { computed, onMounted, ref, watch } from "vue";
 
-let { props: $props } = usePage();
-
-let toast = ref(computed(() => $props.value.toast));
+let toast = ref(computed(() => usePage().props.value.toast));
 
 let isShown = ref(false);
 onMounted(() => {
     if (toast.value !== null) {
         isShown.value = true;
+        console.log("onMounted", isShown.value);
         setTimeout(() => {
             isShown.value = false;
         }, 3500);
@@ -36,13 +35,14 @@ watch(
     () => toast.value,
     (first) => {
         isShown.value = true;
+        console.log("watch", isShown.value);
         setTimeout(() => {
             isShown.value = false;
         }, 3500);
     }
 );
 </script>
-<style>
+<style scoped>
 .slide-fade-enter-active {
     transition: all 0.3s ease-out;
 }

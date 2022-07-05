@@ -28,8 +28,8 @@
 </template>
 
 <script setup>
-import BaseInput from "@/components/BaseInput.vue";
-import BaseSelect from "@/components/BaseSelect.vue";
+import BaseInput from "@/components/Base/BaseInput.vue";
+import BaseSelect from "@/components/Base/BaseSelect.vue";
 
 const props = defineProps({
     accountInfoForm: Object,

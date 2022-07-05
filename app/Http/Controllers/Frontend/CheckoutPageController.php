@@ -20,10 +20,12 @@ class CheckoutPageController extends Controller
 
     use RedirectWithMessageTrait;
     public $cartPageService;
+    public $outOfStockProducts;
     public $userAddressService;
     public $userAddresses;
     public $products;
     private $order;
+    private $coupon;
     public $addres_id = null;
     public $cartTotal;
     public $cartDetails = [];
@@ -36,6 +38,7 @@ class CheckoutPageController extends Controller
 
             $this->products =  $this->cartPageService->getUserShoppingCart();
             $this->userAddresses  = $this->userAddressService->getUserAddresses();
+            $this->outOfStockProducts = $this->cartPageService->getOutOfStockProducts();
 
             $this->cartDetails = [
                 'shipmentFees' =>  $this->cartPageService->getShipmentFees(),
@@ -58,10 +61,13 @@ class CheckoutPageController extends Controller
     {
 
 
+
         return Inertia::render('CheckoutPage/Index', [
             'products' => $this->products,
             'cartDetails' => $this->cartDetails,
             'userAddresses' =>  $this->userAddresses,
+            'outOfStockProducts' => $this->outOfStockProducts,
+            'outOfStockProductsCounter' => count($this->outOfStockProducts),
         ]);
     }
 
@@ -74,20 +80,18 @@ class CheckoutPageController extends Controller
 
         if (!is_null($cartTotalWithCoupon)) {
 
-            Session::forget(['cartTotalWithCoupon', 'coupon']);
+            Session::forget(['cartTotalWithCoupon', 'couponCode']);
 
             return redirect()->back();
         }
 
-
-
         try {
-            $coupon =  $couponService->getCoupon($request->code);
+            $couponService->getCoupon($request->code);
         } catch (InValidCouponCodeException $ex) {
             return redirect()->back()->withErrors(['code' => $ex->getMessage()]);
         }
 
-        Session::put('coupon', $coupon);
+        Session::put('couponCode', $request->code);
 
         $couponService->putCartTotalAndCouponInSession($this->cartDetails['cartTotal']);
 
@@ -103,6 +107,16 @@ class CheckoutPageController extends Controller
 
         if ($this->userAddressService->isNotInUserAddresses($request->address_id)) {
             return $this->redirectBackWithErrorMsg('please select an address !');
+        }
+
+        if (Session::exists('couponCode')) {
+
+            try {
+                $this->coupon =  (new CouponService())->getCoupon(Session::get('couponCode'));
+            } catch (InValidCouponCodeException $ex) {
+                Session::forget(['cartTotalWithCoupon', 'couponCode']);
+                return redirect()->back()->withErrors(['code' => $ex->getMessage()]);
+            }
         }
 
 
@@ -124,7 +138,7 @@ class CheckoutPageController extends Controller
 
             $checkoutPageService->createOrderAddress($this->order->id);
 
-            (new CouponService())->increaseCouponUsedTimes(Session::get('coupon'));
+            (new CouponService())->increaseCouponUsedTimes($this->coupon);
         } catch (ProductNoLongerInStockException $ex) {
             return $this->redirectBackWithErrorMsg('product No Longer In Stock  !');
         }

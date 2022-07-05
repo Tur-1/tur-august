@@ -40,6 +40,8 @@ class ShoppingCartPageController extends Controller
                 'shipmentFees' => $this->shipmentFees,
                 'cartSubTotal' => $this->cartSubTotal,
                 'cartTotal' => $this->cartTotal,
+                'outOfStockProducts' => $this->outOfStockProducts,
+                'outOfStockProductsCounter' => count($this->outOfStockProducts),
             ]
         );
     }

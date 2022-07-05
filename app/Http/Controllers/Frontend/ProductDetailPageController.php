@@ -7,8 +7,7 @@ use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Models\product\Product;
 use App\Http\Controllers\Controller;
-use App\Traits\Product\ProductTrait;
-use App\Models\product\ProductReview;
+use App\Models\product\Traits\ProductScopesTrait;
 use Illuminate\Support\Facades\Session;
 use App\Traits\RedirectWithMessageTrait;
 use App\Services\Frontend\Pages\ShoppingCartPageService;
@@ -16,7 +15,7 @@ use App\Services\Frontend\Pages\ProductDetailPageService;
 
 class ProductDetailPageController extends Controller
 {
-    use RedirectWithMessageTrait, ProductTrait;
+    use RedirectWithMessageTrait, ProductScopesTrait;
     public function index($slug, ProductDetailPageService $productDetailPageService)
     {
 

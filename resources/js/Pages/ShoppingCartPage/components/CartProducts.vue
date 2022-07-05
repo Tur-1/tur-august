@@ -1,8 +1,7 @@
 <script setup>
 import { useForm } from "@inertiajs/inertia-vue3";
-
 import CartItem from "@/Pages/ShoppingCartPage/components/CartItem.vue";
-import CartOutOfStockProductsModal from "@/Pages/ShoppingCartPage/components/CartOutOfStockProductsModal.vue";
+import ProductsNoLongerInStock from "@/Pages/ShoppingCartPage/components/ProductsNoLongerInStock.vue";
 
 let productForm = useForm();
 
@@ -51,10 +50,7 @@ const saveForLater = (productId, cartId) => {
     />
 
     <!-- Modal -->
-    <CartOutOfStockProductsModal
-        :products="$page.props.products"
-        :productForm="productForm"
-    />
+    <ProductsNoLongerInStock />
 </template>
 <style>
 .list-enter-active,
