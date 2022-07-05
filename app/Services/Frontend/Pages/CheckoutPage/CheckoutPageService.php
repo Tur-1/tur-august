@@ -57,28 +57,63 @@ class CheckoutPageService
     }
     public function storeOrderProducts()
     {
-        $product_ids = [];
-
+        OrderProduct::insert($this->getOrderProducts());
+    }
+    public function checkProductsStock()
+    {
 
         foreach ($this->cartProducts as $product) {
-            $product_ids[$product['product_id']] = $product['product_id'];
 
-            if ($product['in_stock'] == false) {
+            if ($this->isNotInStock($product)) {
                 $message = $product['name'] . ' is out of Stock';
                 throw new ProductNoLongerInStockException($message);
             }
-            if ($product['stock_size'] < $product['quantity']) {
 
+            if ($this->isStockSizeLessThanQty($product)) {
                 $message = 'Only ' . '  ' . $product['stock_size'] . ' Left in Stock ';
                 throw new ProductNoLongerInStockException($message);
             }
         }
+    }
 
-        $this->decreaseStockSize();
 
-        $this->updateProductStock($product_ids);
+    public function updateProductStock()
+    {
+        $product_ids = [];
 
-        OrderProduct::insert($this->getOrderProducts());
+        foreach ($this->cartProducts as $product) {
+            $product_ids[$product['product_id']] = $product['product_id'];
+        }
+
+        foreach (Product::whereIn('id', $product_ids)->with('sizeOptions')->get() as $product) {
+            $product_stock[] = [
+                'id' => $product['id'],
+                'stock' => $product->sizeOptions->pluck('pivot.stock')->sum()
+            ];
+        }
+
+
+        $product = new Product();
+        \Batch::update($product, $product_stock, 'id');
+    }
+
+    public function notifyUserOfOrderAcceptance()
+    {
+    }
+    public function decreaseStockSize()
+    {
+        $stockSize = [];
+
+        foreach ($this->cartProducts as $product) {
+
+            $stockSize[] = [
+                'id' => $product['size']['pivot']['id'],
+                'stock' => ['-', $product['quantity']]
+            ];
+        }
+
+        $productSizeOption = new ProductSizeOption();
+        \Batch::update($productSizeOption, $stockSize, 'id');
     }
 
     private function getOrderProducts()
@@ -96,37 +131,13 @@ class CheckoutPageService
         }
         return $orderProducts;
     }
-    private function getStockSize()
-    {
-        $stockSize = [];
-        foreach ($this->cartProducts as $product) {
 
-            $stockSize[] = [
-                'id' => $product['size']['pivot']['id'],
-                'stock' => ['-', $product['quantity']]
-            ];
-        }
-        return $stockSize;
+    private function isNotInStock($product)
+    {
+        return $product['in_stock'] == false;
     }
-    private function updateProductStock($product_ids)
+    private function isStockSizeLessThanQty($product)
     {
-
-        foreach (Product::whereIn('id', $product_ids)->with('sizeOptions')->get() as $product) {
-            $product_stock[] = [
-                'id' => $product['id'],
-                'stock' => $product->sizeOptions->pluck('pivot.stock')->sum()
-            ];
-        }
-
-
-        $product = new Product();
-        \Batch::update($product, $product_stock, 'id');
-    }
-
-    private function decreaseStockSize()
-    {
-
-        $productSizeOption = new ProductSizeOption();
-        \Batch::update($productSizeOption, $this->getStockSize(), 'id');
+        return $product['stock_size'] < $product['quantity'];
     }
 }

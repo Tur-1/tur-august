@@ -74,7 +74,8 @@ class CheckoutPageController extends Controller
 
         if (!is_null($cartTotalWithCoupon)) {
 
-            Session::remove('cartTotalWithCoupon');
+            Session::forget(['cartTotalWithCoupon', 'coupon']);
+
             return redirect()->back();
         }
 
@@ -85,15 +86,17 @@ class CheckoutPageController extends Controller
         } catch (InValidCouponCodeException $ex) {
             return redirect()->back()->withErrors(['code' => $ex->getMessage()]);
         }
-        Session::put('coupon_id', $coupon->id);
+
+        Session::put('coupon', $coupon);
+
         $couponService->putCartTotalAndCouponInSession($this->cartDetails['cartTotal']);
+
 
         return redirect()->back();
     }
 
     public function buyNow(Request $request)
     {
-
 
 
         $userAddress = $this->userAddressService->findUserAddress($request->address_id);
@@ -107,16 +110,30 @@ class CheckoutPageController extends Controller
 
             $checkoutPageService = new CheckoutPageService($this->cartDetails, $userAddress);
 
-            // DB::transaction(function () use ($checkoutPageService) {
-            $this->order = $checkoutPageService->createNewOrder();
+            DB::transaction(function () use ($checkoutPageService) {
+                $this->order = $checkoutPageService->createNewOrder();
+
+                $checkoutPageService->checkProductsStock();
+            });
 
             $checkoutPageService->storeOrderProducts();
 
+            $checkoutPageService->decreaseStockSize();
 
+            $checkoutPageService->updateProductStock();
 
             $checkoutPageService->createOrderAddress($this->order->id);
+
+            (new CouponService())->increaseCouponUsedTimes(Session::get('coupon'));
         } catch (ProductNoLongerInStockException $ex) {
             return $this->redirectBackWithErrorMsg('product No Longer In Stock  !');
         }
+
+
+        $this->cartPageService->deleteUserCartProducts();
+
+        $message = 'Your order number #' . $this->order->id . ' has been received successfully';
+
+        return $this->redirectWithSuccessMsg('homePage', $message);
     }
 }

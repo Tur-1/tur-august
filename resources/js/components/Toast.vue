@@ -16,20 +16,29 @@
     </Transition>
 </template>
 <script setup>
-import { ref, watch } from "vue";
+import { usePage } from "@inertiajs/inertia-vue3";
+import { computed, onMounted, ref, watch } from "vue";
 
-const props = defineProps({
-    toast: Object,
-});
+let { props: $props } = usePage();
+
+let toast = ref(computed(() => $props.value.toast));
 
 let isShown = ref(false);
+onMounted(() => {
+    if (toast.value !== null) {
+        isShown.value = true;
+        setTimeout(() => {
+            isShown.value = false;
+        }, 3500);
+    }
+});
 watch(
-    () => props.toast,
+    () => toast.value,
     (first) => {
         isShown.value = true;
         setTimeout(() => {
             isShown.value = false;
-        }, 1500);
+        }, 3500);
     }
 );
 </script>

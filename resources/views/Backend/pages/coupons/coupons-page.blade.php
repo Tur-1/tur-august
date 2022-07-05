@@ -26,6 +26,7 @@
                             <th>#</th>
                             <th>Coupon Code</th>
                             <th>Coupon amount</th>
+                            <th>used times</th>
                             <th>Coupon expires at</th>
                             <th>Action</th>
                         </tr>
@@ -41,6 +42,9 @@
                                 </td>
                                 <td style="text-align: left; vertical-align: middle;">
                                     {{ $coupon->amount }} {{ $coupon->type == 'percentage' ? ' %' : ' SAR' }}
+                                </td>
+                                <td style="text-align: left; vertical-align: middle;">
+                                    {{ $coupon->used_times }}
                                 </td>
                                 <td style="text-align: left; vertical-align: middle;">
                                     {{ $coupon->expires_at }}

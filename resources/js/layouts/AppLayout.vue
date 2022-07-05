@@ -14,7 +14,7 @@
     >
         <slot />
     </MobileLayout>
-    <Toast :toast="$page.props.toast" />
+    <Toast />
 </template>
 
 <script setup>

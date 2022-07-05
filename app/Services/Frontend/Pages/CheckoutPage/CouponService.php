@@ -26,6 +26,10 @@ class CouponService
 
         return $this->coupon;
     }
+    public function increaseCouponUsedTimes($copuon)
+    {
+        if (!is_null($copuon)) $copuon->increment('used_times', 1);
+    }
     public function putCartTotalAndCouponInSession($cartTotal)
     {
         Session::put('cartTotalWithCoupon', $this->getCartTotalWithCoupon($cartTotal));

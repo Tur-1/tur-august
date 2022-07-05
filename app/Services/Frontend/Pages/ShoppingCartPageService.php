@@ -79,4 +79,8 @@ class ShoppingCartPageService
 
         return $cartTotalIncludingVat;
     }
+    public function deleteUserCartProducts()
+    {
+        return auth()->user()->shoppingCart()->detach();
+    }
 }
