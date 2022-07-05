@@ -414,15 +414,45 @@ var map = {
 		"/js/vendor",
 		"resources_js_Pages_MyAccountPage_components_MyOrders_index_vue"
 	],
-	"./MyAccountPage/components/MyOrders/OrderPage": [
-		"./resources/js/Pages/MyAccountPage/components/MyOrders/OrderPage.vue",
+	"./MyAccountPage/components/MyOrders/OrderPage/Index": [
+		"./resources/js/Pages/MyAccountPage/components/MyOrders/OrderPage/Index.vue",
 		"/js/vendor",
-		"resources_js_Pages_MyAccountPage_components_MyOrders_OrderPage_vue"
+		"resources_js_Pages_MyAccountPage_components_MyOrders_OrderPage_Index_vue"
 	],
-	"./MyAccountPage/components/MyOrders/OrderPage.vue": [
-		"./resources/js/Pages/MyAccountPage/components/MyOrders/OrderPage.vue",
+	"./MyAccountPage/components/MyOrders/OrderPage/Index.vue": [
+		"./resources/js/Pages/MyAccountPage/components/MyOrders/OrderPage/Index.vue",
 		"/js/vendor",
-		"resources_js_Pages_MyAccountPage_components_MyOrders_OrderPage_vue"
+		"resources_js_Pages_MyAccountPage_components_MyOrders_OrderPage_Index_vue"
+	],
+	"./MyAccountPage/components/MyOrders/OrderPage/OrderAddress": [
+		"./resources/js/Pages/MyAccountPage/components/MyOrders/OrderPage/OrderAddress.vue",
+		"/js/vendor",
+		"resources_js_Pages_MyAccountPage_components_MyOrders_OrderPage_OrderAddress_vue"
+	],
+	"./MyAccountPage/components/MyOrders/OrderPage/OrderAddress.vue": [
+		"./resources/js/Pages/MyAccountPage/components/MyOrders/OrderPage/OrderAddress.vue",
+		"/js/vendor",
+		"resources_js_Pages_MyAccountPage_components_MyOrders_OrderPage_OrderAddress_vue"
+	],
+	"./MyAccountPage/components/MyOrders/OrderPage/OrderDetails": [
+		"./resources/js/Pages/MyAccountPage/components/MyOrders/OrderPage/OrderDetails.vue",
+		"/js/vendor",
+		"resources_js_Pages_MyAccountPage_components_MyOrders_OrderPage_OrderDetails_vue"
+	],
+	"./MyAccountPage/components/MyOrders/OrderPage/OrderDetails.vue": [
+		"./resources/js/Pages/MyAccountPage/components/MyOrders/OrderPage/OrderDetails.vue",
+		"/js/vendor",
+		"resources_js_Pages_MyAccountPage_components_MyOrders_OrderPage_OrderDetails_vue"
+	],
+	"./MyAccountPage/components/MyOrders/OrderPage/OrderProducts": [
+		"./resources/js/Pages/MyAccountPage/components/MyOrders/OrderPage/OrderProducts.vue",
+		"/js/vendor",
+		"resources_js_Pages_MyAccountPage_components_MyOrders_OrderPage_OrderProducts_vue"
+	],
+	"./MyAccountPage/components/MyOrders/OrderPage/OrderProducts.vue": [
+		"./resources/js/Pages/MyAccountPage/components/MyOrders/OrderPage/OrderProducts.vue",
+		"/js/vendor",
+		"resources_js_Pages_MyAccountPage_components_MyOrders_OrderPage_OrderProducts_vue"
 	],
 	"./MyAccountPage/components/MyOrders/index": [
 		"./resources/js/Pages/MyAccountPage/components/MyOrders/index.vue",

@@ -2,13 +2,14 @@
 
 namespace App\Models\order;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\product\SizeOption;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class OrderProduct extends Model
 {
     use HasFactory;
-
+    protected $table = "order_products";
     protected $fillable = [
         'order_id',
         'product_id',
@@ -16,4 +17,8 @@ class OrderProduct extends Model
         'quantity',
         'total_price'
     ];
+    public function size()
+    {
+        return $this->belongsTo(SizeOption::class, 'size_id');
+    }
 }

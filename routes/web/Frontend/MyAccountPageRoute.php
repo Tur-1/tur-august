@@ -27,4 +27,6 @@ Route::middleware('auth')->controller(MyAccountPageController::class)->group(fun
 
     // destroy address
     Route::delete('/my-account/delete-address/{id}', 'destroyUserAddress')->name('destroyUserAddress');
+
+    Route::get('/my-account/order/{orderId}',  'orderPage')->name('orderPage');
 });

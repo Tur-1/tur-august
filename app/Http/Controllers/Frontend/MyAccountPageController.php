@@ -28,12 +28,24 @@ class MyAccountPageController extends Controller
     public function index()
     {
         $user = $this->myAccountService->getAuthenticatedUser();
+        $orders = $this->myAccountService->getUserOrders();
+
         $userAddresses = $this->userAddressService->getUserAddresses();
 
         return Inertia::render('MyAccountPage/Index', [
             'user' => $user,
             'genders' => $this->genders,
             'userAddresses' => $userAddresses,
+            'orders' => $orders
+
+        ]);
+    }
+    public function orderPage($orderId)
+    {
+        $order = $this->myAccountService->findUserOrder($orderId);
+
+        return Inertia::render('MyAccountPage/components/MyOrders/OrderPage/Index', [
+            'order' => $order
 
         ]);
     }

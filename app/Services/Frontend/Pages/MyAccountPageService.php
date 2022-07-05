@@ -11,7 +11,14 @@ class MyAccountPageService
     {
         return AuthUserResource::make(auth()->user());
     }
-
+    public function getUserOrders()
+    {
+        return auth()->user()->orders;
+    }
+    public function findUserOrder($orderId)
+    {
+        return auth()->user()->orders()->with('address', 'products')->find($orderId);
+    }
     public function updatePhoneNumber($phoneNumber)
     {
         auth()->user()->update(['phone_number' => intval($phoneNumber)]);

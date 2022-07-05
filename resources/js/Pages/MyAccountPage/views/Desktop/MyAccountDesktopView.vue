@@ -65,7 +65,7 @@
                 <MyAccountSettings />
             </div>
             <div
-                class="tab-pane fade p-3"
+                class="tab-pane fade"
                 id="my-orders"
                 role="tabpanel"
                 aria-labelledby="my-orders-tab"
