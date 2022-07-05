@@ -2,6 +2,7 @@
 
 namespace App\Models\user;
 
+use App\Models\order\Order;
 use App\Models\product\Product;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Hash;
@@ -56,6 +57,10 @@ class User extends Authenticatable
             set: fn ($value) =>  Hash::make($value),
         );
     }
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'user_id');
+    }
     public function shoppingCartProducts()
     {
         return $this->belongsToMany(Product::class, 'shopping_carts', 'user_id', 'product_id')
@@ -66,6 +71,13 @@ class User extends Authenticatable
             ->WithBrandName()
             ->Active()
             ->latest();
+    }
+    public function checkoutProducts()
+    {
+        return $this->belongsToMany(Product::class, 'shopping_carts', 'user_id', 'product_id')
+            ->WithCheckoutFields()
+            ->withPivot(['size_id', 'quantity', 'id'])
+            ->with(['sizeOptions']);
     }
     public function shoppingCart()
     {

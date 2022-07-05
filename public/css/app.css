@@ -17041,8 +17041,11 @@ main {
   height: 100% !important;
   display: flex;
   flex-direction: column;
-  padding-bottom: 80px !important;
   overflow-x: hidden !important;
+}
+
+section.container {
+  padding-bottom: 80px !important;
 }
 
 input[type=checkbox]:focus,

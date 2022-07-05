@@ -6,9 +6,11 @@ use App\Http\Resources\User\UserAddressesListResource;
 
 class UserAddressService
 {
+    public $userAddresses;
     public function getUserAddresses()
     {
-        return  UserAddressesListResource::collection(auth()->user()->addresses);
+        $this->userAddresses = auth()->user()->addresses;
+        return  UserAddressesListResource::collection($this->userAddresses)->resolve();
     }
     public function findUserAddress($address_id)
     {
@@ -17,5 +19,10 @@ class UserAddressService
     public function createAddress($validatedRequest)
     {
         auth()->user()->addresses()->create($validatedRequest);
+    }
+    public function isNotInUserAddresses($address_id)
+    {
+
+        return is_null($address_id) || !in_array($address_id, collect($this->userAddresses)->pluck('id')->toArray());
     }
 }

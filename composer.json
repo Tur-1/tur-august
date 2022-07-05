@@ -13,6 +13,7 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
         "livewire/livewire": "^2.10.5",
+        "mavinoo/laravel-batch": "^2.3",
         "tightenco/ziggy": "^1.4"
     },
     "require-dev": {

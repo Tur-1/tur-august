@@ -58,6 +58,20 @@ trait ProductTrait
             'products.created_at'
         );
     }
+    public function scopeWithCheckoutFields($query)
+    {
+        return $query->select(
+            'products.id',
+            'products.price',
+            'products.stock',
+            'products.shipping_cost',
+            'products.discount_amount',
+            'products.discounted_price',
+            'products.discount_start_at',
+            'products.discount_type',
+            'products.discount_expires_at',
+        );
+    }
     public function scopeWithProductDetailFields($query)
     {
         return $query->select(

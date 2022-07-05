@@ -34,12 +34,12 @@ class CouponService
     {
         $cartTotal = $cartTotal - ($cartTotal * $this->getCouponAmount() / 100);
 
-        return number_format($cartTotal, 2);
+        return number_format($cartTotal, 2, '.', '');
     }
     private function calculateDiscountInFixedAmount($cartTotal)
     {
         $cartTotal =  $cartTotal - $this->getCouponAmount();
-        return number_format($cartTotal, 2);
+        return number_format($cartTotal, 2, '.', '');
     }
     private function getCouponAmount()
     {

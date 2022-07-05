@@ -15,6 +15,10 @@ class OrderStatus extends Model
         'image'
     ];
 
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'order_status_id')->withCount('products');
+    }
     public function getImageUrlAttribute()
     {
         return $this->image ? asset('storage/images/order_status/' . $this->image) : null;

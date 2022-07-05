@@ -2,6 +2,7 @@
 
 namespace App\Services\Frontend\Pages;
 
+use App\Http\Resources\ShoppingCart\CheckoutProductsResource;
 use Illuminate\Support\Facades\Session;
 use App\Http\Resources\ShoppingCart\ShoppingCartItemsResource;
 
@@ -18,6 +19,11 @@ class ShoppingCartPageService
 
         $this->cart = collect(ShoppingCartItemsResource::collection(auth()->user()->shoppingCartProducts));
         return $this->cart;
+    }
+    public function getCheckoutProducts()
+    {
+        // auth()->user()->checkoutProducts
+        return collect(CheckoutProductsResource::collection(auth()->user()->shoppingCartProducts));
     }
     public function getOutOfStockProducts()
     {
