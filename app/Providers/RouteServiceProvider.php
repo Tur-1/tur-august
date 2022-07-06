@@ -54,6 +54,9 @@ class RouteServiceProvider extends ServiceProvider
     {
 
 
+        // Home page
+        Route::middleware('web')
+            ->group(base_path('routes/web/Frontend/HomePageRoute.php'));
 
         // shop page
         Route::middleware('web')

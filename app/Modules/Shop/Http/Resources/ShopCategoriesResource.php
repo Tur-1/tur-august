@@ -1,13 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Category;
+namespace App\Modules\Shop\Http\Resources;
 
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class CategoriesResource extends JsonResource
+class ShopCategoriesResource extends JsonResource
 {
     /**
      * Transform the resource collection into an array.
@@ -18,6 +15,8 @@ class CategoriesResource extends JsonResource
     public function toArray($request)
     {
 
+        $activeCategoryClass = url()->current() == route('shopPage', ['category_slug' => $this->slug]) ? 'active' : '';
+
 
         return [
             'id' => $this->id,
@@ -25,8 +24,8 @@ class CategoriesResource extends JsonResource
             'slug' => $this->slug,
             'link' => route('shopPage', ['category_slug' => $this->slug]),
             'image_url' => $this->image_url,
-            'active_section_slug' => collect(explode('-', request()->route()->parameter('category_slug')))->first(),
-            'children' => $this->children ? CategoriesResource::collection($this->children) : [],
+            'activeClass' => $activeCategoryClass,
+            'children' => $this->children ? ShopCategoriesResource::collection($this->children) : [],
         ];
     }
 }

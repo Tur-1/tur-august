@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Frontend\CheckoutPageController;
+use App\Modules\Checkout\Http\Controllers\CheckoutPageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Frontend\MyAccountPageController;
+use App\Modules\MyAccount\Http\Controllers\MyAccountPageController;
 
 
 

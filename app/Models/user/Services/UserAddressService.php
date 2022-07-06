@@ -2,7 +2,8 @@
 
 namespace App\Models\user\Services;
 
-use App\Http\Resources\User\UserAddressesListResource;
+use App\Modules\MyAccount\Http\Resources\MyAccountUserAddressesResource;
+
 
 class UserAddressService
 {
@@ -10,7 +11,7 @@ class UserAddressService
     public function getUserAddresses()
     {
         $this->userAddresses = auth()->user()->addresses;
-        return  UserAddressesListResource::collection($this->userAddresses)->resolve();
+        return  MyAccountUserAddressesResource::collection($this->userAddresses)->resolve();
     }
     public function findUserAddress($address_id)
     {

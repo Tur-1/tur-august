@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Frontend\ProductDetailPageController;
+use App\Modules\ProductDetail\Http\Controllers\ProductDetailPageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes

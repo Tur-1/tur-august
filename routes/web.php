@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Frontend\HomePageController;
 
 
 /*
@@ -17,5 +15,3 @@ use App\Http\Controllers\Frontend\HomePageController;
 */
 
 Auth::routes();
-
-Route::get('/', [HomePageController::class, 'index'])->name('homePage');

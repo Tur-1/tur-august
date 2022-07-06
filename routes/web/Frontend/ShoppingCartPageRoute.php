@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Frontend\ShoppingCartPageController;
+use App\Modules\ShoppingCart\Http\Controllers\ShoppingCartPageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
