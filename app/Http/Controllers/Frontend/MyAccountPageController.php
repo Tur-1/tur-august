@@ -12,6 +12,7 @@ use App\Services\Frontend\Pages\MyAccountPageService;
 use App\Http\Requests\Frontend\StoreUserAddressRequest;
 use App\Http\Requests\Frontend\StoreUserAccountInformationRequest;
 
+
 class MyAccountPageController extends Controller
 {
     use RedirectWithMessageTrait;
@@ -43,10 +44,14 @@ class MyAccountPageController extends Controller
     public function orderPage($orderId)
     {
         $order = $this->myAccountService->findUserOrder($orderId);
+        $products = $this->myAccountService->getOrderProducts();
+
+        $address = $this->myAccountService->getOrderAddress();
 
         return Inertia::render('MyAccountPage/components/MyOrders/OrderPage/Index', [
-            'order' => $order
-
+            'order' => $order,
+            'products' => $products,
+            'address' => $address,
         ]);
     }
     public function updateAccountInformation(StoreUserAccountInformationRequest $request)

@@ -4,6 +4,7 @@ namespace App\Models\order;
 
 use App\Models\user\User;
 use App\Models\product\Product;
+use App\Models\order\OrderProduct;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -43,6 +44,7 @@ class Order extends Model
         return $this->belongsToMany(Product::class, 'order_products', 'order_id', 'product_id')
             ->withPivot(['size_id', 'quantity', 'id', 'total_price'])
             ->WithMainProductImage()
-            ->WithBrandName();
+            ->WithBrandName()
+            ->with('sizeOptions');
     }
 }

@@ -5,7 +5,7 @@
                 <div class="col-lg-9">
                     <OrderDetails />
                     <OrderAddress />
-                    <OrderProducts :products="$page.props.order.products" />
+                    <OrderProducts />
                 </div>
             </div>
         </section>

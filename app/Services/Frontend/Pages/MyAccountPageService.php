@@ -2,11 +2,14 @@
 
 namespace App\Services\Frontend\Pages;
 
+use App\Http\Resources\Order\OrderResource;
 use App\Http\Resources\User\AuthUserResource;
+use App\Http\Resources\Product\OrderProductsResource;
 use App\Http\Resources\User\UserAddressesListResource;
 
 class MyAccountPageService
 {
+    public  $order;
     public function getAuthenticatedUser()
     {
         return AuthUserResource::make(auth()->user());
@@ -17,7 +20,19 @@ class MyAccountPageService
     }
     public function findUserOrder($orderId)
     {
-        return auth()->user()->orders()->with('address', 'products')->find($orderId);
+        $this->order = auth()->user()->orders()->with('address', 'products')->find($orderId);
+
+
+        return OrderResource::make($this->order);
+    }
+    public function getOrderProducts()
+    {
+
+        return OrderProductsResource::collection($this->order->products)->resolve();
+    }
+    public function getOrderAddress()
+    {
+        return UserAddressesListResource::make($this->order->address)->resolve();
     }
     public function updatePhoneNumber($phoneNumber)
     {
