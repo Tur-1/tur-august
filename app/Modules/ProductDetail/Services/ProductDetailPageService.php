@@ -29,7 +29,9 @@ class ProductDetailPageService
             ->Active()
             ->first();
 
-
+        if (is_null($this->productDetail)) {
+            throw new PageNotFoundException();
+        }
         return ProductDetailResource::make($this->productDetail);
     }
     public function reviews()

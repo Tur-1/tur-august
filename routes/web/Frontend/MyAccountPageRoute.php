@@ -2,8 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Modules\MyAccount\Http\Controllers\MyAccountPageController;
-
-
+use App\Modules\MyAccount\Http\Controllers\OrderPageController;
 
 Route::middleware('auth')->controller(MyAccountPageController::class)->group(function () {
 
@@ -27,6 +26,6 @@ Route::middleware('auth')->controller(MyAccountPageController::class)->group(fun
 
     // destroy address
     Route::delete('/my-account/delete-address/{id}', 'destroyUserAddress')->name('destroyUserAddress');
-
-    Route::get('/my-account/order/{orderId}',  'orderPage')->name('orderPage');
 });
+
+Route::get('/my-account/orders/{orderId}',  [OrderPageController::class, 'orderPage'])->middleware('auth')->name('orderPage');

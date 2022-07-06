@@ -9,8 +9,8 @@ use App\Models\order\OrderAddress;
 use App\Models\order\OrderProduct;
 use Illuminate\Support\Facades\Session;
 use App\Models\product\ProductSizeOption;
-use App\Exceptions\ProductNoLongerInStockException;
 use App\Modules\Checkout\Http\Resources\CheckoutProductsResource;
+use App\Modules\Checkout\Exceptions\ProductNoLongerInStockException;
 
 
 class CheckoutPageService

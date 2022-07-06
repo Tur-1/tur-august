@@ -25,7 +25,7 @@ let isShown = ref(false);
 onMounted(() => {
     if (toast.value !== null) {
         isShown.value = true;
-        console.log("onMounted", isShown.value);
+
         setTimeout(() => {
             isShown.value = false;
         }, 3500);
@@ -35,7 +35,7 @@ watch(
     () => toast.value,
     (first) => {
         isShown.value = true;
-        console.log("watch", isShown.value);
+
         setTimeout(() => {
             isShown.value = false;
         }, 3500);

@@ -169,6 +169,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Pages_CheckoutPage_components_CheckoutProducts__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/Pages/CheckoutPage/components/CheckoutProducts */ "./resources/js/Pages/CheckoutPage/components/CheckoutProducts.vue");
 /* harmony import */ var _Pages_CheckoutPage_components_CheckoutDetails__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/Pages/CheckoutPage/components/CheckoutDetails */ "./resources/js/Pages/CheckoutPage/components/CheckoutDetails.vue");
 /* harmony import */ var _Pages_ShoppingCartPage_components_ProductsNoLongerInStock_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @/Pages/ShoppingCartPage/components/ProductsNoLongerInStock.vue */ "./resources/js/Pages/ShoppingCartPage/components/ProductsNoLongerInStock.vue");
+/* harmony import */ var _Pages_ShoppingCartPage_components_CartEmpty_vue__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @/Pages/ShoppingCartPage/components/CartEmpty.vue */ "./resources/js/Pages/ShoppingCartPage/components/CartEmpty.vue");
+
 
 
 
@@ -213,7 +215,8 @@ __webpack_require__.r(__webpack_exports__);
       CheckoutCouponForm: _Pages_CheckoutPage_components_CheckoutCouponForm__WEBPACK_IMPORTED_MODULE_6__["default"],
       CheckoutProducts: _Pages_CheckoutPage_components_CheckoutProducts__WEBPACK_IMPORTED_MODULE_7__["default"],
       CheckoutDetails: _Pages_CheckoutPage_components_CheckoutDetails__WEBPACK_IMPORTED_MODULE_8__["default"],
-      ProductsNoLongerInStock: _Pages_ShoppingCartPage_components_ProductsNoLongerInStock_vue__WEBPACK_IMPORTED_MODULE_9__["default"]
+      ProductsNoLongerInStock: _Pages_ShoppingCartPage_components_ProductsNoLongerInStock_vue__WEBPACK_IMPORTED_MODULE_9__["default"],
+      CartEmpty: _Pages_ShoppingCartPage_components_CartEmpty_vue__WEBPACK_IMPORTED_MODULE_10__["default"]
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -343,9 +346,148 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _Pages_MyAccountPage_components_MyAddressBook_MyAddressForm_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Pages/MyAccountPage/components/MyAddressBook/MyAddressForm.vue */ "./resources/js/Pages/MyAccountPage/components/MyAddressBook/MyAddressForm.vue");
+/* harmony import */ var _components_Base_BaseFormModal_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/Base/BaseFormModal.vue */ "./resources/js/components/Base/BaseFormModal.vue");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+
+
+
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'CheckoutUserAddresses',
   props: ["checkoutForm"],
+  setup: function setup(__props, _ref) {
+    var expose = _ref.expose;
+    expose();
+    var editMode = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+    var myAddressForm = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__.useForm)({
+      address_id: "",
+      full_name: "",
+      address: "",
+      city: "",
+      phone_number: "",
+      street: ""
+    });
+
+    var openMyAddressBookModal = function openMyAddressBookModal(address) {
+      if (address != null) {
+        myAddressForm.address_id = address.address_id;
+        myAddressForm.full_name = address.full_name;
+        myAddressForm.address = address.address;
+        myAddressForm.city = address.city;
+        myAddressForm.phone_number = address.phone_number;
+        myAddressForm.street = address.street;
+        editMode.value = true;
+      }
+
+      $("#checkout-address-book-modal").modal("show");
+    };
+
+    var closeMyAddressBookModal = function closeMyAddressBookModal() {
+      editMode.value = false;
+      $("#checkout-address-book-modal").modal("hide");
+    };
+
+    var storeNewAddress = function storeNewAddress() {
+      editMode.value = false;
+      myAddressForm.post(route("storeNewAddress"), {
+        onSuccess: function onSuccess(page) {
+          closeMyAddressBookModal();
+        }
+      });
+    };
+
+    var updateUserAddress = function updateUserAddress() {
+      myAddressForm.post(route("updateUserAddress", myAddressForm.address_id), {
+        onSuccess: function onSuccess(page) {
+          closeMyAddressBookModal();
+        }
+      });
+    };
+
+    var destroyUserAddress = function destroyUserAddress(address_id) {
+      _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia["delete"](route("destroyUserAddress", {
+        id: address_id
+      }), {
+        onBefore: function onBefore() {
+          return confirm("Are you sure you want to delete this address?");
+        }
+      });
+    };
+
+    var __returned__ = {
+      editMode: editMode,
+      myAddressForm: myAddressForm,
+      openMyAddressBookModal: openMyAddressBookModal,
+      closeMyAddressBookModal: closeMyAddressBookModal,
+      storeNewAddress: storeNewAddress,
+      updateUserAddress: updateUserAddress,
+      destroyUserAddress: destroyUserAddress,
+      ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
+      MyAddressForm: _Pages_MyAccountPage_components_MyAddressBook_MyAddressForm_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+      BaseFormModal: _components_Base_BaseFormModal_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+      useForm: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_3__.useForm,
+      Inertia: _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_4__.Inertia
+    };
+    Object.defineProperty(__returned__, '__isScriptSetup', {
+      enumerable: false,
+      value: true
+    });
+    return __returned__;
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/MyAccountPage/components/MyAddressBook/MyAddressForm.vue?vue&type=script&setup=true&lang=js":
+/*!****************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/MyAccountPage/components/MyAddressBook/MyAddressForm.vue?vue&type=script&setup=true&lang=js ***!
+  \****************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _components_Base_BaseInput_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/Base/BaseInput.vue */ "./resources/js/components/Base/BaseInput.vue");
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'MyAddressForm',
+  props: {
+    myAddressForm: Object
+  },
+  setup: function setup(__props, _ref) {
+    var expose = _ref.expose;
+    expose();
+    var __returned__ = {
+      BaseInput: _components_Base_BaseInput_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    };
+    Object.defineProperty(__returned__, '__isScriptSetup', {
+      enumerable: false,
+      value: true
+    });
+    return __returned__;
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/ShoppingCartPage/components/CartEmpty.vue?vue&type=script&setup=true&lang=js":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/ShoppingCartPage/components/CartEmpty.vue?vue&type=script&setup=true&lang=js ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'CartEmpty',
+  props: ["show"],
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
@@ -732,7 +874,6 @@ __webpack_require__.r(__webpack_exports__);
     (0,vue__WEBPACK_IMPORTED_MODULE_1__.onMounted)(function () {
       if (toast.value !== null) {
         isShown.value = true;
-        console.log("onMounted", isShown.value);
         setTimeout(function () {
           isShown.value = false;
         }, 3500);
@@ -742,7 +883,6 @@ __webpack_require__.r(__webpack_exports__);
       return toast.value;
     }, function (first) {
       isShown.value = true;
-      console.log("watch", isShown.value);
       setTimeout(function () {
         isShown.value = false;
       }, 3500);
@@ -1573,12 +1713,9 @@ var _hoisted_1 = {
   "class": "container"
 };
 var _hoisted_2 = {
-  "class": "row"
-};
-var _hoisted_3 = {
   "class": "col-xl-8 col-lg-7 col-md-6"
 };
-var _hoisted_4 = {
+var _hoisted_3 = {
   "class": "col-xl-4 col-lg-5 col-md-6"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -1592,14 +1729,24 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         pageTitle: "checkout"
       })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_1, [$setup.isDesktop ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["CheckoutHeader"], {
         key: 0
-      })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CheckoutUserAddresses"], {
+      })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["row", {
+          'd-none': _ctx.$page.props.cartCounter == 0
+        }])
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CheckoutUserAddresses"], {
         checkoutForm: $setup.checkoutForm
       }, null, 8
       /* PROPS */
-      , ["checkoutForm"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CheckoutProducts"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CheckoutCouponForm"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CheckoutDetails"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      , ["checkoutForm"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CheckoutProducts"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CheckoutCouponForm"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CheckoutDetails"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         "class": "btn btn-primary p-2 mt-3 w-100",
         onClick: $setup.buyNow
-      }, " Buy Now ")])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Modal "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ProductsNoLongerInStock"])])];
+      }, " Buy Now ")])], 2
+      /* CLASS */
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CartEmpty"], {
+        show: _ctx.$page.props.cartCounter == 0
+      }, null, 8
+      /* PROPS */
+      , ["show"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Modal "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ProductsNoLongerInStock"])])];
     }),
     _: 1
     /* STABLE */
@@ -1899,7 +2046,7 @@ var _hoisted_1 = {
 var _hoisted_2 = ["for"];
 var _hoisted_3 = ["id", "value"];
 var _hoisted_4 = {
-  "class": "d-flex justify-content-between align-items-center card-body"
+  "class": "card-body"
 };
 var _hoisted_5 = {
   "class": "d-flex flex-column"
@@ -1916,26 +2063,58 @@ var _hoisted_7 = {
 var _hoisted_8 = {
   "class": "row"
 };
+var _hoisted_9 = {
+  "class": "address_actions me-2"
+};
+var _hoisted_10 = ["onClick"];
 
-var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "mb-3 card mt-4 border-0"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "card-body"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
-  role: "button",
-  "class": "d-flex align-items-center text-secondary"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "bi bi-plus-circle me-2"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "text-bold"
-}, " new address")])])], -1
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "bi bi-pencil-square"
+}, null, -1
 /* HOISTED */
 );
 
+var _hoisted_12 = [_hoisted_11];
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "border-start ms-2 me-2"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_14 = ["onClick"];
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "bi bi-trash3"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_16 = [_hoisted_15];
+var _hoisted_17 = {
+  "class": "mb-3 card mt-4 border-0"
+};
+var _hoisted_18 = {
+  "class": "card-body"
+};
+
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "bi bi-plus-circle me-2"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "text-bold"
+}, " new address", -1
+/* HOISTED */
+);
+
+var _hoisted_21 = [_hoisted_19, _hoisted_20];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.$page.props.userAddresses, function (address, index) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.$page.props.userAddresses, function (address, index) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-      "class": "card border-0 mb-1",
+      "class": "card border-0 mb-1 d-flex justify-content-between align-items-center flex-row",
       key: address.address_id
     }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
       "class": "user-address d-flex align-items-center flex-row m-0 p-0",
@@ -1958,10 +2137,190 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* TEXT */
     )])])])], 8
     /* PROPS */
-    , _hoisted_2)]);
+    , _hoisted_2), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      type: "button",
+      "class": "border-0 bg-transparent btn-sm",
+      onClick: function onClick($event) {
+        return $setup.openMyAddressBookModal(address);
+      }
+    }, _hoisted_12, 8
+    /* PROPS */
+    , _hoisted_10), _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      onClick: function onClick($event) {
+        return $setup.destroyUserAddress(address.address_id);
+      },
+      type: "button",
+      "class": "border-0 bg-transparent btn-sm"
+    }, _hoisted_16, 8
+    /* PROPS */
+    , _hoisted_14)])]);
   }), 128
   /* KEYED_FRAGMENT */
-  )), _hoisted_9]);
+  )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+    onClick: _cache[1] || (_cache[1] = function ($event) {
+      return $setup.openMyAddressBookModal(null);
+    }),
+    role: "button",
+    "class": "d-flex align-items-center text-secondary"
+  }, _hoisted_21)])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BaseFormModal"], {
+    id: "checkout-address-book-modal",
+    title: "new address",
+    submitButtonTitle: "save changes",
+    cancelButtonTitle: "cancel",
+    onFormSubmited: _cache[2] || (_cache[2] = function ($event) {
+      return !$setup.editMode ? $setup.storeNewAddress() : $setup.updateUserAddress();
+    }),
+    onCancelRequest: $setup.closeMyAddressBookModal,
+    formProcessing: $setup.myAddressForm.processing
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["MyAddressForm"], {
+        myAddressForm: $setup.myAddressForm
+      }, null, 8
+      /* PROPS */
+      , ["myAddressForm"])];
+    }),
+    _: 1
+    /* STABLE */
+
+  }, 8
+  /* PROPS */
+  , ["formProcessing"])], 64
+  /* STABLE_FRAGMENT */
+  );
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/MyAccountPage/components/MyAddressBook/MyAddressForm.vue?vue&type=template&id=e4e4d606":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/MyAccountPage/components/MyAddressBook/MyAddressForm.vue?vue&type=template&id=e4e4d606 ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BaseInput"], {
+    label: "Full name *",
+    modelValue: $props.myAddressForm.full_name,
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $props.myAddressForm.full_name = $event;
+    }),
+    type: "text",
+    id: "my-address-full_name",
+    customClass: {
+      'is-invalid': $props.myAddressForm.errors.full_name
+    },
+    errorMsg: $props.myAddressForm.errors.full_name
+  }, null, 8
+  /* PROPS */
+  , ["modelValue", "customClass", "errorMsg"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BaseInput"], {
+    label: "address *",
+    modelValue: $props.myAddressForm.address,
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $props.myAddressForm.address = $event;
+    }),
+    type: "text",
+    id: "my-address-address",
+    customClass: {
+      'is-invalid': $props.myAddressForm.errors.address
+    },
+    errorMsg: $props.myAddressForm.errors.address
+  }, null, 8
+  /* PROPS */
+  , ["modelValue", "customClass", "errorMsg"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BaseInput"], {
+    label: "city *",
+    modelValue: $props.myAddressForm.city,
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $props.myAddressForm.city = $event;
+    }),
+    type: "text",
+    id: "my-address-city",
+    customClass: {
+      'is-invalid': $props.myAddressForm.errors.city
+    },
+    errorMsg: $props.myAddressForm.errors.city
+  }, null, 8
+  /* PROPS */
+  , ["modelValue", "customClass", "errorMsg"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BaseInput"], {
+    label: "phone number *",
+    modelValue: $props.myAddressForm.phone_number,
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
+      return $props.myAddressForm.phone_number = $event;
+    }),
+    type: "number",
+    id: "my-address-phone_number",
+    customClass: {
+      'is-invalid': $props.myAddressForm.errors.phone_number
+    },
+    errorMsg: $props.myAddressForm.errors.phone_number
+  }, null, 8
+  /* PROPS */
+  , ["modelValue", "customClass", "errorMsg"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BaseInput"], {
+    label: "street *",
+    modelValue: $props.myAddressForm.street,
+    "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+      return $props.myAddressForm.street = $event;
+    }),
+    type: "text",
+    id: "my-address-street",
+    customClass: {
+      'is-invalid': $props.myAddressForm.errors.street
+    },
+    errorMsg: $props.myAddressForm.errors.street
+  }, null, 8
+  /* PROPS */
+  , ["modelValue", "customClass", "errorMsg"])], 64
+  /* STABLE_FRAGMENT */
+  );
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/ShoppingCartPage/components/CartEmpty.vue?vue&type=template&id=01507013":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/ShoppingCartPage/components/CartEmpty.vue?vue&type=template&id=01507013 ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "row justify-content-center text-center mt-5"
+};
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", {
+  "class": "mb-3"
+}, "Your Shopping Bag is Empty", -1
+/* HOISTED */
+);
+
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("CONTINUE SHOPPING");
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)(((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+    href: "/"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [_hoisted_3];
+    }),
+    _: 1
+    /* STABLE */
+
+  })], 512
+  /* NEED_PATCH */
+  )), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $props.show]]);
 }
 
 /***/ }),
@@ -3761,6 +4120,60 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/Pages/MyAccountPage/components/MyAddressBook/MyAddressForm.vue":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/Pages/MyAccountPage/components/MyAddressBook/MyAddressForm.vue ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _MyAddressForm_vue_vue_type_template_id_e4e4d606__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MyAddressForm.vue?vue&type=template&id=e4e4d606 */ "./resources/js/Pages/MyAccountPage/components/MyAddressBook/MyAddressForm.vue?vue&type=template&id=e4e4d606");
+/* harmony import */ var _MyAddressForm_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MyAddressForm.vue?vue&type=script&setup=true&lang=js */ "./resources/js/Pages/MyAccountPage/components/MyAddressBook/MyAddressForm.vue?vue&type=script&setup=true&lang=js");
+/* harmony import */ var C_xampp_htdocs_tur_august_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_tur_august_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_MyAddressForm_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_MyAddressForm_vue_vue_type_template_id_e4e4d606__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/MyAccountPage/components/MyAddressBook/MyAddressForm.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/ShoppingCartPage/components/CartEmpty.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/js/Pages/ShoppingCartPage/components/CartEmpty.vue ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _CartEmpty_vue_vue_type_template_id_01507013__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CartEmpty.vue?vue&type=template&id=01507013 */ "./resources/js/Pages/ShoppingCartPage/components/CartEmpty.vue?vue&type=template&id=01507013");
+/* harmony import */ var _CartEmpty_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CartEmpty.vue?vue&type=script&setup=true&lang=js */ "./resources/js/Pages/ShoppingCartPage/components/CartEmpty.vue?vue&type=script&setup=true&lang=js");
+/* harmony import */ var C_xampp_htdocs_tur_august_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_tur_august_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_CartEmpty_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_CartEmpty_vue_vue_type_template_id_01507013__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/ShoppingCartPage/components/CartEmpty.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/ShoppingCartPage/components/ProductsNoLongerInStock.vue":
 /*!************************************************************************************!*\
   !*** ./resources/js/Pages/ShoppingCartPage/components/ProductsNoLongerInStock.vue ***!
@@ -4490,6 +4903,36 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/MyAccountPage/components/MyAddressBook/MyAddressForm.vue?vue&type=script&setup=true&lang=js":
+/*!************************************************************************************************************************!*\
+  !*** ./resources/js/Pages/MyAccountPage/components/MyAddressBook/MyAddressForm.vue?vue&type=script&setup=true&lang=js ***!
+  \************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_MyAddressForm_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_MyAddressForm_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./MyAddressForm.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/MyAccountPage/components/MyAddressBook/MyAddressForm.vue?vue&type=script&setup=true&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/ShoppingCartPage/components/CartEmpty.vue?vue&type=script&setup=true&lang=js":
+/*!*********************************************************************************************************!*\
+  !*** ./resources/js/Pages/ShoppingCartPage/components/CartEmpty.vue?vue&type=script&setup=true&lang=js ***!
+  \*********************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CartEmpty_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CartEmpty_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./CartEmpty.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/ShoppingCartPage/components/CartEmpty.vue?vue&type=script&setup=true&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/Pages/ShoppingCartPage/components/ProductsNoLongerInStock.vue?vue&type=script&setup=true&lang=js":
 /*!***********************************************************************************************************************!*\
   !*** ./resources/js/Pages/ShoppingCartPage/components/ProductsNoLongerInStock.vue?vue&type=script&setup=true&lang=js ***!
@@ -4951,6 +5394,36 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CheckoutUserAddresses_vue_vue_type_template_id_867d67ce__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CheckoutUserAddresses_vue_vue_type_template_id_867d67ce__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./CheckoutUserAddresses.vue?vue&type=template&id=867d67ce */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/CheckoutPage/components/CheckoutUserAddresses.vue?vue&type=template&id=867d67ce");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/MyAccountPage/components/MyAddressBook/MyAddressForm.vue?vue&type=template&id=e4e4d606":
+/*!*******************************************************************************************************************!*\
+  !*** ./resources/js/Pages/MyAccountPage/components/MyAddressBook/MyAddressForm.vue?vue&type=template&id=e4e4d606 ***!
+  \*******************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_MyAddressForm_vue_vue_type_template_id_e4e4d606__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_MyAddressForm_vue_vue_type_template_id_e4e4d606__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./MyAddressForm.vue?vue&type=template&id=e4e4d606 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/MyAccountPage/components/MyAddressBook/MyAddressForm.vue?vue&type=template&id=e4e4d606");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/ShoppingCartPage/components/CartEmpty.vue?vue&type=template&id=01507013":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/Pages/ShoppingCartPage/components/CartEmpty.vue?vue&type=template&id=01507013 ***!
+  \****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CartEmpty_vue_vue_type_template_id_01507013__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_CartEmpty_vue_vue_type_template_id_01507013__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./CartEmpty.vue?vue&type=template&id=01507013 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/ShoppingCartPage/components/CartEmpty.vue?vue&type=template&id=01507013");
 
 
 /***/ }),

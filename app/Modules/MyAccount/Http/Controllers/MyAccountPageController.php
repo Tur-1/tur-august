@@ -41,19 +41,7 @@ class MyAccountPageController extends Controller
 
         ]);
     }
-    public function orderPage($orderId)
-    {
-        $order = $this->myAccountService->findUserOrder($orderId);
-        $products = $this->myAccountService->getOrderProducts();
 
-        $address = $this->myAccountService->getOrderAddress();
-
-        return Inertia::render('MyAccountPage/components/MyOrders/OrderPage/Index', [
-            'order' => $order,
-            'products' => $products,
-            'address' => $address,
-        ]);
-    }
     public function updateAccountInformation(StoreUserAccountInformationRequest $request)
     {
 

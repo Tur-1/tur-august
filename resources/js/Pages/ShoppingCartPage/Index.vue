@@ -13,14 +13,7 @@
                 <CartProducts />
                 <CartDetails />
             </div>
-            <div
-                class="row justify-content-center text-center mt-5"
-                v-show="$page.props.cartCounter == 0"
-            >
-                <h4 class="mb-3">Your Shopping Bag is Empty</h4>
-
-                <Link href="/">CONTINUE SHOPPING</Link>
-            </div>
+            <CartEmpty :show="$page.props.cartCounter == 0" />
         </section>
     </app-layout>
 </template>
@@ -33,6 +26,7 @@ import CartProducts from "@/Pages/ShoppingCartPage/components/CartProducts";
 import CartDetails from "@/Pages/ShoppingCartPage/components/CartDetails";
 
 import { ref } from "vue";
+import CartEmpty from "@/Pages/ShoppingCartPage/components/CartEmpty.vue";
 
 let isDesktop = ref(true);
 let isMobile = ref(false);

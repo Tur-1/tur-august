@@ -2,6 +2,7 @@
 
 namespace App\Modules\Shop\Services;
 
+use App\Exceptions\PageNotFoundException;
 use App\Models\product\Brand;
 use App\Models\product\Color;
 use App\Models\product\Product;
@@ -33,6 +34,9 @@ class ShopPageService
         $this->allCategories = app('categoriesHasProducts');
         $this->category = $this->allCategories->where("slug", $slug)->first();
 
+        if (is_null($this->category)) {
+            throw new PageNotFoundException();
+        }
         $category = $this->category;
         return ShopCategoriesResource::make($category);
     }

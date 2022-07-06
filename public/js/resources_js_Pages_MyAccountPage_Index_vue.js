@@ -1320,7 +1320,6 @@ __webpack_require__.r(__webpack_exports__);
     (0,vue__WEBPACK_IMPORTED_MODULE_1__.onMounted)(function () {
       if (toast.value !== null) {
         isShown.value = true;
-        console.log("onMounted", isShown.value);
         setTimeout(function () {
           isShown.value = false;
         }, 3500);
@@ -1330,7 +1329,6 @@ __webpack_require__.r(__webpack_exports__);
       return toast.value;
     }, function (first) {
       isShown.value = true;
-      console.log("watch", isShown.value);
       setTimeout(function () {
         isShown.value = false;
       }, 3500);

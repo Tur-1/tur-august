@@ -3,7 +3,10 @@
         <Breadcrumb pageTitle="checkout" v-if="isDesktop" />
         <section class="container">
             <CheckoutHeader v-if="isDesktop" />
-            <div class="row">
+            <div
+                class="row"
+                :class="{ 'd-none': $page.props.cartCounter == 0 }"
+            >
                 <div class="col-xl-8 col-lg-7 col-md-6">
                     <CheckoutUserAddresses :checkoutForm="checkoutForm" />
                 </div>
@@ -20,6 +23,8 @@
                     </button>
                 </div>
             </div>
+
+            <CartEmpty :show="$page.props.cartCounter == 0" />
             <!-- Modal -->
             <ProductsNoLongerInStock />
         </section>
@@ -38,6 +43,7 @@ import CheckoutCouponForm from "@/Pages/CheckoutPage/components/CheckoutCouponFo
 import CheckoutProducts from "@/Pages/CheckoutPage/components/CheckoutProducts";
 import CheckoutDetails from "@/Pages/CheckoutPage/components/CheckoutDetails";
 import ProductsNoLongerInStock from "@/Pages/ShoppingCartPage/components/ProductsNoLongerInStock.vue";
+import CartEmpty from "@/Pages/ShoppingCartPage/components/CartEmpty.vue";
 
 let checkoutForm = useForm({
     address_id: "",

@@ -2,6 +2,7 @@
 
 namespace App\Modules\ProductDetail\Http\Controllers;
 
+use App\Exceptions\PageNotFoundException;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Models\product\Product;
@@ -19,12 +20,19 @@ class ProductDetailPageController extends Controller
     {
 
 
-        $productDetail =  $productDetailPageService->getProductDetail($slug);
-        $sizeOptions =  $productDetailPageService->getSizeOptions();
-        $breadcrumb = $productDetailPageService->getBreadcrumb();
-        $productImages = $productDetailPageService->getProductImages();
-        $reviews = $productDetailPageService->reviews();
-        $relatedProducts = $productDetailPageService->getRelatedProducts();
+
+        try {
+            $productDetail =  $productDetailPageService->getProductDetail($slug);
+            $sizeOptions =  $productDetailPageService->getSizeOptions();
+            $breadcrumb = $productDetailPageService->getBreadcrumb();
+            $productImages = $productDetailPageService->getProductImages();
+            $reviews = $productDetailPageService->reviews();
+            $relatedProducts = $productDetailPageService->getRelatedProducts();
+        } catch (PageNotFoundException $ex) {
+            return Inertia::render('Errors/404');
+        }
+
+
 
         $data =  [
             'productDetail' => $productDetail,
@@ -59,11 +67,9 @@ class ProductDetailPageController extends Controller
 
         $request->validate(['comment' => 'required|string']);
 
-
         $product = Product::where('slug', $slug)->select('id')->first();
-        if (is_null($slug) || is_null($product)) {
-            return;
-        }
+
+        if (is_null($slug) || is_null($product))  return;
 
 
 

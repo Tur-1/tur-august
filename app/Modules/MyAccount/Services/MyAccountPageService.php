@@ -18,22 +18,7 @@ class MyAccountPageService
     {
         return auth()->user()->orders;
     }
-    public function findUserOrder($orderId)
-    {
-        $this->order = auth()->user()->orders()->with('address', 'products')->find($orderId);
 
-
-        return MyAccountOrderResource::make($this->order);
-    }
-    public function getOrderProducts()
-    {
-
-        return MyAccountOrderProductsResource::collection($this->order->products)->resolve();
-    }
-    public function getOrderAddress()
-    {
-        return MyAccountUserAddressesResource::make($this->order->address)->resolve();
-    }
     public function updatePhoneNumber($phoneNumber)
     {
         auth()->user()->update(['phone_number' => intval($phoneNumber)]);

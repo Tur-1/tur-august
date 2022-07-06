@@ -1058,6 +1058,16 @@ var map = {
 		"/js/vendor",
 		"resources_js_Pages_ShoppingCartPage_components_CartDetails_vue"
 	],
+	"./ShoppingCartPage/components/CartEmpty": [
+		"./resources/js/Pages/ShoppingCartPage/components/CartEmpty.vue",
+		"/js/vendor",
+		"resources_js_Pages_ShoppingCartPage_components_CartEmpty_vue"
+	],
+	"./ShoppingCartPage/components/CartEmpty.vue": [
+		"./resources/js/Pages/ShoppingCartPage/components/CartEmpty.vue",
+		"/js/vendor",
+		"resources_js_Pages_ShoppingCartPage_components_CartEmpty_vue"
+	],
 	"./ShoppingCartPage/components/CartHeader": [
 		"./resources/js/Pages/ShoppingCartPage/components/CartHeader.vue",
 		"/js/vendor",

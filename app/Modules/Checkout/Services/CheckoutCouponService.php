@@ -4,7 +4,7 @@ namespace App\Modules\Checkout\Services;
 
 use App\Models\Coupon\Coupon;
 use Illuminate\Support\Facades\Session;
-use App\Exceptions\InValidCouponCodeException;
+use App\Modules\Checkout\Exceptions\InValidCouponCodeException;
 
 class CheckoutCouponService
 {

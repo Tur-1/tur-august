@@ -8,13 +8,14 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use App\Traits\RedirectWithMessageTrait;
-use App\Exceptions\InValidCouponCodeException;
 use App\Models\user\Services\UserAddressService;
 
 use App\Modules\Checkout\Services\CheckoutPageService;
 use App\Modules\Checkout\Services\CheckoutCouponService;
 use App\Modules\ShoppingCart\Services\ShoppingCartPageService;
-use App\Exceptions\ProductNoLongerInStockException;
+use App\Modules\Checkout\Exceptions\InValidCouponCodeException;
+use App\Modules\Checkout\Exceptions\ProductNoLongerInStockException;
+
 
 class CheckoutPageController extends Controller
 {
