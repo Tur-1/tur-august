@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug');
             $table->text('details')->nullable();
-            $table->text('information')->nullable();
+            $table->text('info_and_care')->nullable();
             $table->decimal('price', 6, 2);
             $table->decimal('shipping_cost', 6, 2)->nullable()->default(0);
             $table->integer('discount_amount')->nullable();

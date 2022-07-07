@@ -4,10 +4,8 @@ namespace App\Http\Middleware;
 
 use Inertia\Middleware;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-use App\Http\Resources\Category\CategoriesResource;
-use App\Services\Frontend\Inertia\ShareInertiaDataService;
 use Illuminate\Support\Facades\Session;
+use App\Services\ShareInertiaDataService;
 
 class HandleInertiaRequests extends Middleware
 {

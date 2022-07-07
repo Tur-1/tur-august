@@ -2,6 +2,7 @@
 
 namespace App\Models\product;
 
+use App\Traits\ActiveModel;
 use Illuminate\Database\Eloquent\Model;
 use phpDocumentor\Reflection\Types\Boolean;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -9,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Category extends Model
 {
-    use HasFactory;
+    use HasFactory, ActiveModel;
     protected $appends = ['image_url'];
     protected $casts = [
         'parents_ids' => 'array',
@@ -20,7 +21,10 @@ class Category extends Model
     public static function childrenHasProducts()
     {
 
-        $allCategories =  Category::query()->whereHas('products', fn ($product) => $product->select('product_id'))->get();
+        $allCategories =  Category::query()
+            ->whereHas('products', fn ($product) => $product->select('product_id'))
+            ->Active()
+            ->get();
 
         $sections =  $allCategories->where('is_section', true);
 

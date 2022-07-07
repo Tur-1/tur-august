@@ -20,10 +20,10 @@
                 {{ coupon ? "remove" : "Apply" }}
             </button>
         </form>
-        <div class="pb-1 ps-2">
-            <BaseInputErrorMsg :message="ErrorMsg" />
-            <BaseInputSuccessMsg :message="coupon ? coupon.successMsg : ''" />
-        </div>
+    </div>
+    <div class="ms-2 me-2">
+        <BaseInputErrorMsg :message="ErrorMsg" />
+        <BaseInputSuccessMsg :message="coupon ? coupon.successMsg : ''" />
     </div>
 </template>
 <script setup>

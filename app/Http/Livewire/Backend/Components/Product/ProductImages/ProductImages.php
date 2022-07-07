@@ -2,16 +2,16 @@
 
 namespace App\Http\Livewire\Backend\Components\Product\ProductImages;
 
-use App\Services\Backend\Product\ProductImageService;
-use App\Traits\RedirectWithMessageTrait;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use App\Traits\RedirectWithMessageTrait;
+use App\Modules\Backend\Products\Services\ProductImageService;
 
 class ProductImages extends Component
 {
     use WithFileUploads, RedirectWithMessageTrait;
     public $showConfirmModal = false;
-    public $productImages = [];
+    public $images = [];
     public $productId;
     public $imageIndex;
     public $imageId;
@@ -25,11 +25,11 @@ class ProductImages extends Component
     public function mount()
     {
 
-        $this->productImages = $this->productImageService->getProductImages($this->productId);
+        $this->images =  $this->productImageService->getProductImages($this->productId);
     }
     public function addNewImage()
     {
-        $this->productImages[] = $this->productImageService->productImage();
+        $this->images[] = $this->productImageService->productImage();
     }
     public function openDeleteProductImageModal($imageIndex, $imageId = null)
     {
@@ -45,9 +45,9 @@ class ProductImages extends Component
         $this->productImageService->destroyProductImage($this->imageId);
 
         // remove image from images array
-        unset($this->productImages[$this->imageIndex]);
+        unset($this->images[$this->imageIndex]);
         // Re-index the array elements
-        $this->productImages = array_values($this->productImages);
+        $this->images = array_values($this->images);
 
         $message = 'product image has been Deleted successfuly !';
         $this->showSuccessMessage($message);
@@ -57,21 +57,22 @@ class ProductImages extends Component
         $this->dispatchBrowserEvent('closeDeleteProductImageModal');
         $this->showConfirmModal = false;
     }
-    public function updatedProductImages($image, $index)
+    public function updatedImages($image, $index)
     {
-        $this->productImages[intval($index)]['image_url'] = $image->temporaryUrl();
+
+        $this->images[intval($index)]['image_url'] = $image->temporaryUrl();
     }
     public function changeMainImage($index, $imageId = null)
     {
 
-        foreach ($this->productImages as $key => $value) {
+        foreach ($this->images as $key => $value) {
 
-            $this->productImages[$key]['is_main_image'] = false;
+            $this->images[$key]['is_main_image'] = false;
         }
 
         $this->productImageService->changeMainImage($imageId, $this->productId);
 
-        $this->productImages[$index]['is_main_image'] = true;
+        $this->images[$index]['is_main_image'] = true;
     }
     public function render()
     {

@@ -138,10 +138,10 @@ var _hoisted_1 = {
 var _hoisted_2 = ["onSubmit"];
 var _hoisted_3 = ["disabled"];
 var _hoisted_4 = {
-  "class": "pb-1 ps-2"
+  "class": "ms-2 me-2"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
     onSubmit: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)($setup.applyCoupon, ["prevent"]),
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["checkout_coupon_form", {
       'is-invalid': $setup.ErrorMsg
@@ -163,7 +163,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT, PROPS */
   , _hoisted_3)], 42
   /* CLASS, PROPS, HYDRATE_EVENTS */
-  , _hoisted_2), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BaseInputErrorMsg"], {
+  , _hoisted_2)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BaseInputErrorMsg"], {
     message: $setup.ErrorMsg
   }, null, 8
   /* PROPS */
@@ -171,7 +171,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     message: $setup.coupon ? $setup.coupon.successMsg : ''
   }, null, 8
   /* PROPS */
-  , ["message"])])]);
+  , ["message"])])], 64
+  /* STABLE_FRAGMENT */
+  );
 }
 
 /***/ }),

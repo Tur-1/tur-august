@@ -39,7 +39,7 @@
                     <thead>
                         <tr>
                             <th>Id</th>
-                            <th>size Name</th>
+                            <th>name</th>
                             <th>Action</th>
                         </tr>
                     </thead>

@@ -3,9 +3,9 @@
 
         @include('livewire.backend.components.product.product-images.components.add-new-image-button')
 
-        @if (!empty($productImages))
+        @if (!empty($images))
             <div class="row">
-                @foreach ($productImages as $index => $image)
+                @foreach ($images as $index => $image)
                     <div class="col-md-3">
                         <div class="card">
                             @include('livewire.backend.components.product.product-images.components.image-card-body')

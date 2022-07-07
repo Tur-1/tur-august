@@ -5,7 +5,7 @@
 
     </label>
     <input type="file" class="form-control" id="image-input-{{ $index }}"
-        wire:model="productImages.{{ $index }}.image_url" style="display: none;"
-        name="productImages[{{ $index }}][image]">
+        wire:model="images.{{ $index }}.image_url" style="display: none;"
+        name="images[{{ $index }}][image]">
 
 </div>

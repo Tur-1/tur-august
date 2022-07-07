@@ -24,33 +24,33 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Coupon Code</th>
-                            <th>Coupon amount</th>
+                            <th>code</th>
+                            <th>amount</th>
                             <th>used times</th>
-                            <th>Coupon expires at</th>
-                            <th>Action</th>
+                            <th>expires at</th>
+                            <th>action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($coupons as $coupon)
                             <tr>
-                                <td style="text-align: left; vertical-align: middle;">
+                                <td>
                                     {{ $coupon->id }}
                                 </td>
-                                <td style="text-align: left; vertical-align: middle;">
+                                <td>
                                     {{ $coupon->code }}
                                 </td>
-                                <td style="text-align: left; vertical-align: middle;">
+                                <td>
                                     {{ $coupon->amount }} {{ $coupon->type == 'percentage' ? ' %' : ' SAR' }}
                                 </td>
-                                <td style="text-align: left; vertical-align: middle;">
+                                <td>
                                     {{ $coupon->used_times }}
                                 </td>
-                                <td style="text-align: left; vertical-align: middle;">
+                                <td>
                                     {{ $coupon->expires_at }}
                                 </td>
 
-                                <td class="text-center" style="text-align: left; vertical-align: middle;">
+                                <td>
                                     <div class="dropdown dropup">
                                         <a href="#" data-bs-toggle="dropdown" class="btn btn-light  btn-sm font-sm"
                                             aria-expanded="false"> <i class="material-icons md-more_horiz"></i> </a>

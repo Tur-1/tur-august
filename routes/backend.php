@@ -1,18 +1,25 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Backend\UserController;
-use App\Http\Controllers\Backend\BrandController;
-use App\Http\Controllers\Backend\ColorController;
-use App\Http\Controllers\Backend\ProductController;
-use App\Http\Controllers\Backend\CategoryController;
-use App\Http\Controllers\Backend\SizeOptionController;
-use App\Http\Controllers\Backend\OrderStatusController;
-use App\Http\Controllers\Backend\CategorySectionController;
-use App\Http\Controllers\Backend\CouponController;
-use App\Http\Controllers\Backend\ProductReviewController;
+use App\Modules\Backend\Users\Http\Controllers\UserController;
+use App\Modules\Backend\Brands\Http\Controllers\BrandController;
+use App\Modules\Backend\Colors\Http\Controllers\ColorController;
+use App\Modules\Backend\Coupons\Http\Controllers\CouponController;
+use App\Modules\Backend\Products\Http\Controllers\ProductController;
+use App\Modules\Backend\Categories\Http\Controllers\CategoryController;
+use App\Modules\Backend\Reviews\Http\Controllers\ProductReviewController;
+use App\Modules\Backend\SizeOptions\Http\Controllers\SizeOptionController;
+use App\Modules\Backend\OrderStatus\Http\Controllers\OrderStatusController;
+use App\Modules\Backend\Categories\Http\Controllers\CategorySectionController;
+use App\Modules\Backend\Dashboard\Http\Controllers\DashboardController;
+use App\Modules\Backend\Orders\Http\Controllers\OrdersController;
 
-Route::view('dashboard', 'Backend.pages.dashboard.dashboard-page')->name('dashboard');
+
+Route::get('admin', function () {
+    return redirect()->route('admin.dashboardPage');
+});
+
+Route::get('dashboard', [DashboardController::class, 'dashboardPage'])->name('dashboardPage');
 
 Route::get('customers', [UserController::class, 'customers'])->name('customers');
 
@@ -21,6 +28,8 @@ Route::resource('users', UserController::class);
 Route::resource('colors', ColorController::class);
 
 Route::resource('brands', BrandController::class);
+
+Route::resource('orders', OrdersController::class);
 
 Route::resource('sizeOptions', SizeOptionController::class);
 

@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Modules\MyAccount\Http\Controllers\MyAccountPageController;
-use App\Modules\MyAccount\Http\Controllers\OrderPageController;
+use App\Modules\Frontend\MyAccount\Http\Controllers\MyAccountPageController;
+use App\Modules\Frontend\MyAccount\Http\Controllers\OrderPageController;
 
 Route::middleware('auth')->controller(MyAccountPageController::class)->group(function () {
 

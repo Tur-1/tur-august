@@ -45,6 +45,7 @@ class ProductSizeOptions extends Component
     }
     public function openDeleteSizeModal($index,  $inputId = null)
     {
+        if ($index == 0 || count($this->inputFields) <= 1) return;
 
         $this->showModal = true;
         $this->indexInput = $index;
@@ -71,8 +72,18 @@ class ProductSizeOptions extends Component
         $this->dispatchBrowserEvent('closeDeleteSizeModal');
         $this->showModal = false;
     }
+
+    public function getOldInputFields()
+    {
+        if (old('inputFields')) {
+            foreach (old('inputFields') as $key => $value) {
+                $this->inputFields[$key] = ['id' => null, 'size_id' => $value['size_id'], 'stock'  => $value['stock']];
+            }
+        }
+    }
     public function render()
     {
+        $this->getOldInputFields();
         $size_options = SizeOption::pluck('name', 'id');
 
 

@@ -2,7 +2,7 @@
 
 namespace App\Models\user\Services;
 
-use App\Modules\MyAccount\Http\Resources\MyAccountUserAddressesResource;
+use App\Modules\Frontend\MyAccount\Http\Resources\MyAccountUserAddressesResource;
 
 
 class UserAddressService

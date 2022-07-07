@@ -19,7 +19,7 @@
                             class="text-primary material-icons md-monetization_on"></i></span>
                     <div class="text">
                         <h6 class="mb-1 card-title">Revenue</h6>
-                        {{-- <span>{{ $revenue }} SAR</span> --}}
+                        <span>{{ $revenue }} SAR</span>
 
                     </div>
                 </article>
@@ -31,7 +31,7 @@
                     <span class="icon icon-sm rounded-circle bg-success-light"><i
                             class="text-success material-icons md-local_shipping"></i></span>
                     <div class="text">
-                        <h6 class="mb-1 card-title">Orders</h6> {{-- <span>{{ count($orders) }}</span> --}}
+                        <h6 class="mb-1 card-title">Orders</h6> <span>{{ count($orders) }}</span>
 
                     </div>
                 </article>
@@ -46,9 +46,9 @@
                         <h6 class="mb-0 card-title">
                             Products
                         </h6>
-                        {{-- <small>{{ $productsCount }}</small> --}}
+                        <small>{{ $productsCount }}</small>
                         <span class="text-sm">
-                            {{-- In {{ $categoryCount }} Categories --}}
+                            In {{ $categoryCount }} Categories
                         </span>
                     </div>
                 </article>
@@ -60,7 +60,7 @@
                     <span class="icon icon-sm rounded-circle bg-info-light"><i
                             class="text-info material-icons md-shopping_basket"></i></span>
                     <div class="text">
-                        <h6 class="mb-1 card-title">Monthly Earning</h6> {{-- <span>{{ $monthlyEarning }} SAR</span> --}}
+                        <h6 class="mb-1 card-title">Monthly Earning</h6> <span>{{ $monthlyEarning }} SAR</span>
 
                     </div>
                 </article>
@@ -74,72 +74,87 @@
 
         </header>
         <div class="card-body">
-            <div class="table-responsive">
-                <div class="table-responsive">
-                    <table class="table align-middle table-nowrap mb-0">
-                        <thead class="table-light">
-                            <tr>
-                                <th class="align-middle" scope="col">Order ID</th>
-                                <th class="align-middle" scope="col">Billing Name</th>
-                                <th class="align-middle" scope="col">Order Date</th>
-                                <th class="align-middle" scope="col">coupon</th>
 
-                                <th class="align-middle" scope="col">Items</th>
-                                <th class="align-middle" scope="col">Total</th>
-                                <th class="align-middle" scope="col">Status </th>
-                                <th class="align-middle" scope="col">View Details</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {{-- @foreach ($orders as $order)
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>billing name</th>
+                        <th>date</th>
+                        <th>items</th>
+                        <th>total </th>
+                        <th>status </th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @forelse ($orders as $order)
                         <tr>
                             <td>{{ $order->id }}</td>
-                        <td>
-                            {{ $order->user->name }}
-                        </td>
-                        <td>
-                            {{ $order->order_date }}
-                        </td>
-                        <td>
-                            {{ $order->coupon->code ?? '' }}
-                        </td>
-                        <td>
-                            @if ($order->products_count == 1)
-                            {{ $order->products_count }} Item
-                            @else
-                            {{ $order->products_count }} Items
-                            @endif
-                        </td>
-                        <td>
-                            {{ $order->order_total }}
-                        </td>
-                        <td>
-                            @if ($order->status->status == 'Cancelled')
-                            <span
-                                class="badge rounded-pill  alert-danger text-black font-sm">{{ $order->status->status }}
-                            </span>
-                            @else
-                            <span
-                                class="badge rounded-pill alert-success text-success font-sm">{{ $order->status->status }}
-                            </span>
-                            @endif
+                            <td>
+                                {{ $order->user->name }}
+                            </td>
+                            <td>
+                                {{ $order->created_at->format('d/m/Y h:i A') }}
+                            </td>
 
-                        </td>
-                        <td>
-                            @can('view', $order)
-                            <a href="{{ route('admin.orders.show', $order) }}" class=" btn btn-primary btn-sm">
-                                View details
-                            </a>
-                            @endcan
-                        </td>
+
+                            <td>
+                                @if ($order->products_count == 1)
+                                    {{ $order->products_count }} Item
+                                @else
+                                    {{ $order->products_count }} Items
+                                @endif
+                            </td>
+                            <td>
+                                {{ $order->total }}
+                            </td>
+                            <td>
+                                <span class="badge badge-soft-secondary rounded-pill font-sm">
+                                    {{ $order->status->name }}
+                                </span>
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"
+                                        aria-expanded="false"> <i class="material-icons md-more_horiz"></i> </a>
+                                    <div class="dropdown-menu" style="margin: 0px;">
+
+                                        <a href="{{ route('admin.orders.show', $order) }}"
+                                            class="dropdown-item btn  text-secondary ">
+                                            show
+                                        </a>
+
+
+                                        <form class="dropdown-item" onsubmit="return window.confirm('Are you sure')"
+                                            action="{{ route('admin.orders.destroy', $order) }}" method="post">
+                                            {{ method_field('DELETE') }}
+                                            {{ csrf_field() }}
+
+
+                                            <button class="btn text-danger btn-sm w-100 text-start p-0 "
+                                                type="submit">Delete</button>
+
+                                        </form>
+
+                                    </div>
+                                </div>
+
+                            </td>
+
                         </tr>
-                        @endforeach --}}
 
+                    @empty
+                        <tr>
+                            <td colspan="8">
+                                <h6 class="text-center"> No Orders Found</h6>
+                            </td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
 
-                        </tbody>
-                    </table>
-                </div>
-            </div> <!-- table-responsive end// -->
         </div>
     </div>
 

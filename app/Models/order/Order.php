@@ -3,7 +3,9 @@
 namespace App\Models\order;
 
 use App\Models\user\User;
+use App\Models\Coupon\Coupon;
 use App\Models\product\Product;
+use App\Models\order\OrderStatus;
 use App\Models\order\OrderProduct;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -36,7 +38,7 @@ class Order extends Model
     }
     public function status()
     {
-        return $this->belongsTo(OrderStatus::class, 'order_status_id', 'id')->withDefault(['status' => 'pending']);
+        return $this->belongsTo(OrderStatus::class, 'order_status_id', 'id')->withDefault(['name' => 'pending']);
     }
 
     public function products()
@@ -46,5 +48,20 @@ class Order extends Model
             ->WithMainProductImage()
             ->WithBrandName()
             ->with('sizeOptions');
+    }
+    public function scopeWithFilters($query)
+    {
+        return $query->when(request()->input('search'), function ($order) {
+            $order->where('id', request()->input('search'));
+        })->when(request()->input('order_date'), function ($order) {
+            $order->whereDate('created_at', request()->input('order_date'));
+        });
+    }
+
+    public function scopeCompleted($query)
+    {
+        return $query->with(['status' => function ($query) {
+            $query->where('name', 'Completed');
+        }]);
     }
 }

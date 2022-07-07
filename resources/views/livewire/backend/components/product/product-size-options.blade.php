@@ -44,14 +44,15 @@
                                 'inputName' => 'inputFields.' . $index . '.stock',
                             ])
                         </td>
-
-
                         <td>
+
                             <button wire:click.prevent="openDeleteSizeModal({{ $index }}, {{ $input['id'] }})"
                                 wire:loading.attr='disabled' wire:target='RemoveInputField'
-                                class="bg-transparent border-0 text-danger">
+                                class="bg-transparent border-0 text-danger  "
+                                @if ($loop->index == 0) style="visibility: hidden" @endif>
                                 <small>Delete</small>
                             </button>
+
                         </td>
                     </tr>
                 @endforeach

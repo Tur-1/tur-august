@@ -1,7 +1,7 @@
 <template>
     <AppLayout title="checkout" backgroundColor="background-color:#F9F9F9">
         <Breadcrumb pageTitle="checkout" v-if="isDesktop" />
-        <section class="container">
+        <section class="container mt-2">
             <CheckoutHeader v-if="isDesktop" />
             <div
                 class="row"
@@ -38,12 +38,12 @@ import { useForm } from "@inertiajs/inertia-vue3";
 import AppLayout from "@/layouts/AppLayout";
 import Breadcrumb from "@/components/Breadcrumb";
 import CheckoutHeader from "@/Pages/CheckoutPage/components/CheckoutHeader";
-import CheckoutUserAddresses from "@/Pages/CheckoutPage/components/CheckoutUserAddresses";
 import CheckoutCouponForm from "@/Pages/CheckoutPage/components/CheckoutCouponForm";
 import CheckoutProducts from "@/Pages/CheckoutPage/components/CheckoutProducts";
 import CheckoutDetails from "@/Pages/CheckoutPage/components/CheckoutDetails";
 import ProductsNoLongerInStock from "@/Pages/ShoppingCartPage/components/ProductsNoLongerInStock.vue";
 import CartEmpty from "@/Pages/ShoppingCartPage/components/CartEmpty.vue";
+import CheckoutUserAddresses from "@/Pages/CheckoutPage/components/CheckoutUserAddresses/Index.vue";
 
 let checkoutForm = useForm({
     address_id: "",

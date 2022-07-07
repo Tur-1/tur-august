@@ -95,7 +95,7 @@
                                                     <label class="col-lg-3 col-form-label">Brand</label>
                                                     <div class="col-lg-9">
                                                         <select
-                                                            class=" form-select {{ $errors->has('id') ? 'is-invalid' : ' ' }}"
+                                                            class=" form-select {{ $errors->has('brand_id') ? 'is-invalid' : ' ' }}"
                                                             data-style="border" name="brand_id" id="brand_id"
                                                             aria-label="Default select example">
 
@@ -180,14 +180,14 @@
 
 
                                                 <div class="row mb-4">
-                                                    <label for="ProductInformation"
-                                                        class="col-lg-3 col-form-label">Product
-                                                        information</label>
+                                                    <label for="ProductInformation" class="col-lg-3 col-form-label">
+                                                        info & care
+                                                    </label>
                                                     <div class="col-lg-9">
-                                                        <textarea id="ProductInformation" class="form-control {{ $errors->has('information') ? 'is-invalid' : ' ' }}"
-                                                            name="information" placeholder="Enter ...">  {{ old('information', $product->information ?? null) }} </textarea>
+                                                        <textarea id="ProductInformation" class="form-control {{ $errors->has('info_and_care') ? 'is-invalid' : ' ' }}"
+                                                            name="info_and_care" placeholder="Enter ...">  {{ old('info_and_care', $product->info_and_care ?? null) }} </textarea>
                                                         <span class="text-danger">
-                                                            {{ $errors->first('information') }}
+                                                            {{ $errors->first('info_and_care') }}
                                                         </span>
                                                     </div>
                                                 </div>

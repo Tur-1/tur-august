@@ -38,7 +38,7 @@
                     <tbody>
                         @forelse ($products as $product)
                             <tr>
-                                <td style="text-align: left; vertical-align: middle;">
+                                <td style=" vertical-align: middle;">
                                     {{ $product->id }}
                                 </td>
                                 <td>
@@ -46,27 +46,27 @@
                                         alt="">
 
                                 </td>
-                                <td style="text-align: left; vertical-align: middle;">
+                                <td style=" vertical-align: middle;">
                                     {{ $product->name }}
                                 </td>
-                                <td style="text-align: left; vertical-align: middle;">
+                                <td style=" vertical-align: middle;">
                                     {{ $product->price }} SAR
                                 </td>
-                                <td style="text-align: left; vertical-align: middle;">
+                                <td style=" vertical-align: middle;">
                                     {{ $product->brand_name }}
                                 </td>
-                                <td style="text-align: left; vertical-align: middle;">
+                                <td style=" vertical-align: middle;">
                                     {{ $product->color_name }}
                                 </td>
-                                <td style="text-align: left; vertical-align: middle;">
+                                <td style=" vertical-align: middle;">
                                     {{ $product->category_name }}
                                 </td>
-                                <td style="text-align: left; vertical-align: middle;">
+                                <td style=" vertical-align: middle;">
                                     {{ $product->section_name }}
                                 </td>
 
 
-                                <td style="text-align: left; vertical-align: middle;">
+                                <td style=" vertical-align: middle;">
 
                                     @if ($product->stock == 0)
                                         <span class=" badge badge-soft-danger"> out of stock</span>
@@ -77,12 +77,12 @@
                                         {{ $product->stock }}
                                     @endif
                                 </td>
-                                <td style="text-align: left; vertical-align: middle;">
+                                <td style=" vertical-align: middle;">
 
-                                    {{-- @livewire('admin.reusable-components.active-toggle-switch', ['model' => $product, 'field' => 'is_active'], key($product->id)) --}}
-
+                                    <livewire:backend.components.active-toggle-switch :model="$product" field="is_active"
+                                        :wire:key="$product->id">
                                 </td>
-                                <td class="text-center" style="text-align: left; vertical-align: middle;">
+                                <td style=" vertical-align: middle;">
                                     <div class="dropdown dropup">
                                         <a href="#" data-bs-toggle="dropdown" class="btn btn-light  btn-sm font-sm"
                                             aria-expanded="false"> <i class="material-icons md-more_horiz"></i> </a>

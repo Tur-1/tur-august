@@ -1,5 +1,5 @@
 <template>
-    <div class="mb-4">
+    <div class="mb-4 mt-3">
         <div class="card border-0 p-0">
             <div class="card-body">
                 <ul class="list-group list-group-flush checkout-deatils">

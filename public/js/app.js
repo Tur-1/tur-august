@@ -204,15 +204,35 @@ var map = {
 		"/js/vendor",
 		"resources_js_Pages_CheckoutPage_components_CheckoutProducts_vue"
 	],
-	"./CheckoutPage/components/CheckoutUserAddresses": [
-		"./resources/js/Pages/CheckoutPage/components/CheckoutUserAddresses.vue",
+	"./CheckoutPage/components/CheckoutUserAddresses/CheckoutAddNewAddress": [
+		"./resources/js/Pages/CheckoutPage/components/CheckoutUserAddresses/CheckoutAddNewAddress.vue",
 		"/js/vendor",
-		"resources_js_Pages_CheckoutPage_components_CheckoutUserAddresses_vue"
+		"resources_js_Pages_CheckoutPage_components_CheckoutUserAddresses_CheckoutAddNewAddress_vue"
 	],
-	"./CheckoutPage/components/CheckoutUserAddresses.vue": [
-		"./resources/js/Pages/CheckoutPage/components/CheckoutUserAddresses.vue",
+	"./CheckoutPage/components/CheckoutUserAddresses/CheckoutAddNewAddress.vue": [
+		"./resources/js/Pages/CheckoutPage/components/CheckoutUserAddresses/CheckoutAddNewAddress.vue",
 		"/js/vendor",
-		"resources_js_Pages_CheckoutPage_components_CheckoutUserAddresses_vue"
+		"resources_js_Pages_CheckoutPage_components_CheckoutUserAddresses_CheckoutAddNewAddress_vue"
+	],
+	"./CheckoutPage/components/CheckoutUserAddresses/CheckoutAddressesList": [
+		"./resources/js/Pages/CheckoutPage/components/CheckoutUserAddresses/CheckoutAddressesList.vue",
+		"/js/vendor",
+		"resources_js_Pages_CheckoutPage_components_CheckoutUserAddresses_CheckoutAddressesList_vue"
+	],
+	"./CheckoutPage/components/CheckoutUserAddresses/CheckoutAddressesList.vue": [
+		"./resources/js/Pages/CheckoutPage/components/CheckoutUserAddresses/CheckoutAddressesList.vue",
+		"/js/vendor",
+		"resources_js_Pages_CheckoutPage_components_CheckoutUserAddresses_CheckoutAddressesList_vue"
+	],
+	"./CheckoutPage/components/CheckoutUserAddresses/Index": [
+		"./resources/js/Pages/CheckoutPage/components/CheckoutUserAddresses/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_CheckoutPage_components_CheckoutUserAddresses_Index_vue"
+	],
+	"./CheckoutPage/components/CheckoutUserAddresses/Index.vue": [
+		"./resources/js/Pages/CheckoutPage/components/CheckoutUserAddresses/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_CheckoutPage_components_CheckoutUserAddresses_Index_vue"
 	],
 	"./Errors/404": [
 		"./resources/js/Pages/Errors/404.vue",

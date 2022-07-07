@@ -18389,6 +18389,9 @@ ul.shop-sidebar-categories {
   .checkout_coupon_form input {
     font-size: 13px !important;
   }
+  .checkout_address_card_body {
+    font-size: 12px !important;
+  }
 }
 .checkout-product {
   background-color: white;
@@ -18467,7 +18470,7 @@ ul.shop-sidebar-categories {
 
 .card_checkout_coupon_form {
   border: none;
-  margin: 1rem 0;
+  margin: 1rem 0 0;
 }
 
 .checkout_coupon_form.is-invalid {
@@ -18475,6 +18478,10 @@ ul.shop-sidebar-categories {
   border-radius: 5px;
   border-color: rgb(255, 85, 61) !important;
   background-color: rgba(255, 85, 61, 0.03);
+}
+
+.checkout_address_card_body {
+  padding: 7px;
 }
 
 @media only screen and (max-width: 767px) {

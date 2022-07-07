@@ -12,6 +12,11 @@
         --
     </td>
     <td>
+        <livewire:backend.components.active-toggle-switch :model="$categoriesSection" field="is_active"
+            :wire:key="$categoriesSection->id">
+    </td>
+
+    <td>
         <div class="dropdown">
             <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm" aria-expanded="false">
                 <i class="material-icons md-more_horiz"></i> </a>

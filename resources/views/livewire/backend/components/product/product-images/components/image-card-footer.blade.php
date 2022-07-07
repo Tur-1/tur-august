@@ -4,7 +4,7 @@
 
             <input wire:key="{{ $index }}" wire:change="changeMainImage({{ $index }},{{ $image['id'] }})"
                 class="form-check-input me-1" type="radio"
-                @if (is_null($image['id'])) name="productImages[{{ $index }}][is_main_image]" @endif
+                @if (is_null($image['id'])) name="images[{{ $index }}][is_main_image]" @endif
                 id="is-main-image-{{ $image['id'] }}" value="{{ $image['is_main_image'] }}"
                 @checked($image['is_main_image'] == true)>
             <label class="form-check-label" for="is-main-image-{{ $image['id'] }}">

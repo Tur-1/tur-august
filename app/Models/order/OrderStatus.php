@@ -19,6 +19,19 @@ class OrderStatus extends Model
     {
         return $this->hasMany(Order::class, 'order_status_id')->withCount('products');
     }
+    public function scopeWithOrders($query)
+    {
+        return $query->with(
+            [
+                'orders' => fn ($query) => $query->with('status:id,name', 'user:id,name')
+            ]
+        )
+            ->WithOrdersCount();
+    }
+    public function scopeWithOrdersCount($query)
+    {
+        return $query->withCount('orders');
+    }
     public function getImageUrlAttribute()
     {
         return $this->image ? asset('storage/images/order_status/' . $this->image) : null;
