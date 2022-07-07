@@ -267,7 +267,7 @@ __webpack_require__.r(__webpack_exports__);
       });
 
       if (coupon.value) {
-        couponForm.code = "";
+        code.value = "";
       }
     };
 

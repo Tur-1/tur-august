@@ -5,17 +5,16 @@ namespace App\Models\order;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class OrderAddress extends Model
+class OrderCoupon extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'order_id',
-        'full_name',
-        'address',
-        'city',
-        'phone_number',
-        'street',
+        'code',
+        'type',
+        'amount',
+        'discounted_amount'
 
     ];
 }

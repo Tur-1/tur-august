@@ -41,7 +41,7 @@ let code = ref(coupon.value ? coupon.value.code : "");
 const applyCoupon = () => {
     Inertia.post(route("applyCoupon"), { code: code.value });
     if (coupon.value) {
-        couponForm.code = "";
+        code.value = "";
     }
 };
 </script>

@@ -4,7 +4,7 @@
             <div v-html="$page.props.productDetail.details"></div>
         </div>
         <div class="tab-pane fade" id="Additional-info">
-            <div v-html="$page.props.productDetail.information"></div>
+            <div v-html="$page.props.productDetail.info_and_care"></div>
         </div>
 
         <!--Reviews-->

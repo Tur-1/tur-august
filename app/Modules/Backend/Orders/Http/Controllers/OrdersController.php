@@ -61,7 +61,8 @@ class OrdersController extends Controller
     public function show(Order $order)
     {
 
-        $order->load('products', 'coupon', 'status', 'address', 'user');
+        $order->load('products',  'status', 'address', 'user', 'coupon');
+
         $products = MyAccountOrderProductsResource::collection($order->products)->resolve();
         $address = MyAccountUserAddressesResource::make($order->address)->resolve();
 

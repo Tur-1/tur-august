@@ -15,7 +15,7 @@ use App\Modules\Backend\Dashboard\Http\Controllers\DashboardController;
 use App\Modules\Backend\Orders\Http\Controllers\OrdersController;
 
 
-Route::get('admin', function () {
+Route::get('/', function () {
     return redirect()->route('admin.dashboardPage');
 });
 

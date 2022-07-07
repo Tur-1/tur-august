@@ -36,7 +36,7 @@ class ProductDetailResource extends JsonResource
             'details' => $this->details,
             'brand_name' =>  $this->brand_name,
             'brand_image_url' =>  $this->brand_image_url,
-            'information' => $this->information,
+            'info_and_care' => $this->info_and_care,
             'product_link' => route('productDetailPage', $this->slug),
             'in_stock' => $this->stock > 0 ? true : false,
             'price' => $discounted_price != 0 ? $discounted_price : $original_price,

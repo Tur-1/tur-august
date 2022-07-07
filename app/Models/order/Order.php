@@ -5,6 +5,7 @@ namespace App\Models\order;
 use App\Models\user\User;
 use App\Models\Coupon\Coupon;
 use App\Models\product\Product;
+use App\Models\order\OrderCoupon;
 use App\Models\order\OrderStatus;
 use App\Models\order\OrderProduct;
 use Illuminate\Database\Eloquent\Model;
@@ -15,7 +16,6 @@ class Order extends Model
     use HasFactory;
     protected $fillable = [
         'user_id',
-        'coupon_id',
         'order_status_id',
         'shipping_fees',
         'subtotal',
@@ -28,14 +28,15 @@ class Order extends Model
     {
         return $this->hasOne(OrderAddress::class, 'order_id');
     }
+    public function coupon()
+    {
+        return $this->hasOne(OrderCoupon::class, 'order_id');
+    }
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-    public function coupon()
-    {
-        return $this->belongsTo(Coupon::class);
-    }
+
     public function status()
     {
         return $this->belongsTo(OrderStatus::class, 'order_status_id', 'id')->withDefault(['name' => 'pending']);

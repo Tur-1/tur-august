@@ -17,7 +17,7 @@ class ShareInertiaDataService
     public function getCartCounter()
     {
         $cartCounter = 0;
-        if (!Route::is('admin.*') && !Route::is('shoppingCartPage') && auth()->check()) {
+        if (!Route::is('admin.*') && !Route::is('shoppingCartPage') && !Route::is('checkoutPage') && auth()->check()) {
             $cartCounter = auth()->user()->shoppingCart()->count('product_id');
         }
         return $cartCounter;

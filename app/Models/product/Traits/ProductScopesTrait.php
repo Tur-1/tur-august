@@ -81,7 +81,7 @@ trait ProductScopesTrait
             'price',
             'details',
             'stock',
-            'information',
+            'info_and_care',
             'brand_id',
             'color_id',
             'discount_amount',

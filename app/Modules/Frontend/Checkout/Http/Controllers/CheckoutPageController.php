@@ -66,6 +66,7 @@ class CheckoutPageController extends Controller
 
         return Inertia::render('CheckoutPage/Index', [
             'products' => $this->products,
+            'cartCounter' => count($this->products),
             'cartDetails' => $this->cartDetails,
             'userAddresses' =>  $this->userAddresses,
             'outOfStockProducts' => $this->outOfStockProducts,
@@ -124,7 +125,7 @@ class CheckoutPageController extends Controller
 
         try {
 
-            $checkoutPageService = new CheckoutPageService($this->cartDetails, $userAddress);
+            $checkoutPageService = new CheckoutPageService($this->cartDetails, $userAddress, $this->coupon);
 
             DB::transaction(function () use ($checkoutPageService) {
                 $this->order = $checkoutPageService->createNewOrder();
@@ -139,6 +140,8 @@ class CheckoutPageController extends Controller
             $checkoutPageService->updateProductStock();
 
             $checkoutPageService->createOrderAddress($this->order->id);
+
+            $checkoutPageService->storeOrderCoupon($this->order->id);
 
             (new CheckoutCouponService())->increaseCouponUsedTimes($this->coupon);
         } catch (ProductNoLongerInStockException $ex) {

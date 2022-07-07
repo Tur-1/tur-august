@@ -6,6 +6,7 @@ use Mavinoo\Batch\Batch;
 use App\Models\order\Order;
 use App\Models\product\Product;
 use App\Models\order\OrderAddress;
+use App\Models\order\OrderCoupon;
 use App\Models\order\OrderProduct;
 use Illuminate\Support\Facades\Session;
 use App\Models\product\ProductSizeOption;
@@ -18,12 +19,14 @@ class CheckoutPageService
     private $cartProducts;
     private $orderDetails;
     private $shippingAddress;
+    private $coupon;
 
-    public function __construct($cartDetails, $userAddress)
+    public function __construct($cartDetails, $userAddress, $coupon = null)
     {
         $this->cartProducts = collect(CheckoutProductsResource::collection(auth()->user()->shoppingCartProducts));
-
+        $this->coupon = $coupon;
         $this->orderDetails = $cartDetails;
+
         $this->shippingAddress = $userAddress;
     }
 
@@ -32,7 +35,6 @@ class CheckoutPageService
 
         $this->order = Order::create([
             'user_id' => auth()->id(),
-            'coupon_id' => Session::get('coupon_id'),
             'order_status_id' => 1,
             'shipping_fees' => intval($this->orderDetails['shipmentFees']),
             'subtotal' => $this->orderDetails['cartSubTotal'],
@@ -54,6 +56,20 @@ class CheckoutPageService
             'phone_number' => $this->shippingAddress['phone_number'],
             'address' => $this->shippingAddress['address']
         ]);
+    }
+    public function storeOrderCoupon($order_id)
+    {
+        if (!is_null($this->coupon)) {
+
+
+            OrderCoupon::create([
+                'order_id' => $order_id,
+                'code' => $this->coupon->code,
+                'type' => $this->coupon->type,
+                'amount' => $this->coupon->amount,
+                'discounted_amount' => $this->orderDetails['coupon']['discounted_value'],
+            ]);
+        }
     }
     public function storeOrderProducts()
     {

@@ -90,6 +90,17 @@
                                 {{ $order->shipping_fees == 0 ? 'Free' : $order->shipping_fees . ' SAR' }}
                             </span>
                         </li>
+                        @if (!is_null($order->coupon))
+                            <li class="list-group-item ">
+
+                                <span class="text-center float-start">Discount: ({{ $order->coupon->code }})</span>
+                                <span class="product-subtotal float-end" colspan="2">
+                                    {{ $order->coupon->discounted_amount . ' SAR' }}
+                                </span>
+                            </li>
+                        @endif
+
+
                         <li class="list-group-item  ">
                             <div class="d-flex flex-column float-start">
                                 <span class="text-center "> The total amount </span>
