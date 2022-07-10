@@ -18,6 +18,7 @@ onMounted(() => {
         openCartProductsModal();
     }
 });
+
 const openCartProductsModal = () => {
     $("#cart-products-modal").modal("show");
 };

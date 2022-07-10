@@ -1,9 +1,9 @@
-<div class="toast position-fixed align-items-center text-white {{ Session::get('toast.background') ?? ' ' }} border-0 top-0 end-0 "
+<div class="toast position-fixed align-items-center text-white {{ Session::get('toast')['background'] ?? ' ' }} border-0 top-0 end-0 "
     role="alert" data-bs-delay="3000" aria-live="assertive" aria-atomic="true"
     style="z-index: 9785697856978 !important; top:20px !important; right:10px !important;width: max-content;">
     <div class="d-flex ">
         <div class="toast-body">
-            {{ Session::has('toast') ? Session::get('toast.meesage') : '' }}
+            {{ Session::get('toast')['message'] ?? '' }}
         </div>
         <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
             aria-label="Close"></button>

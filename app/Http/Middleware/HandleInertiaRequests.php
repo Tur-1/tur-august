@@ -48,6 +48,7 @@ class HandleInertiaRequests extends Middleware
             'user' => $inertiaDataService->getAuthenticatedUser(),
             'toast' => Session::get('toast'),
             'requireAuth' => Session::get('requireAuth', ['status' => false]),
+            'cartDetailsWithCoupon' => Session::get('cartDetailsWithCoupon'),
         ]);
     }
 }

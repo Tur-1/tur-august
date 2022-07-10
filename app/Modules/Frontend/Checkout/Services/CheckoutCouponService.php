@@ -75,7 +75,7 @@ class CheckoutCouponService
 
         return number_format($discounted_Value, 2);
     }
-    private function getCartTotalWithCoupon($cartTotal)
+    public function getCartTotalWithCoupon($cartTotal)
     {
         return [
             'cartTotal' => $this->getCartTotalAfterDiscount($cartTotal),

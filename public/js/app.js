@@ -254,6 +254,36 @@ var map = {
 		"/js/vendor",
 		"resources_js_Pages_HomePage_Index_vue"
 	],
+	"./HomePage/components/LargeBanners": [
+		"./resources/js/Pages/HomePage/components/LargeBanners.vue",
+		"/js/vendor",
+		"resources_js_Pages_HomePage_components_LargeBanners_vue"
+	],
+	"./HomePage/components/LargeBanners.vue": [
+		"./resources/js/Pages/HomePage/components/LargeBanners.vue",
+		"/js/vendor",
+		"resources_js_Pages_HomePage_components_LargeBanners_vue"
+	],
+	"./HomePage/components/LatestProducts": [
+		"./resources/js/Pages/HomePage/components/LatestProducts.vue",
+		"/js/vendor",
+		"resources_js_Pages_HomePage_components_LatestProducts_vue"
+	],
+	"./HomePage/components/LatestProducts.vue": [
+		"./resources/js/Pages/HomePage/components/LatestProducts.vue",
+		"/js/vendor",
+		"resources_js_Pages_HomePage_components_LatestProducts_vue"
+	],
+	"./HomePage/components/MediumBanners": [
+		"./resources/js/Pages/HomePage/components/MediumBanners.vue",
+		"/js/vendor",
+		"resources_js_Pages_HomePage_components_MediumBanners_vue"
+	],
+	"./HomePage/components/MediumBanners.vue": [
+		"./resources/js/Pages/HomePage/components/MediumBanners.vue",
+		"/js/vendor",
+		"resources_js_Pages_HomePage_components_MediumBanners_vue"
+	],
 	"./MyAccountPage/Index": [
 		"./resources/js/Pages/MyAccountPage/Index.vue",
 		"/js/vendor",

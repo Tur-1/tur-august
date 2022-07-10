@@ -51,6 +51,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
     protected function password(): Attribute
     {
         return Attribute::make(

@@ -5,6 +5,7 @@ namespace App\Modules\Backend\Brands\Http\Controllers;
 use App\Traits\FileUpload;
 use App\Models\product\Brand;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use App\Traits\RedirectWithMessageTrait;
 use App\Modules\Backend\Brands\Services\BrandService;
 use App\Modules\Backend\Brands\Http\Requests\StoreBrandRequest;
@@ -37,6 +38,7 @@ class BrandController extends Controller
 
     public function create()
     {
+
         return view('Backend.pages.brands.create-edit-brand-page');
     }
     /**
@@ -86,6 +88,7 @@ class BrandController extends Controller
      */
     public function update(StoreBrandRequest $request, Brand $brand)
     {
+
 
         $request->validated();
         (new BrandService())->saveBrand($brand, $request);

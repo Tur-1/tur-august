@@ -16,7 +16,10 @@ class BrandService
 
         $brand->name = Str::title($request->name);
         $brand->slug = Str::slug($request->name);
-        $brand->image = (new StoreModelImageAction)->saveImage($request, $this->getBrandOldImagePath($brand), $this->imageFolder);
+        if ($request->hasFile('image')) {
+            $brand->image = (new StoreModelImageAction)->saveImage($request, $this->getBrandOldImagePath($brand), $this->imageFolder);
+        }
+
         $brand->save();
     }
     public function getBrandOldImagePath($brand)

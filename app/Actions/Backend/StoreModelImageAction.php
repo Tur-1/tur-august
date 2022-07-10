@@ -8,15 +8,10 @@ class StoreModelImageAction
 {
     use FileUpload;
 
-    public function saveImage($request, $oldPath, $imageFolder): string
+    public function saveImage($request, $oldPath, $imageFolder)
     {
-        $newImageName = '';
-        if ($request->hasFile('image')) {
 
-            $this->deletePreviousImage($oldPath);
-            $newImageName = $this->uploadImageInStorage($request->file('image'), $imageFolder);
-        }
-
-        return $newImageName;
+        $this->deletePreviousImage($oldPath);
+        return  $this->uploadImageInStorage($request->file('image'), $imageFolder);
     }
 }

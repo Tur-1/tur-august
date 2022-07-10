@@ -1,6 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\SocialLoginController;
+
 
 
 /*
@@ -15,3 +18,14 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Auth::routes();
+
+Route::middleware('guest')->controller(SocialLoginController::class)->group(function () {
+
+    // github
+    Route::get('sign-in/github', 'github')->name('social.github');
+    Route::get('sign-in/github/redirect', 'githubRedirect')->name('social.github.redirect');
+
+    // google
+    Route::get('sign-in/google', 'google')->name('social.google');
+    Route::get('sign-in/google/redirect', 'googleRedirect')->name('social.google.redirect');
+});

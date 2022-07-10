@@ -16,7 +16,9 @@ class ColorService
 
         $color->name = Str::title($request->name);
         $color->slug = Str::slug($request->name);
-        $color->image = (new StoreModelImageAction)->saveImage($request, $this->getColorOldImagePath($color), $this->imageFolder);
+        if ($request->hasFile('image')) {
+            $color->image = (new StoreModelImageAction)->saveImage($request, $this->getColorOldImagePath($color), $this->imageFolder);
+        }
         $color->save();
     }
     public function getColorOldImagePath($color)

@@ -18782,3 +18782,16 @@ ul.shop-sidebar-categories {
   font-size: 20px;
   border: 1px solid #eee;
 }
+
+@media only screen and (max-width: 480px) {
+  h3.section-title, .section-title.h3 {
+    font-size: 12px !important;
+  }
+}
+.section-title span {
+  color: #088178;
+}
+
+h3.section-title, .section-title.h3 {
+  font-size: 19px;
+}

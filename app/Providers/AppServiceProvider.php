@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Models\user\User;
 use App\Models\product\Category;
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\ServiceProvider;
+use App\Models\user\Observers\UserObserver;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -40,5 +42,7 @@ class AppServiceProvider extends ServiceProvider
             }
             return $inWishlist;
         });
+
+        User::observe(UserObserver::class);
     }
 }

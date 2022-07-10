@@ -19,7 +19,25 @@ class ShoppingCartPageService
         $this->cart = collect(ShoppingCartProductsResource::collection(auth()->user()->shoppingCartProducts));
         return $this->cart;
     }
+    public function getShoppingCartDetails()
+    {
 
+        $cartDetails = [
+            'shipmentFees' =>  $this->getShipmentFees(),
+            'cartSubTotal' => $this->getCartSubTotal(),
+            'cartTotal' =>    $this->getCartTotal(),
+            'coupon' => null
+        ];
+
+        Session::put('cartDetails', $cartDetails);
+
+        $cartWithCoupon = Session::get('cartDetailsWithCoupon');
+
+        if (!is_null($cartWithCoupon) && $cartWithCoupon['cartSubTotal'] == $cartDetails['cartSubTotal']) {
+            $cartDetails = $cartWithCoupon;
+        }
+        return $cartDetails;
+    }
     public function getOutOfStockProducts()
     {
 

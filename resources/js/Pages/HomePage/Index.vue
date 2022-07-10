@@ -1,11 +1,17 @@
 <template>
     <app-layout title="Home">
-        <section class="container">
-            <h1>Home page</h1>
+        <section class="container mt-2">
+            <LargeBanners />
+            <MediumBanners />
+
+            <LatestProducts />
         </section>
     </app-layout>
 </template>
 
 <script setup>
 import AppLayout from "@/layouts/AppLayout";
+import LargeBanners from "@/Pages/HomePage/components/LargeBanners.vue";
+import MediumBanners from "@/Pages/HomePage/components/MediumBanners.vue";
+import LatestProducts from "@/Pages/HomePage/components/LatestProducts.vue";
 </script>

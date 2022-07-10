@@ -15,78 +15,57 @@ use App\Modules\Frontend\Checkout\Services\CheckoutCouponService;
 use App\Modules\Frontend\ShoppingCart\Services\ShoppingCartPageService;
 use App\Modules\Frontend\Checkout\Exceptions\InValidCouponCodeException;
 use App\Modules\Frontend\Checkout\Exceptions\ProductNoLongerInStockException;
-
+use Illuminate\Support\Facades\Route;
 
 class CheckoutPageController extends Controller
 {
 
     use RedirectWithMessageTrait;
-    public $cartPageService;
-    public $outOfStockProducts;
+
     public $userAddressService;
-    public $userAddresses;
-    public $products;
-    private $order;
     private $coupon;
-    public $addres_id = null;
-    public $cartTotal;
-    public $cartDetails = [];
+    private $order;
 
-    public function __construct(UserAddressService $userAddressService, ShoppingCartPageService $cartPageService)
+    public function __construct(UserAddressService $userAddressService)
     {
-        $this->middleware(function ($request, $next) use ($userAddressService, $cartPageService) {
+        $this->middleware(function ($request, $next) use ($userAddressService) {
             $this->userAddressService = $userAddressService;
-            $this->cartPageService = $cartPageService;
 
-            $this->products =  $this->cartPageService->getUserShoppingCart();
+
             $this->userAddresses  = $this->userAddressService->getUserAddresses();
-            $this->outOfStockProducts = $this->cartPageService->getOutOfStockProducts();
 
-            $this->cartDetails = [
-                'shipmentFees' =>  $this->cartPageService->getShipmentFees(),
-                'cartSubTotal' =>  $this->cartPageService->getCartSubTotal(),
-                'cartTotal' =>   $this->cartPageService->getCartTotal(),
-                'coupon' => null
-            ];
-
-            $cartTotalWithCoupon = Session::get('cartTotalWithCoupon');
-
-            if (!is_null($cartTotalWithCoupon)) {
-
-                $this->cartDetails['cartTotal'] =  $cartTotalWithCoupon['cartTotal'];
-                $this->cartDetails['coupon'] =   $cartTotalWithCoupon['coupon'];
-            }
             return $next($request);
         });
     }
-    public function index()
+    public function index(ShoppingCartPageService $cartPageService)
     {
 
+        $products =  $cartPageService->getUserShoppingCart();
+        $outOfStockProducts = $cartPageService->getOutOfStockProducts();
+        $cartDetails = $cartPageService->getShoppingCartDetails();
 
 
         return Inertia::render('CheckoutPage/Index', [
-            'products' => $this->products,
-            'cartCounter' => count($this->products),
-            'cartDetails' => $this->cartDetails,
+            'products' => $products,
+            'cartCounter' => count($products),
+            'outOfStockProducts' => $outOfStockProducts,
+            'outOfStockProductsCounter' => count($outOfStockProducts),
+            'cartDetails' => $cartDetails,
             'userAddresses' =>  $this->userAddresses,
-            'outOfStockProducts' => $this->outOfStockProducts,
-            'outOfStockProductsCounter' => count($this->outOfStockProducts),
         ]);
     }
 
-    public function applyCoupon(Request $request, CheckoutCouponService $couponService)
+    public function applyCoupon(Request $request, CheckoutCouponService $couponService, ShoppingCartPageService $cartPageService)
     {
         $request->validate(['code' => 'required|string']);
 
+        if (!is_null(Session::get('cartDetailsWithCoupon'))) {
 
-        $cartTotalWithCoupon = Session::get('cartTotalWithCoupon');
-
-        if (!is_null($cartTotalWithCoupon)) {
-
-            Session::forget(['cartTotalWithCoupon', 'couponCode']);
-
+            Session::remove('cartDetailsWithCoupon');
             return redirect()->back();
         }
+        $cartPageService->getUserShoppingCart();
+        $cartDetails = $cartPageService->getShoppingCartDetails();
 
         try {
             $couponService->getCoupon($request->code);
@@ -94,16 +73,23 @@ class CheckoutPageController extends Controller
             return redirect()->back()->withErrors(['code' => $ex->getMessage()]);
         }
 
-        Session::put('couponCode', $request->code);
 
-        $couponService->putCartTotalAndCouponInSession($this->cartDetails['cartTotal']);
+        $cartTotalWithCoupon = $couponService->getCartTotalWithCoupon($cartDetails['cartTotal']);
+        $cartDetails['cartTotal'] =   $cartTotalWithCoupon['cartTotal'];
+        $cartDetails['coupon'] =   $cartTotalWithCoupon['coupon'];
 
+
+        Session::put('cartDetailsWithCoupon', $cartDetails);
 
         return redirect()->back();
     }
 
     public function buyNow(Request $request)
     {
+
+        $cartDetails = Session::get('cartDetails');
+        $cartDetailsWithCoupon = Session::get('cartDetailsWithCoupon');
+
 
 
         $userAddress = $this->userAddressService->findUserAddress($request->address_id);
@@ -112,20 +98,22 @@ class CheckoutPageController extends Controller
             return $this->redirectBackWithErrorMsg('please select an address !');
         }
 
-        if (Session::exists('couponCode')) {
-
+        if (!is_null($cartDetailsWithCoupon)) {
+            $cartDetails = $cartDetailsWithCoupon;
             try {
-                $this->coupon =  (new CheckoutCouponService())->getCoupon(Session::get('couponCode'));
+                $this->coupon =  (new CheckoutCouponService())->getCoupon($cartDetails['coupon']['code']);
             } catch (InValidCouponCodeException $ex) {
-                Session::forget(['cartTotalWithCoupon', 'couponCode']);
+
+                Session::remove('cartDetailsWithCoupon');
                 return redirect()->back()->withErrors(['code' => $ex->getMessage()]);
             }
         }
 
 
+
         try {
 
-            $checkoutPageService = new CheckoutPageService($this->cartDetails, $userAddress, $this->coupon);
+            $checkoutPageService = new CheckoutPageService($cartDetails, $userAddress, $this->coupon);
 
             DB::transaction(function () use ($checkoutPageService) {
                 $this->order = $checkoutPageService->createNewOrder();
@@ -145,11 +133,15 @@ class CheckoutPageController extends Controller
 
             (new CheckoutCouponService())->increaseCouponUsedTimes($this->coupon);
         } catch (ProductNoLongerInStockException $ex) {
-            return $this->redirectBackWithErrorMsg('product No Longer In Stock  !');
+
+
+            return $this->redirectBackWithErrorMsg($ex->getMessage());
         }
 
 
-        $this->cartPageService->deleteUserCartProducts();
+        (new ShoppingCartPageService())->deleteUserCartProducts();
+
+        Session::forget(['cartDetailsWithCoupon', 'cartDetails']);
 
         $message = 'Your order number #' . $this->order->id . ' has been received successfully';
 

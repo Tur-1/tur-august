@@ -13,6 +13,6 @@ use App\Modules\Frontend\Home\Http\Controllers\HomePageController;
 |
 */
 
-
+// Route::view('/', 'emails.welcome')->name('homePage');
 
 Route::get('/', [HomePageController::class, 'index'])->name('homePage');
