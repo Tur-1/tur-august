@@ -13,6 +13,7 @@ class DashboardController extends Controller
     {
 
 
+
         $categoryCount = $dashboardService->getCategoryCount();
         $productsCount = $dashboardService->getProductsCount();
         $monthlyEarning = $dashboardService->getMonthlyEarning();

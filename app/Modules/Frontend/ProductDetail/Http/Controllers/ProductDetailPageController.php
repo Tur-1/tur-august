@@ -34,6 +34,8 @@ class ProductDetailPageController extends Controller
 
 
 
+        Session::put('previousPageUrl', url()->current());
+
         $data =  [
             'productDetail' => $productDetail,
             'productImages' =>  $productImages,
@@ -78,6 +80,7 @@ class ProductDetailPageController extends Controller
                 'product_id' => $product->id,
                 'comment' => $request->comment,
             ]);
+
 
             return  redirect()->back()->with('requireAuth', ['status' => true, 'time' => time()]);
         }

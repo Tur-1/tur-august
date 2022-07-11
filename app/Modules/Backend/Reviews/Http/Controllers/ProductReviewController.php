@@ -12,6 +12,7 @@ class ProductReviewController extends Controller
 {
     use RedirectWithMessageTrait;
     public $reviewService;
+    private $routeName = 'admin.reviews.index';
     public function __construct(ReviewService $reviewService)
     {
         $this->reviewService = $reviewService;
@@ -76,7 +77,10 @@ class ProductReviewController extends Controller
      */
     public function show(ProductReview $review)
     {
-        //
+        $review = $this->reviewService->reviewItem($review);
+
+
+        return view('Backend.pages.reviews.create-edit-reviews-page', compact('review'));
     }
 
     /**
@@ -119,6 +123,10 @@ class ProductReviewController extends Controller
      */
     public function destroy(ProductReview $review)
     {
-        //
+        if (is_null($review)) {
+            return redirect()->back();
+        }
+        $review->delete();
+        return $this->redirectWithSuccessMsg($this->routeName, 'Your comment has been Deleted successfully');
     }
 }

@@ -1,117 +1,86 @@
 @extends('Backend.layouts.master')
+@section('title', 'reviews')
 
-
-@section('title', isset($user) ? 'update user ' : 'new user')
 @section('content')
 
-<div class="container">
-    <div class="row">
-        <div class="{{ isset($user) ? 'col-md-5' : 'row' }}">
-            <div class="card">
-                <div class="card-header">
-                    <h4>{{ !isset($user) ? 'new' : 'update ' }} user</h4>
-                </div>
-                <form method="POST" enctype="multipart/form-data"
-                    action="{{ isset($user) ? route('admin.users.update', $user) : route('admin.users.store') }}">
-                    @csrf
-                    @if (isset($user))
-                    @method('PATCH')
-                    @endif
-                    <div class="card-body">
 
-                        <div class="mb-3">
-                            <label for="name">user name</label>
-                            <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : ' ' }}"
-                                name="name" id="name" placeholder="Enter user"
-                                value="{{ old('name', $user->name ?? '') }}">
-
-                            <span class="text-danger">
-                                {{ $errors->first('name') }}
-                            </span>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Email address</label>
-                            <input type="email" name="email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" value="{{ old('email', $user->email ?? '') }}">
-
-                            <span class="text-danger">
-                                {{ $errors->first('email') }}
-                            </span>
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control" id="exampleInputPassword1">
-
-                            <span class="text-danger">
-                                {{ $errors->first('password') }}
-                            </span>
-                        </div>
-                        <div class="mb-3">
-                            <label for="Gender" class="form-label">Gender</label>
-                            <select name="gender" class="form-select {{ $errors->has('gender') ? 'is-invalid' : '' }}">
-                                @foreach ($Gender as $gen)
-                                <option value="{{ $gen }}" {{ old('gender', $user->gender ?? '') == $gen ? 'selected' :
-                                    '' }}>
-                                    {{ $gen }}
-                                </option>
-                                @endforeach
-                            </select>
-                            <span class="text-danger">
-                                {{ $errors->first('gender') }}
-                            </span>
-                        </div>
-                        {{-- Roles && Permissions --}}
-                        <div class="mb-3">
-                            @if (isset($user) && !is_null($user->role_id))
-                            @livewire('admin.users.select-role', [
-                            'UserRoleId' => $user->role_id,
-                            'permissionsIds' => $user->permissions->pluck('id')->toArray()
-                            ])
-                            @else
-                            @livewire('admin.users.select-role')
-                            @endif
-
-
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            {{ isset($user) ? 'update ' : 'create ' }}
-                        </button>
+    <div class="container">
+        <div class="card">
+            <div class="card-header review-header d-flex justify-content-between align-items-center">
+                <div class="review-name-image">
+                    <div class="review-product-image">
+                        <img loading="lazy" src="{{ $review['product_image'] }}">
                     </div>
-
-
-                </form>
-
-            </div>
-        </div>
-        @if (isset($user))
-        <div class="col-md-7">
-            <div class="card mb-4">
-                <header class="card-header">
-                    <h4 class="card-title"> orders</h4>
-                </header>
-
-                {{-- user orders --}}
-
-
-            </div>
-            @if (!$user->address->isEmpty())
-            <div class="card">
-                <div class="card-header">
-                    Addresses
+                    <div class="review-user-name">
+                        <a href="{{ route('admin.products.edit', $review['product_id']) }}">
+                            {{ $review['product_name'] }}
+                        </a>
+                    </div>
                 </div>
-                <div class="card-body">
-                    @livewire('user-address.user-addresses', ['userId' => $user->id, 'InBackend' => true])
-
+                <div class="review-date">
+                    <span>{{ $review['date'] }}</span>
                 </div>
             </div>
-            @endif
+            <div class="card-body review-body">
+                <div class="review-user-image">
+                    <img src="{{ $review['user_avatar'] }}">
+                </div>
+                <div class="review w-100">
+                    <div class="row mb-3">
+                        <span class="review-user-name">{{ $review['user_name'] }}</span>
+                    </div>
+                    <div class="review-comment mb-1">
+                        <p>{{ $review['comment'] }}
+                        </p>
+                    </div>
+                    @if (count($review['reply']) > 0)
+                        <div class="d-flex align-items-center pt-3 mb-4 border-top">
+                            <i class="fas fa-share fa-flip-vertical me-2"></i>
+                            <p> {{ $review['reply']['comment'] ?? '' }}</p>
+                        </div>
+                    @endif
+                    <div class="review-actions mt-3">
+                        <button class=" btn btn-outline-secondary" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#reply-form-{{ $review['id'] }}">
+                            <i class="fas fa-share fa-flip-vertical me-1"></i>
+                            {{ $review['reply'] ? 'edit' : '' }} reply
 
+                        </button>
+
+                        <form onsubmit="return window.confirm('Are you sure')"
+                            action="{{ route('admin.reviews.destroy', $review['id']) }}" method="post">
+                            @method('delete')
+                            @csrf
+                            <button class=" btn btn-outline-danger" type="submit">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="collapse" id="reply-form-{{ $review['id'] }}">
+                        <div class="card-body">
+                            <form method="POST" class="form-contact comment_form"id="commentForm"
+                                action="{{ $review['reply'] ? route('admin.reviews.update', $review['reply']['id']) : route('admin.reviews.reply', $review['id']) }}">
+                                @csrf
+                                @if (count($review['reply']) > 0)
+                                    @method('PATCH')
+                                @endif
+                                <div class="d-flex flex-row align-items-start">
+                                    <img src="{{ auth()->user()->avatar_url }}" alt="" width="50"
+                                        class="rounded-circle me-2">
+                                    <textarea class="form-control ml-4 shadow-none textarea" name="comment" placeholder="write comment">
+                            {{ $review['reply']['comment'] ?? '' }}
+                            </textarea>
+                                </div>
+                                <div class="mt-2 float-end">
+                                    <button class="btn btn-primary p-2" type="submit">submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        @endif
     </div>
-</div>
-
 
 
 @endsection

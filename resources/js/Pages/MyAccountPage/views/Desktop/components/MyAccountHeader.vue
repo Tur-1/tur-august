@@ -1,8 +1,13 @@
 <template>
     <div class="d-flex justify-content-between mb-4">
         <div class="">
-            <span>Dashboard</span>
+            <Component
+                :is="$page.props.user.isAdmin ? 'a' : 'span'"
+                :href="route('admin.dashboardPage')"
+                v-html="'Dashboard'"
+            />
         </div>
+
         <div class="">
             <span style="text-align: center">
                 Welcome Back, {{ $page.props.user.name }}

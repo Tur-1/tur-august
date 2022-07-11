@@ -30,7 +30,7 @@
                         <p>users</p>
                     </a>
 
-                    <a>
+                    <a href="{{ route('admin.roles.index') }}">
                         <p>Roles</p>
                     </a>
 

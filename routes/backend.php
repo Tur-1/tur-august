@@ -14,7 +14,7 @@ use App\Modules\Backend\Reviews\Http\Controllers\ProductReviewController;
 use App\Modules\Backend\SizeOptions\Http\Controllers\SizeOptionController;
 use App\Modules\Backend\OrderStatus\Http\Controllers\OrderStatusController;
 use App\Modules\Backend\Categories\Http\Controllers\CategorySectionController;
-
+use App\Modules\Backend\Roles\Http\Controllers\RoleController;
 
 Route::get('/', function () {
     return redirect()->route('admin.dashboardPage');
@@ -25,6 +25,8 @@ Route::get('dashboard', [DashboardController::class, 'dashboardPage'])->name('da
 Route::get('customers', [UserController::class, 'customers'])->name('customers');
 
 Route::resource('users', UserController::class);
+
+Route::resource('roles', RoleController::class);
 
 Route::resource('colors', ColorController::class);
 

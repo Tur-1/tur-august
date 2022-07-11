@@ -2,8 +2,10 @@
 
 namespace App\Models\user\Traits;
 
+use App\Models\user\Role;
 use App\Models\order\Order;
 use App\Models\product\Product;
+use App\Models\user\Permission;
 use App\Models\user\UserAddress;
 use App\Models\product\ProductReview;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -20,6 +22,15 @@ trait UserRelationshipsTrait
             ->WithCheckoutFields()
             ->withPivot(['size_id', 'quantity', 'id'])
             ->with(['sizeOptions']);
+    }
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class, 'user_permissions', 'user_id', 'permission_id');
     }
     public function shoppingCartProducts()
     {

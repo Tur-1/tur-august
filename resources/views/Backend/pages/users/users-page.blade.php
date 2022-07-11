@@ -23,6 +23,7 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Role</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -39,7 +40,9 @@
                             <td>
                                 {{ $user->email }}
                             </td>
-
+                            <td>
+                                {{ $user->role->name }}
+                            </td>
                             <td>
                                 <div class="dropdown dropup">
                                     <a href="#" data-bs-toggle="dropdown" class="btn btn-light  btn-sm font-sm"

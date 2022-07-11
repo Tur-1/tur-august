@@ -31,6 +31,7 @@ class ProductReview extends Model
             ->select('id', 'name', 'slug')
             ->WithMainProductImage();
     }
+
     public function reply()
     {
         return $this->hasOne(ProductReview::class, 'review_id')->with('user');

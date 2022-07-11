@@ -25,6 +25,12 @@ trait RedirectWithMessageTrait
     {
         return redirect()->back()->with($this->toastMessage($message, "bg-alert-success"));
     }
+
+    public function redirectToUrlWithSuccessMsg($url, $message)
+    {
+        return redirect()->to($url)->with($this->toastMessage($message, "bg-alert-success"));
+    }
+
     public function redirectBackWithErrorMsg(string $message)
     {
         return redirect()->back()->with($this->toastMessage($message, "bg-alert-danger"));

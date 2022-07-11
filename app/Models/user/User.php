@@ -27,7 +27,8 @@ class User extends Authenticatable
         'email',
         'password',
         'gender',
-        'phone_number'
+        'phone_number',
+        'role_id'
     ];
     protected $appebds = [
         'avatar_url',
@@ -59,7 +60,14 @@ class User extends Authenticatable
         );
     }
 
-
+    public function scopeCustomers($query)
+    {
+        return  $query->whereNull('role_id');
+    }
+    public function scopeNotCustomers($query)
+    {
+        return  $query->whereNotNull('role_id');
+    }
     public function getAvatarUrlAttribute()
     {
 

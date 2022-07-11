@@ -16,18 +16,19 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = User::get();
+        $users = User::query()->with('role')->NotCustomers()->get();
 
         return view('Backend.pages.users.users-page', compact('users'));
     }
     public function customers()
     {
-        $users = User::get();
+        $users = User::query()->Customers()->get();
         return view('Backend.pages.customers.customers-page', compact('users'));
     }
 
     public function create()
     {
+
         return view('Backend.pages.users.create-edit-user-page', ['gender' => $this->gender]);
     }
 
@@ -42,7 +43,7 @@ class UserController extends Controller
         $userRequest = $request->validated();
 
         $user = $user->create($userRequest);
-
+        $user->permissions()->sync($request->permissions);
         $message = $user->name . 'has been Added successfully';
 
         return $this->redirectWithSuccessMsg($this->routeName, $message);
@@ -66,10 +67,11 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $user->load(['orders' => fn ($order) => $order->with('status:id,name')->withCount('products')]);
+        $user->load(['permissions', 'orders' => fn ($order) => $order->with('status:id,name')->withCount('products')]);
+        $permissionsIds =  $user->permissions->pluck('id')->toArray();
 
 
-        return view('Backend.pages.users.create-edit-user-page', ['gender' => $this->gender, 'user' => $user]);
+        return view('Backend.pages.users.create-edit-user-page', ['gender' => $this->gender, 'user' => $user, 'permissionsIds' => $permissionsIds]);
     }
 
     /**
@@ -81,8 +83,11 @@ class UserController extends Controller
      */
     public function update(StoreUserRequest $request, User $user)
     {
+
         $userRequest = $request->validated();
+
         $user->update($userRequest);
+        $user->permissions()->sync($request->permissions);
         $message = $user->name . ' has been Updated successfully';
 
         return $this->redirectBackWithSuccessMsg($message);

@@ -40,6 +40,8 @@ class StoreUserRequest extends FormRequest
                 'email',
                 Rule::unique('users', 'email')->ignore($this->user->id)
             ];
+
+            $rules['password'] = 'sometimes';
         }
 
 

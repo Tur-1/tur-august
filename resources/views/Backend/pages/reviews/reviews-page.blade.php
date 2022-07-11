@@ -53,7 +53,7 @@
                                 action="{{ route('admin.reviews.destroy', $review['id']) }}" method="post">
                                 @method('delete')
                                 @csrf
-                                <button class=" btn btn-outline-danger" type="button">
+                                <button class=" btn btn-outline-danger" type="submit">
                                     <i class="bi bi-trash"></i>
                                 </button>
                             </form>
@@ -68,7 +68,7 @@
                                     @endif
                                     <div class="d-flex flex-row align-items-start">
                                         <img src="{{ auth()->user()->avatar_url }}" alt="" width="50"
-                                            class="rounded-circle">
+                                            class="rounded-circle me-2">
                                         <textarea class="form-control ml-4 shadow-none textarea" name="comment" placeholder="write comment">
                                         {{ $review['reply']['comment'] ?? '' }}
                                         </textarea>
@@ -83,7 +83,8 @@
                 </div>
             </div>
         @empty
-            <h5>no reviews Found</h5>
+
+            <h5 class="text-center">no reviews Found</h5>
         @endforelse
     </div>
 

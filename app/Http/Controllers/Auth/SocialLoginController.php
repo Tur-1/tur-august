@@ -15,30 +15,46 @@ class SocialLoginController extends Controller
     use RedirectWithMessageTrait;
     private $socialLoginService;
 
+
+    public function __construct()
+    {
+        $this->socialLoginService = new SocialLoginService();
+    }
+
     public function github()
     {
+
+        Session::put('intendedUrl', redirect()->intended()->getTargetUrl());
         return Socialite::driver('github')->redirect();
     }
     public function githubRedirect()
     {
         $githubUser = Socialite::driver('github')->user();
 
-        $this->socialLoginService->SignIn($githubUser);
-        session()->flash('requireAuth', ['status' => false, 'time' => time()]);
-        return redirect(route('homePage'));
+
+        $this->socialLoginService->signIn($githubUser);
+
+
+        return $this->socialLoginService->authenticated();
     }
     public function google()
     {
-
+        Session::put('intendedUrl', redirect()->intended()->getTargetUrl());
         return Socialite::driver('google')->redirect();
     }
     public function googleRedirect()
     {
         $googleUser = Socialite::driver('google')->user();
 
-        $this->socialLoginService->SignIn($googleUser);
-        session()->flash('requireAuth', ['status' => false, 'time' => time()]);
 
-        return redirect(route('homePage'));
+        $this->socialLoginService->signIn($googleUser);
+
+
+        return $this->socialLoginService->authenticated();
+    }
+
+    public function __destruct()
+    {
+        Session::remove('intendedUrl');
     }
 }

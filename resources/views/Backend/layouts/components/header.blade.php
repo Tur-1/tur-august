@@ -15,12 +15,8 @@
                 class="material-icons md-apps"></i> </button>
         <ul class="nav">
 
-            <li class="nav-item">
-                <a class="nav-link btn-icon dropdown-toggle float-end  " id="reviews-btn">
-                    <i class="material-icons md-notifications animation-shake"></i>
-                    <span class="badge rounded-pill">5</span>
-                </a>
-            </li>
+
+            <x-reviews-list />
             <li class="nav-item">
                 <a class="nav-link btn-icon darkmode" href="#" id="dark-mode-toggle"> <i
                         class="material-icons md-nights_stay"></i>
@@ -38,7 +34,9 @@
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item"><i class="material-icons md-perm_identity  "></i>Profile
+                    <a class="dropdown-item"href="{{ route('admin.users.edit', auth()->id()) }}">
+                        <i class="material-icons md-perm_identity "></i>
+                        Profile
                     </a>
                     <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();  document.getElementById('logout-form').submit();">

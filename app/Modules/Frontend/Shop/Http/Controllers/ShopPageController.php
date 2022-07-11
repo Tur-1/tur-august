@@ -4,6 +4,7 @@ namespace App\Modules\Frontend\Shop\Http\Controllers;
 
 use Inertia\Inertia;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use App\Exceptions\PageNotFoundException;
 use App\Modules\Frontend\Shop\Services\ShopPageService;
 
@@ -27,8 +28,11 @@ class ShopPageController extends Controller
             $sortProducts =  $shopPageService->getSortProducts();
             $queryString = $shopPageService->getQueriesString();
         } catch (PageNotFoundException $ex) {
+
             return Inertia::render('Errors/404');
         }
+
+        Session::put('previousPageUrl', url()->current());
 
         return Inertia::render('ShopPage/Index', [
 
