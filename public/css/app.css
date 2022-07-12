@@ -17259,7 +17259,7 @@ nav {
 }
 
 /******** footer *************/
-@media screen and (display-mode: fullscreen) {
+@media screen and (display-mode: standalone) {
   #mobile-footer {
     padding-bottom: 20px;
   }
