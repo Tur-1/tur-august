@@ -25,12 +25,8 @@ onMounted(() => {
 watch(
     () => requireAuth.value,
     (value) => {
-        if (value.status == true) {
+        if (value.status == true || usePage().props.value.errors !== null) {
             openAuthModal();
-        }
-
-        if (value.status == false) {
-            closeAuthModal();
         }
     },
     { deep: true }

@@ -80,9 +80,7 @@ __webpack_require__.r(__webpack_exports__);
     });
 
     var login = function login() {
-      loginForm.post(route("login"), {
-        preserveState: true
-      });
+      loginForm.post(route("login"));
     };
 
     var __returned__ = {
@@ -732,12 +730,8 @@ __webpack_require__.r(__webpack_exports__);
     (0,vue__WEBPACK_IMPORTED_MODULE_3__.watch)(function () {
       return requireAuth.value;
     }, function (value) {
-      if (value.status == true) {
+      if (value.status == true || (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.value.errors !== null) {
         openAuthModal();
-      }
-
-      if (value.status == false) {
-        closeAuthModal();
       }
     }, {
       deep: true
@@ -887,12 +881,8 @@ __webpack_require__.r(__webpack_exports__);
     (0,vue__WEBPACK_IMPORTED_MODULE_3__.watch)(function () {
       return requireAuth.value;
     }, function (value) {
-      if (value.status == true) {
+      if (value.status == true || (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.value.errors !== null) {
         openAuthOffcanvas();
-      }
-
-      if (value.status == false) {
-        closeAuthOffcanvas();
       }
     }, {
       deep: true

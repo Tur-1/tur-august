@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
-use Illuminate\Support\Facades\Session;
+
 
 class Authenticate extends Middleware
 {
@@ -16,8 +16,8 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (!$request->expectsJson()) {
-            Session::put('requireAuth', ['status' => true, 'time' => time()]);
 
+            session()->flash('requireAuth', ['status' => true, 'time' => time()]);
             return url()->previous();
         }
     }

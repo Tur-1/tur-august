@@ -41,12 +41,8 @@ onMounted(() => {
 watch(
     () => requireAuth.value,
     (value) => {
-        if (value.status == true) {
+        if (value.status == true || usePage().props.value.errors !== null) {
             openAuthOffcanvas();
-        }
-
-        if (value.status == false) {
-            closeAuthOffcanvas();
         }
     },
     { deep: true }
