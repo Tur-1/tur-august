@@ -80,7 +80,9 @@ __webpack_require__.r(__webpack_exports__);
     });
 
     var login = function login() {
-      loginForm.post(route("login"));
+      loginForm.post(route("login"), {
+        preserveState: true
+      });
     };
 
     var __returned__ = {

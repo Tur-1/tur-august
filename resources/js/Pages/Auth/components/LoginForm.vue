@@ -50,6 +50,8 @@ let loginForm = useForm({
 });
 
 const login = () => {
-    loginForm.post(route("login"));
+    loginForm.post(route("login"), {
+        preserveState: true,
+    });
 };
 </script>
