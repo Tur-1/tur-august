@@ -56,7 +56,7 @@ class User extends Authenticatable
     protected function password(): Attribute
     {
         return Attribute::make(
-            set: fn ($value) =>  Hash::make($value),
+            set: fn ($value) =>  Hash::needsRehash($value) ? Hash::make($value) : $value,
         );
     }
 
