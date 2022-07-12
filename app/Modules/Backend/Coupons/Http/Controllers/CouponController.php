@@ -12,7 +12,10 @@ class CouponController extends Controller
     use RedirectWithMessageTrait;
     private $routeName = 'admin.coupons.index';
     private $couponTypes = ['percentage', 'Fixed'];
-
+    public function __construct()
+    {
+        $this->authorizeResource(Coupon::class, 'coupon');
+    }
 
     public function index()
     {

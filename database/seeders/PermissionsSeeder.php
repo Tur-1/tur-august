@@ -39,23 +39,28 @@ class PermissionsSeeder extends Seeder
         foreach ($pages as $key => $value) {
             $permissions[] = [
                 'name' => Str::title('create ' . $value),
-                'slug' => Str::slug('create ' . $value),
+                'slug' => Str::slug('create-' . $value),
                 'page_name' => $value
 
             ];
             $permissions[] = [
                 'name' => Str::title('update ' . $value),
-                'slug' => Str::slug('update ' . $value),
+                'slug' => Str::slug('update-' . $value),
                 'page_name' => $value
             ];
             $permissions[] = [
                 'name' => Str::title('view ' . $value),
-                'slug' => Str::slug('view ' . $value),
+                'slug' => Str::slug('view-' . $value),
                 'page_name' => $value
             ];
             $permissions[] = [
-                'name' => Str::title('index ' . $value),
-                'slug' => Str::slug('index ' . $value),
+                'name' => Str::title('access ' . $value),
+                'slug' => Str::slug('access-' . $value),
+                'page_name' => $value
+            ];
+            $permissions[] = [
+                'name' => Str::title('delete ' . $value),
+                'slug' => Str::slug('delete-' . $value),
                 'page_name' => $value
             ];
         }

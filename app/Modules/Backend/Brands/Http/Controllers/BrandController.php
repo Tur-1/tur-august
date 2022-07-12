@@ -20,6 +20,11 @@ class BrandController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->authorizeResource(Brand::class, 'brand');
+    }
     public function index()
     {
 

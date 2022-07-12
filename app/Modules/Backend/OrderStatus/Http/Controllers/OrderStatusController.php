@@ -20,6 +20,11 @@ class OrderStatusController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->authorizeResource(OrderStatus::class, 'orderStatus');
+    }
     public function index()
     {
 

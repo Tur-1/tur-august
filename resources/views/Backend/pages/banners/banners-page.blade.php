@@ -8,10 +8,11 @@
 
         </div>
         <div>
-
-            <a href="{{ route('admin.banners.create') }}" class="btn btn-primary"><i
-                    class="text-muted material-icons md-post_add"></i>new banner</a>
-
+            @include('Backend.components.policy-create-button', [
+                'model' => App\Models\Banner\Banner::class,
+                'route' => route('admin.banners.create'),
+                'title' => 'new banner',
+            ])
         </div>
     </div>
     <div class="card mb-4">
@@ -50,31 +51,11 @@
                                             field="is_active" :wire:key="$banner->id">
                                     </div>
                                 </div>
-                                <div class="dropdown dropup">
-                                    <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"
-                                        aria-expanded="false"> <i class="material-icons md-more_horiz"></i> </a>
-                                    <div class="dropdown-menu" style="margin: 0px;">
-
-
-                                        <a href="{{ route('admin.banners.edit', $banner) }}"
-                                            class="dropdown-item btn  text-secondary ">
-                                            Edit
-                                        </a>
-
-
-                                        <form class="dropdown-item" onsubmit="return window.confirm('Are you sure')"
-                                            action="{{ route('admin.banners.destroy', $banner) }}" method="post">
-                                            {{ method_field('DELETE') }}
-                                            {{ csrf_field() }}
-
-
-                                            <button class="btn text-danger btn-sm w-100 text-start p-0 "
-                                                type="submit">Delete</button>
-
-                                        </form>
-
-                                    </div>
-                                </div>
+                                @include('Backend.components.policy-dropdown-edit-delete-buttons', [
+                                    'model' => $banner,
+                                    'editRoute' => route('admin.banners.edit', $banner),
+                                    'deleteRoute' => route('admin.banners.destroy', $banner),
+                                ])
                             </figcaption>
 
 

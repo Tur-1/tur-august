@@ -13,8 +13,11 @@ class ProductReviewController extends Controller
     use RedirectWithMessageTrait;
     public $reviewService;
     private $routeName = 'admin.reviews.index';
+
+
     public function __construct(ReviewService $reviewService)
     {
+        $this->authorizeResource(ProductReview::class, 'productReview');
         $this->reviewService = $reviewService;
     }
 

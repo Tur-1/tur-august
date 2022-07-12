@@ -15,7 +15,10 @@ class ColorController extends Controller
     use RedirectWithMessageTrait, FileUpload;
     private $routeName = 'admin.colors.index';
     private $imageFolder = 'colors';
-
+    public function __construct()
+    {
+        $this->authorizeResource(Color::class, 'color');
+    }
     public function index()
     {
         $colors = Color::select('id', 'name', 'image', 'slug')

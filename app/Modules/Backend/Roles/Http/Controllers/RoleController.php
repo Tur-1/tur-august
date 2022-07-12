@@ -15,7 +15,10 @@ class RoleController extends Controller
 
     use RedirectWithMessageTrait;
     private $routeName = 'admin.roles.index';
-
+    public function __construct()
+    {
+        $this->authorizeResource(Role::class, 'role');
+    }
 
     public function index()
     {

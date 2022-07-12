@@ -17,11 +17,12 @@ class OrdersController extends Controller
 
     use RedirectWithMessageTrait;
     private $routeName = 'admin.orders.index';
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+
+    public function __construct()
+    {
+        $this->authorizeResource(Order::class, 'order');
+    }
     public function index()
     {
         $orders_status = OrderStatus::WithOrders()->get();

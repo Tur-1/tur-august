@@ -9,11 +9,11 @@
         </div>
         <div>
 
-            <a class="btn btn-primary" href="{{ route('admin.sizeOptions.create') }}">
-                <i class=" text-muted material-icons md-post_add"></i>
-                new size
-            </a>
-
+            @include('Backend.components.policy-create-button', [
+                'model' => App\Models\product\SizeOption::class,
+                'route' => route('admin.sizeOptions.create'),
+                'title' => 'new size',
+            ])
         </div>
     </div>
     <div class="card mb-4">
@@ -53,31 +53,12 @@
                                 </td>
 
                                 <td>
-                                    <div class="dropdown">
-                                        <a href="#" data-bs-toggle="dropdown"
-                                            class="btn btn-light rounded btn-sm font-sm" aria-expanded="false"> <i
-                                                class="material-icons md-more_horiz"></i> </a>
-                                        <div class="dropdown-menu" style="margin: 0px;">
+                                    @include('Backend.components.policy-dropdown-edit-delete-buttons', [
+                                        'model' => $size,
+                                        'editRoute' => route('admin.sizeOptions.edit', $size),
+                                        'deleteRoute' => route('admin.sizeOptions.destroy', $size),
+                                    ])
 
-                                            <a href="{{ route('admin.sizeOptions.edit', $size) }}"
-                                                class="dropdown-item btn  text-secondary ">
-                                                Edit
-                                            </a>
-
-
-                                            <form class="dropdown-item" onsubmit="return window.confirm('Are you sure')"
-                                                action="{{ route('admin.sizeOptions.destroy', $size) }}" method="post">
-                                                {{ method_field('DELETE') }}
-                                                {{ csrf_field() }}
-
-
-                                                <button class="btn text-danger btn-sm w-100 text-start p-0 "
-                                                    type="submit">Delete</button>
-
-                                            </form>
-
-                                        </div>
-                                    </div>
 
                                 </td>
                             </tr>

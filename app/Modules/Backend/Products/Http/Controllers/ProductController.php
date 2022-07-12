@@ -25,6 +25,11 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->authorizeResource(Product::class, 'product');
+    }
     public function index()
     {
         $products = Product::WithFilters()

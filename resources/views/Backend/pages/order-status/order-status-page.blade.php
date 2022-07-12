@@ -6,11 +6,12 @@
 
         <span class="content-title">status</span>
         <div class="">
-            <a class="btn btn-primary me-2" href="{{ route('admin.status.create') }}">
-                <i class="text-muted material-icons md-post_add"></i>
-                new status
-            </a>
 
+            @include('Backend.components.policy-create-button', [
+                'model' => App\Models\order\OrderStatus::class,
+                'route' => route('admin.status.create'),
+                'title' => 'new status',
+            ])
         </div>
 
 
@@ -49,30 +50,12 @@
                                 </td>
 
                                 <td class="text-center" style="text-align: left; vertical-align: middle;">
-                                    <div class="dropdown dropup">
-                                        <a href="#" data-bs-toggle="dropdown" class="btn btn-light  btn-sm font-sm"
-                                            aria-expanded="false"> <i class="material-icons md-more_horiz"></i> </a>
-                                        <div class="dropdown-menu" style="margin: 0px;">
+                                    @include('Backend.components.policy-dropdown-edit-delete-buttons', [
+                                        'model' => $orderStatus,
+                                        'editRoute' => route('admin.status.edit', $orderStatus),
+                                        'deleteRoute' => route('admin.status.destroy', $orderStatus),
+                                    ])
 
-                                            <a href="{{ route('admin.status.edit', $orderStatus) }}"
-                                                class="dropdown-item btn  text-secondary ">
-                                                Edit
-                                            </a>
-                                            @if ($orderStatus->id != 1)
-                                                <form class="dropdown-item" onsubmit="return window.confirm('Are you sure')"
-                                                    action="{{ route('admin.status.destroy', $orderStatus) }}"
-                                                    method="post" class="  d-inline">
-                                                    {{ method_field('DELETE') }}
-                                                    {{ csrf_field() }}
-
-                                                    <button class="btn text-danger btn-sm w-100 text-start p-0 "
-                                                        type="submit">Delete</button>
-
-                                                </form>
-                                            @endif
-
-                                        </div>
-                                    </div> <!-- dropdown //end -->
                                 </td>
                             </tr>
 

@@ -21,6 +21,11 @@ class BannerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->authorizeResource(Banner::class, 'banner');
+    }
     public function index()
     {
         $banners = Banner::paginate(12)->appends(request()->all());

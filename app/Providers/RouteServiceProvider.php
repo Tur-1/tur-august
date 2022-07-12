@@ -37,7 +37,7 @@ class RouteServiceProvider extends ServiceProvider
 
             $this->frontendPagesRoutes();
 
-            Route::middleware('web')
+            Route::middleware(['web', 'auth', 'isAdmin'])
                 ->prefix('/admin/')
                 ->name('admin.')
                 ->group(base_path('routes/backend.php'));

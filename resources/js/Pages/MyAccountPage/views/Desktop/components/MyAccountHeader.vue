@@ -2,7 +2,7 @@
     <div class="d-flex justify-content-between mb-4">
         <div class="">
             <Component
-                :is="$page.props.user.isAdmin ? 'a' : 'span'"
+                :is="$page.props.user.isNotCustomer ? 'a' : 'span'"
                 :href="route('admin.dashboardPage')"
                 v-html="'Dashboard'"
             />

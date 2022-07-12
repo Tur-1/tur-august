@@ -20,7 +20,7 @@ class MyAccountUserInfoResource extends JsonResource
             'email' => auth()->user()->email,
             'phone_number' => auth()->user()->phone_number,
             'gender' => auth()->user()->gender,
-            'isAdmin' => true,
+            'isNotCustomer' => $this->when(!is_null(auth()->user()->role_id), true),
         ];
     }
 }

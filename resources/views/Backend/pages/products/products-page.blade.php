@@ -6,11 +6,12 @@
 
         <span class="content-title">Products </span>
         <div class="">
-            <a class="btn btn-primary me-2" href="{{ route('admin.products.create') }}">
-                <i class="text-muted material-icons md-post_add"></i>
-                new product
-            </a>
 
+            @include('Backend.components.policy-create-button', [
+                'model' => App\Models\product\Product::class,
+                'route' => route('admin.products.create'),
+                'title' => 'new product',
+            ])
         </div>
 
 
@@ -83,30 +84,11 @@
                                         :wire:key="$product->id">
                                 </td>
                                 <td style=" vertical-align: middle;">
-                                    <div class="dropdown dropup">
-                                        <a href="#" data-bs-toggle="dropdown" class="btn btn-light  btn-sm font-sm"
-                                            aria-expanded="false"> <i class="material-icons md-more_horiz"></i> </a>
-                                        <div class="dropdown-menu" style="margin: 0px;">
-
-                                            <a href="{{ route('admin.products.edit', $product) }}"
-                                                class="dropdown-item btn  text-secondary ">
-                                                Edit
-                                            </a>
-
-
-                                            <form class="dropdown-item" onsubmit="return window.confirm('Are you sure')"
-                                                action="{{ route('admin.products.destroy', $product) }}" method="post"
-                                                class="  d-inline">
-                                                {{ method_field('DELETE') }}
-                                                {{ csrf_field() }}
-
-                                                <button class="btn text-danger btn-sm w-100 text-start p-0 "
-                                                    type="submit">Delete</button>
-
-                                            </form>
-
-                                        </div>
-                                    </div> <!-- dropdown //end -->
+                                    @include('Backend.components.policy-dropdown-edit-delete-buttons', [
+                                        'model' => $product,
+                                        'editRoute' => route('admin.products.edit', $product),
+                                        'deleteRoute' => route('admin.products.destroy', $product),
+                                    ])
                                 </td>
                             </tr>
 

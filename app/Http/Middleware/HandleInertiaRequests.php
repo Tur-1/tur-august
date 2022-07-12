@@ -47,7 +47,7 @@ class HandleInertiaRequests extends Middleware
             'cartCounter' => $inertiaDataService->getCartCounter(),
             'user' => $inertiaDataService->getAuthenticatedUser(),
             'toast' => Session::get('toast'),
-            'requireAuth' => Session::get('requireAuth', ['status' => false]),
+            'requireAuth' => Session::get('requireAuth', ['status']),
             'cartDetailsWithCoupon' => Session::get('cartDetailsWithCoupon'),
         ]);
     }

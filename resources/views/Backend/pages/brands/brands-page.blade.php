@@ -8,12 +8,13 @@
 
         </div>
         <div>
-            {{-- @can('create', App\Models\products\Brand::class) --}}
-            <a class="btn btn-primary" href="{{ route('admin.brands.create') }}">
-                <i class="text-muted material-icons md-post_add"></i>
-                new brand
-            </a>
-            {{-- @endcan --}}
+
+            @include('Backend.components.policy-create-button', [
+                'model' => App\Models\product\Brand::class,
+                'route' => route('admin.brands.create'),
+                'title' => 'new brand',
+            ])
+
         </div>
     </div>
     <div class="card mb-4">
@@ -46,31 +47,11 @@
                                         {{ $brand->products_count }} items </a>
 
                                 </div>
-
-                                <div class="dropdown dropup">
-                                    <a href="#" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"
-                                        aria-expanded="false"> <i class="material-icons md-more_horiz"></i> </a>
-                                    <div class="dropdown-menu" style="margin: 0px;">
-
-
-                                        <a href="{{ route('admin.brands.edit', $brand) }}"
-                                            class="dropdown-item btn  text-secondary ">
-                                            Edit
-                                        </a>
-
-                                        <form class="dropdown-item" onsubmit="return window.confirm('Are you sure')"
-                                            action="{{ route('admin.brands.destroy', $brand) }}" method="post">
-                                            {{ method_field('DELETE') }}
-                                            {{ csrf_field() }}
-
-
-                                            <button class="btn text-danger btn-sm w-100 text-start p-0 "
-                                                type="submit">Delete</button>
-
-                                        </form>
-
-                                    </div>
-                                </div>
+                                @include('Backend.components.policy-dropdown-edit-delete-buttons', [
+                                    'model' => $brand,
+                                    'editRoute' => route('admin.brands.edit', $brand),
+                                    'deleteRoute' => route('admin.brands.destroy', $brand),
+                                ])
                             </figcaption>
 
                         </figure>

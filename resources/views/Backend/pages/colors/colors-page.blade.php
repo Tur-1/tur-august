@@ -8,13 +8,12 @@
 
         </div>
         <div>
-            {{-- @can('create', App\Models\products\Color::class) --}}
-            <a class="btn btn-primary" href="{{ route('admin.colors.create') }}">
-                <i class="text-muted material-icons md-post_add"></i>
-                new color
-            </a>
 
-            {{-- @endcan --}}
+            @include('Backend.components.policy-create-button', [
+                'model' => App\Models\product\Color::class,
+                'route' => route('admin.colors.create'),
+                'title' => 'new color',
+            ])
         </div>
     </div>
     <div class="card mb-4">
@@ -53,29 +52,11 @@
 
 
 
-                                <div class="dropdown dropup ">
-                                    <a href="#" data-bs-toggle="dropdown"
-                                        class="btn btn-light rounded btn-sm font-sm"> <i
-                                            class="material-icons md-more_horiz"></i> </a>
-                                    <div class="dropdown-menu">
-
-                                        <a href="{{ route('admin.colors.edit', $color) }}"
-                                            class="dropdown-item btn  text-secondary ">
-                                            Edit
-                                        </a>
-                                        <form class="dropdown-item" onsubmit="return window.confirm('Are you sure')"
-                                            action="{{ route('admin.colors.destroy', $color) }}" method="post">
-                                            {{ method_field('DELETE') }}
-                                            {{ csrf_field() }}
-
-
-                                            <button class="btn text-danger btn-sm w-100 text-start p-0 "
-                                                type="submit">Delete</button>
-
-                                        </form>
-
-                                    </div>
-                                </div> <!-- dropdown //end -->
+                                @include('Backend.components.policy-dropdown-edit-delete-buttons', [
+                                    'model' => $color,
+                                    'editRoute' => route('admin.colors.edit', $color),
+                                    'deleteRoute' => route('admin.colors.destroy', $color),
+                                ])
                             </figcaption>
 
                         </figure>

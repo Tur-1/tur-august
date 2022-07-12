@@ -15,6 +15,10 @@ class CategoryController extends Controller
     use RedirectWithMessageTrait, FileUpload;
     private $routeName = 'admin.categories.index';
 
+    public function __construct()
+    {
+        $this->authorizeResource(Category::class, 'category');
+    }
     public function index()
     {
 

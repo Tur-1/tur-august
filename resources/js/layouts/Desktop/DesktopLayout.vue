@@ -21,7 +21,7 @@ onMounted(() => {
             <LayoutNavbar />
 
             <slot />
-            <AuthModal :requireAuth="$page.props.requireAuth" />
+            <AuthModal />
             <LayoutFooter />
         </main>
     </Transition>

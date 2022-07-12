@@ -6,11 +6,12 @@
 
         <span class="content-title">users</span>
         <div class="">
-            <a class="btn btn-primary me-2" href="{{ route('admin.users.create') }}">
-                <i class="text-muted material-icons md-post_add"></i>
-                new user
-            </a>
 
+            @include('Backend.components.policy-create-button', [
+                'model' => App\Models\user\User::class,
+                'route' => route('admin.users.create'),
+                'title' => 'new user',
+            ])
         </div>
 
 
@@ -44,30 +45,12 @@
                                 {{ $user->role->name }}
                             </td>
                             <td>
-                                <div class="dropdown dropup">
-                                    <a href="#" data-bs-toggle="dropdown" class="btn btn-light  btn-sm font-sm"
-                                        aria-expanded="false"> <i class="material-icons md-more_horiz"></i> </a>
-                                    <div class="dropdown-menu" style="margin: 0px;">
+                                @include('Backend.components.policy-dropdown-edit-delete-buttons', [
+                                    'model' => $user,
+                                    'editRoute' => route('admin.users.edit', $user),
+                                    'deleteRoute' => route('admin.users.destroy', $user),
+                                ])
 
-                                        <a href="{{ route('admin.users.edit', $user) }}"
-                                            class="dropdown-item btn  text-secondary ">
-                                            Edit
-                                        </a>
-
-                                        <form class="dropdown-item" onsubmit="return window.confirm('Are you sure')"
-                                            action="{{ route('admin.users.destroy', $user) }}" method="post"
-                                            class="  d-inline">
-                                            {{ method_field('DELETE') }}
-                                            {{ csrf_field() }}
-
-                                            <button class="btn text-danger btn-sm w-100 text-start p-0 "
-                                                type="submit">Delete</button>
-
-                                        </form>
-
-
-                                    </div>
-                                </div> <!-- dropdown //end -->
                             </td>
                         </tr>
 

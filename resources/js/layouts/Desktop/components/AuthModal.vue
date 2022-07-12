@@ -7,23 +7,28 @@
 import BaseModal from "@/components/Base/BaseModal.vue";
 
 import Auth from "@/Pages/Auth/Auth.vue";
-import { watch, onMounted } from "vue";
-const props = defineProps({
-    requireAuth: Object,
-});
+import { usePage } from "@inertiajs/inertia-vue3";
+import { watch, onMounted, ref, computed } from "vue";
+
+let requireAuth = ref(computed(() => usePage().props.value.requireAuth));
 
 onMounted(() => {
-    if (props.requireAuth.status == false) {
+    if (requireAuth.value.status == false) {
         closeAuthModal();
+    }
+
+    if (requireAuth.value.status == true) {
+        openAuthModal();
     }
 });
 
 watch(
-    () => props.requireAuth,
+    () => requireAuth.value,
     (value) => {
         if (value.status == true) {
             openAuthModal();
         }
+
         if (value.status == false) {
             closeAuthModal();
         }

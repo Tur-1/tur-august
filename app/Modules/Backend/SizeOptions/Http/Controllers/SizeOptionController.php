@@ -17,6 +17,11 @@ class SizeOptionController extends Controller
 
     private $RouteName = 'admin.sizeOptions.index';
 
+    public function __construct()
+    {
+        $this->authorizeResource(SizeOption::class, 'sizeOption');
+    }
+
     public function index()
     {
 

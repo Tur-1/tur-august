@@ -14,6 +14,11 @@ class UserController extends Controller
     private $routeName = 'admin.users.index';
     public $gender = ['Female', 'Male'];
 
+    public function __construct()
+    {
+        $this->authorizeResource(User::class, 'user');
+    }
+
     public function index()
     {
         $users = User::query()->with('role')->NotCustomers()->get();
@@ -22,6 +27,7 @@ class UserController extends Controller
     }
     public function customers()
     {
+        $this->authorize('access-customers', User::class);
         $users = User::query()->Customers()->get();
         return view('Backend.pages.customers.customers-page', compact('users'));
     }

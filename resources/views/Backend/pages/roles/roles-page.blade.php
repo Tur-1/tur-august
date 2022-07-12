@@ -7,11 +7,12 @@
 
             <span class="content-title">roles</span>
             <div class="">
-                <a class="btn btn-primary me-2" href="{{ route('admin.roles.create') }}">
-                    <i class="text-muted material-icons md-post_add"></i>
-                    new role
-                </a>
 
+                @include('Backend.components.policy-create-button', [
+                    'model' => App\Models\user\Role::class,
+                    'route' => route('admin.roles.create'),
+                    'title' => 'new role',
+                ])
             </div>
 
 
@@ -39,30 +40,11 @@
 
 
                                 <td>
-                                    <div class="dropdown dropup">
-                                        <a href="#" data-bs-toggle="dropdown" class="btn btn-light  btn-sm font-sm"
-                                            aria-expanded="false"> <i class="material-icons md-more_horiz"></i> </a>
-                                        <div class="dropdown-menu" style="margin: 0px;">
-
-                                            <a href="{{ route('admin.roles.edit', $role) }}"
-                                                class="dropdown-item btn  text-secondary ">
-                                                Edit
-                                            </a>
-
-                                            <form class="dropdown-item" onsubmit="return window.confirm('Are you sure')"
-                                                action="{{ route('admin.roles.destroy', $role) }}" method="post"
-                                                class="  d-inline">
-                                                {{ method_field('DELETE') }}
-                                                {{ csrf_field() }}
-
-                                                <button class="btn text-danger btn-sm w-100 text-start p-0 "
-                                                    type="submit">Delete</button>
-
-                                            </form>
-
-
-                                        </div>
-                                    </div> <!-- dropdown //end -->
+                                    @include('Backend.components.policy-dropdown-edit-delete-buttons', [
+                                        'model' => $role,
+                                        'editRoute' => route('admin.roles.edit', $role),
+                                        'deleteRoute' => route('admin.roles.destroy', $role),
+                                    ])
                                 </td>
                             </tr>
 
