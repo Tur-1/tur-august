@@ -1,5 +1,5 @@
 <template>
-    <span v-show="message" class="text-danger" style="font-size: 12px">
+    <span class="text-danger" style="font-size: 12px">
         {{ message }}
     </span>
 </template>

@@ -13,7 +13,9 @@ trait FileUpload
     {
         $newImageName = $this->generateUniqueImageName($ImageRequest);
 
-        $ImageRequest->storeAs('public/images/' . $Folder, $newImageName);
+        $path =    $ImageRequest->storeAs('images/' . $Folder, $newImageName, 's3');
+        Storage::disk('s3')->setVisibility($path, 'public');
+
 
         return $newImageName;
     }
@@ -27,19 +29,21 @@ trait FileUpload
 
     public function deletePreviousImage($imagePath)
     {
-        if ($this->isImageExists($imagePath)) {
-            Storage::disk('local')->delete('public/images/' . $imagePath);
+
+        if ($this->isImageExists('images/' . $imagePath)) {
+
+            Storage::disk('s3')->delete('images/' . $imagePath);
         }
     }
     public function isImageExists($imagePath)
     {
-        return Storage::exists('public/images/' . $imagePath);
+        return Storage::disk('s3')->exists($imagePath);
     }
     public function destroyModelWithImage($model, $imagePath)
     {
         $model->delete();
         if (isEmpty($model)) {
-            Storage::disk('local')->delete('public/images/' . $imagePath);
+            Storage::disk('s3')->delete('images/' . $imagePath);
         }
     }
 }

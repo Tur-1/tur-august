@@ -23,7 +23,7 @@ onMounted(() => {
 
             <slot />
 
-            <AuthOffcanvas :requireAuth="$page.props.requireAuth" />
+            <AuthOffcanvas />
             <CategoriesPage />
             <LayoutMobileFooter />
         </main>

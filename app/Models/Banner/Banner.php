@@ -4,6 +4,7 @@ namespace App\Models\Banner;
 
 use App\Traits\ActiveModel;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Banner extends Model
@@ -27,8 +28,9 @@ class Banner extends Model
     {
         return $query->where('type', 'large');
     }
+
     public function getImageUrlAttribute()
     {
-        return $this->image ? asset('storage/images/banners/' . $this->image) : null;
+        return  Storage::disk('s3')->url('images/banners/' . $this->image);
     }
 }

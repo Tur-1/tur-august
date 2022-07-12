@@ -22,7 +22,7 @@ class Color extends Model
 
     public function getImageUrlAttribute()
     {
-        return $this->image ? asset('storage/images/colors/' . $this->image) : null;
+        return Storage::disk('s3')->url('images/colors/' . $this->image);
     }
     public function products()
     {

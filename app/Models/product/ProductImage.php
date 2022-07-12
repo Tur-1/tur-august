@@ -30,7 +30,8 @@ class ProductImage extends Model
     public function getImageUrlAttribute()
     {
         if ($this->image) {
-            return asset('storage/images/products/product_' . $this->product_id . '/' . $this->image);
+
+            return Storage::disk('s3')->url('images/products/product_' . $this->product_id . '/' . $this->image);
         } else {
             return  asset('assets/images/defult-input-image.png');
         }

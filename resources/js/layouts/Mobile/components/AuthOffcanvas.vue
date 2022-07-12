@@ -23,23 +23,28 @@
 <script setup>
 import BaseBottomOffcanvas from "@/components/Base/BaseBottomOffcanvas.vue";
 import Auth from "@/Pages/Auth/Auth.vue";
-import { onMounted, watch } from "vue";
-const props = defineProps({
-    requireAuth: Object,
-});
+import { usePage } from "@inertiajs/inertia-vue3";
+import { watch, onMounted, ref, computed } from "vue";
+
+let requireAuth = ref(computed(() => usePage().props.value.requireAuth));
 
 onMounted(() => {
-    if (props.requireAuth.status == false) {
+    if (requireAuth.value.status == false) {
         closeAuthOffcanvas();
+    }
+
+    if (requireAuth.value.status == true) {
+        openAuthOffcanvas();
     }
 });
 
 watch(
-    () => props.requireAuth,
+    () => requireAuth.value,
     (value) => {
         if (value.status == true) {
             openAuthOffcanvas();
         }
+
         if (value.status == false) {
             closeAuthOffcanvas();
         }

@@ -4,6 +4,7 @@ namespace App\Models\product;
 
 use App\Traits\ActiveModel;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use phpDocumentor\Reflection\Types\Boolean;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -65,6 +66,6 @@ class Category extends Model
 
     public function getImageUrlAttribute()
     {
-        return $this->image ? asset('storage/images/categories/' . $this->image) : asset('assets/images/defult-input-image.png');
+        return $this->image ?  Storage::disk('s3')->url('images/categories/' . $this->image) : asset('assets/images/defult-input-image.png');
     }
 }

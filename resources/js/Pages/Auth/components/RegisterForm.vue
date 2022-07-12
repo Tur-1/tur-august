@@ -84,7 +84,7 @@
 
             <button
                 type="submit"
-                class="btn btn-primary w-100 mt-2"
+                class="btn btn-primary w-100 mt-3 mb-1"
                 :disabled="form.processing"
                 name="sign_up"
             >

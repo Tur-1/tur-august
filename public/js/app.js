@@ -136,6 +136,26 @@ var map = {
 		"/js/vendor",
 		"resources_js_Pages_Auth_components_RegisterForm_vue"
 	],
+	"./Auth/components/ResetPasswordForm": [
+		"./resources/js/Pages/Auth/components/ResetPasswordForm.vue",
+		"/js/vendor",
+		"resources_js_Pages_Auth_components_ResetPasswordForm_vue"
+	],
+	"./Auth/components/ResetPasswordForm.vue": [
+		"./resources/js/Pages/Auth/components/ResetPasswordForm.vue",
+		"/js/vendor",
+		"resources_js_Pages_Auth_components_ResetPasswordForm_vue"
+	],
+	"./Auth/components/ResetPasswrod": [
+		"./resources/js/Pages/Auth/components/ResetPasswrod.vue",
+		"/js/vendor",
+		"resources_js_Pages_Auth_components_ResetPasswrod_vue"
+	],
+	"./Auth/components/ResetPasswrod.vue": [
+		"./resources/js/Pages/Auth/components/ResetPasswrod.vue",
+		"/js/vendor",
+		"resources_js_Pages_Auth_components_ResetPasswrod_vue"
+	],
 	"./Auth/components/SocialButtons": [
 		"./resources/js/Pages/Auth/components/SocialButtons.vue",
 		"/js/vendor",

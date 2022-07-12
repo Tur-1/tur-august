@@ -5,6 +5,7 @@ namespace App\Models\product;
 use App\Models\product\Product;
 use App\Traits\HasProductsWithCount;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Brand extends Model
@@ -21,7 +22,7 @@ class Brand extends Model
 
     public function getImageUrlAttribute()
     {
-        return $this->image ? asset('storage/images/brands/' . $this->image) : null;
+        return  Storage::disk('s3')->url('images/brands/' . $this->image);
     }
     public function products()
     {
