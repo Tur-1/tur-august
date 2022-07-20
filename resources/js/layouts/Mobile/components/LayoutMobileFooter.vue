@@ -33,7 +33,6 @@
                         'active-footer-item':
                             route().current('shoppingCartPage'),
                     }"
-                    preserve-state
                 >
                     <i
                         :class="
@@ -55,7 +54,6 @@
                     :class="{
                         'active-footer-item': route().current('wishlistPage'),
                     }"
-                    preserve-state
                 >
                     <i
                         :class="
@@ -74,7 +72,6 @@
                     :class="{
                         'active-footer-item': route().current('myAccountPage'),
                     }"
-                    preserve-state
                 >
                     <i class="bi bi-person-circle"></i>
                     <span>My Account</span>

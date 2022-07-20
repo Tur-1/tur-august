@@ -17355,6 +17355,10 @@ footer {
     font-size: 13px !important;
   }
 }
+.modal.base-modal {
+  display: block !important;
+}
+
 .modal {
   color: #444 !important;
 }

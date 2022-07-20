@@ -30,15 +30,17 @@ class CategoriesPage extends Component
 
     public function mount()
     {
+
         $this->allcategories = Category::tree();
-        if (Session::has('selectedSection')) {
+
+        if (!empty(Session::get('selectedSection'))) {
+
             $this->selectedSection = Session::get('selectedSection');
             $this->categoriesSection = $this->allcategories->where("id", $this->selectedSection)->first() ?? [];
 
             $this->categories = $this->categoriesSection['children'] ?? [];
             $this->sectioName = $this->categoriesSection['name'] ?? [];
         }
-
         $this->sections = $this->allcategories->where("is_section", true)->toArray();
     }
     public function render()

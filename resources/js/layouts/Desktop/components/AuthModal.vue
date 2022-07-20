@@ -1,5 +1,5 @@
 <template>
-    <BaseModal id="auth-modal">
+    <BaseModal id="auth-modal" :isOpen="isOpen" @closeModal="closeAuthModal">
         <Auth />
     </BaseModal>
 </template>
@@ -8,9 +8,10 @@ import BaseModal from "@/components/Base/BaseModal.vue";
 
 import Auth from "@/Pages/Auth/Auth.vue";
 import { usePage } from "@inertiajs/inertia-vue3";
-import { watch, onMounted, ref, computed } from "vue";
+import { onMounted, ref, computed } from "vue";
 
 let requireAuth = ref(computed(() => usePage().props.value.requireAuth));
+let isOpen = ref(false);
 
 onMounted(() => {
     if (requireAuth.value.status == false) {
@@ -20,23 +21,18 @@ onMounted(() => {
     if (requireAuth.value.status == true) {
         openAuthModal();
     }
+    if (
+        requireAuth.value.status == true &&
+        usePage().props.value.errors !== null
+    ) {
+        openAuthModal();
+    }
 });
 
-watch(
-    () => requireAuth.value,
-    (value) => {
-        if (value.status == true || usePage().props.value.errors !== null) {
-            openAuthModal();
-        }
-    },
-    { deep: true }
-);
 const openAuthModal = () => {
-    $("#auth-modal").modal("show");
+    isOpen.value = true;
 };
 const closeAuthModal = () => {
-    $("#auth-modal").modal("hide");
-    $(".modal-backdrop").remove();
-    $("body").removeClass("modal-open");
+    isOpen.value = false;
 };
 </script>

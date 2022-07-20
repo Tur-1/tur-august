@@ -390,7 +390,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'BaseModal',
-  props: ["id", "title"],
+  props: ["id", "title", "isOpen"],
   emits: ["closeModal"],
   setup: function setup(__props, _ref) {
     var expose = _ref.expose,
@@ -599,6 +599,7 @@ __webpack_require__.r(__webpack_exports__);
     var requireAuth = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)((0,vue__WEBPACK_IMPORTED_MODULE_3__.computed)(function () {
       return (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.value.requireAuth;
     }));
+    var isOpen = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)(false);
     (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(function () {
       if (requireAuth.value.status == false) {
         closeAuthModal();
@@ -607,35 +608,28 @@ __webpack_require__.r(__webpack_exports__);
       if (requireAuth.value.status == true) {
         openAuthModal();
       }
-    });
-    (0,vue__WEBPACK_IMPORTED_MODULE_3__.watch)(function () {
-      return requireAuth.value;
-    }, function (value) {
-      if (value.status == true || (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.value.errors !== null) {
+
+      if (requireAuth.value.status == true && (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.value.errors !== null) {
         openAuthModal();
       }
-    }, {
-      deep: true
     });
 
     var openAuthModal = function openAuthModal() {
-      $("#auth-modal").modal("show");
+      isOpen.value = true;
     };
 
     var closeAuthModal = function closeAuthModal() {
-      $("#auth-modal").modal("hide");
-      $(".modal-backdrop").remove();
-      $("body").removeClass("modal-open");
+      isOpen.value = false;
     };
 
     var __returned__ = {
       requireAuth: requireAuth,
+      isOpen: isOpen,
       openAuthModal: openAuthModal,
       closeAuthModal: closeAuthModal,
       BaseModal: _components_Base_BaseModal_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
       Auth: _Pages_Auth_Auth_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
       usePage: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage,
-      watch: vue__WEBPACK_IMPORTED_MODULE_3__.watch,
       onMounted: vue__WEBPACK_IMPORTED_MODULE_3__.onMounted,
       ref: vue__WEBPACK_IMPORTED_MODULE_3__.ref,
       computed: vue__WEBPACK_IMPORTED_MODULE_3__.computed
@@ -758,15 +752,10 @@ __webpack_require__.r(__webpack_exports__);
       if (requireAuth.value.status == true) {
         openAuthOffcanvas();
       }
-    });
-    (0,vue__WEBPACK_IMPORTED_MODULE_3__.watch)(function () {
-      return requireAuth.value;
-    }, function (value) {
-      if (value.status == true || (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.value.errors !== null) {
+
+      if (requireAuth.value.status == true && (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.value.errors !== null) {
         openAuthOffcanvas();
       }
-    }, {
-      deep: true
     });
 
     var openAuthOffcanvas = function openAuthOffcanvas() {
@@ -1604,25 +1593,36 @@ var _hoisted_4 = {
 };
 var _hoisted_5 = ["id"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-    "class": "modal fade",
-    id: $props.id,
-    tabindex: "-1"
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-    type: "button",
-    "data-bs-dismiss": "modal",
-    "class": "btn-close close-modal-btn",
-    onClick: _cache[0] || (_cache[0] = function ($event) {
-      return _ctx.$emit('closeModal');
-    })
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", {
-    "class": "modal-title mb-2 text-uppercase",
-    id: 'title-' + $props.id
-  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.title), 9
-  /* TEXT, PROPS */
-  , _hoisted_5), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])])], 8
-  /* PROPS */
-  , _hoisted_1);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
+    name: "pop",
+    appear: ""
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [$props.isOpen ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+        key: 0,
+        "class": "modal base-modal",
+        id: $props.id,
+        tabindex: "-1"
+      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+        type: "button",
+        "data-bs-dismiss": "modal",
+        "class": "btn-close close-modal-btn",
+        onClick: _cache[0] || (_cache[0] = function ($event) {
+          return _ctx.$emit('closeModal');
+        })
+      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", {
+        "class": "modal-title mb-2 text-uppercase",
+        id: 'title-' + $props.id
+      }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.title), 9
+      /* TEXT, PROPS */
+      , _hoisted_5), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])])], 8
+      /* PROPS */
+      , _hoisted_1)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+    }),
+    _: 3
+    /* FORWARDED */
+
+  });
 }
 
 /***/ }),
@@ -1779,7 +1779,9 @@ __webpack_require__.r(__webpack_exports__);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["BaseModal"], {
-    id: "auth-modal"
+    id: "auth-modal",
+    isOpen: $setup.isOpen,
+    onCloseModal: $setup.closeAuthModal
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Auth"])];
@@ -1787,7 +1789,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  });
+  }, 8
+  /* PROPS */
+  , ["isOpen"]);
 }
 
 /***/ }),
@@ -1953,7 +1957,6 @@ function render(_ctx, _cache) {
   /* KEYED_FRAGMENT */
   ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
     href: _ctx.route('myAccountPage'),
-    "preserve-state": "",
     "class": "nav-icons"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -1966,8 +1969,7 @@ function render(_ctx, _cache) {
   /* PROPS */
   , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
     "class": "nav-icons",
-    href: _ctx.route('wishlistPage'),
-    "preserve-state": ""
+    href: _ctx.route('wishlistPage')
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_12];
@@ -1979,7 +1981,6 @@ function render(_ctx, _cache) {
   /* PROPS */
   , ["href"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
     href: _ctx.route('shoppingCartPage'),
-    "preserve-state": "",
     "class": "nav-icons"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -2388,8 +2389,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     href: _ctx.route('shoppingCartPage'),
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
       'active-footer-item': _ctx.route().current('shoppingCartPage')
-    }),
-    "preserve-state": ""
+    })
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
@@ -2409,8 +2409,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     href: _ctx.route('wishlistPage'),
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
       'active-footer-item': _ctx.route().current('wishlistPage')
-    }),
-    "preserve-state": ""
+    })
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
@@ -2428,8 +2427,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     href: _ctx.route('myAccountPage'),
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
       'active-footer-item': _ctx.route().current('myAccountPage')
-    }),
-    "preserve-state": ""
+    })
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_14, _hoisted_15];

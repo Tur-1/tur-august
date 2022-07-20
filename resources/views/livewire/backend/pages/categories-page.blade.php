@@ -37,7 +37,7 @@
                         ])
                     @else
                         <tr>
-                            <td colspan="5">
+                            <td colspan="6">
                                 <h4 class="text-center">No Categories Found</h4>
                             </td>
                         </tr>

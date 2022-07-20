@@ -36,17 +36,14 @@ onMounted(() => {
     if (requireAuth.value.status == true) {
         openAuthOffcanvas();
     }
+    if (
+        requireAuth.value.status == true &&
+        usePage().props.value.errors !== null
+    ) {
+        openAuthOffcanvas();
+    }
 });
 
-watch(
-    () => requireAuth.value,
-    (value) => {
-        if (value.status == true || usePage().props.value.errors !== null) {
-            openAuthOffcanvas();
-        }
-    },
-    { deep: true }
-);
 const openAuthOffcanvas = () => {
     $("#auth-offcanvas").offcanvas("show");
 };

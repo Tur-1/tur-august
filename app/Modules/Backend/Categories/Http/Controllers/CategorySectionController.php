@@ -38,7 +38,9 @@ class CategorySectionController extends Controller
         $section->meta_title = $request['meta_title'];
         $section->meta_description = $request['meta_description'];
         $section->is_section = true;
-        $section->image =  (new StoreModelImageAction)->saveImage($request, $this->getCategoryOldImagePath($section), $this->imageFolder);
+        if ($request->hasFile('image')) {
+            $section->image =  (new StoreModelImageAction)->saveImage($request, $this->getCategoryOldImagePath($section), $this->imageFolder);
+        }
         $section->save();
     }
 
