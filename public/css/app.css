@@ -17156,9 +17156,9 @@ ul {
   -o-border-radius: 0.25rem;
 }
 
-@media screen and (display-mode: fullscreen) {
-  .mobile-navbar nav {
-    padding-top: 27px;
+@media screen and (display-mode: standalone) {
+  header.mobile-navbar {
+    padding-top: 30px !important;
   }
 }
 .mobile-navbar nav {
@@ -17261,7 +17261,7 @@ nav {
 /******** footer *************/
 @media screen and (display-mode: standalone) {
   #mobile-footer {
-    padding-bottom: 20px;
+    padding-bottom: 20px !important;
   }
 }
 footer {
