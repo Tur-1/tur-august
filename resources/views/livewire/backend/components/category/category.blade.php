@@ -1,4 +1,4 @@
 <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
-@include('livewire.Backend.components.category.categories', [
+@include('livewire.backend.components.category.categories', [
     'categories' => $category['children'],
 ])

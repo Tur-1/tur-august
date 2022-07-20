@@ -4,7 +4,6 @@ import LayoutMobileFooter from "@/layouts/Mobile/components/LayoutMobileFooter.v
 import CategoriesPage from "@/layouts/Mobile/components/Categories/CategoriesPage.vue";
 import { onMounted, ref } from "vue";
 import AuthOffcanvas from "@/layouts/Mobile/components/AuthOffcanvas.vue";
-import AuthModal from "@/layouts/Desktop/components/AuthModal.vue";
 
 const props = defineProps({
     backgroundColor: String,
@@ -24,7 +23,7 @@ onMounted(() => {
 
             <slot />
 
-            <AuthModal />
+            <AuthOffcanvas />
             <CategoriesPage />
             <LayoutMobileFooter />
         </main>

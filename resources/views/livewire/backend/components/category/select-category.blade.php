@@ -28,7 +28,7 @@
                 wire:model.defer='selectedCategory'>
                 <option value=""> select category </option>
                 @if ($selectedSection)
-                    @include('livewire.Backend.components.category.categories', [
+                    @include('livewire.backend.components.category.categories', [
                         'categories' => $categories,
                     ])
                 @endif

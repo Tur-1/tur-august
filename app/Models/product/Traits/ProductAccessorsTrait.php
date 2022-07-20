@@ -10,7 +10,7 @@ trait ProductAccessorsTrait
     {
         if ($this->brand_image) {
 
-            return Storage::disk('s3')->url('images/brands' . $this->brand_image);
+            return Storage::disk('s3')->url('images/brands/' . $this->brand_image);
         }
     }
     public function getMainImageUrlAttribute()

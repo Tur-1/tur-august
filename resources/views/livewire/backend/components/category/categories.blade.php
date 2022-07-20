@@ -1,5 +1,5 @@
      @foreach ($categories as $category)
-         @include('livewire.Backend.components.category.category', [
+         @include('livewire.backend.components.category.category', [
              'category' => $category,
          ])
      @endforeach
