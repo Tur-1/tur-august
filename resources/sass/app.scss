@@ -108,6 +108,12 @@ ul {
     height: 35px !important;
     width: 35px !important;
 }
+
+@media screen and (display-mode: standalone) {
+    #nprogress .bar {
+        top: 28px !important;
+    }
+}
 #nprogress .bar {
     height: 4px !important;
 }

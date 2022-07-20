@@ -1,6 +1,11 @@
+@media screen and (display-mode: fullscreen) {
+    header.mobile-navbar {
+        padding-top: 38px !important;
+    }
+}
 @media screen and (display-mode: standalone) {
     header.mobile-navbar {
-        padding-top: 30px !important;
+        padding-top: 38px !important;
     }
 }
 

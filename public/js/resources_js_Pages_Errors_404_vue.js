@@ -679,6 +679,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layouts_Mobile_components_Categories_CategoriesPage_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/layouts/Mobile/components/Categories/CategoriesPage.vue */ "./resources/js/layouts/Mobile/components/Categories/CategoriesPage.vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _layouts_Mobile_components_AuthOffcanvas_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/layouts/Mobile/components/AuthOffcanvas.vue */ "./resources/js/layouts/Mobile/components/AuthOffcanvas.vue");
+/* harmony import */ var _layouts_Desktop_components_AuthModal_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/layouts/Desktop/components/AuthModal.vue */ "./resources/js/layouts/Desktop/components/AuthModal.vue");
+
 
 
 
@@ -706,7 +708,8 @@ __webpack_require__.r(__webpack_exports__);
       CategoriesPage: _layouts_Mobile_components_Categories_CategoriesPage_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
       onMounted: vue__WEBPACK_IMPORTED_MODULE_3__.onMounted,
       ref: vue__WEBPACK_IMPORTED_MODULE_3__.ref,
-      AuthOffcanvas: _layouts_Mobile_components_AuthOffcanvas_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
+      AuthOffcanvas: _layouts_Mobile_components_AuthOffcanvas_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+      AuthModal: _layouts_Desktop_components_AuthModal_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -2023,7 +2026,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         title: $props.title
       }, null, 8
       /* PROPS */
-      , ["title"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AuthOffcanvas"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CategoriesPage"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["LayoutMobileFooter"])], 4
+      , ["title"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AuthModal"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CategoriesPage"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["LayoutMobileFooter"])], 4
       /* STYLE */
       )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
     }),

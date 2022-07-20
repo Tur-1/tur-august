@@ -17121,6 +17121,11 @@ ul {
   width: 35px !important;
 }
 
+@media screen and (display-mode: standalone) {
+  #nprogress .bar {
+    top: 28px !important;
+  }
+}
 #nprogress .bar {
   height: 4px !important;
 }
@@ -17156,9 +17161,14 @@ ul {
   -o-border-radius: 0.25rem;
 }
 
+@media screen and (display-mode: fullscreen) {
+  header.mobile-navbar {
+    padding-top: 38px !important;
+  }
+}
 @media screen and (display-mode: standalone) {
   header.mobile-navbar {
-    padding-top: 30px !important;
+    padding-top: 38px !important;
   }
 }
 .mobile-navbar nav {
@@ -17259,9 +17269,14 @@ nav {
 }
 
 /******** footer *************/
+@media screen and (display-mode: fullscreen) {
+  #mobile-footer {
+    padding-bottom: 28px !important;
+  }
+}
 @media screen and (display-mode: standalone) {
   #mobile-footer {
-    padding-bottom: 20px !important;
+    padding-bottom: 28px !important;
   }
 }
 footer {
@@ -17348,8 +17363,8 @@ footer {
     margin: 0 auto !important;
   }
   .close-modal-btn {
-    top: -28px !important;
-    right: -5px !important;
+    top: -33px !important;
+    right: -3px !important;
   }
   .modal-title {
     font-size: 13px !important;
@@ -17365,8 +17380,8 @@ footer {
 
 .close-modal-btn {
   position: absolute !important;
-  top: -23px !important;
-  right: -20px !important;
+  top: -23px;
+  right: -20px;
 }
 
 .modal label {
@@ -17390,6 +17405,10 @@ footer {
 
 .cancel-submit-btns .submit-btn {
   color: #51c0a9;
+}
+
+.modal.base-modal .modal-body {
+  padding: 0 !important;
 }
 
 @media only screen and (max-width: 400px) {
@@ -18500,7 +18519,6 @@ ul.shop-sidebar-categories {
 .auth-container {
   padding: 7px;
   background-color: white;
-  border: 1px solid #e2e9e1;
 }
 
 .auth-tabs-header {
