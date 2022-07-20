@@ -252,7 +252,7 @@ var _hoisted_6 = [_hoisted_5];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["add-wishlist-btn", {
-      'in-wishlist': _ctx.$page.props.productDetail.inWishlist
+      'product-in-wishlist': _ctx.$page.props.productDetail.inWishlist
     }]),
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $setup.addToWishlist(_ctx.$page.props.productDetail.id);

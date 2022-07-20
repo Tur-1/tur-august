@@ -34,6 +34,13 @@
     .reviews-area .reviews-list .review-item .review-reply {
         margin-left: 3px !important;
     }
+    .tabs-description-additionalInfo-reviews .nav-tabs {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr 1fr !important;
+    }
+    .tabs-description-additionalInfo-reviews .nav-tabs .nav-item {
+        text-align: center !important;
+    }
 }
 
 .product-detail-container {
@@ -155,12 +162,12 @@
 }
 
 .add-wishlist-btn:hover {
-    background-color: #088178 !important;
+    background-color: $bg-green !important;
     color: white;
 }
 
 .add-wishlist-btn.product-in-wishlist {
-    background-color: #088178 !important;
+    background-color: $bg-green !important;
     color: white;
 }
 

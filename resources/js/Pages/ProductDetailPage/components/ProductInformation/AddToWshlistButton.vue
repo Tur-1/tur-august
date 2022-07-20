@@ -4,7 +4,9 @@
             class="add-wishlist-btn"
             @click="addToWishlist($page.props.productDetail.id)"
             :disabled="form.processing"
-            :class="{ 'in-wishlist': $page.props.productDetail.inWishlist }"
+            :class="{
+                'product-in-wishlist': $page.props.productDetail.inWishlist,
+            }"
         >
             <i v-if="!form.processing" class="bi bi-heart"></i>
             <div

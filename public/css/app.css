@@ -17736,6 +17736,7 @@ main {
 
 section.container {
   padding-bottom: 80px !important;
+  margin-bottom: 40px !important;
 }
 
 input[type=checkbox]:focus,
@@ -17815,6 +17816,9 @@ ul {
   #nprogress .bar {
     display: none !important;
   }
+  #toast-alert {
+    top: 15% !important;
+  }
 }
 #nprogress .bar {
   height: 4px !important;
@@ -17832,7 +17836,7 @@ ul {
 #toast-alert {
   position: fixed !important;
   top: 5%;
-  z-index: 1000000000000000100000;
+  z-index: 10000000000000000000000000000000000000000000000 !important;
   right: 15px;
   color: white;
   width: 350px;
@@ -18135,7 +18139,6 @@ footer {
 /************ product card *************/
 .product-item {
   transition: transform 0.5s ease-in-out;
-  border: 1px solid rgba(204, 204, 204, 0.1411764706) !important;
   padding: 5px 5px !important;
 }
 
@@ -18322,6 +18325,13 @@ footer {
   .reviews-area .reviews-list .review-item .review-reply {
     margin-left: 3px !important;
   }
+  .tabs-description-additionalInfo-reviews .nav-tabs {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+  }
+  .tabs-description-additionalInfo-reviews .nav-tabs .nav-item {
+    text-align: center !important;
+  }
 }
 .product-detail-container {
   margin-top: 10px;
@@ -18437,12 +18447,12 @@ footer {
 }
 
 .add-wishlist-btn:hover {
-  background-color: #088178 !important;
+  background-color: #51c0a9 !important;
   color: white;
 }
 
 .add-wishlist-btn.product-in-wishlist {
-  background-color: #088178 !important;
+  background-color: #51c0a9 !important;
   color: white;
 }
 

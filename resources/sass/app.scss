@@ -39,6 +39,7 @@ main {
 }
 section.container {
     padding-bottom: 80px !important;
+    margin-bottom: 40px !important;
 }
 input[type="checkbox"]:focus,
 .form-check-input {
@@ -116,8 +117,10 @@ ul {
     #nprogress .bar {
         display: none !important;
     }
+    #toast-alert {
+        top: 15% !important;
+    }
 }
-
 #nprogress .bar {
     height: 4px !important;
 }
@@ -132,7 +135,7 @@ ul {
 #toast-alert {
     position: fixed !important;
     top: 5%;
-    z-index: 999999999999999999999;
+    z-index: 9999999999999999999999999999999999999999999999 !important;
     right: 15px;
     color: white;
     width: 350px;
