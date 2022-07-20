@@ -70,7 +70,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 document.getElementById("app").dataset.page = '';
 _inertiajs_progress__WEBPACK_IMPORTED_MODULE_3__.InertiaProgress.init({
   color: '#088178',
-  includeCSS: true,
+  includeCSS: false,
   showSpinner: true
 });
 

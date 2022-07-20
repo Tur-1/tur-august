@@ -28,6 +28,7 @@ class MyAccountPageController extends Controller
 
     public function index()
     {
+
         $user = $this->myAccountService->getAuthenticatedUser();
         $orders = $this->myAccountService->getUserOrders();
 

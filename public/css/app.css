@@ -17123,7 +17123,7 @@ ul {
 
 @media screen and (display-mode: standalone) {
   #nprogress .bar {
-    top: 28px !important;
+    display: none !important;
   }
 }
 #nprogress .bar {
