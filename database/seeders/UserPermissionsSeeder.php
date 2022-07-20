@@ -19,7 +19,7 @@ class UserPermissionsSeeder extends Seeder
     public function run()
     {
         $role = Role::find(1);
-        User::create(['name' => 'admin', 'email' => 'admin@admin.com', 'password' => 123456, 'role_id' => $role->id]);
+        User::create(['name' => 'admin', 'email' => 'admin@admin.com', 'password' => 12345678910, 'role_id' => $role->id]);
 
         foreach (Permission::all() as $permission) {
             $user_permissions[] = [
