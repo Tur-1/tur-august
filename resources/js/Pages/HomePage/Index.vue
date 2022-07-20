@@ -3,7 +3,7 @@
         <section class="container mt-2">
             <LargeBanners />
             <MediumBanners />
-
+            <p>{{ $page.props.intendedPath }}</p>
             <LatestProducts />
         </section>
     </app-layout>
