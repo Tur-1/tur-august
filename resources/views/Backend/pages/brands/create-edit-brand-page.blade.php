@@ -23,7 +23,8 @@
                                 <label for="name">Brand name</label>
                                 <input name="name" type="text"
                                     class="form-control {{ $errors->has('name') ? 'is-invalid' : ' ' }}" name="name"
-                                    id="name" placeholder="Enter Brand" value="{{ old('name', $brand->name ?? '') }}">
+                                    id="name" placeholder="Enter Brand"
+                                    value="{{ old('name', $brand->name ?? '') }}">
                                 @include('Backend.components.input-error-msg', ['inputName' => 'name'])
                             </div>
                             <div class="form-group">
@@ -36,7 +37,7 @@
 
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">
-                                {{ isset($brand) ? 'Update brand' : 'save brand' }}
+                                {{ isset($brand) ? 'update' : 'save' }}
                             </button>
                         </div>
 

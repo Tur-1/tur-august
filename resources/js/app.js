@@ -18,7 +18,7 @@ createInertiaApp({
     },
 })
 
-document.getElementById("app").dataset.page = '';
+// document.getElementById("app").dataset.page = '';
 
 
-InertiaProgress.init({ color: '#088178', includeCSS: false, showSpinner: true, });
+InertiaProgress.init({ color: '#088178', includeCSS: true, showSpinner: true, });

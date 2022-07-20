@@ -39,7 +39,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">
-                                {{ isset($color) ? 'Update color' : 'save color' }}
+                                {{ isset($color) ? 'update' : 'save' }}
                             </button>
                         </div>
 

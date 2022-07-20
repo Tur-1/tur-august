@@ -9,6 +9,11 @@
         padding-bottom: 28px !important;
     }
 }
+@media screen and (display-mode: minimal-ui) {
+    #mobile-footer {
+        padding-top: 20px !important;
+    }
+}
 
 footer {
     margin-top: auto;

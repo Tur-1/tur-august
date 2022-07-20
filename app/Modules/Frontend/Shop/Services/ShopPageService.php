@@ -124,21 +124,21 @@ class ShopPageService
             [
                 'id' => '2',
                 'name' => 'new',
-                'icon' => 'fas fa-fire me-2',
+                'icon' => 'bi bi-fire me-2',
                 'active' =>  request()->query('sort') == 'new',
                 'url' => request()->fullUrlWithQuery(['sort' => 'new'])
             ],
             [
                 'id' => '1',
                 'name' => 'Price: High to Low',
-                'icon' => 'fas fa-sort-amount-down-alt me-2',
+                'icon' => 'bi bi-sort-up me-2',
                 'active' =>  request()->query('sort') == 'price-high-to-low',
                 'url' => request()->fullUrlWithQuery(['sort' => 'price-high-to-low'])
             ],
             [
                 'id' => '2',
                 'name' => 'Price: Low to High',
-                'icon' => 'fas fa-sort-amount-up me-2',
+                'icon' => 'bi bi-sort-down-alt me-2',
                 'active' =>  request()->query('sort') == 'price-low-to-high',
                 'url' => request()->fullUrlWithQuery(['sort' => 'price-low-to-high'])
             ],

@@ -34,7 +34,7 @@
 
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary">
-                                {{ isset($sizeOption) ? 'update size' : 'save size' }}
+                                {{ isset($sizeOption) ? 'update' : 'save' }}
                             </button>
                         </div>
 

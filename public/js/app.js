@@ -66,11 +66,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     }).component("Head", _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.Head).component("Link", _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.Link).mount(el);
   }
-});
-document.getElementById("app").dataset.page = '';
+}); // document.getElementById("app").dataset.page = '';
+
 _inertiajs_progress__WEBPACK_IMPORTED_MODULE_3__.InertiaProgress.init({
   color: '#088178',
-  includeCSS: false,
+  includeCSS: true,
   showSpinner: true
 });
 
