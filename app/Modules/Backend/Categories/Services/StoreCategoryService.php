@@ -34,8 +34,10 @@ class StoreCategoryService
         $category->meta_title = $request['meta_title'];
         $category->meta_description = $request['meta_description'];
 
+        if ($request->hasFile('image')) {
+            $category->image =  (new StoreModelImageAction)->saveImage($request, $this->getCategoryOldImagePath($category), $this->imageFolder);
+        }
 
-        $category->image =  (new StoreModelImageAction)->saveImage($request, $this->getCategoryOldImagePath($category), $this->imageFolder);
         $category->save();
     }
     public function getCategoryOldImagePath($category)
