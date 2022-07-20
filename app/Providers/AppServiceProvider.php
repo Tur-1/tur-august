@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\user\User;
 use App\Models\product\Category;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -29,7 +30,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if ($this->app->environment('production')) {
+
+        if (App::environment('production')) {
             URL::forceScheme('https');
         }
         JsonResource::withoutWrapping();
