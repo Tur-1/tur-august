@@ -43,7 +43,19 @@ onMounted(() => {
         openAuthOffcanvas();
     }
 });
+watch(
+    () => requireAuth.value,
+    (value) => {
+        if (value.status == false) {
+            closeAuthOffcanvas();
+        }
 
+        if (value.status == true) {
+            openAuthOffcanvas();
+        }
+    },
+    { deep: true }
+);
 const openAuthOffcanvas = () => {
     $("#auth-offcanvas").offcanvas("show");
 };

@@ -633,6 +633,19 @@ __webpack_require__.r(__webpack_exports__);
         openAuthModal();
       }
     });
+    (0,vue__WEBPACK_IMPORTED_MODULE_3__.watch)(function () {
+      return requireAuth.value;
+    }, function (value) {
+      if (value.status == false) {
+        closeAuthModal();
+      }
+
+      if (value.status == true) {
+        openAuthModal();
+      }
+    }, {
+      deep: true
+    });
 
     var openAuthModal = function openAuthModal() {
       isOpen.value = true;
@@ -652,7 +665,8 @@ __webpack_require__.r(__webpack_exports__);
       usePage: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage,
       onMounted: vue__WEBPACK_IMPORTED_MODULE_3__.onMounted,
       ref: vue__WEBPACK_IMPORTED_MODULE_3__.ref,
-      computed: vue__WEBPACK_IMPORTED_MODULE_3__.computed
+      computed: vue__WEBPACK_IMPORTED_MODULE_3__.computed,
+      watch: vue__WEBPACK_IMPORTED_MODULE_3__.watch
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -776,6 +790,19 @@ __webpack_require__.r(__webpack_exports__);
       if (requireAuth.value.status == true && (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.value.errors !== null) {
         openAuthOffcanvas();
       }
+    });
+    (0,vue__WEBPACK_IMPORTED_MODULE_3__.watch)(function () {
+      return requireAuth.value;
+    }, function (value) {
+      if (value.status == false) {
+        closeAuthOffcanvas();
+      }
+
+      if (value.status == true) {
+        openAuthOffcanvas();
+      }
+    }, {
+      deep: true
     });
 
     var openAuthOffcanvas = function openAuthOffcanvas() {
