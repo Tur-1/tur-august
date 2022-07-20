@@ -1,10 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\SocialLoginController;
 
-
+URL::forceSchema('https');
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,7 @@ use App\Http\Controllers\Auth\SocialLoginController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 
 Auth::routes();
 
