@@ -27,6 +27,7 @@ onMounted(() => {
         openAuthModal();
     }
 });
+
 watch(
     () => requireAuth.value,
     (value) => {
