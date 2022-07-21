@@ -1,6 +1,6 @@
 <template>
     <app-layout title="Home">
-        <section class="container mt-2">
+        <section class="container">
             <LargeBanners />
             <MediumBanners />
 
