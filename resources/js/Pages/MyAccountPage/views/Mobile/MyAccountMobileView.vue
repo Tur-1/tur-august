@@ -1,5 +1,5 @@
 <template>
-    <section class="mb-5">
+    <section>
         <MyAccountAvatar />
 
         <ul class="account-items">

@@ -21,6 +21,10 @@
 
 @media screen and (display-mode: standalone) {
     .base-right-offcanvas .offcanvas-header {
-        padding-top: 38px !important;
+        padding-top: 41px !important;
     }
+}
+
+.base-right-offcanvas .offcanvas-header i {
+    font-size: 17px !important;
 }

@@ -1762,13 +1762,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "mb-5"
-};
-var _hoisted_2 = {
   "class": "account-items"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["MyAccountAvatar"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["MyOrdersMobileView"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["MyAccountSettingsMobileView"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["MyAddressBookMobileView"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Logout"])])]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["MyAccountAvatar"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["MyOrdersMobileView"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["MyAccountSettingsMobileView"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["MyAddressBookMobileView"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Logout"])])]);
 }
 
 /***/ }),

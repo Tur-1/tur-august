@@ -17734,7 +17734,12 @@ main {
   flex-direction: column;
 }
 
-section.container {
+@media screen and (display-mode: standalone) {
+  section {
+    padding-top: 50px !important;
+  }
+}
+section {
   padding-top: 40px !important;
   padding-bottom: 80px !important;
 }
@@ -18295,9 +18300,13 @@ footer {
 
 @media screen and (display-mode: standalone) {
   .base-right-offcanvas .offcanvas-header {
-    padding-top: 38px !important;
+    padding-top: 41px !important;
   }
 }
+.base-right-offcanvas .offcanvas-header i {
+  font-size: 17px !important;
+}
+
 @media only screen and (max-width: 767px) {
   .title-detail {
     font-size: 18px !important;
