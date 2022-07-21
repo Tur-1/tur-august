@@ -42,12 +42,12 @@ main {
 
 @media screen and (display-mode: standalone) {
     section {
-        padding-top: 65px !important;
+        padding-top: 80px !important;
     }
 }
 section {
-    padding-top: 40px !important;
-    padding-bottom: 80px !important;
+    padding-top: 40px;
+    padding-bottom: 80px;
 }
 
 input[type="checkbox"]:focus,
