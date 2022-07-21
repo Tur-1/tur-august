@@ -17861,14 +17861,9 @@ ul {
   -o-border-radius: 0.25rem;
 }
 
-@media screen and (display-mode: fullscreen) {
-  header.mobile-navbar {
-    padding-top: 38px !important;
-  }
-}
 @media screen and (display-mode: standalone) {
   header.mobile-navbar {
-    padding-top: 38px !important;
+    padding-top: 30px !important;
   }
 }
 .mobile-navbar nav {
