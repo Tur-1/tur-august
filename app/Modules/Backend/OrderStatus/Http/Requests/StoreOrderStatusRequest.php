@@ -32,7 +32,7 @@ class StoreOrderStatusRequest extends FormRequest
 
 
         if ($this->getMethod() != 'POST') {
-            $rules['image'] = Arr::prepend($rules['icon'], 'sometimes');
+            $rules['image'] = Arr::prepend($rules['image'], 'sometimes');
             $rules['name'] .= ",status,{$this->orderStatus->id}";
         }
 

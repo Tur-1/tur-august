@@ -16,8 +16,9 @@ class OrderStatusService
         $orderStatus->name = Str::title($request->name);
         $orderStatus->slug = Str::slug($request->name);
         $orderStatus->description = $request->description;
-        $orderStatus->image = (new StoreModelImageAction)->saveImage($request, $this->getStatusOldImagePath($orderStatus), $this->imageFolder);
-
+        if ($request->hasFile('image')) {
+            $orderStatus->image = (new StoreModelImageAction)->saveImage($request, $this->getStatusOldImagePath($orderStatus), $this->imageFolder);
+        }
         $orderStatus->save();
     }
 
