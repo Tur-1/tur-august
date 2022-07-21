@@ -1,3 +1,6 @@
+<script setup>
+defineEmits(["openMyAddressBookModal"]);
+</script>
 <template>
     <div class="p-1 mb-4">
         <button
@@ -9,7 +12,3 @@
         </button>
     </div>
 </template>
-
-<script setup>
-defineEmits(["openMyAddressBookModal"]);
-</script>

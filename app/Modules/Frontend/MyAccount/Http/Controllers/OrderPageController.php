@@ -12,6 +12,7 @@ class OrderPageController extends Controller
     public function orderPage($orderId, OrderPageService $orderPageService)
     {
         $order = $orderPageService->getOrder($orderId);
+
         $products = $orderPageService->getOrderProducts();
         $address = $orderPageService->getOrderAddress();
 

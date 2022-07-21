@@ -4,7 +4,7 @@
             <h5 class="mb-0 p-3">Order #{{ $page.props.order.id }}</h5>
         </div>
 
-        <div class="card-body">
+        <div class="card-body p-0">
             <ul class="list-group ist-group-flush">
                 <li
                     class="list-group-item d-flex justify-content-between border-0"
@@ -40,7 +40,11 @@
                     class="list-group-item d-flex justify-content-between border-0"
                 >
                     <span class="text-center">Status</span>
-                    <span class="badge rounded-pill bg-primary">Completed</span>
+                    <span
+                        class="badge rounded-pill bg-primary"
+                        style="line-height: normal"
+                        >{{ $page.props.order.status }}</span
+                    >
                 </li>
             </ul>
         </div>

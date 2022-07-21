@@ -61,6 +61,7 @@ const destroyUserAddress = (address_id) => {
 </script>
 <template>
     <AddNewAddress @openMyAddressBookModal="openMyAddressBookModal" />
+
     <MyAddressList
         @openMyAddressBookModal="openMyAddressBookModal"
         @destroyUserAddress="destroyUserAddress"

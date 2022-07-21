@@ -23,7 +23,7 @@ var _hoisted_3 = {
   "class": "mb-0 p-3"
 };
 var _hoisted_4 = {
-  "class": "card-body"
+  "class": "card-body p-0"
 };
 var _hoisted_5 = {
   "class": "list-group ist-group-flush"
@@ -70,17 +70,22 @@ var _hoisted_14 = {
   "class": "product-subtotal",
   colspan: "2"
 };
-
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
+var _hoisted_15 = {
   "class": "list-group-item d-flex justify-content-between border-0"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+};
+
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "text-center"
-}, "Status"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "badge rounded-pill bg-primary"
-}, "Completed")], -1
+}, "Status", -1
 /* HOISTED */
 );
 
+var _hoisted_17 = {
+  "class": "badge rounded-pill bg-primary",
+  style: {
+    "line-height": "normal"
+  }
+};
 function render(_ctx, _cache) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", _hoisted_3, "Order #" + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.order.id), 1
   /* TEXT */
@@ -90,7 +95,9 @@ function render(_ctx, _cache) {
   /* TEXT */
   )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.order.total) + " SAR ", 1
   /* TEXT */
-  )]), _hoisted_15])])]);
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_17, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.order.status), 1
+  /* TEXT */
+  )])])])]);
 }
 
 /***/ }),

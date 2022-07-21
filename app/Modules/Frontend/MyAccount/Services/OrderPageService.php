@@ -14,7 +14,7 @@ class OrderPageService
 
     public function getOrder($orderId)
     {
-        $this->order = auth()->user()->orders()->with('address', 'products')->find($orderId);
+        $this->order = auth()->user()->orders()->with('address', 'products', 'status')->find($orderId);
 
         return MyAccountOrderResource::make($this->order);
     }

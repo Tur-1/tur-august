@@ -16,7 +16,7 @@ class MyAccountPageService
     }
     public function getUserOrders()
     {
-        return auth()->user()->orders;
+        return  MyAccountOrderResource::collection(auth()->user()->orders)->resolve();
     }
 
     public function updatePhoneNumber($phoneNumber)

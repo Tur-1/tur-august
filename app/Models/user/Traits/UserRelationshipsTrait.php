@@ -16,6 +16,7 @@ trait UserRelationshipsTrait
     {
         return $this->hasMany(Order::class, 'user_id');
     }
+
     public function checkoutProducts()
     {
         return $this->belongsToMany(Product::class, 'shopping_carts', 'user_id', 'product_id')

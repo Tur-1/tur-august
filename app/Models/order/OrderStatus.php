@@ -2,8 +2,9 @@
 
 namespace App\Models\order;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class OrderStatus extends Model
 {
@@ -34,6 +35,6 @@ class OrderStatus extends Model
     }
     public function getImageUrlAttribute()
     {
-        return $this->image ? asset('storage/images/order_status/' . $this->image) : null;
+        return  Storage::disk('s3')->url('images/order_status/' . $this->image);
     }
 }
