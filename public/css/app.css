@@ -17863,7 +17863,7 @@ ul {
 
 @media screen and (display-mode: standalone) {
   header.mobile-navbar {
-    padding-top: 30px !important;
+    padding-top: 20px !important;
   }
 }
 .mobile-navbar nav {
