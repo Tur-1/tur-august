@@ -15,11 +15,11 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie', '*'],
+    'paths' => ['*'],
 
-    'allowed_methods' => ['POST', 'GET', 'DELETE', 'PUT', '*'],
+    'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['https://tur-august.herokuapp.com', 'http://tur-august.herokuapp.com', '*'],
+    'allowed_origins' => ['*'],
 
     'allowed_origins_patterns' => ['*'],
 
