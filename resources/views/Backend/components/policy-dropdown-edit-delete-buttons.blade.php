@@ -1,4 +1,4 @@
- <div class="dropdown dropend">
+ <div class="dropdown ">
 
      <a role="button" data-bs-toggle="dropdown" class="btn btn-light rounded btn-sm font-sm"aria-expanded="false">
          <i class="material-icons md-more_horiz"></i>
@@ -18,7 +18,7 @@
                  {{ csrf_field() }}
 
 
-                 <button class="btn text-danger btn-sm w-100 text-start p-0 " type="submit">Delete</button>
+                 <button class="btn text-danger btn-sm  text-start p-0 " type="submit">Delete</button>
 
              </form>
          @endcan
