@@ -8,7 +8,7 @@
         font-size: 10px !important;
     }
     .checkout-product-current-price {
-        font-size: 12px !important;
+        font-size: 13px !important;
     }
     .checkout-product-discounted-price {
         font-size: 10px !important;
@@ -81,7 +81,7 @@
 .checkout-product-price {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    align-self: end;
     text-align: right;
 }
 

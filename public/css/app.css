@@ -18573,9 +18573,9 @@ footer {
   width: 100% !important;
   border: none !important;
   color: rgb(26, 26, 26);
-  padding: 5px;
+  padding: 8px;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 15px;
   text-transform: uppercase;
 }
 
@@ -19100,7 +19100,7 @@ ul.shop-sidebar-categories {
     font-size: 10px !important;
   }
   .checkout-product-current-price {
-    font-size: 12px !important;
+    font-size: 13px !important;
   }
   .checkout-product-discounted-price {
     font-size: 10px !important;
@@ -19172,7 +19172,7 @@ ul.shop-sidebar-categories {
 .checkout-product-price {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  align-self: end;
   text-align: right;
 }
 

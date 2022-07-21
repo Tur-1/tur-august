@@ -1,5 +1,5 @@
 <template>
-    <TransitionGroup name="fade" mode="out-in">
+    <transition-group name="fade" mode="out-in">
         <div
             :class="customClass ?? 'col-xl-3 col-lg-4 col-md-4 col-6 mb-4'"
             class="product-item"
@@ -72,7 +72,7 @@
                 </span>
             </div>
         </div>
-    </TransitionGroup>
+    </transition-group>
 </template>
 
 <script setup>
