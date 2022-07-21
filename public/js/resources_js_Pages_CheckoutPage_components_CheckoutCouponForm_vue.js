@@ -152,7 +152,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
       return $setup.code = $event;
     }),
-    "class": "form-control form-control-sm border-0 shadow-none bg-transparent"
+    "class": "form-control border-0 shadow-none bg-transparent p-2"
   }, null, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.code]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {

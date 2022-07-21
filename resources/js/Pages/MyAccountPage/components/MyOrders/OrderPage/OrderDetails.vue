@@ -1,7 +1,7 @@
 <template>
     <div class="card border-0 bg-white">
         <div class="border-bottom text-center">
-            <h5 class="mb-0 p-3">Order #{{ $page.props.order.id }}</h5>
+            <h6 class="p-3 mb-0">Order #{{ $page.props.order.id }}</h6>
         </div>
 
         <div class="card-body p-0">

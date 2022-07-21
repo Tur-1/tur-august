@@ -16,15 +16,14 @@ onMounted(() => {
 </script>
 
 <template>
-    <Transition name="fade" mode="out-in">
-        <main v-if="contentTrigger" :style="backgroundColor">
-            <LayoutNavbar />
-
-            <slot />
-            <AuthModal />
-            <LayoutFooter />
-        </main>
-    </Transition>
+    <main :style="backgroundColor">
+        <LayoutNavbar />
+        <Transition name="fade" mode="out-in">
+            <slot v-if="contentTrigger" />
+        </Transition>
+        <AuthModal />
+        <LayoutFooter />
+    </main>
 </template>
 
 <style>

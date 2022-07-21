@@ -2,7 +2,9 @@
     <header class="desktop-navbar">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <h3 class="navbar-brand">August</h3>
+                <h3 class="navbar-brand">
+                    <Link class="text-dark" href="/"> August </Link>
+                </h3>
                 <button
                     class="navbar-toggler"
                     type="button"

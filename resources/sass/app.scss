@@ -17,6 +17,7 @@ $bg-green: #51c0a9;
 html {
     height: -webkit-fill-available;
 }
+
 body {
     height: 100vh !important;
     height: -webkit-fill-available;
@@ -35,11 +36,15 @@ main {
     height: 100% !important;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden !important;
+    overflow: hidden !important;
 }
 section.container {
     padding-bottom: 80px !important;
-    margin-bottom: 40px !important;
+
+    overflow-y: scroll;
+}
+section.container::-webkit-scrollbar {
+    display: none;
 }
 input[type="checkbox"]:focus,
 .form-check-input,

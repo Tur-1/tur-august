@@ -9,7 +9,7 @@
                 type="text"
                 placeholder="Enter Coupon Code..."
                 v-model="code"
-                class="form-control form-control-sm border-0 shadow-none bg-transparent"
+                class="form-control border-0 shadow-none bg-transparent p-2"
             />
 
             <button

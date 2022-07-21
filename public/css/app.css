@@ -17731,12 +17731,16 @@ main {
   height: 100% !important;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden !important;
+  overflow: hidden !important;
 }
 
 section.container {
   padding-bottom: 80px !important;
-  margin-bottom: 40px !important;
+  overflow-y: scroll;
+}
+
+section.container::-webkit-scrollbar {
+  display: none;
 }
 
 input[type=checkbox]:focus,
@@ -18957,7 +18961,7 @@ ul.shop-sidebar-categories {
     font-family: system-ui;
   }
   .shopping-cart-product-price {
-    font-size: 13px !important;
+    font-size: 14px !important;
   }
   .shopping-cart-product-description {
     font-size: 10px !important;
@@ -18966,13 +18970,10 @@ ul.shop-sidebar-categories {
     font-size: 12px !important;
   }
   .cart-discounted-product-price {
-    font-size: 11px !important;
+    font-size: 10px !important;
   }
   .cart-detalis {
     font-size: 13px !important;
-  }
-  .shopping-cart-product-quantity {
-    height: 22px !important;
   }
   .shopping-cart-product-actions.save-action {
     font-size: 12px !important;
@@ -19011,7 +19012,7 @@ ul.shop-sidebar-categories {
   flex-direction: column;
   width: 70%;
   font-size: 14px;
-  padding: 5px 0;
+  padding-top: 5px;
 }
 
 .shopping-cart-product-info a,
@@ -19028,13 +19029,14 @@ ul.shop-sidebar-categories {
 }
 
 .shopping-cart-product-quantity {
-  height: 24px;
+  height: 26px;
   width: 90px;
   border: 1px solid rgba(211, 211, 211, 0.2509803922);
   border-radius: 8px;
   display: flex;
   align-items: baseline;
   text-align: center;
+  font-size: 15px;
 }
 
 .shopping-cart-product-quantity .quantity {
@@ -19045,10 +19047,6 @@ ul.shop-sidebar-categories {
 .shopping-cart-product-quantity .quantity-btn {
   width: 30%;
   height: 100%;
-}
-
-.shopping-cart-product-quantity .quantity-btn i {
-  font-size: 10px;
 }
 
 .shopping-cart-product-price--actions {
@@ -19512,9 +19510,12 @@ ul.shop-sidebar-categories {
   border: 1px solid #eee;
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 500px) {
   h3.section-title, .section-title.h3 {
     font-size: 12px !important;
+  }
+  .medium-banners {
+    margin: 2rem 0.1rem !important;
   }
 }
 .section-title span {
@@ -19523,4 +19524,8 @@ ul.shop-sidebar-categories {
 
 h3.section-title, .section-title.h3 {
   font-size: 19px;
+}
+
+.medium-banners {
+  margin: 3rem;
 }

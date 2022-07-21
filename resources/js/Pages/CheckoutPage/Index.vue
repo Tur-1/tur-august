@@ -1,5 +1,5 @@
 <template>
-    <AppLayout title="checkout" backgroundColor="background-color:#F9F9F9">
+    <app-layout title="checkout" backgroundColor="background-color:#F9F9F9">
         <Breadcrumb pageTitle="checkout" v-if="isDesktop" />
         <section class="container mt-2">
             <CheckoutHeader v-if="isDesktop" />
@@ -28,7 +28,7 @@
             <!-- Modal -->
             <ProductsNoLongerInStock />
         </section>
-    </AppLayout>
+    </app-layout>
 </template>
 
 <script setup>

@@ -1,7 +1,7 @@
 <template>
     <div class="card border-0 bg-white mt-4">
-        <div class="text-start p-3">
-            <h5 class="mb-0">shipping address</h5>
+        <div class="text-center p-3">
+            <span class="page-title">shipping address</span>
         </div>
         <ul class="list-group list-group-flush">
             <li class="list-group-item border-0 d-flex flex-row">

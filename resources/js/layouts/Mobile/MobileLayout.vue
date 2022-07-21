@@ -17,27 +17,29 @@ onMounted(() => {
 </script>
 
 <template>
-    <Transition name="fade" mode="out-in">
-        <main v-if="contentTrigger" :style="backgroundColor">
-            <LayoutMobileNavbar :title="title" />
-
-            <slot />
-
-            <AuthOffcanvas />
-            <CategoriesPage />
-            <LayoutMobileFooter />
-        </main>
-    </Transition>
+    <main :style="backgroundColor">
+        <LayoutMobileNavbar :title="title" />
+        <Transition name="slide" mode="out-in">
+            <slot v-if="contentTrigger" />
+        </Transition>
+        <AuthOffcanvas />
+        <CategoriesPage />
+        <LayoutMobileFooter />
+    </main>
 </template>
 
 <style>
-.fade-enter-active,
-.fade-leave-active {
-    transition: opacity 0.5s ease;
+.slide-enter-active,
+.slide-leave-active {
+    transition: all 0.25s ease-out;
 }
 
-.fade-enter-from,
-.fade-leave-to {
+.slide-enter-from {
     opacity: 0;
+    transform: translateX(30px);
+}
+.slide-leave-to {
+    opacity: 0;
+    transform: translateX(-30px);
 }
 </style>
