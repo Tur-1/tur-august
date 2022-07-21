@@ -17724,6 +17724,7 @@ body {
 
 #app {
   height: 100% !important;
+  overflow-y: scroll;
 }
 
 main {
@@ -17731,16 +17732,11 @@ main {
   height: 100% !important;
   display: flex;
   flex-direction: column;
-  overflow: hidden !important;
 }
 
 section.container {
+  padding-top: 40px !important;
   padding-bottom: 80px !important;
-  overflow-y: scroll;
-}
-
-section.container::-webkit-scrollbar {
-  display: none;
 }
 
 input[type=checkbox]:focus,
@@ -17889,8 +17885,7 @@ ul {
 /******** navbar *************/
 .desktop-navbar,
 .mobile-navbar {
-  position: sticky !important;
-  position: -webkit-sticky;
+  position: fixed !important;
   top: 0 !important;
   left: 0;
   right: 0;

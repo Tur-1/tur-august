@@ -4197,7 +4197,7 @@ __webpack_require__.r(__webpack_exports__);
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("main", {
     style: (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle)($props.backgroundColor)
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["LayoutNavbar"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["LayoutNavbar"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.TransitionGroup, {
     name: "fade",
     mode: "out-in"
   }, {

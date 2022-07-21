@@ -18,9 +18,11 @@ onMounted(() => {
 <template>
     <main :style="backgroundColor">
         <LayoutNavbar />
-        <Transition name="fade" mode="out-in">
+
+        <transition-group name="fade" mode="out-in">
             <slot v-if="contentTrigger" />
-        </Transition>
+        </transition-group>
+
         <AuthModal />
         <LayoutFooter />
     </main>
