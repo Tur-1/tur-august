@@ -17736,7 +17736,7 @@ main {
 
 @media screen and (display-mode: standalone) {
   section {
-    padding-top: 80px !important;
+    padding-top: 77px !important;
   }
 }
 section {
@@ -17862,8 +17862,8 @@ ul {
 }
 
 @media screen and (display-mode: standalone) {
-  header.mobile-navbar {
-    padding-top: 20px !important;
+  .mobile-navbar {
+    padding-top: 10px !important;
   }
 }
 .mobile-navbar nav {
