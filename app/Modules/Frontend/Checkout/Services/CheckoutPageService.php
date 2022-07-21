@@ -2,7 +2,6 @@
 
 namespace App\Modules\Frontend\Checkout\Services;
 
-use Mavinoo\Batch\Batch;
 use App\Models\order\Order;
 use App\Models\product\Product;
 use App\Models\order\OrderAddress;
@@ -110,7 +109,7 @@ class CheckoutPageService
 
 
         $product = new Product();
-        \Batch::update($product, $product_stock, 'id');
+        batch()->update($product, $product_stock, 'id');
     }
 
     public function notifyUserOfOrderAcceptance()
@@ -129,7 +128,7 @@ class CheckoutPageService
         }
 
         $productSizeOption = new ProductSizeOption();
-        \Batch::update($productSizeOption, $stockSize, 'id');
+        batch()->update($productSizeOption, $stockSize, 'id');
     }
 
     private function getOrderProducts()

@@ -18308,6 +18308,10 @@ footer {
   font-size: 17px !important;
 }
 
+.base-right-offcanvas {
+  border-left: none !important;
+}
+
 @media only screen and (max-width: 767px) {
   .title-detail {
     font-size: 18px !important;
@@ -19412,7 +19416,7 @@ ul.shop-sidebar-categories {
 .account-image-wrap {
   height: 250px;
   width: 100%;
-  background: linear-gradient(180deg, #f5f5f5 50%, white 50%);
+  background: linear-gradient(180deg, rgb(249, 249, 249) 50%, white 50%);
   position: relative;
   display: flex;
   justify-content: center;
