@@ -17736,7 +17736,7 @@ main {
 
 @media screen and (display-mode: standalone) {
   section {
-    padding-top: 77px !important;
+    padding-top: 70px !important;
   }
 }
 section {
@@ -17863,7 +17863,7 @@ ul {
 
 @media screen and (display-mode: standalone) {
   .mobile-navbar {
-    padding-top: 10px !important;
+    padding-top: 7px !important;
   }
 }
 .mobile-navbar nav {
@@ -18295,7 +18295,12 @@ footer {
 
 @media screen and (display-mode: standalone) {
   .base-right-offcanvas .offcanvas-header {
-    padding-top: 41px !important;
+    padding-top: 7px !important;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .base-right-offcanvas {
+    width: 100% !important;
   }
 }
 .base-right-offcanvas .offcanvas-header i {
