@@ -103,7 +103,7 @@ class CheckoutPageService
         foreach (Product::whereIn('id', $product_ids)->with('sizeOptions')->get() as $product) {
             $product_stock[] = [
                 'id' => $product['id'],
-                'stock' => $product->sizeOptions->pluck('pivot.stock')->sum()
+                'stock' => intval($product->sizeOptions->pluck('pivot.stock')->sum())
             ];
         }
 
@@ -123,7 +123,7 @@ class CheckoutPageService
 
             $stockSize[] = [
                 'id' => $product['size']['pivot']['id'],
-                'stock' => ['-', $product['quantity']]
+                'stock' => ['-', intval($product['quantity'])]
             ];
         }
 
