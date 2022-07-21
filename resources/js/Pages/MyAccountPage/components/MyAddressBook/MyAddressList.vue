@@ -1,5 +1,5 @@
 <template>
-    <div class="row mb-3">
+    <TransitionGroup name="list" tag="div" class="row mb-3">
         <div
             class="col-md-4 mb-3"
             v-for="(address, index) in $page.props.userAddresses"
@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </TransitionGroup>
 </template>
 
 <script setup>

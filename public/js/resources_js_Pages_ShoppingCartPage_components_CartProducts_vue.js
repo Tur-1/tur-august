@@ -643,7 +643,7 @@ var _hoisted_5 = {
   id: "staticBackdropLabel"
 };
 var _hoisted_6 = {
-  "class": "cancel-submit-btns mt-2"
+  "class": "cancel-submit-btns mt-4"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
@@ -704,7 +704,7 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = ["disabled"];
 var _hoisted_2 = {
   key: 0,
-  "class": "spinner-border spinner-border-sm",
+  "class": "spinner-border spinner-border-sm ms-2",
   role: "status"
 };
 

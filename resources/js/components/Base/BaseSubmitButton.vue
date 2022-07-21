@@ -6,7 +6,7 @@ defineProps(["title", "formProcessing"]);
     <button type="submit" class="submit-btn" :disabled="formProcessing">
         {{ title }}
         <div
-            class="spinner-border spinner-border-sm"
+            class="spinner-border spinner-border-sm ms-2"
             role="status"
             v-if="formProcessing"
         >

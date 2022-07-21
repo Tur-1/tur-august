@@ -444,7 +444,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'BaseModal',
-  props: ["id", "title", "isOpen"],
+  props: ["id", "title"],
   emits: ["closeModal"],
   setup: function setup(__props, _ref) {
     var expose = _ref.expose,
@@ -730,7 +730,6 @@ __webpack_require__.r(__webpack_exports__);
     var requireAuth = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)((0,vue__WEBPACK_IMPORTED_MODULE_3__.computed)(function () {
       return (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.value.requireAuth;
     }));
-    var isOpen = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)(false);
     (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(function () {
       if (requireAuth.value.status == false) {
         closeAuthModal();
@@ -759,16 +758,17 @@ __webpack_require__.r(__webpack_exports__);
     });
 
     var openAuthModal = function openAuthModal() {
-      isOpen.value = true;
+      $("#auth-modal").modal("show");
     };
 
     var closeAuthModal = function closeAuthModal() {
-      isOpen.value = false;
+      $("#auth-modal").modal("hide");
+      $(".modal").remove();
+      $(".modal-backdrop").remove();
     };
 
     var __returned__ = {
       requireAuth: requireAuth,
-      isOpen: isOpen,
       openAuthModal: openAuthModal,
       closeAuthModal: closeAuthModal,
       BaseModal: _components_Base_BaseModal_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -1798,36 +1798,27 @@ var _hoisted_4 = {
 };
 var _hoisted_5 = ["id"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
-    name: "pop",
-    appear: ""
-  }, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [$props.isOpen ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
-        key: 0,
-        "class": "modal base-modal",
-        id: $props.id,
-        tabindex: "-1"
-      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-        type: "button",
-        "data-bs-dismiss": "modal",
-        "class": "btn-close close-modal-btn",
-        onClick: _cache[0] || (_cache[0] = function ($event) {
-          return _ctx.$emit('closeModal');
-        })
-      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", {
-        "class": "modal-title mb-2 text-uppercase",
-        id: 'title-' + $props.id
-      }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.title), 9
-      /* TEXT, PROPS */
-      , _hoisted_5), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])])], 8
-      /* PROPS */
-      , _hoisted_1)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
-    }),
-    _: 3
-    /* FORWARDED */
-
-  });
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+    "class": "modal fade base-modal",
+    id: $props.id,
+    tabindex: "-1",
+    "data-bs-backdrop": "static",
+    "data-bs-keyboard": "false"
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "button",
+    "data-bs-dismiss": "modal",
+    "class": "btn-close close-modal-btn",
+    onClick: _cache[0] || (_cache[0] = function ($event) {
+      return _ctx.$emit('closeModal');
+    })
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", {
+    "class": "modal-title mb-2 text-uppercase",
+    id: 'title-' + $props.id
+  }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.title), 9
+  /* TEXT, PROPS */
+  , _hoisted_5), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])])], 8
+  /* PROPS */
+  , _hoisted_1);
 }
 
 /***/ }),
@@ -2211,7 +2202,6 @@ __webpack_require__.r(__webpack_exports__);
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["BaseModal"], {
     id: "auth-modal",
-    isOpen: $setup.isOpen,
     onCloseModal: $setup.closeAuthModal
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -2220,9 +2210,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  }, 8
-  /* PROPS */
-  , ["isOpen"]);
+  });
 }
 
 /***/ }),

@@ -17,32 +17,11 @@
         </button>
     </li>
 
-    <div
-        class="offcanvas offcanvas-end"
-        tabindex="-1"
-        id="address-book-offcanvas"
-        aria-labelledby="staticBackdropLabel"
-    >
-        <div class="offcanvas-header">
-            <button
-                type="button"
-                class="close-offcanvas-btn"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-            >
-                <i class="bi bi-chevron-left"></i>
-            </button>
-
-            <h5 class="offcanvas-title" id="staticBackdropLabel">
-                Address Book
-            </h5>
-            <div></div>
-        </div>
-        <div class="offcanvas-body bg-light">
-            <MyAddressBook />
-        </div>
-    </div>
+    <BaseRightOffcanvas title="Address Book" id="address-book-offcanvas">
+        <MyAddressBook />
+    </BaseRightOffcanvas>
 </template>
 <script setup>
 import MyAddressBook from "@/Pages/MyAccountPage/components/MyAddressBook/index.vue";
+import BaseRightOffcanvas from "@/components/Base/BaseRightOffcanvas.vue";
 </script>

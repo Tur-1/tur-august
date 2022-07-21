@@ -17,30 +17,11 @@
         </button>
     </li>
 
-    <div
-        class="offcanvas offcanvas-end"
-        tabindex="-1"
-        id="my-orders-offcanvas"
-        aria-labelledby="staticBackdropLabel"
-    >
-        <div class="offcanvas-header">
-            <button
-                type="button"
-                class="close-offcanvas-btn"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-            >
-                <i class="bi bi-chevron-left"></i>
-            </button>
-
-            <h5 class="offcanvas-title" id="staticBackdropLabel">My orders</h5>
-            <div></div>
-        </div>
-        <div class="offcanvas-body bg-light">
-            <MyOrders />
-        </div>
-    </div>
+    <BaseRightOffcanvas title="My orders" id="my-orders-offcanvas">
+        <MyOrders />
+    </BaseRightOffcanvas>
 </template>
 <script setup>
 import MyOrders from "@/Pages/MyAccountPage/components/MyOrders/index.vue";
+import BaseRightOffcanvas from "@/components/Base/BaseRightOffcanvas.vue";
 </script>

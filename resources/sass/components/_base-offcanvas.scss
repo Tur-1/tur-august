@@ -1,4 +1,4 @@
-// offcanvas  bottom
+// bottom offcanvas
 .base-bottom-offcanvas {
     height: 90%;
     border-top-left-radius: 10px;
@@ -15,4 +15,12 @@
 }
 .base-bottom-offcanvas .offcanvas-body {
     padding: 0 !important;
+}
+
+// right offcanvas
+
+@media screen and (display-mode: standalone) {
+    .base-right-offcanvas .offcanvas-header {
+        padding-top: 38px !important;
+    }
 }
