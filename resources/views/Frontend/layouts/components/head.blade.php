@@ -23,6 +23,7 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer>
 </script>
+
 <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
 <script src="{{ asset(mix('js/manifest.js')) }}" defer></script>
 <script src="{{ asset(mix('js/vendor.js')) }}" defer></script>

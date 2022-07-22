@@ -17796,13 +17796,6 @@ ul {
   font-size: 12px !important;
 }
 
-.spinner {
-  top: 50% !important;
-  left: 50% !important;
-  right: unset !important;
-  transform: translate(-50%, -50%) !important;
-}
-
 .bg-alert-success {
   background-color: #51c0a9 !important;
   color: white;
@@ -17820,14 +17813,24 @@ ul {
 
 @media screen and (display-mode: standalone) {
   #nprogress .bar {
-    display: none !important;
+    top: 30px;
+    box-shadow: none !important;
   }
   #toast-alert {
     top: 10% !important;
   }
 }
 #nprogress .bar {
-  height: 4px !important;
+  z-index: 10000000000000001000000000000000000000000000000000000000;
+  height: 5px !important;
+}
+
+#nprogress .spinner {
+  top: 50% !important;
+  left: 50% !important;
+  right: unset !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 10000000000000001000000000000000000000000000000000000000;
 }
 
 .page-404 {
