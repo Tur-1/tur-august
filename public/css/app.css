@@ -18355,7 +18355,7 @@ footer {
   }
 }
 .product-detail-container {
-  margin-top: 10px;
+  padding-top: 25px !important;
 }
 
 .product-detail-container .row {
