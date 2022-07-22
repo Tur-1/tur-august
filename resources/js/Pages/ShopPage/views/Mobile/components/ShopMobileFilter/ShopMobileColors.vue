@@ -28,7 +28,7 @@
                             )
                         "
                     >
-                        <i class="fas fa-close"></i>
+                        <i class="bi bi-x"></i>
                     </button>
                 </div>
             </div>

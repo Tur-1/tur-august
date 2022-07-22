@@ -22,7 +22,7 @@ __webpack_require__.r(__webpack_exports__);
     var props = __props;
 
     var openCategoriesOffcanvas = function openCategoriesOffcanvas() {
-      $("#filter-item-offcanvas-categories").offcanvas('show');
+      $("#filter-item-offcanvas-categories").offcanvas("show");
     };
 
     var __returned__ = {
@@ -88,7 +88,7 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": ""
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fas fa-close ms-1"
+  "class": "bi bi-x"
 })], -1
 /* HOISTED */
 );

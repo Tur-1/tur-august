@@ -24,12 +24,12 @@ __webpack_require__.r(__webpack_exports__);
     var props = __props;
 
     var openBrandsOffcanvas = function openBrandsOffcanvas() {
-      $("#filter-item-offcanvas-brands").offcanvas('show');
+      $("#filter-item-offcanvas-brands").offcanvas("show");
     };
 
     var closeBrandsOffcanvas = function closeBrandsOffcanvas() {
       props.showFilteredProducts();
-      $("#filter-item-offcanvas-brands").offcanvas('hide');
+      $("#filter-item-offcanvas-brands").offcanvas("hide");
     };
 
     var __returned__ = {
@@ -68,7 +68,7 @@ __webpack_require__.r(__webpack_exports__);
     var props = __props;
 
     var openCategoriesOffcanvas = function openCategoriesOffcanvas() {
-      $("#filter-item-offcanvas-categories").offcanvas('show');
+      $("#filter-item-offcanvas-categories").offcanvas("show");
     };
 
     var __returned__ = {
@@ -154,12 +154,12 @@ __webpack_require__.r(__webpack_exports__);
     var props = __props;
 
     var openSizeOffcanvas = function openSizeOffcanvas() {
-      $("#filter-item-offcanvas-size").offcanvas('show');
+      $("#filter-item-offcanvas-size").offcanvas("show");
     };
 
     var closeSizeOptionsOffcanvas = function closeSizeOptionsOffcanvas() {
       props.showFilteredProducts();
-      $("#filter-item-offcanvas-size").offcanvas('hide');
+      $("#filter-item-offcanvas-size").offcanvas("hide");
     };
 
     var __returned__ = {
@@ -289,7 +289,7 @@ var _hoisted_8 = {
 var _hoisted_9 = ["onClick"];
 
 var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fas fa-close"
+  "class": "bi bi-x"
 }, null, -1
 /* HOISTED */
 );
@@ -429,7 +429,7 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
   "class": ""
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fas fa-close ms-1"
+  "class": "bi bi-x"
 })], -1
 /* HOISTED */
 );
@@ -557,7 +557,7 @@ var _hoisted_7 = {
 var _hoisted_8 = ["onClick"];
 
 var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fas fa-close"
+  "class": "bi bi-x"
 }, null, -1
 /* HOISTED */
 );
@@ -700,7 +700,7 @@ var _hoisted_7 = {
 var _hoisted_8 = ["onClick"];
 
 var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fas fa-close"
+  "class": "bi bi-x"
 }, null, -1
 /* HOISTED */
 );

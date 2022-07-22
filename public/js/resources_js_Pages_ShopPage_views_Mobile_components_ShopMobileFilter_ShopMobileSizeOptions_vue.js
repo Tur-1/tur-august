@@ -24,12 +24,12 @@ __webpack_require__.r(__webpack_exports__);
     var props = __props;
 
     var openSizeOffcanvas = function openSizeOffcanvas() {
-      $("#filter-item-offcanvas-size").offcanvas('show');
+      $("#filter-item-offcanvas-size").offcanvas("show");
     };
 
     var closeSizeOptionsOffcanvas = function closeSizeOptionsOffcanvas() {
       props.showFilteredProducts();
-      $("#filter-item-offcanvas-size").offcanvas('hide');
+      $("#filter-item-offcanvas-size").offcanvas("hide");
     };
 
     var __returned__ = {
@@ -86,7 +86,7 @@ var _hoisted_7 = {
 var _hoisted_8 = ["onClick"];
 
 var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fas fa-close"
+  "class": "bi bi-x"
 }, null, -1
 /* HOISTED */
 );

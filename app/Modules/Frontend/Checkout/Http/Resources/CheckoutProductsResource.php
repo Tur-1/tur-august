@@ -37,6 +37,8 @@ class CheckoutProductsResource extends JsonResource
             'cart_id' => $this->pivot->id,
             'product_id' => $this->id,
             'quantity' =>  $this->pivot->quantity,
+            'link' => route('productDetailPage', $this->slug),
+            'main_image_url' => $this->main_image_url,
             'total_price' => $totalPrice,
             'size' => $size,
             'size_options' =>  $this->sizeOptions,

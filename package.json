@@ -8,9 +8,8 @@
         "hot": "mix watch --hot",
         "prod": "mix --production && mix --production --mix-config=webpack.ssr.mix.js",
         "production": "mix --production",
-        "postinstall": "npm run prod",
-        "serve": "browser-sync start --no-open --server --files \"dist/css/*.css, dist/js/*.js, **/*.html, !node_modules/**/*.html\""
-
+        "postinstall": "npm run prod"
+ 
     },
     "devDependencies": {
         "@popperjs/core": "^2.10.2",

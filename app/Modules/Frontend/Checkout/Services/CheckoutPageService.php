@@ -2,6 +2,7 @@
 
 namespace App\Modules\Frontend\Checkout\Services;
 
+use App\Mail\OrderConfirmationMail;
 use App\Models\order\Order;
 use App\Models\product\Product;
 use App\Models\order\OrderAddress;
@@ -11,7 +12,7 @@ use Illuminate\Support\Facades\Session;
 use App\Models\product\ProductSizeOption;
 use App\Modules\Frontend\Checkout\Http\Resources\CheckoutProductsResource;
 use App\Modules\Frontend\Checkout\Exceptions\ProductNoLongerInStockException;
-
+use Illuminate\Support\Facades\Mail;
 
 class CheckoutPageService
 {
@@ -19,6 +20,7 @@ class CheckoutPageService
     private $orderDetails;
     private $shippingAddress;
     private $coupon;
+    private $order;
 
     public function __construct($cartDetails, $userAddress, $coupon = null)
     {
@@ -57,6 +59,7 @@ class CheckoutPageService
             'address' => $this->shippingAddress['address']
         ]);
     }
+
     public function storeOrderCoupon($order_id)
     {
         if (!is_null($this->coupon)) {
@@ -115,6 +118,16 @@ class CheckoutPageService
 
     public function notifyUserOfOrderAcceptance()
     {
+        Mail::to(auth()->user()->email)->send(new OrderConfirmationMail($this->getOrderInformation()));
+    }
+    private function getOrderInformation()
+    {
+        return  [
+            'order' => $this->order,
+            'user' => ['name' => auth()->user()->name, 'email' => auth()->user()->email],
+            'shippingAddress' => $this->shippingAddress,
+            'orderProducts' => $this->cartProducts
+        ];
     }
     public function decreaseStockSize()
     {

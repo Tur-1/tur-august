@@ -24,12 +24,12 @@ __webpack_require__.r(__webpack_exports__);
     var props = __props;
 
     var openBrandsOffcanvas = function openBrandsOffcanvas() {
-      $("#filter-item-offcanvas-brands").offcanvas('show');
+      $("#filter-item-offcanvas-brands").offcanvas("show");
     };
 
     var closeBrandsOffcanvas = function closeBrandsOffcanvas() {
       props.showFilteredProducts();
-      $("#filter-item-offcanvas-brands").offcanvas('hide');
+      $("#filter-item-offcanvas-brands").offcanvas("hide");
     };
 
     var __returned__ = {
@@ -89,7 +89,7 @@ var _hoisted_8 = {
 var _hoisted_9 = ["onClick"];
 
 var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fas fa-close"
+  "class": "bi bi-x"
 }, null, -1
 /* HOISTED */
 );

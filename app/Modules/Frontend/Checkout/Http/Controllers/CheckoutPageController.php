@@ -111,6 +111,7 @@ class CheckoutPageController extends Controller
 
 
 
+
         try {
 
             $checkoutPageService = new CheckoutPageService($cartDetails, $userAddress, $this->coupon);
@@ -132,6 +133,8 @@ class CheckoutPageController extends Controller
             $checkoutPageService->storeOrderCoupon($this->order->id);
 
             (new CheckoutCouponService())->increaseCouponUsedTimes($this->coupon);
+
+            $checkoutPageService->notifyUserOfOrderAcceptance();
         } catch (ProductNoLongerInStockException $ex) {
 
 

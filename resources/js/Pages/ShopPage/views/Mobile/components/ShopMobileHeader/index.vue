@@ -1,5 +1,5 @@
 <template>
-    <div class="mobile-shop-page-header mt-5">
+    <div class="mobile-shop-page-header">
         <div class="row border text-center m-0">
             <ShopMobileSort />
             <ShopMobileFilter

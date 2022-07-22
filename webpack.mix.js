@@ -12,10 +12,7 @@ const mix = require('laravel-mix');
  */
 
 
-mix.browserSync({
-    proxy: 'https://tur-august.herokuapp.com',
-    open: false,
-});
+
 mix.js('resources/js/app.js', 'public/js').vue()
     .extract()
     .sass('resources/sass/app.scss', 'public/css')
