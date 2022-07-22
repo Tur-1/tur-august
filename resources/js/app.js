@@ -23,17 +23,3 @@ document.getElementById("app").dataset.page = '';
 
 
 InertiaProgress.init({ color: '#088178', includeCSS: true, showSpinner: true, });
-if (module.hot)
-{
-    const firstVisit = window.location.pathname;
-
-    module.hot.accept();
-
-    module.hot.dispose(() =>
-    {
-        if (firstVisit !== window.location.pathname)
-        {
-            window.location.reload();
-        }
-    });
-}

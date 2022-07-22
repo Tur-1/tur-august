@@ -24,11 +24,14 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer>
 </script>
 
+
 <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
 <script src="{{ asset(mix('js/manifest.js')) }}" defer></script>
 <script src="{{ asset(mix('js/vendor.js')) }}" defer></script>
 <script src="{{ mix('/js/app.js') }}" defer></script>
 <link rel="manifest" href="{{ asset('manifest.json') }}" />
-
+@env('local')
+<script src="{{ config('app.url') }}:3000/browser-sync/browser-sync-client.js"></script>
+@endenv
 @routes
 @inertiaHead
