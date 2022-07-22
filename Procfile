@@ -1,2 +1,3 @@
-web: node public/js/ssr.js & vendor/bin/heroku-php-apache2 public/
-sqs: php artisan queue:work --queue=high,default
+web: node public/js/ssr.js & vendor/bin/heroku-php-nginx -C nginx_app.conf /public
+
+worker: php artisan queue:listen
