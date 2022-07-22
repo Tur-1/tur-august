@@ -111,6 +111,10 @@ class UserController extends Controller
         $message = $user->name . ' has been Deleted successfully';
 
         $user->delete();
+
+        if (url()->previous() == 'https://tur-august.herokuapp.com/admin/customers') {
+            return $this->redirectWithSuccessMsg('admin.customers', $message);
+        }
         return $this->redirectWithSuccessMsg($this->routeName, $message);
     }
 }
