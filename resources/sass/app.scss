@@ -25,12 +25,12 @@ body {
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
     overflow-x: hidden !important;
+
+    overflow-y: scroll !important;
 }
 
 #app {
     height: 100% !important;
-
-    overflow-y: scroll;
 }
 
 main {
@@ -42,11 +42,11 @@ main {
 
 @media screen and (display-mode: standalone) {
     section {
-        padding-top: 70px !important;
+        padding-top: 77px !important;
     }
 }
 section {
-    padding-top: 67px;
+    padding-top: 72px;
     padding-bottom: 80px;
 }
 

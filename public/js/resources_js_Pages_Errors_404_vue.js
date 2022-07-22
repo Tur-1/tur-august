@@ -632,7 +632,6 @@ __webpack_require__.r(__webpack_exports__);
 
     var closeAuthModal = function closeAuthModal() {
       $("#auth-modal").modal("hide");
-      $(".modal").remove();
       $(".modal-backdrop").remove();
     };
 
@@ -1633,9 +1632,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
     "class": "modal fade base-modal",
     id: $props.id,
-    tabindex: "-1",
-    "data-bs-backdrop": "static",
-    "data-bs-keyboard": "false"
+    tabindex: "-1"
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
     "data-bs-dismiss": "modal",

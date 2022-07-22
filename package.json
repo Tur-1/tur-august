@@ -9,7 +9,6 @@
         "prod": "mix --production && mix --production --mix-config=webpack.ssr.mix.js",
         "production": "mix --production",
         "postinstall": "npm run prod"
- 
     },
     "devDependencies": {
         "@popperjs/core": "^2.10.2",

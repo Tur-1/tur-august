@@ -46,7 +46,7 @@ const openAuthModal = () => {
 };
 const closeAuthModal = () => {
     $("#auth-modal").modal("hide");
-    $(".modal").remove();
+
     $(".modal-backdrop").remove();
 };
 </script>
