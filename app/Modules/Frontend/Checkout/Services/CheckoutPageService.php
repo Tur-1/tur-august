@@ -23,6 +23,7 @@ class CheckoutPageService
     public function __construct($cartDetails, $userAddress, $coupon = null)
     {
         $this->cartProducts = collect(CheckoutProductsResource::collection(auth()->user()->shoppingCartProducts));
+
         $this->coupon = $coupon;
         $this->orderDetails = $cartDetails;
 
@@ -102,7 +103,7 @@ class CheckoutPageService
 
         foreach (Product::whereIn('id', $product_ids)->with('sizeOptions')->get() as $product) {
             $product_stock[] = [
-                'id' => $product['id'],
+                'id' => strval($product['id']),
                 'stock' => intval($product->sizeOptions->pluck('pivot.stock')->sum())
             ];
         }
@@ -122,8 +123,8 @@ class CheckoutPageService
         foreach ($this->cartProducts as $product) {
 
             $stockSize[] = [
-                'id' => $product['size']['pivot']['id'],
-                'stock' => ['-', intval($product['quantity'])]
+                'id' => strval($product['size']['pivot']['id']),
+                'stock' => ['-', strval($product['quantity'])]
             ];
         }
 

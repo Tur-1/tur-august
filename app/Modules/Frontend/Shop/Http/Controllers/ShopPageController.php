@@ -15,7 +15,6 @@ class ShopPageController extends Controller
     public function index($category_slug, ShopPageService $shopPageService)
     {
 
-        sleep(30);
         try {
 
             $category = $shopPageService->getCategory($category_slug);

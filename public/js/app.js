@@ -74,6 +74,8 @@ _inertiajs_progress__WEBPACK_IMPORTED_MODULE_3__.InertiaProgress.init({
   showSpinner: true
 });
 
+if (false) { var firstVisit; }
+
 /***/ }),
 
 /***/ "./resources/sass/app.scss":

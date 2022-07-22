@@ -10,7 +10,7 @@ class ProductSizeOption extends Model
     use HasFactory;
     protected $table = "product_size_options";
     public $timestamps = false;
-    protected  $keyType = 'string';
+
     protected $fillable = [
         'product_id',
         'size_id',
