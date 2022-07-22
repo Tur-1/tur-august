@@ -30,8 +30,6 @@
 <script src="{{ asset(mix('js/vendor.js')) }}" defer></script>
 <script src="{{ mix('/js/app.js') }}" defer></script>
 <link rel="manifest" href="{{ asset('manifest.json') }}" />
-@env('local')
-<script src="{{ config('app.url') }}:3000/browser-sync/browser-sync-client.js"></script>
-@endenv
+
 @routes
 @inertiaHead
