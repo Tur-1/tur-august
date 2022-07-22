@@ -9,8 +9,11 @@
 <title>{{ config('app.name', 'August') }} - @yield('title')</title>
 
 
-<link rel="shortcut icon" href="/assets/icons/apple-icon-180.png" type="image/x-icon">
-<link rel="apple-touch-icon" href="/assets/icons/apple-icon-180.png">
+
+<link rel="shortcut icon" href="/assets/images/logo/apple-icon-180.png" type="image/x-icon">
+<link rel="apple-touch-icon" href="/assets/images/logo/apple-icon-180.png">
+
+@include('Frontend.layouts.components.startup-images')
 
 <!-- FontAwesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"

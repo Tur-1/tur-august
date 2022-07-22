@@ -4,8 +4,11 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 
 
-<link rel="shortcut icon" href="/assets/icons/apple-icon-180.png" type="image/x-icon">
-<link rel="apple-touch-icon" href="/assets/icons/apple-icon-180.png">
+<link rel="shortcut icon" href="/assets/images/logo/apple-icon-180.png" type="image/x-icon">
+<link rel="apple-touch-icon" href="/assets/images/logo/apple-icon-180.png">
+
+
+
 @include('Frontend.layouts.components.startup-images')
 
 
