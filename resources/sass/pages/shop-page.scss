@@ -1,8 +1,14 @@
 /*    mobile filter and sort bottons   **/
 
+@media screen and (display-mode: standalone) {
+    .mobile-shop-page-header {
+        margin-top: 41px !important;
+    }
+}
 .mobile-shop-page-header {
     margin-top: 39px;
 }
+
 .mobile-shop-page-header .sort-filter-btns {
     background-color: transparent !important;
     width: 100% !important;
