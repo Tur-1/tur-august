@@ -10,6 +10,7 @@
     <MobileLayout
         :backgroundColor="backgroundColor"
         :title="title"
+        :backUrl="backUrl"
         v-if="isMobile"
     >
         <slot />
@@ -26,6 +27,7 @@ import Toast from "@/components/Toast.vue";
 defineProps({
     backgroundColor: String,
     title: String,
+    backUrl: String,
 });
 
 let isDesktop = ref(true);

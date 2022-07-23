@@ -4,6 +4,7 @@ namespace App\Modules\Frontend\Home\Http\Controllers;
 
 use Inertia\Inertia;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use App\Modules\Frontend\Home\Services\HomePageService;
 
 class HomePageController extends Controller
@@ -20,7 +21,7 @@ class HomePageController extends Controller
         $largeBanners = $homePageService->getLargeBanners($banners);
         $latestProducts = $homePageService->getLatestProducts();
 
-
+        Session::put('previousPageUrl', url()->current());
         return Inertia::render('HomePage/Index', [
 
             'mediumBanners' => $mediumBanners,

@@ -19,6 +19,9 @@ onMounted(() => {
     if (requireAuth.value.status == false) {
         closeAuthModal();
     }
+    if (usePage().props.value.user.name !== "") {
+        removeAuthModal();
+    }
 });
 
 watch(
@@ -39,5 +42,9 @@ const openAuthModal = () => {
 const closeAuthModal = () => {
     $("#auth-modal").modal("hide");
     $(".modal-backdrop").remove();
+};
+
+const removeAuthModal = () => {
+    $("#auth-modal").remove();
 };
 </script>

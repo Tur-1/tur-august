@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Modules\Frontend\MyAccount\Services\OrderPageService;
+use Illuminate\Support\Facades\Session;
 
 class OrderPageController extends Controller
 {
@@ -20,6 +21,7 @@ class OrderPageController extends Controller
             'order' => $order,
             'products' => $products,
             'address' => $address,
+            'previousPageUrl' => Session::get('previousPageUrl'),
         ]);
     }
 }

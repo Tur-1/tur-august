@@ -11,7 +11,7 @@ use App\Models\user\Services\UserAddressService;
 use App\Modules\Frontend\MyAccount\Services\MyAccountPageService;
 use App\Modules\Frontend\MyAccount\Http\Requests\StoreUserAddressRequest;
 use App\Modules\Frontend\MyAccount\Http\Requests\StoreUserAccountInformationRequest;
-
+use Illuminate\Support\Facades\Session;
 
 class MyAccountPageController extends Controller
 {
@@ -28,6 +28,8 @@ class MyAccountPageController extends Controller
 
     public function index()
     {
+
+        Session::put('previousPageUrl', url()->current());
 
         $user = $this->myAccountService->getAuthenticatedUser();
         $orders = $this->myAccountService->getUserOrders();

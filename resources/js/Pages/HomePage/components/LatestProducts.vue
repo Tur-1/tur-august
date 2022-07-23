@@ -17,7 +17,7 @@ import { onMounted } from "vue";
 onMounted(() => {
     $("#slick-products").slick({
         infinite: true,
-        speed: 800,
+        speed: 900,
         centerMode: false,
         centerPadding: "40px",
         slidesToShow: 6.5,
@@ -28,14 +28,6 @@ onMounted(() => {
         responsive: [
             {
                 breakpoint: 768,
-                settings: {
-                    infinite: true,
-                    centerMode: false,
-                    slidesToShow: 3.5,
-                },
-            },
-            {
-                breakpoint: 480,
                 settings: {
                     infinite: true,
                     centerMode: false,

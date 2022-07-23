@@ -33,6 +33,9 @@ onMounted(() => {
         closeAuthOffcanvas();
     }
 
+    if (usePage().props.value.user.name !== "") {
+        removeAuthOffcanvas();
+    }
     if (requireAuth.value.status == true) {
         openAuthOffcanvas();
     }
@@ -55,5 +58,9 @@ const openAuthOffcanvas = () => {
 };
 const closeAuthOffcanvas = () => {
     $("#auth-offcanvas").offcanvas("hide");
+    $("#auth-offcanvas").remove();
+};
+const removeAuthOffcanvas = () => {
+    $("#auth-offcanvas").remove();
 };
 </script>

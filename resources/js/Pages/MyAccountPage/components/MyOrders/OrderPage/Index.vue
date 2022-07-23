@@ -1,12 +1,14 @@
 <template>
-    <app-layout title="My Account" backgroundColor="background-color:#F9F9F9">
-        <section class="container mb-5 mt-3">
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-9">
-                    <OrderDetails />
-                    <OrderAddress />
-                    <OrderProducts />
-                </div>
+    <app-layout
+        title="Order Details"
+        backgroundColor="background-color:#F9F9F9"
+        :backUrl="$page.props.previousPageUrl"
+    >
+        <section class="container-fluid">
+            <div class="d-flex flex-column justify-content-center">
+                <OrderDetails />
+                <OrderAddress />
+                <OrderProducts />
             </div>
         </section>
     </app-layout>

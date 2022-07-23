@@ -6,11 +6,36 @@
 
 .mobile-navbar nav {
     justify-content: unset !important;
+    align-items: unset !important;
+    color: #1a1a1a !important;
 }
-.mobile-navbar nav i {
+.mobile-navbar nav a {
+    color: #1a1a1a !important;
+}
+
+.search-products-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccccccde;
+    width: 100%;
+    margin: 0 20px;
+    padding: 5px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+.search-products-container i {
+    margin-right: 10px;
+    padding-left: 5px;
+}
+.search-products-container input {
+    width: 100%;
+    background-color: transparent;
+    border-radius: 0 20px 0 0;
+}
+.mobile-navbar nav .backurl-icon {
     position: absolute;
     padding-left: 10px;
-    font-size: 17px;
+    font-size: 18px;
 }
 .page-title {
     font-weight: 600;

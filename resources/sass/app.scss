@@ -52,11 +52,10 @@ main {
 }
 section {
     padding-top: 72px;
-    padding-bottom: 20px;
-    margin-bottom: 30px;
+    padding-bottom: 70px;
 }
 
-input[type="checkbox"]:focus,
+input:focus,
 .form-check-input,
 button {
     outline: 0 !important;
@@ -123,12 +122,6 @@ ul {
 }
 
 @media screen and (display-mode: standalone) {
-    #nprogress .bar {
-        top: 48px !important;
-    }
-    #nprogress .peg {
-        box-shadow: none !important;
-    }
     #toast-alert {
         top: 10% !important;
     }
@@ -136,7 +129,7 @@ ul {
 
 #nprogress .bar {
     z-index: 9999999999999999999999999999999999999999999999999999999;
-    height: 3px !important;
+    height: 4px !important;
 }
 #nprogress .spinner {
     top: 50% !important;

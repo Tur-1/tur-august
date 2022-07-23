@@ -32,7 +32,7 @@ class ShopPageController extends Controller
             return Inertia::render('Errors/404');
         }
 
-        Session::put('previousPageUrl', url()->current());
+        Session::put('previousPageUrl', request()->fullUrl());
 
         return Inertia::render('ShopPage/Index', [
 
@@ -46,6 +46,7 @@ class ShopPageController extends Controller
             'products' => $products,
             'queryString' => $queryString,
             'sortProducts' => $sortProducts,
+
         ]);
     }
 }

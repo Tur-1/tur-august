@@ -1,5 +1,8 @@
 <template>
-    <app-layout :title="$page.props.productDetail.name">
+    <app-layout
+        :title="$page.props.productDetail.name"
+        :backUrl="$page.props.previousPageUrl"
+    >
         <Breadcrumb
             v-if="showDesktopLayout"
             :categories="$page.props.breadcrumb"
