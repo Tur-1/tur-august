@@ -4,7 +4,13 @@
             <div class="search-products-container">
                 <i class="bi bi-search"></i>
 
-                <input type="text" placeholder="search" />
+                <input
+                    type="text"
+                    placeholder="search"
+                    @keyup.enter="getSearchResults"
+                    v-model="search"
+                />
+                <i class="bi bi-x-lg" @click="clearSearchResults"></i>
             </div>
         </nav>
         <nav class="navbar" v-if="!route().current('shopPage')">
@@ -16,8 +22,44 @@
     </header>
 </template>
 <script setup>
+import { Inertia } from "@inertiajs/inertia";
+import { usePage } from "@inertiajs/inertia-vue3";
+import { ref } from "vue";
+
 defineProps({
     title: String,
     backUrl: String,
 });
+let search = ref(
+    usePage().props.value.queryString
+        ? usePage().props.value.queryString.search
+        : ""
+);
+
+const getSearchResults = () => {
+    if (search.value) {
+        Inertia.get(
+            route("shopPage", {
+                category_slug: usePage().props.value.category.slug,
+            }),
+            {
+                search: search.value,
+            },
+            {
+                preserveState: true,
+                replace: true,
+            }
+        );
+    }
+};
+const clearSearchResults = () => {
+    search.value = "";
+    if (usePage().props.value.queryString.search) {
+        Inertia.get(
+            route("shopPage", {
+                category_slug: usePage().props.value.category.slug,
+            })
+        );
+    }
+};
 </script>

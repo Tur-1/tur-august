@@ -148,7 +148,7 @@ class ShopPageService
 
     public function getQueriesString()
     {
-        return request()->only(['brand', 'color', 'sort', 'sizeOptions']);
+        return request()->only(['brand', 'color', 'sort', 'sizeOptions', 'search']);
     }
 
     private function setBrandNameForEachProduct(): void

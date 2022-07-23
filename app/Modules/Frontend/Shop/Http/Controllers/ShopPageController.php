@@ -47,6 +47,7 @@ class ShopPageController extends Controller
             'queryString' => $queryString,
             'sortProducts' => $sortProducts,
 
+
         ]);
     }
 }

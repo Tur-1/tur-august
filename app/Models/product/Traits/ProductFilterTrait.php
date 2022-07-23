@@ -37,7 +37,7 @@ trait ProductFilterTrait
             $query->whereHas('brand', fn ($query) => $this->searchByBrand($query))
                 ->OrwhereHas('color', fn ($query) => $this->searchByColor($query))
                 ->OrwhereHas('categories', fn ($query) => $this->searchByCategories($query))
-                ->orWhere('name', 'like', '%' . request()->input('search') . '%');
+                ->orWhere('name', 'LIKE', "%" . request()->input('search') . "%");
         });
     }
 
