@@ -141,11 +141,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     customClass: ""
   }, null, 8
   /* PROPS */
-  , ["products"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ProductCard"], {
-    products: _ctx.$page.props.latestProducts,
-    customClass: ""
-  }, null, 8
-  /* PROPS */
   , ["products"])])]);
 }
 

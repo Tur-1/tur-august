@@ -18354,7 +18354,7 @@ footer {
     text-align: center !important;
   }
   .product-detail-container {
-    padding-top: 48px !important;
+    padding-top: 55px !important;
   }
   .product-detail-brand {
     margin-top: 10px !important;
@@ -19540,12 +19540,15 @@ ul.shop-sidebar-categories {
   border: 1px solid #eee;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 760px) {
   h3.section-title, .section-title.h3 {
     font-size: 12px !important;
   }
   .medium-banners {
     margin: 2rem 0.1rem !important;
+  }
+  .home-container {
+    padding-top: 45px !important;
   }
 }
 .section-title span {

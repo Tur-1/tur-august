@@ -1,6 +1,6 @@
 <template>
     <app-layout title="Home">
-        <section class="container">
+        <section class="container home-container">
             <LargeBanners />
             <MediumBanners />
 

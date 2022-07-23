@@ -6,10 +6,6 @@
                 :products="$page.props.latestProducts"
                 customClass=""
             />
-            <ProductCard
-                :products="$page.props.latestProducts"
-                customClass=""
-            />
         </div>
     </div>
 </template>
