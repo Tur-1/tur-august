@@ -13,7 +13,10 @@ import ShopMobileHeader from "@/Pages/ShopPage/views/Mobile/components/ShopMobil
             </div>
             <Pagination
                 :links="$page.props.products.meta.links"
-                v-if="$page.props.productsCount > 1"
+                v-if="
+                    $page.props.products.meta.total >
+                    $page.props.products.meta.per_page
+                "
             />
             <div
                 v-show="$page.props.productsCount == 0"
