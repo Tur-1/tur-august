@@ -17723,6 +17723,11 @@ body {
   overflow-y: scroll !important;
 }
 
+@media only screen and (max-width: 760px) {
+  body::-webkit-scrollbar {
+    display: none !important;
+  }
+}
 #app {
   height: 100% !important;
 }
@@ -17742,6 +17747,7 @@ main {
 section {
   padding-top: 72px;
   padding-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 input[type=checkbox]:focus,
