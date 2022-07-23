@@ -106,8 +106,8 @@ class CheckoutPageService
 
         foreach (Product::whereIn('id', $product_ids)->with('sizeOptions')->get() as $product) {
             $product_stock[] = [
-                'id' => strval($product['id']),
-                'stock' => intval($product->sizeOptions->pluck('pivot.stock')->sum())
+                'id' => $product['id'],
+                'stock' => $product->sizeOptions->pluck('pivot.stock')->sum()
             ];
         }
 
@@ -135,14 +135,16 @@ class CheckoutPageService
 
         foreach ($this->cartProducts as $product) {
 
-            $stockSize[] = [
-                'id' => strval($product['size']['pivot']['id']),
-                'stock' => ['-', strval($product['quantity'])]
-            ];
+            // $stockSize[] = [
+            //     'id' => $product['size']['pivot']['id'],
+            //     'stock' => ['-', $product['quantity']]
+            // ];
+            ProductSizeOption::where('id', $product['size']['pivot']['id'])->decrement('stock', $product['quantity']);
         }
 
-        $productSizeOption = new ProductSizeOption();
-        batch()->update($productSizeOption, $stockSize, 'id');
+
+        // $productSizeOption = new ProductSizeOption();
+        // batch()->update($productSizeOption, $stockSize, 'id');
     }
 
     private function getOrderProducts()
