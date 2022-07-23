@@ -45,8 +45,9 @@
                             <figcaption class="card-body  d-flex justify-content-between m-2">
                                 <div class="colorname">
                                     <h6 class="card-title m-0">{{ $color->name }}</h6>
-                                    <a href="">
-                                        {{ $color->products_count }} items </a>
+                                    <span>
+                                        {{ $color->products_count }} items
+                                    </span>
 
                                 </div>
 

@@ -43,8 +43,9 @@
                             <figcaption class="card-body  d-flex justify-content-between">
                                 <div class="brandname">
                                     <h6 class="card-title m-0">{{ $brand->name }}</h6>
-                                    <a>
-                                        {{ $brand->products_count }} items </a>
+                                    <span>
+                                        {{ $brand->products_count }} items
+                                    </span>
 
                                 </div>
                                 @include('Backend.components.policy-dropdown-edit-delete-buttons', [

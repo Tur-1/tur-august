@@ -68,7 +68,7 @@
             @can('viewAny', App\Models\product\Product::class)
                 <li class="menu-item has-submenu ">
 
-                    <a class="menu-link" href="page-products-list.html">
+                    <a class="menu-link"href="#">
                         <i class="icon material-icons md-shopping_bag"></i>
                         <span class="text">Products</span>
                     </a>
