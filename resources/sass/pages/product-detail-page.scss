@@ -41,10 +41,16 @@
     .tabs-description-additionalInfo-reviews .nav-tabs .nav-item {
         text-align: center !important;
     }
+    .product-detail-container {
+        padding-top: 48px !important;
+    }
+    .product-detail-brand {
+        margin-top: 10px !important;
+    }
 }
 
 .product-detail-container {
-    padding-top: 25px !important;
+    padding-top: 25px;
 }
 
 .product-detail-container .row {

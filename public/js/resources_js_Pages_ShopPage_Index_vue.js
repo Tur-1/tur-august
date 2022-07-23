@@ -15,9 +15,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Pages_Auth_components_SocialButtons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Pages/Auth/components/SocialButtons */ "./resources/js/Pages/Auth/components/SocialButtons.vue");
 /* harmony import */ var _Pages_Auth_components_LoginForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Pages/Auth/components/LoginForm */ "./resources/js/Pages/Auth/components/LoginForm.vue");
 /* harmony import */ var _Pages_Auth_components_RegisterForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Pages/Auth/components/RegisterForm */ "./resources/js/Pages/Auth/components/RegisterForm.vue");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _Pages_Auth_components_ResetPasswrod_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Pages/Auth/components/ResetPasswrod.vue */ "./resources/js/Pages/Auth/components/ResetPasswrod.vue");
-
+/* harmony import */ var _Pages_Auth_components_ResetPasswrod_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Pages/Auth/components/ResetPasswrod.vue */ "./resources/js/Pages/Auth/components/ResetPasswrod.vue");
 
 
 
@@ -28,22 +26,12 @@ __webpack_require__.r(__webpack_exports__);
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
-    var isDesktop = (0,vue__WEBPACK_IMPORTED_MODULE_4__.ref)(true);
-    var mediaQueryWidth = window.matchMedia("(max-width: 756px)");
-
-    if (mediaQueryWidth.matches) {
-      isDesktop.value = false;
-    }
-
     var __returned__ = {
-      isDesktop: isDesktop,
-      mediaQueryWidth: mediaQueryWidth,
       AuthTabsHeader: _Pages_Auth_components_AuthTabsHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
       SocialButtons: _Pages_Auth_components_SocialButtons__WEBPACK_IMPORTED_MODULE_1__["default"],
       LoginForm: _Pages_Auth_components_LoginForm__WEBPACK_IMPORTED_MODULE_2__["default"],
       RegisterForm: _Pages_Auth_components_RegisterForm__WEBPACK_IMPORTED_MODULE_3__["default"],
-      ref: vue__WEBPACK_IMPORTED_MODULE_4__.ref,
-      ResetPasswrod: _Pages_Auth_components_ResetPasswrod_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+      ResetPasswrod: _Pages_Auth_components_ResetPasswrod_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -1303,27 +1291,23 @@ __webpack_require__.r(__webpack_exports__);
       return (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.value.requireAuth;
     }));
     (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(function () {
-      if (requireAuth.value.status == false) {
-        closeAuthModal();
-      }
-
       if (requireAuth.value.status == true) {
         openAuthModal();
       }
 
-      if (requireAuth.value.status == true && (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.value.errors !== null) {
-        openAuthModal();
+      if (requireAuth.value.status == false) {
+        closeAuthModal();
       }
     });
     (0,vue__WEBPACK_IMPORTED_MODULE_3__.watch)(function () {
       return requireAuth.value;
     }, function (value) {
-      if (value.status == false) {
-        closeAuthModal();
-      }
-
       if (value.status == true) {
         openAuthModal();
+      }
+
+      if (value.status == false) {
+        closeAuthModal();
       }
     }, {
       deep: true
@@ -1466,10 +1450,6 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       if (requireAuth.value.status == true) {
-        openAuthOffcanvas();
-      }
-
-      if (requireAuth.value.status == true && (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.value.errors !== null) {
         openAuthOffcanvas();
       }
     });
@@ -2468,7 +2448,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     products: _ctx.$page.props.products.data
   }, null, 8
   /* PROPS */
-  , ["products"])]), _ctx.$page.props.productsCount > 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Pagination"], {
+  , ["products"])]), _ctx.$page.props.products.meta.total > _ctx.$page.props.products.meta.per_page ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Pagination"], {
     key: 0,
     links: _ctx.$page.props.products.meta.links
   }, null, 8
@@ -3737,7 +3717,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-var _hoisted_1 = ["id"];
+var _hoisted_1 = ["id", "aria-labelledby"];
 var _hoisted_2 = {
   "class": "modal-dialog modal-dialog-centered"
 };
@@ -3752,7 +3732,11 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
     "class": "modal fade base-modal",
     id: $props.id,
-    tabindex: "-1"
+    "data-bs-backdrop": "static",
+    "data-bs-keyboard": "false",
+    tabindex: "-1",
+    "aria-labelledby": 'static-' + $props.id,
+    "aria-hidden": "true"
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
     "data-bs-dismiss": "modal",

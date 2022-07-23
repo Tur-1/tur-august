@@ -142,7 +142,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     products: _ctx.$page.props.products.data
   }, null, 8
   /* PROPS */
-  , ["products"])]), _ctx.$page.props.productsCount > 1 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Pagination"], {
+  , ["products"])]), _ctx.$page.props.products.meta.total > _ctx.$page.props.products.meta.per_page ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Pagination"], {
     key: 0,
     links: _ctx.$page.props.products.meta.links
   }, null, 8

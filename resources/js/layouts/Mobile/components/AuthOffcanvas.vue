@@ -36,12 +36,6 @@ onMounted(() => {
     if (requireAuth.value.status == true) {
         openAuthOffcanvas();
     }
-    if (
-        requireAuth.value.status == true &&
-        usePage().props.value.errors !== null
-    ) {
-        openAuthOffcanvas();
-    }
 });
 watch(
     () => requireAuth.value,

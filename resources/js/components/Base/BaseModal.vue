@@ -1,5 +1,13 @@
 <template>
-    <div class="modal fade base-modal" :id="id" tabindex="-1">
+    <div
+        class="modal fade base-modal"
+        :id="id"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        :aria-labelledby="'static-' + id"
+        aria-hidden="true"
+    >
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-body position-relative">

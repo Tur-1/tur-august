@@ -4,7 +4,11 @@
         <div id="slick-products" class="pb-5">
             <ProductCard
                 :products="$page.props.latestProducts"
-                customClass="."
+                customClass=""
+            />
+            <ProductCard
+                :products="$page.props.latestProducts"
+                customClass=""
             />
         </div>
     </div>
@@ -17,7 +21,7 @@ import { onMounted } from "vue";
 onMounted(() => {
     $("#slick-products").slick({
         infinite: true,
-        speed: 500,
+        speed: 800,
         centerMode: false,
         centerPadding: "40px",
         slidesToShow: 6.5,
@@ -30,9 +34,7 @@ onMounted(() => {
                 breakpoint: 768,
                 settings: {
                     infinite: true,
-
                     centerMode: false,
-                    centerPadding: "40px",
                     slidesToShow: 3.5,
                 },
             },
@@ -40,8 +42,6 @@ onMounted(() => {
                 breakpoint: 480,
                 settings: {
                     infinite: true,
-
-                    centerPadding: "40px",
                     centerMode: false,
                     slidesToShow: 2.5,
                 },

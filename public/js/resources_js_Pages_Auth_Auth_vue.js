@@ -15,9 +15,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Pages_Auth_components_SocialButtons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Pages/Auth/components/SocialButtons */ "./resources/js/Pages/Auth/components/SocialButtons.vue");
 /* harmony import */ var _Pages_Auth_components_LoginForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Pages/Auth/components/LoginForm */ "./resources/js/Pages/Auth/components/LoginForm.vue");
 /* harmony import */ var _Pages_Auth_components_RegisterForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Pages/Auth/components/RegisterForm */ "./resources/js/Pages/Auth/components/RegisterForm.vue");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _Pages_Auth_components_ResetPasswrod_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Pages/Auth/components/ResetPasswrod.vue */ "./resources/js/Pages/Auth/components/ResetPasswrod.vue");
-
+/* harmony import */ var _Pages_Auth_components_ResetPasswrod_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Pages/Auth/components/ResetPasswrod.vue */ "./resources/js/Pages/Auth/components/ResetPasswrod.vue");
 
 
 
@@ -28,22 +26,12 @@ __webpack_require__.r(__webpack_exports__);
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
-    var isDesktop = (0,vue__WEBPACK_IMPORTED_MODULE_4__.ref)(true);
-    var mediaQueryWidth = window.matchMedia("(max-width: 756px)");
-
-    if (mediaQueryWidth.matches) {
-      isDesktop.value = false;
-    }
-
     var __returned__ = {
-      isDesktop: isDesktop,
-      mediaQueryWidth: mediaQueryWidth,
       AuthTabsHeader: _Pages_Auth_components_AuthTabsHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
       SocialButtons: _Pages_Auth_components_SocialButtons__WEBPACK_IMPORTED_MODULE_1__["default"],
       LoginForm: _Pages_Auth_components_LoginForm__WEBPACK_IMPORTED_MODULE_2__["default"],
       RegisterForm: _Pages_Auth_components_RegisterForm__WEBPACK_IMPORTED_MODULE_3__["default"],
-      ref: vue__WEBPACK_IMPORTED_MODULE_4__.ref,
-      ResetPasswrod: _Pages_Auth_components_ResetPasswrod_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+      ResetPasswrod: _Pages_Auth_components_ResetPasswrod_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
