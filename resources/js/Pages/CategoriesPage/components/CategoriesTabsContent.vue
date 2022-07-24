@@ -71,6 +71,506 @@
 
                                 <span> {{ subcategory.name }} </span>
                             </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
+                            <Link class="card-category" :href="category.link">
+                                <img loading="lazy" :src="category.image_url" />
+
+                                <span> view all </span>
+                            </Link>
+                            <Link
+                                class="card-category"
+                                v-for="(
+                                    subcategory, subcategoryIndex
+                                ) in category.children"
+                                :key="subcategory.id"
+                                :href="subcategory.link"
+                            >
+                                <img
+                                    loading="lazy"
+                                    :src="subcategory.image_url"
+                                />
+
+                                <span> {{ subcategory.name }} </span>
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -17721,7 +17721,6 @@ body {
 }
 
 body {
-  height: 100vh !important;
   height: -webkit-fill-available;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   background-color: white;
@@ -17730,10 +17729,11 @@ body {
 @media only screen and (max-width: 760px) {
   body::-webkit-scrollbar {
     display: none !important;
+    z-index: 100000000000000020;
   }
 }
 #app {
-  height: 100% !important;
+  height: 100vh !important;
 }
 
 @media screen and (display-mode: standalone) {
@@ -17741,19 +17741,17 @@ body {
     top: 10% !important;
   }
   section {
-    padding-top: 46px !important;
     padding-bottom: 80px !important;
   }
 }
 main {
-  height: 100% !important;
+  min-height: 100% !important;
   display: flex;
   flex-direction: column;
 }
 
 section {
   padding-bottom: 70px;
-  padding-top: 65px;
 }
 
 #toast-alert {
@@ -17880,14 +17878,8 @@ ul {
 }
 
 @media only screen and (max-width: 760px) {
-  section {
-    padding-top: 40px;
-  }
   .section-title {
     font-size: 14px !important;
-  }
-  main::-webkit-scrollbar {
-    display: none !important;
   }
 }
 @media screen and (display-mode: standalone) {
@@ -17942,7 +17934,8 @@ ul {
 /******** navbar *************/
 .desktop-navbar,
 .mobile-navbar {
-  position: fixed !important;
+  position: sticky !important;
+  position: -webkit-sticky;
   border-bottom: 1px solid rgba(204, 204, 204, 0.4588235294);
   top: 0 !important;
   left: 0;
@@ -18642,7 +18635,16 @@ footer {
 
 /*    mobile filter and sort bottons   **/
 .mobile-shop-page-header {
-  margin-top: 9px !important;
+  border: 1px solid #dee2e6;
+  border-top: none !important;
+  background-color: white;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 50px;
+  background-color: white;
+  z-index: 999999;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .mobile-shop-page-header .sort-filter-btns {
@@ -19400,15 +19402,13 @@ ul.shop-sidebar-categories {
 }
 
 /******** categories page *************/
-.categories-page-container {
-  height: -webkit-fill-available;
-}
-
 .categories-page-container .categories-page-header {
-  position: fixed !important;
+  position: sticky !important;
+  position: -webkit-sticky;
+  top: 50px;
+  z-index: 999999;
   width: 100%;
   background-color: white;
-  margin-top: 8px;
 }
 
 .categories-page-container .categories-page-header .nav {
@@ -19438,10 +19438,6 @@ ul.shop-sidebar-categories {
   display: flex !important;
   width: 100% !important;
   background-color: #f9f9f9;
-}
-
-.categories-page-container .categories-page-body .tab-content:first-child {
-  margin-top: 49px;
 }
 
 .categories-page-container .categories-page-body .tab-content .tab-pane .tab-buttons-content .nav {

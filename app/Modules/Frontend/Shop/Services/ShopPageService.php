@@ -48,7 +48,10 @@ class ShopPageService
 
     public function getPreviousCategory()
     {
-        return  ShopCategoriesResource::make($this->allCategories->whereIn('id', $this->category->parents_ids)->last());
+
+        return  $this->allCategories->whereIn('id', $this->category->parents_ids)->last()
+            ? ShopCategoriesResource::make($this->allCategories->whereIn('id', $this->category->parents_ids)->last())
+            : [];
     }
     public function getBrands()
     {

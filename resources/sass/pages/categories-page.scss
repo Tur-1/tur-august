@@ -1,13 +1,12 @@
 /******** categories page *************/
 
-.categories-page-container {
-    height: -webkit-fill-available;
-}
 .categories-page-container .categories-page-header {
-    position: fixed !important;
+    position: sticky !important;
+    position: -webkit-sticky;
+    top: 50px;
+    z-index: 999999;
     width: 100%;
     background-color: white;
-    margin-top: 8px;
 }
 .categories-page-container .categories-page-header .nav {
     flex-wrap: unset !important;
@@ -38,8 +37,8 @@
     background-color: #f9f9f9;
 }
 
-.categories-page-container .categories-page-body .tab-content:first-child {
-    margin-top: 49px;
+.categories-page-container .categories-page-body {
+    // padding-bottom: 100px;
 }
 .categories-page-container .categories-page-body .tab-content .tab-pane .tab-buttons-content .nav {
     background-color: #d8d8d8 !important;

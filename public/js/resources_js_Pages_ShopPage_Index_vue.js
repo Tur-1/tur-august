@@ -3578,16 +3578,15 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = {
   "class": "mobile-shop-page-header"
 };
-var _hoisted_2 = {
-  "class": "row border text-center m-0"
-};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ShopMobileSort"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ShopMobileFilter"], {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ShopMobileSort"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ShopMobileFilter"], {
     categorySlug: _ctx.$page.props.category.slug,
     queryString: _ctx.$page.props.queryString
   }, null, 8
   /* PROPS */
-  , ["categorySlug", "queryString"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ShopMobileHeaderCategories"])]);
+  , ["categorySlug", "queryString"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ShopMobileHeaderCategories"])], 64
+  /* STABLE_FRAGMENT */
+  );
 }
 
 /***/ }),

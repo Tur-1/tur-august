@@ -15,6 +15,7 @@ class ShopCategoriesResource extends JsonResource
     public function toArray($request)
     {
 
+
         $activeCategoryClass = url()->current() == route('shop.categoryPage', ['category_slug' => $this->slug]) ? 'active' : '';
 
 

@@ -18,7 +18,7 @@ class ProductDetailCategoriesResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'link' => route('shopPage', ['category_slug' => $this->slug]),
+            'link' => route('shop.categoryPage', ['category_slug' => $this->slug]),
         ];
     }
 }

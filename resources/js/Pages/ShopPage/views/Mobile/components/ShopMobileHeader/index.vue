@@ -1,15 +1,12 @@
 <template>
     <div class="mobile-shop-page-header">
-        <div class="row border text-center m-0">
-            <ShopMobileSort />
-            <ShopMobileFilter
-                :categorySlug="$page.props.category.slug"
-                :queryString="$page.props.queryString"
-            />
-        </div>
-
-        <ShopMobileHeaderCategories />
+        <ShopMobileSort />
+        <ShopMobileFilter
+            :categorySlug="$page.props.category.slug"
+            :queryString="$page.props.queryString"
+        />
     </div>
+    <ShopMobileHeaderCategories />
 </template>
 
 <script setup>
