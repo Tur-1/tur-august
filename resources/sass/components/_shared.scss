@@ -3,20 +3,10 @@
         top: 10% !important;
     }
     section {
-        padding-top: 68px;
+        padding-top: 46px !important;
     }
 }
-@media only screen and (max-width: 760px) {
-    section {
-        padding-top: 40px !important;
-    }
-    .section-title {
-        font-size: 14px !important;
-    }
-    main::-webkit-scrollbar {
-        display: none !important;
-    }
-}
+
 main {
     height: 100% !important;
     display: flex;
@@ -52,7 +42,10 @@ section {
 
 #nprogress .bar {
     z-index: 9999999999999999999999999999999999999999999999999999999;
-    height: 4px !important;
+    height: 3px !important;
+}
+#nprogress .peg {
+    box-shadow: none !important;
 }
 #nprogress .spinner {
     top: 50% !important;
@@ -142,4 +135,15 @@ ul {
 }
 .section-title span {
     color: #088178;
+}
+@media only screen and (max-width: 760px) {
+    section {
+        padding-top: 40px;
+    }
+    .section-title {
+        font-size: 14px !important;
+    }
+    main::-webkit-scrollbar {
+        display: none !important;
+    }
 }

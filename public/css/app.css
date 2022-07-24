@@ -17737,18 +17737,7 @@ body {
     top: 10% !important;
   }
   section {
-    padding-top: 68px;
-  }
-}
-@media only screen and (max-width: 760px) {
-  section {
-    padding-top: 40px !important;
-  }
-  .section-title {
-    font-size: 14px !important;
-  }
-  main::-webkit-scrollbar {
-    display: none !important;
+    padding-top: 46px !important;
   }
 }
 main {
@@ -17788,7 +17777,11 @@ section {
 
 #nprogress .bar {
   z-index: 10000000000000001000000000000000000000000000000000000000;
-  height: 4px !important;
+  height: 3px !important;
+}
+
+#nprogress .peg {
+  box-shadow: none !important;
 }
 
 #nprogress .spinner {
@@ -17883,6 +17876,17 @@ ul {
   color: #088178;
 }
 
+@media only screen and (max-width: 760px) {
+  section {
+    padding-top: 40px;
+  }
+  .section-title {
+    font-size: 14px !important;
+  }
+  main::-webkit-scrollbar {
+    display: none !important;
+  }
+}
 @media screen and (display-mode: standalone) {
   .mobile-navbar {
     padding-top: 7px !important;
