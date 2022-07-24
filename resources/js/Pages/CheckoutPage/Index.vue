@@ -11,7 +11,7 @@
                     <div class="col-xl-8 col-lg-7 col-md-6">
                         <CheckoutUserAddresses :checkoutForm="checkoutForm" />
                     </div>
-                    <div class="col-xl-4 col-lg-5 col-md-6">
+                    <div class="col-xl-4 col-lg-5 col-md-6 mb-5">
                         <CheckoutProducts />
                         <CheckoutCouponForm />
                         <CheckoutDetails />

@@ -17,8 +17,8 @@ onMounted(() => {
 </script>
 
 <template>
-    <LayoutMobileNavbar :title="title" :backUrl="backUrl" />
-    <main scroll-region>
+    <main>
+        <LayoutMobileNavbar :title="title" :backUrl="backUrl" />
         <Transition name="slide" mode="out-in">
             <slot v-if="contentTrigger" />
         </Transition>

@@ -2394,11 +2394,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-var _hoisted_1 = {
-  "scroll-region": ""
-};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["LayoutNavbar"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("main", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["LayoutNavbar"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
     name: "fade",
     mode: "out-in"
   }, {
@@ -2410,9 +2407,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
     /* FORWARDED */
 
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AuthModal"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["LayoutFooter"])])], 64
-  /* STABLE_FRAGMENT */
-  );
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AuthModal"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["LayoutFooter"])]);
 }
 
 /***/ }),
@@ -2668,16 +2663,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-var _hoisted_1 = {
-  "scroll-region": ""
-};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["LayoutMobileNavbar"], {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("main", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["LayoutMobileNavbar"], {
     title: $props.title,
     backUrl: $props.backUrl
   }, null, 8
   /* PROPS */
-  , ["title", "backUrl"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("main", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
+  , ["title", "backUrl"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
     name: "slide",
     mode: "out-in"
   }, {
@@ -2689,9 +2681,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
     /* FORWARDED */
 
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AuthOffcanvas"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CategoriesPage"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["LayoutMobileFooter"])])], 64
-  /* STABLE_FRAGMENT */
-  );
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AuthOffcanvas"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CategoriesPage"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["LayoutMobileFooter"])]);
 }
 
 /***/ }),
