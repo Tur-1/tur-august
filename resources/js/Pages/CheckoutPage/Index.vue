@@ -34,7 +34,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { useForm } from "@inertiajs/inertia-vue3";
 
 import AppLayout from "@/layouts/AppLayout";
@@ -61,6 +61,7 @@ const mediaQueryWidth = window.matchMedia("(max-width: 756px)");
 if (mediaQueryWidth.matches) {
     isDesktop.value = false;
 }
-
-document.querySelector("body").style.backgroundColor = "#F9F9F9";
+onMounted(() => {
+    document.querySelector("body").style.backgroundColor = "#F9F9F9";
+});
 </script>

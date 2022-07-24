@@ -58,6 +58,7 @@ const openMyAddressBookModal = (address) => {
 const closeMyAddressBookModal = () => {
     editMode.value = false;
     $("#checkout-address-book-modal").modal("hide");
+    myAddressForm.reset();
 };
 
 const storeNewAddress = () => {

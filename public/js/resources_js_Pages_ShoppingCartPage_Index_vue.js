@@ -259,7 +259,9 @@ __webpack_require__.r(__webpack_exports__);
       isDesktop.value = false;
     }
 
-    document.querySelector("body").style.backgroundColor = "#F9F9F9";
+    (0,vue__WEBPACK_IMPORTED_MODULE_6__.onMounted)(function () {
+      document.querySelector("body").style.backgroundColor = "#F9F9F9";
+    });
     var __returned__ = {
       isDesktop: isDesktop,
       isMobile: isMobile,
@@ -270,6 +272,7 @@ __webpack_require__.r(__webpack_exports__);
       CartProducts: _Pages_ShoppingCartPage_components_CartProducts__WEBPACK_IMPORTED_MODULE_3__["default"],
       CartDetails: _Pages_ShoppingCartPage_components_CartDetails__WEBPACK_IMPORTED_MODULE_4__["default"],
       ProductsNoLongerInStock: _Pages_ShoppingCartPage_components_ProductsNoLongerInStock_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+      onMounted: vue__WEBPACK_IMPORTED_MODULE_6__.onMounted,
       ref: vue__WEBPACK_IMPORTED_MODULE_6__.ref,
       CartEmpty: _Pages_ShoppingCartPage_components_CartEmpty_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
     };

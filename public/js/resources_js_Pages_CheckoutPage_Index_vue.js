@@ -271,12 +271,15 @@ __webpack_require__.r(__webpack_exports__);
       isDesktop.value = false;
     }
 
-    document.querySelector("body").style.backgroundColor = "#F9F9F9";
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
+      document.querySelector("body").style.backgroundColor = "#F9F9F9";
+    });
     var __returned__ = {
       checkoutForm: checkoutForm,
       buyNow: buyNow,
       isDesktop: isDesktop,
       mediaQueryWidth: mediaQueryWidth,
+      onMounted: vue__WEBPACK_IMPORTED_MODULE_0__.onMounted,
       ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
       useForm: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.useForm,
       AppLayout: _layouts_AppLayout__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -519,6 +522,7 @@ __webpack_require__.r(__webpack_exports__);
     var closeMyAddressBookModal = function closeMyAddressBookModal() {
       editMode.value = false;
       $("#checkout-address-book-modal").modal("hide");
+      myAddressForm.reset();
     };
 
     var storeNewAddress = function storeNewAddress() {

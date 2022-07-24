@@ -34,6 +34,7 @@ const openMyAddressBookModal = (address) => {
 const closeMyAddressBookModal = () => {
     editMode.value = false;
     $("#my-address-book-modal").modal("hide");
+    myAddressForm.reset();
 };
 
 const storeNewAddress = () => {

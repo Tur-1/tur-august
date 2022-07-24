@@ -2,6 +2,9 @@
     #toast-alert {
         top: 10% !important;
     }
+    section {
+        padding-top: 68px;
+    }
 }
 @media only screen and (max-width: 760px) {
     section {
@@ -19,10 +22,11 @@ main {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    overflow-x: hidden !important;
 }
 section {
     padding-bottom: 70px;
-    padding-top: 64px;
+    padding-top: 65px;
 }
 #toast-alert {
     position: fixed !important;

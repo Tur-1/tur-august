@@ -26,7 +26,7 @@ import CartProducts from "@/Pages/ShoppingCartPage/components/CartProducts";
 import CartDetails from "@/Pages/ShoppingCartPage/components/CartDetails";
 import ProductsNoLongerInStock from "@/Pages/ShoppingCartPage/components/ProductsNoLongerInStock.vue";
 
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import CartEmpty from "@/Pages/ShoppingCartPage/components/CartEmpty.vue";
 
 let isDesktop = ref(true);
@@ -38,5 +38,7 @@ if (mediaQueryWidth.matches) {
     isMobile.value = true;
     isDesktop.value = false;
 }
-document.querySelector("body").style.backgroundColor = "#F9F9F9";
+onMounted(() => {
+    document.querySelector("body").style.backgroundColor = "#F9F9F9";
+});
 </script>

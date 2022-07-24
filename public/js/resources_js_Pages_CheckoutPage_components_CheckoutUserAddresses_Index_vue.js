@@ -113,6 +113,7 @@ __webpack_require__.r(__webpack_exports__);
     var closeMyAddressBookModal = function closeMyAddressBookModal() {
       editMode.value = false;
       $("#checkout-address-book-modal").modal("hide");
+      myAddressForm.reset();
     };
 
     var storeNewAddress = function storeNewAddress() {

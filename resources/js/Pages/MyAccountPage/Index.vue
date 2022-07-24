@@ -6,7 +6,7 @@
 </template>
 <script setup>
 import AppLayout from "@/layouts/AppLayout";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import MyAccountDesktopView from "@/Pages/MyAccountPage/views/Desktop/MyAccountDesktopView.vue";
 import MyAccountMobileView from "@/Pages/MyAccountPage/views/Mobile/MyAccountMobileView.vue";
 
@@ -19,5 +19,7 @@ if (mediaQueryWidth.matches) {
     isMobile.value = true;
     isDesktop.value = false;
 }
-document.querySelector("body").style.backgroundColor = "#F9F9F9";
+onMounted(() => {
+    document.querySelector("body").style.backgroundColor = "#F9F9F9";
+});
 </script>

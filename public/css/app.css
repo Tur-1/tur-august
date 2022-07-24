@@ -17720,6 +17720,7 @@ body {
   height: -webkit-fill-available;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   background-color: white;
+  overflow-x: hidden !important;
 }
 
 @media only screen and (max-width: 760px) {
@@ -17734,6 +17735,9 @@ body {
 @media screen and (display-mode: standalone) {
   #toast-alert {
     top: 10% !important;
+  }
+  section {
+    padding-top: 68px;
   }
 }
 @media only screen and (max-width: 760px) {
@@ -17752,11 +17756,12 @@ main {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  overflow-x: hidden !important;
 }
 
 section {
   padding-bottom: 70px;
-  padding-top: 64px;
+  padding-top: 65px;
 }
 
 #toast-alert {
