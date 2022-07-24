@@ -1,6 +1,9 @@
 /*    mobile filter and sort bottons   **/
 
 @media screen and (display-mode: standalone) {
+    .mobile-shop-page-header {
+        top: 51px !important;
+    }
 }
 .mobile-shop-page-header {
     border: 1px solid #dee2e6;
@@ -9,9 +12,9 @@
     position: sticky;
     top: 50px;
     background-color: $bg-primary;
-    z-index: 999999;
     display: flex;
     flex-wrap: wrap;
+    z-index: 9999;
 }
 .mobile-shop-page-header .sort-filter-btns {
     background-color: transparent !important;
