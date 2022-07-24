@@ -1993,9 +1993,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "container product-detail-container"
+  "scroll-region": ""
 };
 var _hoisted_2 = {
+  "class": "container product-detail-container"
+};
+var _hoisted_3 = {
   "class": "row justify-content-center"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -2004,13 +2007,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     backUrl: _ctx.$page.props.previousPageUrl
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", null, [$setup.showDesktopLayout ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Breadcrumb"], {
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_1, [$setup.showDesktopLayout ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["Breadcrumb"], {
         key: 0,
         categories: _ctx.$page.props.breadcrumb,
         pageTitle: _ctx.$page.props.productDetail.name
       }, null, 8
       /* PROPS */
-      , ["categories", "pageTitle"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ProductImages"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ProductInformation"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Tabs"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["RelatedProducts"])])])];
+      , ["categories", "pageTitle"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ProductImages"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["ProductInformation"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Tabs"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["RelatedProducts"])])])];
     }),
     _: 1
     /* STABLE */

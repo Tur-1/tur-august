@@ -25,6 +25,9 @@ body {
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
     background-color: $bg-primary;
+
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
 }
 @media only screen and (max-width: 760px) {
     body::-webkit-scrollbar {

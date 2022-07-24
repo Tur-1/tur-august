@@ -12,12 +12,12 @@ main {
     height: 100% !important;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
 }
 
 section {
     padding-bottom: 70px;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
     padding-top: 65px;
 }
 #toast-alert {
@@ -140,7 +140,7 @@ ul {
 }
 @media only screen and (max-width: 760px) {
     section {
-        padding-top: 42px;
+        padding-top: 41px;
     }
     .section-title {
         font-size: 14px !important;

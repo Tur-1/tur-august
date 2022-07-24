@@ -3,7 +3,7 @@
         :title="$page.props.productDetail.name"
         :backUrl="$page.props.previousPageUrl"
     >
-        <section>
+        <section scroll-region>
             <Breadcrumb
                 v-if="showDesktopLayout"
                 :categories="$page.props.breadcrumb"
