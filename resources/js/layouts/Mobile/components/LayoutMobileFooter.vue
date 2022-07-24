@@ -20,25 +20,22 @@
                 </Link>
             </li>
             <li class="footer-item">
-                <a
-                    @click="openCategoriesPageOffcanvas"
+                <Link
+                    :href="route('shop.shopPage')"
                     :class="{
-                        'active-footer-item': route().current('shopPage'),
+                        'active-footer-item': route().current('shop.*'),
                     }"
-                    id="categories-button"
-                    role="button"
                 >
                     <i
                         :class="
-                            route().current('shopPage')
+                            route().current('shop.*')
                                 ? 'bi bi-grid-fill'
                                 : 'bi bi-grid'
                         "
-                        id="categories-icon"
                     >
                     </i>
                     <span>Categories</span>
-                </a>
+                </Link>
             </li>
 
             <li class="footer-item">
@@ -96,18 +93,18 @@
     </footer>
 </template>
 <script setup>
-const openCategoriesPageOffcanvas = () => {
-    if (!route().current("shopPage")) {
-        if (!$("#categories-page-offcanvas").hasClass("show")) {
-            document.getElementById("categories-icon").className =
-                "bi bi-grid-fill";
-            document.getElementById("categories-button").className =
-                "active-footer-item";
-        } else {
-            document.getElementById("categories-icon").className = "bi bi-grid";
-            document.getElementById("categories-button").className = "";
-        }
-    }
-    $("#categories-page-offcanvas").offcanvas("toggle");
-};
+// const openCategoriesPageOffcanvas = () => {
+//     if (!route().current("shopPage")) {
+//         if (!$("#categories-page-offcanvas").hasClass("show")) {
+//             document.getElementById("categories-icon").className =
+//                 "bi bi-grid-fill";
+//             document.getElementById("categories-button").className =
+//                 "active-footer-item";
+//         } else {
+//             document.getElementById("categories-icon").className = "bi bi-grid";
+//             document.getElementById("categories-button").className = "";
+//         }
+//     }
+//     $("#categories-page-offcanvas").offcanvas("toggle");
+// };
 </script>

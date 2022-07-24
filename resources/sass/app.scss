@@ -17,7 +17,10 @@ $bg-green: #51c0a9;
 html {
     height: -webkit-fill-available;
 }
-
+html,
+body {
+    overflow-x: hidden !important;
+}
 body {
     height: 100vh !important;
     height: -webkit-fill-available;
@@ -25,9 +28,6 @@ body {
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
     background-color: $bg-primary;
-
-    overflow-x: hidden !important;
-    overflow-y: auto !important;
 }
 @media only screen and (max-width: 760px) {
     body::-webkit-scrollbar {

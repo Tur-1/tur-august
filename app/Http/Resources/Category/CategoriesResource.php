@@ -23,7 +23,7 @@ class CategoriesResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'slug' => $this->slug,
-            'link' => route('shopPage', ['category_slug' => $this->slug]),
+            'link' => route('shop.categoryPage', ['category_slug' => $this->slug]),
             'image_url' => $this->image_url,
             'active_section_slug' => collect(explode('-', request()->route()->parameter('category_slug')))->first(),
             'children' => $this->children ? CategoriesResource::collection($this->children) : [],

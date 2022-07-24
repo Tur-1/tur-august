@@ -25,11 +25,7 @@
                 id="catalog_return"
                 class="text-dark"
                 :title="$page.props.previousCategory.name"
-                :href="
-                    route('shopPage', {
-                        category_slug: $page.props.previousCategory.slug,
-                    })
-                "
+                :href="previousCategory.link"
             >
                 Back To {{ $page.props.previousCategory.name }}
             </Link>

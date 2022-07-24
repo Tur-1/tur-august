@@ -1,7 +1,7 @@
 <?php
 
+use App\Modules\Frontend\Categories\Http\Controllers\CategoriesPageController;
 use Illuminate\Support\Facades\Route;
-use App\Modules\Frontend\Shop\Http\Controllers\ShopPageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,9 +14,7 @@ use App\Modules\Frontend\Shop\Http\Controllers\ShopPageController;
 */
 
 
-Route::controller(ShopPageController::class)->name('shop.')->group(function () {
+Route::controller(CategoriesPageController::class)->group(function () {
 
-    Route::get('/shop', 'index')->name('shopPage');
-
-    Route::get('/shop/{category_slug}', 'categoryPage')->name('categoryPage');
+    Route::get('/categories', 'index')->name('categoriesPage');
 });

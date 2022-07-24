@@ -166,6 +166,36 @@ var map = {
 		"/js/vendor",
 		"resources_js_Pages_Auth_components_SocialButtons_vue"
 	],
+	"./CategoriesPage/Index": [
+		"./resources/js/Pages/CategoriesPage/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_CategoriesPage_Index_vue"
+	],
+	"./CategoriesPage/Index.vue": [
+		"./resources/js/Pages/CategoriesPage/Index.vue",
+		"/js/vendor",
+		"resources_js_Pages_CategoriesPage_Index_vue"
+	],
+	"./CategoriesPage/components/CategoriesTabsContent": [
+		"./resources/js/Pages/CategoriesPage/components/CategoriesTabsContent.vue",
+		"/js/vendor",
+		"resources_js_Pages_CategoriesPage_components_CategoriesTabsContent_vue"
+	],
+	"./CategoriesPage/components/CategoriesTabsContent.vue": [
+		"./resources/js/Pages/CategoriesPage/components/CategoriesTabsContent.vue",
+		"/js/vendor",
+		"resources_js_Pages_CategoriesPage_components_CategoriesTabsContent_vue"
+	],
+	"./CategoriesPage/components/CategoriesTabsHeader": [
+		"./resources/js/Pages/CategoriesPage/components/CategoriesTabsHeader.vue",
+		"/js/vendor",
+		"resources_js_Pages_CategoriesPage_components_CategoriesTabsHeader_vue"
+	],
+	"./CategoriesPage/components/CategoriesTabsHeader.vue": [
+		"./resources/js/Pages/CategoriesPage/components/CategoriesTabsHeader.vue",
+		"/js/vendor",
+		"resources_js_Pages_CategoriesPage_components_CategoriesTabsHeader_vue"
+	],
 	"./CheckoutPage/Helpers/useCartTotal": [
 		"./resources/js/Pages/CheckoutPage/Helpers/useCartTotal.js",
 		"resources_js_Pages_CheckoutPage_Helpers_useCartTotal_js"

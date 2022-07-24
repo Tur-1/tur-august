@@ -15,14 +15,14 @@ class ShopCategoriesResource extends JsonResource
     public function toArray($request)
     {
 
-        $activeCategoryClass = url()->current() == route('shopPage', ['category_slug' => $this->slug]) ? 'active' : '';
+        $activeCategoryClass = url()->current() == route('shop.categoryPage', ['category_slug' => $this->slug]) ? 'active' : '';
 
 
         return [
             'id' => $this->id,
             'name' => $this->name,
             'slug' => $this->slug,
-            'link' => route('shopPage', ['category_slug' => $this->slug]),
+            'link' => route('shop.categoryPage', ['category_slug' => $this->slug]),
             'image_url' => $this->image_url,
             'activeClass' => $activeCategoryClass,
             'children' => $this->children ? ShopCategoriesResource::collection($this->children) : [],

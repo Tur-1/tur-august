@@ -12,7 +12,12 @@ use App\Modules\Frontend\Shop\Services\ShopPageService;
 class ShopPageController extends Controller
 {
 
-    public function index($category_slug, ShopPageService $shopPageService)
+    public function index()
+    {
+
+        return Inertia::render('CategoriesPage/Index');
+    }
+    public function categoryPage($category_slug, ShopPageService $shopPageService)
     {
 
         try {

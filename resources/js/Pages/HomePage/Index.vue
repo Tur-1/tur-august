@@ -1,6 +1,6 @@
 <template>
     <app-layout title="August">
-        <section scroll-region>
+        <section>
             <div class="container">
                 <LargeBanners />
                 <MediumBanners />

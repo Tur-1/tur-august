@@ -317,9 +317,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     id: "catalog_return",
     "class": "text-dark",
     title: _ctx.$page.props.previousCategory.name,
-    href: _ctx.route('shopPage', {
-      category_slug: _ctx.$page.props.previousCategory.slug
-    })
+    href: _ctx.previousCategory.link
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Back To " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.$page.props.previousCategory.name), 1

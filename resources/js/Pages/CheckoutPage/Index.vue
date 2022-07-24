@@ -13,6 +13,13 @@
                     </div>
                     <div class="col-xl-4 col-lg-5 col-md-6 mb-5">
                         <CheckoutProducts />
+                        <CheckoutProducts />
+                        <CheckoutProducts />
+                        <CheckoutProducts />
+                        <CheckoutProducts />
+                        <CheckoutProducts />
+                        <CheckoutProducts />
+                        <CheckoutProducts />
                         <CheckoutCouponForm />
                         <CheckoutDetails />
 

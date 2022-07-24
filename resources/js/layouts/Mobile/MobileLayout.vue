@@ -1,7 +1,6 @@
 <script setup>
 import LayoutMobileNavbar from "@/layouts/Mobile/components/LayoutMobileNavbar.vue";
 import LayoutMobileFooter from "@/layouts/Mobile/components/LayoutMobileFooter.vue";
-import CategoriesPage from "@/layouts/Mobile/components/Categories/CategoriesPage.vue";
 import { onMounted, ref } from "vue";
 import AuthOffcanvas from "@/layouts/Mobile/components/AuthOffcanvas.vue";
 
@@ -17,13 +16,13 @@ onMounted(() => {
 </script>
 
 <template>
-    <main>
+    <main scroll-region>
         <LayoutMobileNavbar :title="title" :backUrl="backUrl" />
         <Transition name="slide" mode="out-in">
             <slot v-if="contentTrigger" />
         </Transition>
         <AuthOffcanvas />
-        <CategoriesPage />
+
         <LayoutMobileFooter />
     </main>
 </template>

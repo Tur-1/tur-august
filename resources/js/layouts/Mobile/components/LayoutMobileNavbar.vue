@@ -1,6 +1,6 @@
 <template>
     <header class="mobile-navbar">
-        <nav class="navbar" v-if="route().current('shopPage')">
+        <nav class="navbar" v-if="route().current('shop.*')">
             <div class="search-products-container">
                 <i class="bi bi-search"></i>
 
@@ -13,7 +13,7 @@
                 <i class="bi bi-x-lg" @click="clearSearchResults"></i>
             </div>
         </nav>
-        <nav class="navbar" v-if="!route().current('shopPage')">
+        <nav class="navbar" v-if="!route().current('shop.*')">
             <Link v-show="backUrl" :href="backUrl">
                 <i class="bi bi-chevron-left backurl-icon"></i>
             </Link>
@@ -39,7 +39,7 @@ let search = ref(
 const getSearchResults = () => {
     if (search.value) {
         Inertia.get(
-            route("shopPage", {
+            route("shop.categoryPage", {
                 category_slug: usePage().props.value.category.slug,
             }),
             {
@@ -56,7 +56,7 @@ const clearSearchResults = () => {
     search.value = "";
     if (usePage().props.value.queryString.search) {
         Inertia.get(
-            route("shopPage", {
+            route("categoryPage", {
                 category_slug: usePage().props.value.category.slug,
             })
         );

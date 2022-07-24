@@ -15,7 +15,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <main>
+    <main scroll-region>
         <LayoutNavbar />
         <Transition name="fade" mode="out-in">
             <slot v-if="contentTrigger" />
