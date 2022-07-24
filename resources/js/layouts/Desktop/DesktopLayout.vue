@@ -5,7 +5,6 @@ import { onMounted, ref } from "vue";
 import AuthModal from "@/layouts/Desktop/components/AuthModal.vue";
 
 defineProps({
-    backgroundColor: String,
     title: String,
 });
 
@@ -16,12 +15,11 @@ onMounted(() => {
 </script>
 
 <template>
-    <main :style="backgroundColor">
-        <LayoutNavbar />
-
-        <transition-group name="fade" mode="out-in">
+    <LayoutNavbar />
+    <main scroll-region>
+        <Transition name="fade" mode="out-in">
             <slot v-if="contentTrigger" />
-        </transition-group>
+        </Transition>
 
         <AuthModal />
         <LayoutFooter />

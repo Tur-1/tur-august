@@ -17719,8 +17719,7 @@ body {
   height: 100vh !important;
   height: -webkit-fill-available;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  overflow-x: hidden !important;
-  overflow-y: scroll !important;
+  background-color: white;
 }
 
 @media only screen and (max-width: 760px) {
@@ -17732,21 +17731,67 @@ body {
   height: 100% !important;
 }
 
+@media screen and (display-mode: standalone) {
+  #toast-alert {
+    top: 10% !important;
+  }
+}
+@media only screen and (max-width: 760px) {
+  section {
+    padding-top: 40px !important;
+  }
+  .section-title {
+    font-size: 14px !important;
+  }
+  main::-webkit-scrollbar {
+    display: none !important;
+  }
+}
 main {
-  background-color: white;
   height: 100% !important;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 
-@media screen and (display-mode: standalone) {
-  section {
-    padding-top: 76px !important;
-  }
-}
 section {
-  padding-top: 72px;
   padding-bottom: 70px;
+  padding-top: 64px;
+}
+
+#toast-alert {
+  position: fixed !important;
+  top: 7%;
+  z-index: 1000000000000000000000000000000000000000000000000000000000 !important;
+  right: 15px;
+  color: white;
+  width: 350px;
+  max-width: 100%;
+  visibility: visible;
+  font-size: 0.875rem;
+  pointer-events: auto;
+  background-color: rgba(255, 255, 255, 0.85);
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+  -webkit-border-radius: 0.25rem;
+  -moz-border-radius: 0.25rem;
+  -ms-border-radius: 0.25rem;
+  -o-border-radius: 0.25rem;
+}
+
+#nprogress .bar {
+  z-index: 10000000000000001000000000000000000000000000000000000000;
+  height: 4px !important;
+}
+
+#nprogress .spinner {
+  top: 50% !important;
+  left: 50% !important;
+  right: unset !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 10000000000000001000000000000000000000000000000000000000;
 }
 
 input:focus,
@@ -17816,24 +17861,6 @@ ul {
   width: 35px !important;
 }
 
-@media screen and (display-mode: standalone) {
-  #toast-alert {
-    top: 10% !important;
-  }
-}
-#nprogress .bar {
-  z-index: 10000000000000001000000000000000000000000000000000000000;
-  height: 4px !important;
-}
-
-#nprogress .spinner {
-  top: 50% !important;
-  left: 50% !important;
-  right: unset !important;
-  transform: translate(-50%, -50%) !important;
-  z-index: 10000000000000001000000000000000000000000000000000000000;
-}
-
 .page-404 {
   height: 100%;
   background-color: #fff;
@@ -17843,26 +17870,12 @@ ul {
   max-width: 300px;
 }
 
-#toast-alert {
-  position: fixed !important;
-  top: 7%;
-  z-index: 1000000000000000400000000000000000000000000000000000000000000000000000000000000000000000 !important;
-  right: 15px;
-  color: white;
-  width: 350px;
-  max-width: 100%;
-  visibility: visible;
-  font-size: 0.875rem;
-  pointer-events: auto;
-  background-color: rgba(255, 255, 255, 0.85);
-  background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  border-radius: 0.25rem;
-  -webkit-border-radius: 0.25rem;
-  -moz-border-radius: 0.25rem;
-  -ms-border-radius: 0.25rem;
-  -o-border-radius: 0.25rem;
+.section-title {
+  margin: 20px 10px;
+}
+
+.section-title span {
+  color: #088178;
 }
 
 @media screen and (display-mode: standalone) {
@@ -18089,27 +18102,37 @@ footer {
     width: 13.66666667%;
   }
 }
-@media only screen and (max-width: 500px) {
-  .modal-content {
-    width: 95% !important;
-    margin: 0 auto !important;
-  }
+@media only screen and (max-width: 760px) {
   .close-modal-btn {
-    top: -33px !important;
-    right: -3px !important;
+    right: -1px !important;
   }
   .modal-title {
     font-size: 13px !important;
   }
 }
-.modal {
+.modal.base-modal .modal-header {
+  padding: 12px 1rem !important;
+  border-bottom: none !important;
+}
+
+.modal.base-modal .modal-body {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.modal.base-modal .modal-body {
+  padding: 0 1rem 1rem !important;
+}
+
+.modal.base-modal {
   color: #444 !important;
+  z-index: 10000000000000001000000000000000000000000000000000000000000;
 }
 
 .close-modal-btn {
   position: absolute !important;
-  top: -23px;
-  right: -20px;
+  top: -27px;
+  right: -25px;
 }
 
 .modal label {
@@ -18120,6 +18143,8 @@ footer {
 .cancel-submit-btns {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  border-top: 1px solid rgba(222, 226, 230, 0.3803921569);
+  padding: 4px;
 }
 
 .cancel-submit-btns button {
@@ -18133,10 +18158,6 @@ footer {
 
 .cancel-submit-btns .submit-btn {
   color: #51c0a9;
-}
-
-.modal.base-modal .modal-body {
-  padding: 0 !important;
 }
 
 @media only screen and (max-width: 400px) {
@@ -18276,7 +18297,6 @@ footer {
 /************ breadcrumb *************/
 .breadcrumb-wrap {
   background-color: #f9f9f9;
-  margin-top: 64px;
 }
 
 .breadcrumb-wrap .breadcrumb {
@@ -18380,19 +18400,15 @@ footer {
   .tabs-description-additionalInfo-reviews .nav-tabs .nav-item {
     text-align: center !important;
   }
-  .product-detail-container {
-    padding-top: 55px !important;
-  }
   .product-detail-brand {
     margin-top: 10px !important;
   }
+  .product-detail-container {
+    margin-top: 1px !important;
+  }
 }
 .product-detail-container {
-  padding-top: 25px;
-}
-
-.product-detail-container .row {
-  margin-bottom: 35px;
+  margin-top: 20px;
 }
 
 /******** product detail info *************/
@@ -18514,6 +18530,7 @@ footer {
 .tabs-description-additionalInfo-reviews {
   background-color: transparent;
   display: block;
+  margin: 30px 0;
   border-top: 0;
   border-left: 0;
   border-right: 0;
@@ -18612,13 +18629,8 @@ footer {
 }
 
 /*    mobile filter and sort bottons   **/
-@media screen and (display-mode: standalone) {
-  .mobile-shop-page-header {
-    margin-top: 53px !important;
-  }
-}
 .mobile-shop-page-header {
-  margin-top: 48px;
+  margin-top: 9px !important;
 }
 
 .mobile-shop-page-header .sort-filter-btns {
@@ -18638,7 +18650,7 @@ footer {
 }
 
 .desktop-shop-page-header {
-  padding: 25px 0;
+  padding: 30px 0;
 }
 
 /*  mobile-header-categories */
@@ -18810,7 +18822,7 @@ footer {
 .mobile-offcanvas-filter-body .filtered-items .filtered-items-card {
   background-color: rgba(230, 230, 230, 0.7215686275);
   font-size: 12px;
-  padding: 2px 10px;
+  padding: 2px 8px;
   border-radius: 20px;
   display: flex;
   margin: 0px 5px;
@@ -19568,24 +19580,10 @@ ul.shop-sidebar-categories {
 }
 
 @media only screen and (max-width: 760px) {
-  h3.section-title, .section-title.h3 {
-    font-size: 12px !important;
-  }
   .medium-banners {
     margin: 2rem 0.1rem !important;
   }
-  .home-container {
-    padding-top: 55px !important;
-  }
 }
-.section-title span {
-  color: #088178;
-}
-
-h3.section-title, .section-title.h3 {
-  font-size: 19px;
-}
-
 .medium-banners {
   margin: 3rem;
 }

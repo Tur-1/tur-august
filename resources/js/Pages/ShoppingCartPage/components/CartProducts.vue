@@ -50,7 +50,6 @@ const saveForLater = (productId, cartId) => {
     />
 
     <!-- Modal -->
-    <ProductsNoLongerInStock />
 </template>
 <style>
 .list-enter-active,

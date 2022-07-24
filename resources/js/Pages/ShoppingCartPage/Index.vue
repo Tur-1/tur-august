@@ -1,19 +1,19 @@
 <template>
-    <app-layout
-        title="shopping cart"
-        backgroundColor="background-color:#F9F9F9"
-    >
-        <Breadcrumb pageTitle="shopping cart" v-if="isDesktop" />
-        <section class="container">
-            <CartHeader v-if="isDesktop" />
-            <div
-                class="row d-flex justify-content-center"
-                :class="{ 'd-none': $page.props.cartCounter == 0 }"
-            >
-                <CartProducts />
-                <CartDetails />
+    <app-layout title="shopping cart">
+        <section>
+            <Breadcrumb pageTitle="shopping cart" v-if="isDesktop" />
+            <div class="container mt-3">
+                <CartHeader v-if="isDesktop" />
+                <div
+                    class="row d-flex justify-content-center"
+                    :class="{ 'd-none': $page.props.cartCounter == 0 }"
+                >
+                    <CartProducts />
+                    <CartDetails />
+                </div>
+                <CartEmpty :show="$page.props.cartCounter == 0" />
             </div>
-            <CartEmpty :show="$page.props.cartCounter == 0" />
+            <ProductsNoLongerInStock />
         </section>
     </app-layout>
 </template>
@@ -24,6 +24,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import CartHeader from "@/Pages/ShoppingCartPage/components/CartHeader";
 import CartProducts from "@/Pages/ShoppingCartPage/components/CartProducts";
 import CartDetails from "@/Pages/ShoppingCartPage/components/CartDetails";
+import ProductsNoLongerInStock from "@/Pages/ShoppingCartPage/components/ProductsNoLongerInStock.vue";
 
 import { ref } from "vue";
 import CartEmpty from "@/Pages/ShoppingCartPage/components/CartEmpty.vue";
@@ -37,4 +38,5 @@ if (mediaQueryWidth.matches) {
     isMobile.value = true;
     isDesktop.value = false;
 }
+document.querySelector("body").style.backgroundColor = "#F9F9F9";
 </script>

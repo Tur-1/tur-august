@@ -1,5 +1,5 @@
 <template>
-    <div class="col-lg-4 col-md-6">
+    <div class="col-lg-5 col-md-6">
         <div
             id="carouselExampleControls"
             class="carousel slide"

@@ -1,15 +1,10 @@
 /*    mobile filter and sort bottons   **/
 
 @media screen and (display-mode: standalone) {
-    .mobile-shop-page-header {
-        margin-top: 53px !important;
-    }
 }
-
 .mobile-shop-page-header {
-    margin-top: 48px;
+    margin-top: 9px !important;
 }
-
 .mobile-shop-page-header .sort-filter-btns {
     background-color: transparent !important;
     width: 100% !important;
@@ -26,7 +21,7 @@
 }
 
 .desktop-shop-page-header {
-    padding: 25px 0;
+    padding: 30px 0;
 }
 /*  mobile-header-categories */
 
@@ -178,7 +173,7 @@
 .mobile-offcanvas-filter-body .filtered-items .filtered-items-card {
     background-color: rgba(230, 230, 230, 0.7215686275);
     font-size: 12px;
-    padding: 2px 10px;
+    padding: 2px 8px;
     border-radius: 20px;
     display: flex;
     margin: 0px 5px;

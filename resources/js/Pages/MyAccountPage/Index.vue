@@ -1,5 +1,5 @@
 <template>
-    <app-layout title="My Account" backgroundColor="background-color:#F9F9F9">
+    <app-layout title="My Account">
         <MyAccountDesktopView v-if="isDesktop" />
         <MyAccountMobileView v-if="isMobile" />
     </app-layout>
@@ -19,4 +19,5 @@ if (mediaQueryWidth.matches) {
     isMobile.value = true;
     isDesktop.value = false;
 }
+document.querySelector("body").style.backgroundColor = "#F9F9F9";
 </script>

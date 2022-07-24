@@ -18,7 +18,7 @@ class StoreBannerRequest extends FormRequest
         $rules = [
             'title' => 'required',
             'link' => 'nullable',
-            'image' => ['required',  'file', 'image', 'mimes:jpeg,png,jpg', 'max:5000'],
+            'image' => ['required',  'file', 'image', 'mimes:jpeg,png,jpg,webp,gif', 'max:5000'],
             'type' => 'required|in:small,medium,large',
 
         ];

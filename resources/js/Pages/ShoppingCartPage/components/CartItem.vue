@@ -1,5 +1,5 @@
 <template>
-    <TransitionGroup name="list" tag="div" class="col-lg-7 mb-4 mt-2">
+    <TransitionGroup name="list" tag="div" class="col-lg-7 mb-4">
         <div
             class="shopping-cart-product"
             v-for="(product, index) in products"

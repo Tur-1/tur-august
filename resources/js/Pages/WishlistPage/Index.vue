@@ -1,39 +1,19 @@
 <template>
-    <app-layout title="wishlist" v-if="showDesktopLayout">
-        <Breadcrumb pageTitle="wishlist" />
-        <section class="container">
-            <WishlistHeader />
-            <WishlistProducts />
-        </section>
-    </app-layout>
-
-    <app-layout title="wishlist" v-if="showMobileLayout">
-        <section class="container">
-            <div class="text-start">
-                <p class="text-uppercase">
-                    {{ $page.props.wishlistCounter }} items
-                </p>
-            </div>
-            <WishlistProducts />
-        </section>
-    </app-layout>
+    <WishlistMobileView v-if="isMobile" />
+    <WishlistDesktopView v-if="isDektop" />
 </template>
-
 <script setup>
-import AppLayout from "@/layouts/AppLayout";
-import WishlistHeader from "@/Pages/WishlistPage/components/WishlistHeader.vue";
-import WishlistProducts from "@/Pages/WishlistPage/components/WishlistProducts";
-import Breadcrumb from "@/components/Breadcrumb.vue";
-
 import { ref } from "vue";
+import WishlistMobileView from "@/Pages/WishlistPage/views/Mobile/WishlistMobileView.vue";
+import WishlistDesktopView from "@/Pages/WishlistPage/views/Desktop/WishlistDesktopView.vue";
 
-let showDesktopLayout = ref(true);
-let showMobileLayout = ref(false);
+let isDektop = ref(true);
+let isMobile = ref(false);
 
 const mediaQueryWidth = window.matchMedia("(max-width: 756px)");
 
 if (mediaQueryWidth.matches) {
-    showMobileLayout.value = true;
-    showDesktopLayout.value = false;
+    isMobile.value = true;
+    isDektop.value = false;
 }
 </script>

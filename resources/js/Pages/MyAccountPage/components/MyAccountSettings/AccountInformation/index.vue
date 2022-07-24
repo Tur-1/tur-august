@@ -60,14 +60,20 @@ const cancelUpdateingAccountInfoRequest = () => {
                 </header>
 
                 <div class="text-dark">
-                    <span>Name :</span>
-                    <p>{{ $page.props.user.name }}</p>
+                    <p>
+                        <span class="me-1">Name: </span>
+                        {{ $page.props.user.name }}
+                    </p>
 
-                    <span>Email :</span>
-                    <p>{{ $page.props.user.email }}</p>
+                    <p>
+                        <span class="me-1">Email: </span
+                        >{{ $page.props.user.email }}
+                    </p>
 
-                    <span>Gender :</span>
-                    <p>{{ $page.props.user.gender }}</p>
+                    <p>
+                        <span class="me-1">Gender: </span
+                        >{{ $page.props.user.gender }}
+                    </p>
                 </div>
             </div>
         </div>

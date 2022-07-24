@@ -6,7 +6,6 @@ import { onMounted, ref } from "vue";
 import AuthOffcanvas from "@/layouts/Mobile/components/AuthOffcanvas.vue";
 
 const props = defineProps({
-    backgroundColor: String,
     title: String,
     backUrl: String,
 });
@@ -18,8 +17,8 @@ onMounted(() => {
 </script>
 
 <template>
-    <main :style="backgroundColor">
-        <LayoutMobileNavbar :title="title" :backUrl="backUrl" />
+    <LayoutMobileNavbar :title="title" :backUrl="backUrl" />
+    <main scroll-region>
         <Transition name="slide" mode="out-in">
             <slot v-if="contentTrigger" />
         </Transition>

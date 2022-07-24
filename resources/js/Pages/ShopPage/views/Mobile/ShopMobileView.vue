@@ -4,10 +4,9 @@ import ProductCard from "@/components/ProductCard.vue";
 import ShopMobileHeader from "@/Pages/ShopPage/views/Mobile/components/ShopMobileHeader/index.vue";
 </script>
 <template>
-    <div>
+    <section>
         <ShopMobileHeader />
-
-        <section class="container pt-0">
+        <div class="container">
             <div class="row">
                 <ProductCard :products="$page.props.products.data" />
             </div>
@@ -24,6 +23,6 @@ import ShopMobileHeader from "@/Pages/ShopPage/views/Mobile/components/ShopMobil
             >
                 <h5>No Products Found</h5>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 </template>

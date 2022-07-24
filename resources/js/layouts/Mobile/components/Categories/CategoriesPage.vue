@@ -1,12 +1,14 @@
 <template>
-    <div
-        class="offcanvas offcanvas-bottom"
-        tabindex="-1"
-        id="categories-page-offcanvas"
-        aria-labelledby="staticBackdropLabel"
-    >
-        <CategoriesTabsHeader />
-        <CategoriesTabsContent />
+    <div>
+        <div
+            class="offcanvas offcanvas-bottom"
+            tabindex="-1"
+            id="categories-page-offcanvas"
+            aria-labelledby="staticBackdropLabel"
+        >
+            <CategoriesTabsHeader />
+            <CategoriesTabsContent />
+        </div>
     </div>
 </template>
 <script setup>

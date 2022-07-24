@@ -1,45 +1,44 @@
 <template>
     <div
-        class="modal fade"
+        class="modal fade base-modal"
         :id="id"
-        data-bs-backdrop="static"
-        data-bs-keyboard="false"
         tabindex="-1"
         aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
     >
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-body position-relative">
-                    <button
-                        type="button"
-                        class="btn-close close-modal-btn"
-                        @click="$emit('cancelRequest')"
-                    ></button>
-                    <h6
-                        class="modal-title mb-2 text-uppercase"
-                        id="staticBackdropLabel"
-                    >
-                        {{ title }}
-                    </h6>
-
-                    <form @submit.prevent="$emit('formSubmited')">
+                <button
+                    type="button"
+                    class="btn-close close-modal-btn"
+                    @click="$emit('cancelRequest')"
+                ></button>
+                <form @submit.prevent="$emit('formSubmited')">
+                    <div class="modal-header" v-show="title">
+                        <h6
+                            class="modal-title text-uppercase"
+                            id="staticBackdropLabel"
+                        >
+                            {{ title }}
+                        </h6>
+                    </div>
+                    <div class="modal-body">
                         <slot />
-                        <div class="cancel-submit-btns mt-4">
-                            <BaseCancelButton
-                                v-if="cancelButtonTitle"
-                                :title="cancelButtonTitle"
-                                @cancelRequest="$emit('cancelRequest')"
-                            />
+                    </div>
+                    <div class="modal-footer cancel-submit-btns">
+                        <BaseCancelButton
+                            v-if="cancelButtonTitle"
+                            :title="cancelButtonTitle"
+                            @cancelRequest="$emit('cancelRequest')"
+                        />
 
-                            <BaseSubmitButton
-                                v-if="submitButtonTitle"
-                                :title="submitButtonTitle"
-                                :formProcessing="formProcessing"
-                            />
-                        </div>
-                    </form>
-                </div>
+                        <BaseSubmitButton
+                            v-if="submitButtonTitle"
+                            :title="submitButtonTitle"
+                            :formProcessing="formProcessing"
+                        />
+                    </div>
+                </form>
             </div>
         </div>
     </div>

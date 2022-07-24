@@ -1,32 +1,34 @@
 <template>
-    <app-layout title="checkout" backgroundColor="background-color:#F9F9F9">
-        <Breadcrumb pageTitle="checkout" v-if="isDesktop" />
-        <section class="container mt-2">
-            <CheckoutHeader v-if="isDesktop" />
-            <div
-                class="row"
-                :class="{ 'd-none': $page.props.cartCounter == 0 }"
-            >
-                <div class="col-xl-8 col-lg-7 col-md-6">
-                    <CheckoutUserAddresses :checkoutForm="checkoutForm" />
-                </div>
-                <div class="col-xl-4 col-lg-5 col-md-6">
-                    <CheckoutProducts />
-                    <CheckoutCouponForm />
-                    <CheckoutDetails />
+    <app-layout title="checkout">
+        <section>
+            <div class="container mt-3">
+                <Breadcrumb pageTitle="checkout" v-if="isDesktop" />
+                <CheckoutHeader v-if="isDesktop" />
+                <div
+                    class="row"
+                    :class="{ 'd-none': $page.props.cartCounter == 0 }"
+                >
+                    <div class="col-xl-8 col-lg-7 col-md-6">
+                        <CheckoutUserAddresses :checkoutForm="checkoutForm" />
+                    </div>
+                    <div class="col-xl-4 col-lg-5 col-md-6">
+                        <CheckoutProducts />
+                        <CheckoutCouponForm />
+                        <CheckoutDetails />
 
-                    <button
-                        class="btn btn-primary p-2 mt-3 w-100"
-                        @click="buyNow"
-                    >
-                        Buy Now
-                    </button>
+                        <button
+                            class="btn btn-primary p-2 mt-3 w-100"
+                            @click="buyNow"
+                        >
+                            Buy Now
+                        </button>
+                    </div>
                 </div>
+
+                <CartEmpty :show="$page.props.cartCounter == 0" />
+                <!-- Modal -->
+                <ProductsNoLongerInStock />
             </div>
-
-            <CartEmpty :show="$page.props.cartCounter == 0" />
-            <!-- Modal -->
-            <ProductsNoLongerInStock />
         </section>
     </app-layout>
 </template>
@@ -59,4 +61,6 @@ const mediaQueryWidth = window.matchMedia("(max-width: 756px)");
 if (mediaQueryWidth.matches) {
     isDesktop.value = false;
 }
+
+document.querySelector("body").style.backgroundColor = "#F9F9F9";
 </script>

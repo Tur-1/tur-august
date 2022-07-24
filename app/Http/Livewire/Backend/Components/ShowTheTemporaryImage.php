@@ -13,7 +13,7 @@ class ShowTheTemporaryImage extends Component
     public $imagePath;
 
     protected $rules = [
-        'selectedImage' => ['file', 'image', 'mimes:jpeg,png,jpg', 'max:5000'],
+        'selectedImage' => ['file', 'image', 'mimes:jpeg,png,jpg,webp,gif', 'max:5000'],
     ];
 
     public function updatedSelectedImage()

@@ -1,6 +1,6 @@
 <template>
     <div class="row mt-3">
-        <h3 class="section-title mb-2"><span>New</span> Arrivals</h3>
+        <h5 class="section-title"><span>New</span> Arrivals</h5>
         <div id="slick-products" class="pb-5">
             <ProductCard
                 :products="$page.props.latestProducts"

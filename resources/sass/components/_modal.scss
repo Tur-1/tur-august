@@ -1,24 +1,32 @@
-@media only screen and (max-width: 500px) {
-    .modal-content {
-        width: 95% !important;
-        margin: 0 auto !important;
-    }
+@media only screen and (max-width: 760px) {
     .close-modal-btn {
-        top: -33px !important;
-        right: -3px !important;
+        right: -1px !important;
     }
     .modal-title {
         font-size: 13px !important;
     }
 }
 
-.modal {
+.modal.base-modal .modal-header {
+    padding: 12px 1rem !important;
+    border-bottom: none !important;
+}
+.modal.base-modal .modal-body {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+.modal.base-modal .modal-body {
+    padding: 0 1rem 1rem !important;
+}
+
+.modal.base-modal {
     color: #444 !important;
+    z-index: 9999999999999999999999999999999999999999999999999999999999;
 }
 .close-modal-btn {
     position: absolute !important;
-    top: -23px;
-    right: -20px;
+    top: -27px;
+    right: -25px;
 }
 .modal label {
     font-size: 12px !important;
@@ -28,6 +36,8 @@
 .cancel-submit-btns {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    border-top: 1px solid #dee2e661;
+    padding: 4px;
 }
 .cancel-submit-btns button {
     background-color: transparent;
@@ -38,7 +48,4 @@
 }
 .cancel-submit-btns .submit-btn {
     color: $bg-green;
-}
-.modal.base-modal .modal-body {
-    padding: 0 !important;
 }

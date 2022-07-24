@@ -28,7 +28,7 @@
                             )
                         "
                     >
-                        <i class="bi bi-x"></i>
+                        <i class="bi bi-x-lg"></i>
                     </button>
                 </div>
             </div>

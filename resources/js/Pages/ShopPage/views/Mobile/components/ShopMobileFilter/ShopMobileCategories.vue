@@ -26,7 +26,7 @@
                         <i class="bi bi-chevron-right me-1 fa-sm"></i>
                     </Link>
                     <span>{{ $page.props.category.name }}</span>
-                    <button class=""><i class="bi bi-x"></i></button>
+                    <button class=""><i class="bi bi-x-lg"></i></button>
                 </div>
             </div>
         </div>

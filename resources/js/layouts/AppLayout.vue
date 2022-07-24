@@ -3,16 +3,11 @@
         <title>August - {{ title }}</title>
     </Head>
 
-    <DesktopLayout :backgroundColor="backgroundColor" v-if="isDesktop">
+    <DesktopLayout v-if="isDesktop">
         <slot />
     </DesktopLayout>
 
-    <MobileLayout
-        :backgroundColor="backgroundColor"
-        :title="title"
-        :backUrl="backUrl"
-        v-if="isMobile"
-    >
+    <MobileLayout :title="title" :backUrl="backUrl" v-if="isMobile">
         <slot />
     </MobileLayout>
     <Toast />
@@ -25,7 +20,6 @@ import MobileLayout from "@/layouts/Mobile/MobileLayout.vue";
 import Toast from "@/components/Toast.vue";
 
 defineProps({
-    backgroundColor: String,
     title: String,
     backUrl: String,
 });

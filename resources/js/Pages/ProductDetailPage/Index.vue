@@ -3,19 +3,21 @@
         :title="$page.props.productDetail.name"
         :backUrl="$page.props.previousPageUrl"
     >
-        <Breadcrumb
-            v-if="showDesktopLayout"
-            :categories="$page.props.breadcrumb"
-            :pageTitle="$page.props.productDetail.name"
-        />
-        <section class="container product-detail-container">
-            <div class="row justify-content-center">
-                <ProductImages />
-                <ProductInformation />
-            </div>
+        <section>
+            <Breadcrumb
+                v-if="showDesktopLayout"
+                :categories="$page.props.breadcrumb"
+                :pageTitle="$page.props.productDetail.name"
+            />
+            <div class="container product-detail-container">
+                <div class="row justify-content-center">
+                    <ProductImages />
 
-            <Tabs />
-            <RelatedProducts />
+                    <ProductInformation />
+                </div>
+                <Tabs />
+                <RelatedProducts />
+            </div>
         </section>
     </app-layout>
 </template>

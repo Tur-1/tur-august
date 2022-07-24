@@ -34,7 +34,6 @@ const closeCartProductsModal = () => {
     <!-- Modal -->
     <BaseFormModal
         id="cart-products-modal"
-        title="these products are out of stock"
         submitButtonTitle="save for later"
         cancelButtonTitle="cancel"
         @cancelRequest="closeCartProductsModal"
@@ -42,7 +41,7 @@ const closeCartProductsModal = () => {
         :formProcessing="outOfStockForm.processing"
     >
         <div
-            class="shopping-cart-product"
+            class="shopping-cart-product p-0 mt-2"
             v-for="(product, index) in outOfStockProducts"
             :key="product.cart_id"
         >
