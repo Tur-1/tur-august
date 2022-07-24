@@ -2029,7 +2029,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         checkoutForm: $setup.checkoutForm
       }, null, 8
       /* PROPS */
-      , ["checkoutForm"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CheckoutProducts"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CheckoutProducts"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CheckoutProducts"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CheckoutProducts"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CheckoutProducts"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CheckoutProducts"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CheckoutProducts"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CheckoutProducts"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CheckoutCouponForm"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CheckoutDetails"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+      , ["checkoutForm"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CheckoutProducts"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CheckoutCouponForm"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CheckoutDetails"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         "class": "btn btn-primary p-2 mt-3 w-100",
         onClick: $setup.buyNow
       }, " Buy Now ")])], 2
