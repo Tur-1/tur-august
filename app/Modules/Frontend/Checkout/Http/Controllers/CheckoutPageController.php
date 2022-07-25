@@ -52,6 +52,7 @@ class CheckoutPageController extends Controller
             'outOfStockProductsCounter' => count($outOfStockProducts),
             'cartDetails' => $cartDetails,
             'userAddresses' =>  $this->userAddresses,
+            'cartPageUrl' => Session::get('cartPageUrl'),
         ]);
     }
 

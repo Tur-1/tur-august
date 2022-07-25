@@ -26,10 +26,10 @@
 
 
 <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
-<script src="{{ asset(mix('js/manifest.js')) }}" defer></script>
-<script src="{{ asset(mix('js/vendor.js')) }}" defer></script>
+<script src="{{ mix('js/manifest.js') }}" defer></script>
+<script src="{{ mix('js/vendor.js') }}" defer></script>
 <script src="{{ mix('/js/app.js') }}" defer></script>
-<link rel="manifest" href="{{ asset('manifest.json') }}" />
+<link rel="manifest" href="/manifest.json" />
 
 @routes
 @inertiaHead

@@ -14,7 +14,7 @@ class ShopPageController extends Controller
 
     public function index()
     {
-
+        Session::put('categoriesPageUrl', url()->current());
         return Inertia::render('CategoriesPage/Index');
     }
     public function categoryPage($category_slug, ShopPageService $shopPageService)
@@ -51,6 +51,7 @@ class ShopPageController extends Controller
             'products' => $products,
             'queryString' => $queryString,
             'sortProducts' => $sortProducts,
+            'categoriesPageUrl' => Session::get('categoriesPageUrl')
 
 
         ]);

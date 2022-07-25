@@ -15,7 +15,10 @@ if (mediaQueryWidth.matches) {
 }
 </script>
 <template>
-    <app-layout :title="$page.props.category.name">
+    <app-layout
+        :title="$page.props.category.name"
+        :backUrl="$page.props.categoriesPageUrl"
+    >
         <ShopMobileView v-if="showMobileLayout" />
         <ShopDesktopView v-if="showDesktopLayout" />
     </app-layout>

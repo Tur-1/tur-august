@@ -43,12 +43,14 @@
                     :href="route('shoppingCartPage')"
                     :class="{
                         'active-footer-item':
-                            route().current('shoppingCartPage'),
+                            route().current('shoppingCartPage') ||
+                            route().current('checkoutPage'),
                     }"
                 >
                     <i
                         :class="
-                            route().current('shoppingCartPage')
+                            route().current('shoppingCartPage') ||
+                            route().current('checkoutPage')
                                 ? 'bi bi-bag-fill'
                                 : 'bi bi-bag'
                         "

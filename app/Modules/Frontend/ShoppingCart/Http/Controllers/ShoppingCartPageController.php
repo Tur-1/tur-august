@@ -4,6 +4,7 @@ namespace App\Modules\Frontend\ShoppingCart\Http\Controllers;
 
 use Inertia\Inertia;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use App\Models\shopping_cart\ShoppingCart;
 use App\Modules\Frontend\ShoppingCart\Services\ShoppingCartPageService;
 
@@ -32,6 +33,8 @@ class ShoppingCartPageController extends Controller
     public function index()
     {
 
+
+        Session::put('cartPageUrl', url()->current());
         return Inertia::render(
             'ShoppingCartPage/Index',
             [

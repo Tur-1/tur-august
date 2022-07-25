@@ -17886,10 +17886,11 @@ ul {
   .mobile-navbar {
     padding-top: 7px !important;
   }
+  .search-offcanvas {
+    bottom: 7% !important;
+  }
 }
 .mobile-navbar nav {
-  justify-content: unset !important;
-  align-items: unset !important;
   color: #1a1a1a !important;
 }
 
@@ -17901,8 +17902,8 @@ ul {
   display: flex;
   align-items: center;
   border: 1px solid rgba(204, 204, 204, 0.8705882353);
-  width: 100%;
-  margin: 0 20px;
+  width: 85%;
+  margin: 0 0 0 44px;
   padding: 5px;
   border-radius: 20px;
   font-size: 14px;
@@ -17919,7 +17920,12 @@ ul {
   border-radius: 0 20px 0 0;
 }
 
-.mobile-navbar nav .backurl-icon {
+.search-offcanvas {
+  top: 6% !important;
+  bottom: 6% !important;
+}
+
+.mobile-navbar nav a {
   position: absolute;
   padding-left: 10px;
   font-size: 18px;
@@ -18636,7 +18642,7 @@ footer {
 /*    mobile filter and sort bottons   **/
 @media screen and (display-mode: standalone) {
   .mobile-shop-page-header {
-    top: 51px !important;
+    top: 53px !important;
   }
 }
 .mobile-shop-page-header {
