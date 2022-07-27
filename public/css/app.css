@@ -17723,7 +17723,9 @@ body {
 body {
   height: -webkit-fill-available;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  height: 100vh !important;
   background-color: white;
+  overflow-y: scroll !important;
 }
 
 @media only screen and (max-width: 760px) {
@@ -17733,7 +17735,7 @@ body {
   }
 }
 #app {
-  height: 100vh !important;
+  height: 100%;
 }
 
 .search-box {
@@ -17768,6 +17770,7 @@ body {
   }
   section {
     padding-bottom: 50px !important;
+    padding-top: 90px;
   }
 }
 main {
@@ -17777,9 +17780,16 @@ main {
 }
 
 section {
-  padding-bottom: 30px !important;
+  padding-bottom: 75px;
+  padding-top: 60px;
+  height: 100% !important;
 }
 
+@media only screen and (max-width: 767px) {
+  section {
+    padding-top: 45px;
+  }
+}
 #toast-alert {
   position: fixed !important;
   top: 45px;
@@ -17945,14 +17955,17 @@ ul {
 /******** desktop navbar *************/
 .desktop-navbar,
 .mobile-navbar {
-  position: sticky !important;
-  position: -webkit-sticky;
+  position: fixed !important;
   border-bottom: 1px solid rgba(204, 204, 204, 0.4588235294);
   top: 0 !important;
   left: 0;
   right: 0;
   z-index: 999;
   background-color: white;
+}
+
+.desktop-navbar nav {
+  height: 60px;
 }
 
 nav {
@@ -18052,7 +18065,7 @@ footer {
 
 #mobile-footer {
   padding: 1px 10px 5px 10px;
-  z-index: 999999;
+  z-index: 12;
   position: fixed !important;
   left: 0;
   right: 0;
@@ -18383,6 +18396,7 @@ footer {
 
 .base-right-offcanvas {
   border-left: none !important;
+  bottom: 50px;
 }
 
 .close-offcanvas-btn {
@@ -18654,6 +18668,14 @@ footer {
 }
 
 /*    mobile filter and sort bottons   **/
+@media screen and (display-mode: standalone) {
+  .mobile-shop-page-header {
+    top: 90px !important;
+  }
+  .mobile-offcanvas-filter-footer {
+    padding: 20px 10px !important;
+  }
+}
 .mobile-shop-page-header {
   border: 1px solid #dee2e6;
   border-top: none !important;
@@ -18823,11 +18845,11 @@ footer {
 }
 
 .mobile-offcanvas-filter-footer {
-  padding: 10px 10px 20px 10px;
+  padding: 10px;
 }
 
 .mobile-offcanvas-filter-footer .filter-products-button {
-  width: 90%;
+  width: 100%;
   border-radius: 20px;
 }
 
@@ -19422,6 +19444,11 @@ ul.shop-sidebar-categories {
 }
 
 /******** categories page *************/
+@media screen and (display-mode: standalone) {
+  .categories-page-container .categories-page-header {
+    top: 90px !important;
+  }
+}
 .categories-page-container .categories-page-header {
   position: sticky !important;
   position: -webkit-sticky;

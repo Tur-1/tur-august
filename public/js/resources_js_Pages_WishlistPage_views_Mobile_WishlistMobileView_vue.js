@@ -868,6 +868,7 @@ __webpack_require__.r(__webpack_exports__);
 
     var closeAuthOffcanvas = function closeAuthOffcanvas() {
       $("#auth-offcanvas").offcanvas("hide");
+      $(".offcanvas-backdrop").remove();
     };
 
     var removeAuthOffcanvas = function removeAuthOffcanvas() {

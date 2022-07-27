@@ -1,5 +1,9 @@
 /******** categories page *************/
-
+@media screen and (display-mode: standalone) {
+    .categories-page-container .categories-page-header {
+        top: 90px !important;
+    }
+}
 .categories-page-container .categories-page-header {
     position: sticky !important;
     position: -webkit-sticky;

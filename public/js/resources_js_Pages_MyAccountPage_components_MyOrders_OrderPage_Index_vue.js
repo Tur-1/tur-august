@@ -795,6 +795,7 @@ __webpack_require__.r(__webpack_exports__);
 
     var closeAuthOffcanvas = function closeAuthOffcanvas() {
       $("#auth-offcanvas").offcanvas("hide");
+      $(".offcanvas-backdrop").remove();
     };
 
     var removeAuthOffcanvas = function removeAuthOffcanvas() {
@@ -1477,10 +1478,13 @@ var _hoisted_1 = {
   "class": "container mt-3"
 };
 var _hoisted_2 = {
-  "class": "row justify-content-center"
+  "class": "row"
 };
 var _hoisted_3 = {
   "class": "col-lg-6"
+};
+var _hoisted_4 = {
+  "class": "d-flex flex-column justify-content-center"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["AppLayout"], {
@@ -1488,7 +1492,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     backUrl: _ctx.$page.props.previousPageUrl
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["OrderDetails"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["OrderAddress"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["OrderProducts"])])])])];
+      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["OrderDetails"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["OrderAddress"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["OrderProducts"])])])])])];
     }),
     _: 1
     /* STABLE */

@@ -14,7 +14,7 @@ trait UserRelationshipsTrait
 {
     public function orders()
     {
-        return $this->hasMany(Order::class, 'user_id');
+        return $this->hasMany(Order::class, 'user_id')->latest();
     }
 
     public function checkoutProducts()

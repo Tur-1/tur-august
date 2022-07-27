@@ -32,8 +32,7 @@
 /******** desktop navbar *************/
 .desktop-navbar,
 .mobile-navbar {
-    position: sticky !important;
-    position: -webkit-sticky;
+    position: fixed !important;
     border-bottom: 1px solid #cccccc75;
     top: 0 !important;
     left: 0;
@@ -41,7 +40,9 @@
     z-index: 999;
     background-color: $bg-primary;
 }
-
+.desktop-navbar nav {
+    height: 60px;
+}
 nav {
     background-color: $bg-primary;
 }

@@ -41,6 +41,7 @@ const openAuthOffcanvas = () => {
 };
 const closeAuthOffcanvas = () => {
     $("#auth-offcanvas").offcanvas("hide");
+    $(".offcanvas-backdrop").remove();
 };
 const removeAuthOffcanvas = () => {
     $("#auth-offcanvas").remove();

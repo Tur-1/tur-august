@@ -4,6 +4,7 @@
     }
     section {
         padding-bottom: 50px !important;
+        padding-top: 90px;
     }
 }
 
@@ -14,7 +15,15 @@ main {
 }
 
 section {
-    padding-bottom: 30px !important;
+    padding-bottom: 75px;
+    padding-top: 60px;
+    height: 100% !important;
+}
+
+@media only screen and (max-width: 767px) {
+    section {
+        padding-top: 45px;
+    }
 }
 #toast-alert {
     position: fixed !important;

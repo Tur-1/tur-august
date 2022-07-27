@@ -1,11 +1,13 @@
 <template>
     <app-layout title="Order Details" :backUrl="$page.props.previousPageUrl">
         <section class="container mt-3">
-            <div class="row justify-content-center">
+            <div class="row">
                 <div class="col-lg-6">
-                    <OrderDetails />
-                    <OrderAddress />
-                    <OrderProducts />
+                    <div class="d-flex flex-column justify-content-center">
+                        <OrderDetails />
+                        <OrderAddress />
+                        <OrderProducts />
+                    </div>
                 </div>
             </div>
         </section>
