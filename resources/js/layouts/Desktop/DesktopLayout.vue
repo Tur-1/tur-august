@@ -2,7 +2,8 @@
 import LayoutNavbar from "./components/LayoutNavbar";
 import LayoutFooter from "./components/LayoutFooter";
 import { onMounted, ref } from "vue";
-import AuthModal from "@/layouts/Desktop/components/AuthModal.vue";
+
+import AuthDesktop from "@/layouts/Desktop/components/AuthDesktop.vue";
 
 defineProps({
     title: String,
@@ -21,7 +22,7 @@ onMounted(() => {
             <slot v-if="contentTrigger" />
         </Transition>
 
-        <AuthModal />
+        <AuthDesktop />
         <LayoutFooter />
     </main>
 </template>

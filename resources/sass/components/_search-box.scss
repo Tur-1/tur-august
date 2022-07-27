@@ -1,0 +1,27 @@
+.search-box {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccccccde;
+    width: 85%;
+    margin: 0 0 0 42px;
+    padding: 3px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+.search-box i {
+    margin-right: 10px;
+    padding-left: 5px;
+}
+
+.search-box input {
+    width: 100%;
+    background-color: transparent;
+    border-radius: 0 20px 0 0;
+}
+
+.search-offcanvas {
+    top: 6% !important;
+    bottom: 6% !important;
+}

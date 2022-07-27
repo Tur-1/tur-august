@@ -11,9 +11,16 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+
+use App\Modules\Frontend\Wishlist\Services\WishlistPageService;
+use App\Modules\Frontend\ShoppingCart\Services\ShoppingCartPageService;
+use App\Modules\Frontend\ProductDetail\Services\ProductDetailPageService;
+use App\Traits\RedirectWithMessageTrait;
 
 class RegisterController extends Controller
 {
+    use RedirectWithMessageTrait;
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -77,5 +84,29 @@ class RegisterController extends Controller
         ]);
 
         return $user;
+    }
+
+    protected function registered(Request $request, $user)
+    {
+
+        session()->flash('requireAuth', ['status' => false, 'time' => time()]);
+        if (Session::exists('wishlist')) {
+            (new WishlistPageService())->attachProductToWishlist();
+            return redirect()->back();
+        }
+
+        if (Session::exists('productDetail')) {
+            (new ShoppingCartPageService())->attachProductToShoppingCart();
+            return $this->redirectBackWithSuccessMsg('The product was added to your cart!');
+        }
+        if (Session::exists('productReview')) {
+
+            $productReview = Session::get('productReview');
+
+            (new ProductDetailPageService())->createComment($productReview['product_id'], $productReview['comment']);
+
+            Session::remove('productReview');
+            return $this->redirectBackWithSuccessMsg('Your comment has been added successfully');
+        }
     }
 }

@@ -1,10 +1,10 @@
 <script setup>
+import { onMounted, ref } from "vue";
 import LayoutMobileNavbar from "@/layouts/Mobile/components/LayoutMobileNavbar.vue";
 import LayoutMobileFooter from "@/layouts/Mobile/components/LayoutMobileFooter.vue";
-import { onMounted, ref } from "vue";
-import AuthOffcanvas from "@/layouts/Mobile/components/AuthOffcanvas.vue";
+import AuthMobile from "@/layouts/Mobile/components/AuthMobile.vue";
 
-const props = defineProps({
+defineProps({
     title: String,
     backUrl: String,
 });
@@ -21,9 +21,9 @@ onMounted(() => {
         <Transition name="slide" mode="out-in">
             <slot v-if="contentTrigger" />
         </Transition>
-        <AuthOffcanvas />
 
         <LayoutMobileFooter />
+        <AuthMobile />
     </main>
 </template>
 

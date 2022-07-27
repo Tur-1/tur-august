@@ -11,7 +11,9 @@ import { usePage } from "@inertiajs/inertia-vue3";
 import { onMounted, ref, computed, watch } from "vue";
 
 let requireAuth = ref(computed(() => usePage().props.value.requireAuth));
-
+let isUserAuthenticated = ref(
+    computed(() => usePage().props.value.user.authenticated)
+);
 onMounted(() => {
     if (requireAuth.value.status == true) {
         openAuthModal();
@@ -19,7 +21,7 @@ onMounted(() => {
     if (requireAuth.value.status == false) {
         closeAuthModal();
     }
-    if (usePage().props.value.user.name !== "") {
+    if (isUserAuthenticated.value) {
         removeAuthModal();
     }
 });

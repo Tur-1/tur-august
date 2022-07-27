@@ -14,10 +14,13 @@
                     <button
                         type="button"
                         data-bs-dismiss="modal"
-                        class="btn-close close-modal-btn"
+                        class="close-modal-btn text-white"
                         @click="$emit('closeModal')"
-                    ></button>
+                    >
+                        <i class="bi bi-x-lg"></i>
+                    </button>
                     <h6
+                        v-show="title"
                         class="modal-title mb-2 text-uppercase"
                         :id="'title-' + id"
                     >

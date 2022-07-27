@@ -10,10 +10,9 @@ class ShareInertiaDataService
     public function getAuthenticatedUser()
     {
         return [
+            'authenticated' =>  auth()->check() ? true : false,
             'name' => auth()->check() ? auth()->user()->name : '',
             'avatar' => auth()->check() ? auth()->user()->avatar_url : asset('assets/images/avatars/avatar_male.png'),
-
-
         ];
     }
 

@@ -1,20 +1,20 @@
 /*    mobile filter and sort bottons   **/
 
-@media screen and (display-mode: standalone) {
-    .mobile-shop-page-header {
-        top: 53px !important;
-    }
-}
+// @media screen and (display-mode: standalone) {
+//     .mobile-shop-page-header {
+//         top: 53px !important;
+//     }
+// }
 .mobile-shop-page-header {
     border: 1px solid #dee2e6;
     border-top: none !important;
     background-color: white;
     position: sticky;
-    top: 50px;
+    top: 45px;
     background-color: $bg-primary;
     display: flex;
     flex-wrap: wrap;
-    z-index: 9999;
+    z-index: 10;
 }
 .mobile-shop-page-header .sort-filter-btns {
     background-color: transparent !important;

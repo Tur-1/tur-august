@@ -541,7 +541,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'BaseBottomOffcanvas',
   props: {
-    id: String
+    id: String,
+    title: String
   },
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
@@ -928,7 +929,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_LayoutNavbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/LayoutNavbar */ "./resources/js/layouts/Desktop/components/LayoutNavbar.vue");
 /* harmony import */ var _components_LayoutFooter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/LayoutFooter */ "./resources/js/layouts/Desktop/components/LayoutFooter.vue");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _layouts_Desktop_components_AuthModal_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/layouts/Desktop/components/AuthModal.vue */ "./resources/js/layouts/Desktop/components/AuthModal.vue");
+/* harmony import */ var _layouts_Desktop_components_AuthDesktop_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/layouts/Desktop/components/AuthDesktop.vue */ "./resources/js/layouts/Desktop/components/AuthDesktop.vue");
 
 
 
@@ -951,7 +952,7 @@ __webpack_require__.r(__webpack_exports__);
       LayoutFooter: _components_LayoutFooter__WEBPACK_IMPORTED_MODULE_1__["default"],
       onMounted: vue__WEBPACK_IMPORTED_MODULE_2__.onMounted,
       ref: vue__WEBPACK_IMPORTED_MODULE_2__.ref,
-      AuthModal: _layouts_Desktop_components_AuthModal_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+      AuthDesktop: _layouts_Desktop_components_AuthDesktop_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -963,10 +964,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Desktop/components/AuthModal.vue?vue&type=script&setup=true&lang=js":
-/*!******************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Desktop/components/AuthModal.vue?vue&type=script&setup=true&lang=js ***!
-  \******************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Desktop/components/AuthDesktop.vue?vue&type=script&setup=true&lang=js":
+/*!********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Desktop/components/AuthDesktop.vue?vue&type=script&setup=true&lang=js ***!
+  \********************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -982,12 +983,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'AuthModal',
+  name: 'AuthDesktop',
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
     var requireAuth = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)((0,vue__WEBPACK_IMPORTED_MODULE_3__.computed)(function () {
       return (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.value.requireAuth;
+    }));
+    var isUserAuthenticated = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)((0,vue__WEBPACK_IMPORTED_MODULE_3__.computed)(function () {
+      return (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.value.user.authenticated;
     }));
     (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(function () {
       if (requireAuth.value.status == true) {
@@ -998,7 +1002,7 @@ __webpack_require__.r(__webpack_exports__);
         closeAuthModal();
       }
 
-      if ((0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.value.user.name !== "") {
+      if (isUserAuthenticated.value) {
         removeAuthModal();
       }
     });
@@ -1031,6 +1035,7 @@ __webpack_require__.r(__webpack_exports__);
 
     var __returned__ = {
       requireAuth: requireAuth,
+      isUserAuthenticated: isUserAuthenticated,
       openAuthModal: openAuthModal,
       closeAuthModal: closeAuthModal,
       removeAuthModal: removeAuthModal,
@@ -1082,10 +1087,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _layouts_Mobile_components_LayoutMobileNavbar_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/layouts/Mobile/components/LayoutMobileNavbar.vue */ "./resources/js/layouts/Mobile/components/LayoutMobileNavbar.vue");
-/* harmony import */ var _layouts_Mobile_components_LayoutMobileFooter_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/layouts/Mobile/components/LayoutMobileFooter.vue */ "./resources/js/layouts/Mobile/components/LayoutMobileFooter.vue");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _layouts_Mobile_components_AuthOffcanvas_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/layouts/Mobile/components/AuthOffcanvas.vue */ "./resources/js/layouts/Mobile/components/AuthOffcanvas.vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _layouts_Mobile_components_LayoutMobileNavbar_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/layouts/Mobile/components/LayoutMobileNavbar.vue */ "./resources/js/layouts/Mobile/components/LayoutMobileNavbar.vue");
+/* harmony import */ var _layouts_Mobile_components_LayoutMobileFooter_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/layouts/Mobile/components/LayoutMobileFooter.vue */ "./resources/js/layouts/Mobile/components/LayoutMobileFooter.vue");
+/* harmony import */ var _layouts_Mobile_components_AuthMobile_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/layouts/Mobile/components/AuthMobile.vue */ "./resources/js/layouts/Mobile/components/AuthMobile.vue");
 
 
 
@@ -1099,19 +1104,17 @@ __webpack_require__.r(__webpack_exports__);
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
-    var props = __props;
-    var contentTrigger = (0,vue__WEBPACK_IMPORTED_MODULE_2__.ref)(false);
-    (0,vue__WEBPACK_IMPORTED_MODULE_2__.onMounted)(function () {
+    var contentTrigger = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)(false);
+    (0,vue__WEBPACK_IMPORTED_MODULE_0__.onMounted)(function () {
       contentTrigger.value = true;
     });
     var __returned__ = {
-      props: props,
       contentTrigger: contentTrigger,
-      LayoutMobileNavbar: _layouts_Mobile_components_LayoutMobileNavbar_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-      LayoutMobileFooter: _layouts_Mobile_components_LayoutMobileFooter_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-      onMounted: vue__WEBPACK_IMPORTED_MODULE_2__.onMounted,
-      ref: vue__WEBPACK_IMPORTED_MODULE_2__.ref,
-      AuthOffcanvas: _layouts_Mobile_components_AuthOffcanvas_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+      onMounted: vue__WEBPACK_IMPORTED_MODULE_0__.onMounted,
+      ref: vue__WEBPACK_IMPORTED_MODULE_0__.ref,
+      LayoutMobileNavbar: _layouts_Mobile_components_LayoutMobileNavbar_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+      LayoutMobileFooter: _layouts_Mobile_components_LayoutMobileFooter_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+      AuthMobile: _layouts_Mobile_components_AuthMobile_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -1123,46 +1126,49 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Mobile/components/AuthOffcanvas.vue?vue&type=script&setup=true&lang=js":
-/*!*********************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Mobile/components/AuthOffcanvas.vue?vue&type=script&setup=true&lang=js ***!
-  \*********************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Mobile/components/AuthMobile.vue?vue&type=script&setup=true&lang=js":
+/*!******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Mobile/components/AuthMobile.vue?vue&type=script&setup=true&lang=js ***!
+  \******************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _components_Base_BaseBottomOffcanvas_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/components/Base/BaseBottomOffcanvas.vue */ "./resources/js/components/Base/BaseBottomOffcanvas.vue");
-/* harmony import */ var _Pages_Auth_Auth_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Pages/Auth/Auth.vue */ "./resources/js/Pages/Auth/Auth.vue");
-/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var _components_Base_BaseBottomOffcanvas_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/components/Base/BaseBottomOffcanvas.vue */ "./resources/js/components/Base/BaseBottomOffcanvas.vue");
+/* harmony import */ var _Pages_Auth_Auth_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Pages/Auth/Auth.vue */ "./resources/js/Pages/Auth/Auth.vue");
 
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'AuthOffcanvas',
+  name: 'AuthMobile',
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
-    var requireAuth = (0,vue__WEBPACK_IMPORTED_MODULE_3__.ref)((0,vue__WEBPACK_IMPORTED_MODULE_3__.computed)(function () {
-      return (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.value.requireAuth;
+    var requireAuth = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)((0,vue__WEBPACK_IMPORTED_MODULE_1__.computed)(function () {
+      return (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.value.requireAuth;
     }));
-    (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(function () {
+    var isUserAuthenticated = (0,vue__WEBPACK_IMPORTED_MODULE_1__.ref)((0,vue__WEBPACK_IMPORTED_MODULE_1__.computed)(function () {
+      return (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.value.user.authenticated;
+    }));
+    (0,vue__WEBPACK_IMPORTED_MODULE_1__.onMounted)(function () {
       if (requireAuth.value.status == false) {
         closeAuthOffcanvas();
-      }
-
-      if ((0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.value.user.name !== "") {
-        removeAuthOffcanvas();
       }
 
       if (requireAuth.value.status == true) {
         openAuthOffcanvas();
       }
+
+      if (isUserAuthenticated.value) {
+        removeAuthOffcanvas();
+      }
     });
-    (0,vue__WEBPACK_IMPORTED_MODULE_3__.watch)(function () {
+    (0,vue__WEBPACK_IMPORTED_MODULE_1__.watch)(function () {
       return requireAuth.value;
     }, function (value) {
       if (value.status == false) {
@@ -1182,7 +1188,6 @@ __webpack_require__.r(__webpack_exports__);
 
     var closeAuthOffcanvas = function closeAuthOffcanvas() {
       $("#auth-offcanvas").offcanvas("hide");
-      $("#auth-offcanvas").remove();
     };
 
     var removeAuthOffcanvas = function removeAuthOffcanvas() {
@@ -1191,16 +1196,17 @@ __webpack_require__.r(__webpack_exports__);
 
     var __returned__ = {
       requireAuth: requireAuth,
+      isUserAuthenticated: isUserAuthenticated,
       openAuthOffcanvas: openAuthOffcanvas,
       closeAuthOffcanvas: closeAuthOffcanvas,
       removeAuthOffcanvas: removeAuthOffcanvas,
-      BaseBottomOffcanvas: _components_Base_BaseBottomOffcanvas_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-      Auth: _Pages_Auth_Auth_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-      usePage: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_2__.usePage,
-      watch: vue__WEBPACK_IMPORTED_MODULE_3__.watch,
-      onMounted: vue__WEBPACK_IMPORTED_MODULE_3__.onMounted,
-      ref: vue__WEBPACK_IMPORTED_MODULE_3__.ref,
-      computed: vue__WEBPACK_IMPORTED_MODULE_3__.computed
+      usePage: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_0__.usePage,
+      watch: vue__WEBPACK_IMPORTED_MODULE_1__.watch,
+      onMounted: vue__WEBPACK_IMPORTED_MODULE_1__.onMounted,
+      ref: vue__WEBPACK_IMPORTED_MODULE_1__.ref,
+      computed: vue__WEBPACK_IMPORTED_MODULE_1__.computed,
+      BaseBottomOffcanvas: _components_Base_BaseBottomOffcanvas_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+      Auth: _Pages_Auth_Auth_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
       enumerable: false,
@@ -1262,11 +1268,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
-/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-
-
+/* harmony import */ var _layouts_Mobile_components_SearchBox_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/layouts/Mobile/components/SearchBox.vue */ "./resources/js/layouts/Mobile/components/SearchBox.vue");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'LayoutMobileNavbar',
@@ -1274,6 +1276,40 @@ __webpack_require__.r(__webpack_exports__);
     title: String,
     backUrl: String
   },
+  setup: function setup(__props, _ref) {
+    var expose = _ref.expose;
+    expose();
+    var __returned__ = {
+      SearchBox: _layouts_Mobile_components_SearchBox_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    };
+    Object.defineProperty(__returned__, '__isScriptSetup', {
+      enumerable: false,
+      value: true
+    });
+    return __returned__;
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Mobile/components/SearchBox.vue?vue&type=script&setup=true&lang=js":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Mobile/components/SearchBox.vue?vue&type=script&setup=true&lang=js ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _inertiajs_inertia__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia */ "./node_modules/@inertiajs/inertia/dist/index.js");
+/* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'SearchBox',
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
@@ -2354,7 +2390,27 @@ var _hoisted_1 = ["id"];
 var _hoisted_2 = {
   "class": "offcanvas-header"
 };
-var _hoisted_3 = {
+
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  type: "button",
+  "class": "border-0 bg-transparent",
+  "data-bs-dismiss": "offcanvas",
+  "aria-label": "Close"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "bi bi-chevron-down"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_4 = {
+  "class": "text-center"
+};
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, null, -1
+/* HOISTED */
+);
+
+var _hoisted_6 = {
   "class": "offcanvas-body small"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -2363,7 +2419,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     tabindex: "-1",
     id: $props.id,
     "aria-labelledby": "offcanvasBottomLabel"
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "offcanvas-header")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "offcanvas-body")])], 8
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.title), 1
+  /* TEXT */
+  )]), _hoisted_5]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])], 8
   /* PROPS */
   , _hoisted_1);
 }
@@ -2589,7 +2647,15 @@ var _hoisted_3 = {
 var _hoisted_4 = {
   "class": "modal-body position-relative"
 };
-var _hoisted_5 = ["id"];
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "bi bi-x-lg"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_6 = [_hoisted_5];
+var _hoisted_7 = ["id"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
     "class": "modal fade base-modal",
@@ -2602,16 +2668,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "button",
     "data-bs-dismiss": "modal",
-    "class": "btn-close close-modal-btn",
+    "class": "close-modal-btn text-white",
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return _ctx.$emit('closeModal');
     })
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", {
+  }, _hoisted_6), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h6", {
     "class": "modal-title mb-2 text-uppercase",
     id: 'title-' + $props.id
   }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.title), 9
   /* TEXT, PROPS */
-  , _hoisted_5), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])])], 8
+  , _hoisted_7), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $props.title]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")])])])], 8
   /* PROPS */
   , _hoisted_1);
 }
@@ -2874,15 +2940,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
     /* FORWARDED */
 
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AuthModal"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["LayoutFooter"])]);
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AuthDesktop"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["LayoutFooter"])]);
 }
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Desktop/components/AuthModal.vue?vue&type=template&id=5babd1fa":
-/*!***********************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Desktop/components/AuthModal.vue?vue&type=template&id=5babd1fa ***!
-  \***********************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Desktop/components/AuthDesktop.vue?vue&type=template&id=04e3751c":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Desktop/components/AuthDesktop.vue?vue&type=template&id=04e3751c ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -3151,15 +3217,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
     /* FORWARDED */
 
-  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AuthOffcanvas"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["LayoutMobileFooter"])]);
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["LayoutMobileFooter"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["AuthMobile"])]);
 }
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Mobile/components/AuthOffcanvas.vue?vue&type=template&id=54326002":
-/*!**************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Mobile/components/AuthOffcanvas.vue?vue&type=template&id=54326002 ***!
-  \**************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Mobile/components/AuthMobile.vue?vue&type=template&id=6dabf8da":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Mobile/components/AuthMobile.vue?vue&type=template&id=6dabf8da ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -3168,36 +3234,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
-
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  type: "button",
-  "class": "border-0 bg-transparent",
-  "data-bs-dismiss": "offcanvas",
-  "aria-label": "Close"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "bi bi-chevron-down"
-})], -1
-/* HOISTED */
-);
-
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "text-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h5", null, "AUGUST")], -1
-/* HOISTED */
-);
-
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, null, -1
-/* HOISTED */
-);
-
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["BaseBottomOffcanvas"], {
-    id: "auth-offcanvas"
+    id: "auth-offcanvas",
+    title: "AUGUST"
   }, {
-    "offcanvas-header": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_1, _hoisted_2, _hoisted_3];
-    }),
-    "offcanvas-body": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Auth"])];
     }),
     _: 1
@@ -3390,7 +3432,6 @@ var _hoisted_1 = {
   "class": "mobile-navbar"
 };
 var _hoisted_2 = {
-  key: 0,
   "class": "navbar"
 };
 
@@ -3401,47 +3442,13 @@ var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_4 = {
-  "class": "search-products-container"
-};
-
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "bi bi-search"
-}, null, -1
-/* HOISTED */
-);
-
-var _hoisted_6 = ["onKeyup"];
-var _hoisted_7 = {
-  key: 1,
-  "class": "navbar"
-};
-
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "bi bi-chevron-left backurl-icon"
-}, null, -1
-/* HOISTED */
-);
-
-var _hoisted_9 = {
+  key: 0,
   "class": "page-title"
 };
-
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "offcanvas offcanvas-end search-offcanvas",
-  "data-bs-backdrop": "false",
-  tabindex: "-1",
-  id: "offcanvasScrolling",
-  "aria-labelledby": "offcanvasScrollingLabel"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "offcanvas-body"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, " Try scrolling the rest of the page to see this option in action. ")])], -1
-/* HOISTED */
-);
-
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("header", _hoisted_1, [_ctx.route().current('shop.*') ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("nav", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("header", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <SearchBox /> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
     href: $props.backUrl
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -3452,7 +3459,56 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }, 8
   /* PROPS */
-  , ["href"]), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $props.backUrl]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  , ["href"]), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $props.backUrl]]), !_ctx.route().current('shop.*') ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.title), 1
+  /* TEXT */
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])]);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Mobile/components/SearchBox.vue?vue&type=template&id=c7abe37a":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Mobile/components/SearchBox.vue?vue&type=template&id=c7abe37a ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  key: 1,
+  "class": "search-box"
+};
+
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "bi bi-search"
+}, null, -1
+/* HOISTED */
+);
+
+var _hoisted_3 = ["onKeyup"];
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "offcanvas offcanvas-end search-offcanvas",
+  "data-bs-backdrop": "false",
+  tabindex: "-1",
+  id: "offcanvasScrolling",
+  "aria-labelledby": "offcanvasScrollingLabel"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "offcanvas-body"
+})], -1
+/* HOISTED */
+);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [_ctx.route().current('homePage') ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("i", {
+    key: 0,
+    "class": "bi bi-search search-bar-icon",
+    onClick: $setup.openSearchModal
+  })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _ctx.route().current('shop.*') ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [_hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
     placeholder: "search",
     onKeyup: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withKeys)($setup.getSearchResults, ["enter"]),
@@ -3462,23 +3518,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }, null, 40
   /* PROPS, HYDRATE_EVENTS */
-  , _hoisted_6), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.search]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  , _hoisted_3), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.search]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
     "class": "bi bi-x-lg",
     onClick: $setup.clearSearchResults
-  })])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), !_ctx.route().current('shop.*') ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("nav", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Link, {
-    href: $props.backUrl
-  }, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [_hoisted_8];
-    }),
-    _: 1
-    /* STABLE */
-
-  }, 8
-  /* PROPS */
-  , ["href"]), [[vue__WEBPACK_IMPORTED_MODULE_0__.vShow, $props.backUrl]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.title), 1
-  /* TEXT */
-  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]), _hoisted_10], 64
+  })])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_4], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -4371,25 +4414,25 @@ if (false) {}
 
 /***/ }),
 
-/***/ "./resources/js/layouts/Desktop/components/AuthModal.vue":
-/*!***************************************************************!*\
-  !*** ./resources/js/layouts/Desktop/components/AuthModal.vue ***!
-  \***************************************************************/
+/***/ "./resources/js/layouts/Desktop/components/AuthDesktop.vue":
+/*!*****************************************************************!*\
+  !*** ./resources/js/layouts/Desktop/components/AuthDesktop.vue ***!
+  \*****************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _AuthModal_vue_vue_type_template_id_5babd1fa__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AuthModal.vue?vue&type=template&id=5babd1fa */ "./resources/js/layouts/Desktop/components/AuthModal.vue?vue&type=template&id=5babd1fa");
-/* harmony import */ var _AuthModal_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AuthModal.vue?vue&type=script&setup=true&lang=js */ "./resources/js/layouts/Desktop/components/AuthModal.vue?vue&type=script&setup=true&lang=js");
+/* harmony import */ var _AuthDesktop_vue_vue_type_template_id_04e3751c__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AuthDesktop.vue?vue&type=template&id=04e3751c */ "./resources/js/layouts/Desktop/components/AuthDesktop.vue?vue&type=template&id=04e3751c");
+/* harmony import */ var _AuthDesktop_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AuthDesktop.vue?vue&type=script&setup=true&lang=js */ "./resources/js/layouts/Desktop/components/AuthDesktop.vue?vue&type=script&setup=true&lang=js");
 /* harmony import */ var C_xampp_htdocs_tur_august_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_tur_august_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_AuthModal_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_AuthModal_vue_vue_type_template_id_5babd1fa__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/layouts/Desktop/components/AuthModal.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_tur_august_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_AuthDesktop_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_AuthDesktop_vue_vue_type_template_id_04e3751c__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/layouts/Desktop/components/AuthDesktop.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -4480,25 +4523,25 @@ if (false) {}
 
 /***/ }),
 
-/***/ "./resources/js/layouts/Mobile/components/AuthOffcanvas.vue":
-/*!******************************************************************!*\
-  !*** ./resources/js/layouts/Mobile/components/AuthOffcanvas.vue ***!
-  \******************************************************************/
+/***/ "./resources/js/layouts/Mobile/components/AuthMobile.vue":
+/*!***************************************************************!*\
+  !*** ./resources/js/layouts/Mobile/components/AuthMobile.vue ***!
+  \***************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _AuthOffcanvas_vue_vue_type_template_id_54326002__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AuthOffcanvas.vue?vue&type=template&id=54326002 */ "./resources/js/layouts/Mobile/components/AuthOffcanvas.vue?vue&type=template&id=54326002");
-/* harmony import */ var _AuthOffcanvas_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AuthOffcanvas.vue?vue&type=script&setup=true&lang=js */ "./resources/js/layouts/Mobile/components/AuthOffcanvas.vue?vue&type=script&setup=true&lang=js");
+/* harmony import */ var _AuthMobile_vue_vue_type_template_id_6dabf8da__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AuthMobile.vue?vue&type=template&id=6dabf8da */ "./resources/js/layouts/Mobile/components/AuthMobile.vue?vue&type=template&id=6dabf8da");
+/* harmony import */ var _AuthMobile_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AuthMobile.vue?vue&type=script&setup=true&lang=js */ "./resources/js/layouts/Mobile/components/AuthMobile.vue?vue&type=script&setup=true&lang=js");
 /* harmony import */ var C_xampp_htdocs_tur_august_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_tur_august_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_AuthOffcanvas_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_AuthOffcanvas_vue_vue_type_template_id_54326002__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/layouts/Mobile/components/AuthOffcanvas.vue"]])
+const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_tur_august_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_AuthMobile_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_AuthMobile_vue_vue_type_template_id_6dabf8da__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/layouts/Mobile/components/AuthMobile.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -4553,6 +4596,33 @@ __webpack_require__.r(__webpack_exports__);
 
 ;
 const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_tur_august_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_LayoutMobileNavbar_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_LayoutMobileNavbar_vue_vue_type_template_id_1d29330c__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/layouts/Mobile/components/LayoutMobileNavbar.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/layouts/Mobile/components/SearchBox.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/layouts/Mobile/components/SearchBox.vue ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _SearchBox_vue_vue_type_template_id_c7abe37a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SearchBox.vue?vue&type=template&id=c7abe37a */ "./resources/js/layouts/Mobile/components/SearchBox.vue?vue&type=template&id=c7abe37a");
+/* harmony import */ var _SearchBox_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SearchBox.vue?vue&type=script&setup=true&lang=js */ "./resources/js/layouts/Mobile/components/SearchBox.vue?vue&type=script&setup=true&lang=js");
+/* harmony import */ var C_xampp_htdocs_tur_august_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,C_xampp_htdocs_tur_august_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_SearchBox_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_SearchBox_vue_vue_type_template_id_c7abe37a__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/layouts/Mobile/components/SearchBox.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -4891,17 +4961,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/layouts/Desktop/components/AuthModal.vue?vue&type=script&setup=true&lang=js":
-/*!**************************************************************************************************!*\
-  !*** ./resources/js/layouts/Desktop/components/AuthModal.vue?vue&type=script&setup=true&lang=js ***!
-  \**************************************************************************************************/
+/***/ "./resources/js/layouts/Desktop/components/AuthDesktop.vue?vue&type=script&setup=true&lang=js":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/layouts/Desktop/components/AuthDesktop.vue?vue&type=script&setup=true&lang=js ***!
+  \****************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AuthModal_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AuthDesktop_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AuthModal_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./AuthModal.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Desktop/components/AuthModal.vue?vue&type=script&setup=true&lang=js");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AuthDesktop_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./AuthDesktop.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Desktop/components/AuthDesktop.vue?vue&type=script&setup=true&lang=js");
  
 
 /***/ }),
@@ -4936,17 +5006,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/layouts/Mobile/components/AuthOffcanvas.vue?vue&type=script&setup=true&lang=js":
-/*!*****************************************************************************************************!*\
-  !*** ./resources/js/layouts/Mobile/components/AuthOffcanvas.vue?vue&type=script&setup=true&lang=js ***!
-  \*****************************************************************************************************/
+/***/ "./resources/js/layouts/Mobile/components/AuthMobile.vue?vue&type=script&setup=true&lang=js":
+/*!**************************************************************************************************!*\
+  !*** ./resources/js/layouts/Mobile/components/AuthMobile.vue?vue&type=script&setup=true&lang=js ***!
+  \**************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AuthOffcanvas_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AuthMobile_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AuthOffcanvas_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./AuthOffcanvas.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Mobile/components/AuthOffcanvas.vue?vue&type=script&setup=true&lang=js");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AuthMobile_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./AuthMobile.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Mobile/components/AuthMobile.vue?vue&type=script&setup=true&lang=js");
  
 
 /***/ }),
@@ -4977,6 +5047,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_LayoutMobileNavbar_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_LayoutMobileNavbar_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./LayoutMobileNavbar.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Mobile/components/LayoutMobileNavbar.vue?vue&type=script&setup=true&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/layouts/Mobile/components/SearchBox.vue?vue&type=script&setup=true&lang=js":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/layouts/Mobile/components/SearchBox.vue?vue&type=script&setup=true&lang=js ***!
+  \*************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SearchBox_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SearchBox_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./SearchBox.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Mobile/components/SearchBox.vue?vue&type=script&setup=true&lang=js");
  
 
 /***/ }),
@@ -5356,17 +5441,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/layouts/Desktop/components/AuthModal.vue?vue&type=template&id=5babd1fa":
-/*!*********************************************************************************************!*\
-  !*** ./resources/js/layouts/Desktop/components/AuthModal.vue?vue&type=template&id=5babd1fa ***!
-  \*********************************************************************************************/
+/***/ "./resources/js/layouts/Desktop/components/AuthDesktop.vue?vue&type=template&id=04e3751c":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/layouts/Desktop/components/AuthDesktop.vue?vue&type=template&id=04e3751c ***!
+  \***********************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AuthModal_vue_vue_type_template_id_5babd1fa__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AuthDesktop_vue_vue_type_template_id_04e3751c__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AuthModal_vue_vue_type_template_id_5babd1fa__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./AuthModal.vue?vue&type=template&id=5babd1fa */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Desktop/components/AuthModal.vue?vue&type=template&id=5babd1fa");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AuthDesktop_vue_vue_type_template_id_04e3751c__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./AuthDesktop.vue?vue&type=template&id=04e3751c */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Desktop/components/AuthDesktop.vue?vue&type=template&id=04e3751c");
 
 
 /***/ }),
@@ -5416,17 +5501,17 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/layouts/Mobile/components/AuthOffcanvas.vue?vue&type=template&id=54326002":
-/*!************************************************************************************************!*\
-  !*** ./resources/js/layouts/Mobile/components/AuthOffcanvas.vue?vue&type=template&id=54326002 ***!
-  \************************************************************************************************/
+/***/ "./resources/js/layouts/Mobile/components/AuthMobile.vue?vue&type=template&id=6dabf8da":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/layouts/Mobile/components/AuthMobile.vue?vue&type=template&id=6dabf8da ***!
+  \*********************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AuthOffcanvas_vue_vue_type_template_id_54326002__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AuthMobile_vue_vue_type_template_id_6dabf8da__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AuthOffcanvas_vue_vue_type_template_id_54326002__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./AuthOffcanvas.vue?vue&type=template&id=54326002 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Mobile/components/AuthOffcanvas.vue?vue&type=template&id=54326002");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AuthMobile_vue_vue_type_template_id_6dabf8da__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./AuthMobile.vue?vue&type=template&id=6dabf8da */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Mobile/components/AuthMobile.vue?vue&type=template&id=6dabf8da");
 
 
 /***/ }),
@@ -5457,6 +5542,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_LayoutMobileNavbar_vue_vue_type_template_id_1d29330c__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_LayoutMobileNavbar_vue_vue_type_template_id_1d29330c__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./LayoutMobileNavbar.vue?vue&type=template&id=1d29330c */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Mobile/components/LayoutMobileNavbar.vue?vue&type=template&id=1d29330c");
+
+
+/***/ }),
+
+/***/ "./resources/js/layouts/Mobile/components/SearchBox.vue?vue&type=template&id=c7abe37a":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/layouts/Mobile/components/SearchBox.vue?vue&type=template&id=c7abe37a ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SearchBox_vue_vue_type_template_id_c7abe37a__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_SearchBox_vue_vue_type_template_id_c7abe37a__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./SearchBox.vue?vue&type=template&id=c7abe37a */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/layouts/Mobile/components/SearchBox.vue?vue&type=template&id=c7abe37a");
 
 
 /***/ }),

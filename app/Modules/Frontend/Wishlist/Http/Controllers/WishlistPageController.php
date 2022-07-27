@@ -37,6 +37,7 @@ class WishlistPageController extends Controller
         if ($this->isProductDoesntExist($request->product_id)) {
             return;
         }
+
         if (!auth()->check()) {
             Session::put('wishlist', ['product_id' => $request->product_id]);
 

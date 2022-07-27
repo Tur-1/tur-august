@@ -43,7 +43,7 @@ class AppServiceProvider extends ServiceProvider
         });
         $this->app->singleton('inWishlist', function ($app) {
             $inWishlist = [];
-            if (Route::is('shopPage') || Route::is('productDetailPage') || Route::is('wishlistPage')) {
+            if (Route::is('shop.categoryPage') || Route::is('productDetailPage') || Route::is('wishlistPage')) {
                 $inWishlist = auth()->check() ? auth()->user()->wishlist()->pluck('product_id')->toArray() : [];
             }
             return $inWishlist;
