@@ -1,38 +1,30 @@
 @media screen and (display-mode: standalone) {
-    .search-offcanvas {
-        bottom: 7% !important;
+    .mobile-navbar nav {
+        height: 88px !important;
     }
 }
 
 /******* mobile navbar ********/
-.mobile-navbar {
-    height: 45px;
-}
+
 .mobile-navbar nav {
     color: #1a1a1a !important;
-    padding-top: 0.9rem !important;
-    padding-bottom: 0 !important;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 9px;
+    font-size: 18px;
+    height: 44px;
 }
 .mobile-navbar nav a {
     color: #1a1a1a !important;
 }
-.mobile-navbar nav .search-bar-icon {
-    position: absolute;
-    left: 14px;
-    font-size: 14px;
-}
 
-.mobile-navbar nav a {
-    position: absolute;
-
-    top: 50%;
-    padding-left: 10px;
-    font-size: 18px;
-}
 .page-title {
     font-weight: 600;
-    flex: 1 1 auto !important;
     text-align: center !important;
+    flex: 1;
 }
 
 /******** desktop navbar *************/

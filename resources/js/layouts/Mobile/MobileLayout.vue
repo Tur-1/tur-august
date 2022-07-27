@@ -16,15 +16,16 @@ onMounted(() => {
 </script>
 
 <template>
-    <main scroll-region>
-        <LayoutMobileNavbar :title="title" :backUrl="backUrl" />
-        <Transition name="slide" mode="out-in">
-            <slot v-if="contentTrigger" />
-        </Transition>
+    <LayoutMobileNavbar :title="title" :backUrl="backUrl" />
 
-        <LayoutMobileFooter />
-        <AuthMobile />
-    </main>
+    <Transition name="slide" mode="out-in">
+        <main scroll-region v-if="contentTrigger">
+            <slot />
+        </main>
+    </Transition>
+
+    <LayoutMobileFooter />
+    <AuthMobile />
 </template>
 
 <style>

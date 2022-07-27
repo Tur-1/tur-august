@@ -1,5 +1,5 @@
 <template>
-    <footer id="mobile-footer" class="footer fixed-bottom">
+    <footer id="mobile-footer" class="footer">
         <ul class="footer-items">
             <li class="footer-item">
                 <Link

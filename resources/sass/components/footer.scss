@@ -28,6 +28,10 @@ footer {
 #mobile-footer {
     padding: 1px 10px 5px 10px;
     z-index: 999999;
+    position: sticky !important;
+    position: -webkit-sticky;
+    bottom: 0;
+    margin-top: auto;
 }
 
 #mobile-footer .footer-items {

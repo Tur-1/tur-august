@@ -1,6 +1,8 @@
 <template>
     <Head>
-        <title>August - {{ title }}</title>
+        <title>
+            August {{ title && title !== "August" ? " - " + title : "" }}
+        </title>
     </Head>
 
     <DesktopLayout v-if="isDesktop">

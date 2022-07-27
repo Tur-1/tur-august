@@ -1,8 +1,8 @@
 <template>
     <app-layout title="checkout" :backUrl="$page.props.cartPageUrl">
         <section>
+            <Breadcrumb pageTitle="checkout" v-if="isDesktop" />
             <div class="container mt-3">
-                <Breadcrumb pageTitle="checkout" v-if="isDesktop" />
                 <CheckoutHeader v-if="isDesktop" />
                 <div
                     class="row"

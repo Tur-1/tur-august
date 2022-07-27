@@ -8,7 +8,6 @@
 
     <div class="search-box" v-if="route().current('shop.*')">
         <i class="bi bi-search"></i>
-
         <input
             type="text"
             placeholder="search"
@@ -18,7 +17,7 @@
         />
         <i class="bi bi-x-lg" @click="clearSearchResults"></i>
     </div>
-    <div
+    <!-- <div
         class="offcanvas offcanvas-end search-offcanvas"
         data-bs-backdrop="false"
         tabindex="-1"
@@ -26,7 +25,7 @@
         aria-labelledby="offcanvasScrollingLabel"
     >
         <div class="offcanvas-body"></div>
-    </div>
+    </div> -->
 </template>
 <script setup>
 import { Inertia } from "@inertiajs/inertia";
