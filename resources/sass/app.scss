@@ -16,6 +16,7 @@ $bg-green: #51c0a9;
 }
 html {
     height: -webkit-fill-available;
+    overflow-y: auto !important;
 }
 html,
 body {
@@ -25,9 +26,9 @@ body {
     height: -webkit-fill-available;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    overflow: hidden;
     height: 100vh;
     background-color: $bg-primary;
+    overflow-y: hidden !important;
 }
 @media only screen and (max-width: 760px) {
     body::-webkit-scrollbar {

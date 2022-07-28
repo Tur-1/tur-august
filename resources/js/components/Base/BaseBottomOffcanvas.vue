@@ -3,6 +3,7 @@ const porps = defineProps({
     id: String,
     title: String,
 });
+defineEmits(["cancelRequest"]);
 </script>
 <template>
     <div
@@ -16,6 +17,7 @@ const porps = defineProps({
                 type="button"
                 class="border-0 bg-transparent"
                 data-bs-dismiss="offcanvas"
+                @click="$emit('cancelRequest')"
                 aria-label="Close"
             >
                 <i class="bi bi-chevron-down"></i>

@@ -15,13 +15,12 @@ main {
     height: 100% !important;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden !important;
 }
 
 section {
     padding-bottom: 75px;
     padding-top: 60px;
-    height: 100% !important;
-    overflow-y: scroll !important;
 }
 
 @media only screen and (max-width: 767px) {

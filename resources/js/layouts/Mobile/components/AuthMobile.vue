@@ -48,7 +48,11 @@ const removeAuthOffcanvas = () => {
 };
 </script>
 <template>
-    <BaseBottomOffcanvas id="auth-offcanvas" title="AUGUST">
+    <BaseBottomOffcanvas
+        id="auth-offcanvas"
+        title="AUGUST"
+        @cancelRequest="closeAuthOffcanvas"
+    >
         <Auth />
     </BaseBottomOffcanvas>
 </template>
