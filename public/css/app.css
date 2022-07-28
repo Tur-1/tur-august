@@ -18567,13 +18567,6 @@ ul {
     font-size: 14px !important;
   }
 }
-@media screen and (display-mode: standalone) {
-  .mobile-navbar nav {
-    height: 88px !important;
-    align-items: end !important;
-    padding-bottom: 10px;
-  }
-}
 /******* mobile navbar ********/
 .mobile-navbar nav {
   color: #1a1a1a !important;
@@ -19029,10 +19022,6 @@ footer {
   .base-right-offcanvas .offcanvas-header {
     padding-top: 7px !important;
   }
-  .offcanvas-end,
-.offcanvas-start {
-    padding-top: 45px !important;
-  }
 }
 @media only screen and (max-width: 700px) {
   .base-right-offcanvas {
@@ -19322,6 +19311,9 @@ footer {
   }
   .mobile-offcanvas-filter-footer {
     padding: 20px 10px !important;
+  }
+  .shop-page-mobile-section {
+    padding-top: 100px !important;
   }
 }
 .shop-page-mobile-section {
