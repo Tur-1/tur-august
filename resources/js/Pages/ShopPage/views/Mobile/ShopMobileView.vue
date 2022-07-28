@@ -4,7 +4,7 @@ import ProductCard from "@/components/ProductCard.vue";
 import ShopMobileHeader from "@/Pages/ShopPage/views/Mobile/components/ShopMobileHeader/index.vue";
 </script>
 <template>
-    <section>
+    <section class="shop-page-mobile-section">
         <ShopMobileHeader />
         <div class="container">
             <div class="row">

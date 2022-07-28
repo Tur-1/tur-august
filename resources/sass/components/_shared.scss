@@ -3,8 +3,7 @@
         top: 90px !important;
     }
     section {
-        padding-bottom: 50px !important;
-        padding-top: 90px !important;
+        padding-bottom: 90px !important;
     }
     #nprogress .bar {
         top: 88px !important;
@@ -20,14 +19,9 @@ main {
 
 section {
     padding-bottom: 75px;
-    padding-top: 60px;
+    padding-top: 45px;
 }
 
-@media only screen and (max-width: 767px) {
-    section {
-        padding-top: 45px;
-    }
-}
 #toast-alert {
     position: fixed !important;
     top: 45px;
