@@ -78,14 +78,5 @@ const closeMobileOffcanvasFilter = () => {
                 :showFilteredProducts="showFilteredProducts"
             />
         </div>
-        <div class="offcanvas-footer mobile-offcanvas-filter-footer">
-            <button
-                type="button"
-                class="filter-products-button btn btn-primary"
-                @click="closeMobileOffcanvasFilter"
-            >
-                ({{ $page.props.productsCount }}) products
-            </button>
-        </div>
     </div>
 </template>

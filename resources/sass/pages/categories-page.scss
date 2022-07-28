@@ -3,10 +3,12 @@
     .categories-page-container .categories-page-header {
         top: 90px !important;
     }
+    .categories-page-container .categories-page-body {
+        padding-top: 90px !important;
+    }
 }
 .categories-page-container .categories-page-header {
-    position: sticky !important;
-    position: -webkit-sticky;
+    position: fixed !important;
     width: 100%;
     top: 45px;
     background-color: white;
@@ -41,7 +43,7 @@
 }
 
 .categories-page-container .categories-page-body {
-    // padding-bottom: 100px;
+    padding-top: 40px !important;
 }
 .categories-page-container .categories-page-body .tab-content .tab-pane .tab-buttons-content .nav {
     background-color: #d8d8d8 !important;

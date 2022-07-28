@@ -2,7 +2,7 @@
     <header class="mobile-navbar">
         <nav>
             <div class="nav-back-button">
-                <Link v-show="backUrl" :href="backUrl">
+                <Link :href="backUrl" v-show="backUrl">
                     <i class="bi bi-chevron-left backurl-icon"></i>
                 </Link>
             </div>

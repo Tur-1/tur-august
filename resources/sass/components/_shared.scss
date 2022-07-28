@@ -4,7 +4,10 @@
     }
     section {
         padding-bottom: 50px !important;
-        padding-top: 90px;
+        padding-top: 90px !important;
+    }
+    #nprogress .bar {
+        top: 89px !important;
     }
 }
 
