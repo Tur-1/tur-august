@@ -1,11 +1,7 @@
 <template>
-    <i
-        class="bi bi-search search-bar-icon"
-        v-if="route().current('homePage')"
-        @click="openSearchModal"
-    >
-    </i>
-
+    <div v-show="route().current('homePage')">
+        <i class="bi bi-search search-bar-icon" @click="openSearchModal"> </i>
+    </div>
     <div class="search-box" v-if="route().current('shop.*')">
         <i class="bi bi-search"></i>
         <input

@@ -5,7 +5,7 @@
         padding: 20px 10px !important;
     }
     .shop-page-mobile-section {
-        padding-top: 100px !important;
+        padding-top: 93px !important;
     }
 }
 .shop-page-mobile-section {
@@ -64,12 +64,15 @@
     box-sizing: border-box;
     border-color: #c1c1c1;
     background-color: transparent;
-    padding: 5px !important;
+    padding: 0 5px !important;
     border-radius: 4px;
     width: max-content !important;
     border: 1px solid #c1c1c1 !important;
     color: $text-secondary-color;
-    font-size: 12px !important;
+    font-size: 13px !important;
+    font-weight: 500;
+    height: 35px;
+    line-height: 35px;
 }
 .mobile-header-categories-warp .mobile-categories-row .active-category-link {
     color: $bg-green !important;

@@ -18415,6 +18415,9 @@ body {
   section {
     padding-bottom: 90px !important;
   }
+  #nprogress .bar {
+    top: 44px !important;
+  }
 }
 main {
   height: 100% !important;
@@ -19308,7 +19311,7 @@ footer {
     padding: 20px 10px !important;
   }
   .shop-page-mobile-section {
-    padding-top: 100px !important;
+    padding-top: 93px !important;
   }
 }
 .shop-page-mobile-section {
@@ -19371,14 +19374,17 @@ footer {
   box-sizing: border-box;
   border-color: #c1c1c1;
   background-color: transparent;
-  padding: 5px !important;
+  padding: 0 5px !important;
   border-radius: 4px;
   width: -webkit-max-content !important;
   width: -moz-max-content !important;
   width: max-content !important;
   border: 1px solid #c1c1c1 !important;
   color: #939393;
-  font-size: 12px !important;
+  font-size: 13px !important;
+  font-weight: 500;
+  height: 35px;
+  line-height: 35px;
 }
 
 .mobile-header-categories-warp .mobile-categories-row .active-category-link {
