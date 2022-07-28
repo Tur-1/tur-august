@@ -1,5 +1,5 @@
 <template>
-    <section class="horizontal-section">
+    <div class="horizontal-section">
         <h5 class="section-title"><span>Related</span> Products</h5>
         <div class="section-container">
             <div id="slick-products" class="pb-5">
@@ -9,7 +9,7 @@
                 />
             </div>
         </div>
-    </section>
+    </div>
 </template>
 <script setup>
 import ProductCard from "@/components/ProductCard.vue";

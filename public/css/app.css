@@ -17723,9 +17723,9 @@ body {
 body {
   height: -webkit-fill-available;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  height: 100vh !important;
+  overflow: hidden;
+  height: 100vh;
   background-color: white;
-  overflow-y: scroll !important;
 }
 
 @media only screen and (max-width: 760px) {
@@ -17773,11 +17773,11 @@ body {
     padding-top: 90px !important;
   }
   #nprogress .bar {
-    top: 89px !important;
+    top: 88px !important;
   }
 }
 main {
-  min-height: 100% !important;
+  height: 100% !important;
   display: flex;
   flex-direction: column;
 }
@@ -17786,6 +17786,7 @@ section {
   padding-bottom: 75px;
   padding-top: 60px;
   height: 100% !important;
+  overflow-y: scroll !important;
 }
 
 @media only screen and (max-width: 767px) {
@@ -18389,7 +18390,7 @@ footer {
   }
   .offcanvas-end,
 .offcanvas-start {
-    padding-top: 90px !important;
+    padding-top: 44px !important;
   }
 }
 @media only screen and (max-width: 700px) {
@@ -18676,7 +18677,7 @@ footer {
 /*    mobile filter and sort bottons   **/
 @media screen and (display-mode: standalone) {
   .mobile-shop-page-header {
-    top: 90px !important;
+    top: 88px !important;
   }
   .mobile-offcanvas-filter-footer {
     padding: 20px 10px !important;
@@ -18686,8 +18687,7 @@ footer {
   border: 1px solid #dee2e6;
   border-top: none !important;
   background-color: white;
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   top: 45px;
   background-color: white;
   display: flex;
@@ -18807,8 +18807,7 @@ footer {
 /*    mobile Filter products     **/
 #mobile-offcanvas-filter {
   z-index: 100000000000000020000;
-  min-height: 50% !important;
-  max-height: 66% !important;
+  height: 60% !important;
   padding: 0 !important;
   border-top-right-radius: 15px !important;
   border-top-left-radius: 15px !important;
@@ -18905,8 +18904,7 @@ footer {
   z-index: 100000000000000020000;
   top: unset !important;
   bottom: 0 !important;
-  min-height: 60% !important;
-  max-height: 66% !important;
+  height: 60% !important;
   padding: 0 !important;
   border-top-right-radius: 15px !important;
   border-top-left-radius: 15px !important;
@@ -19452,10 +19450,10 @@ ul.shop-sidebar-categories {
 /******** categories page *************/
 @media screen and (display-mode: standalone) {
   .categories-page-container .categories-page-header {
-    top: 90px !important;
+    top: 88px !important;
   }
   .categories-page-container .categories-page-body {
-    padding-top: 90px !important;
+    padding-top: 88px !important;
   }
 }
 .categories-page-container .categories-page-header {

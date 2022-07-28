@@ -7,12 +7,12 @@
         padding-top: 90px !important;
     }
     #nprogress .bar {
-        top: 89px !important;
+        top: 88px !important;
     }
 }
 
 main {
-    min-height: 100% !important;
+    height: 100% !important;
     display: flex;
     flex-direction: column;
 }
@@ -21,6 +21,7 @@ section {
     padding-bottom: 75px;
     padding-top: 60px;
     height: 100% !important;
+    overflow-y: scroll !important;
 }
 
 @media only screen and (max-width: 767px) {
