@@ -3,14 +3,20 @@
         <div
             v-if="isShown && toast !== null"
             id="toast-alert"
-            class="align-items-center"
-            role="alert"
             :class="toast.background"
+            class="toast show align-items-center border-0"
+            role="alert"
             aria-live="assertive"
             aria-atomic="true"
         >
             <div class="d-flex">
                 <div class="toast-body">{{ toast.message }}</div>
+                <button
+                    type="button"
+                    class="btn-close btn-close-white me-2 m-auto"
+                    data-bs-dismiss="toast"
+                    aria-label="Close"
+                ></button>
             </div>
         </div>
     </Transition>

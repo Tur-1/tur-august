@@ -10,12 +10,12 @@
                 {{ title }}
             </span>
 
-            <SearchBox />
+            <SearchBar />
         </nav>
     </header>
 </template>
 <script setup>
-import SearchBox from "@/layouts/Mobile/components/SearchBox.vue";
+import SearchBar from "@/components/SearchBar/index.vue";
 
 defineProps({
     title: String,

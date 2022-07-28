@@ -304,6 +304,16 @@ var map = {
 		"/js/vendor",
 		"resources_js_Pages_HomePage_Index_vue"
 	],
+	"./HomePage/components/BannersSkeleton": [
+		"./resources/js/Pages/HomePage/components/BannersSkeleton.vue",
+		"/js/vendor",
+		"resources_js_Pages_HomePage_components_BannersSkeleton_vue"
+	],
+	"./HomePage/components/BannersSkeleton.vue": [
+		"./resources/js/Pages/HomePage/components/BannersSkeleton.vue",
+		"/js/vendor",
+		"resources_js_Pages_HomePage_components_BannersSkeleton_vue"
+	],
 	"./HomePage/components/LargeBanners": [
 		"./resources/js/Pages/HomePage/components/LargeBanners.vue",
 		"/js/vendor",
