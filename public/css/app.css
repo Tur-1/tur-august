@@ -18372,7 +18372,6 @@ body {
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  height: 100vh;
   background-color: white;
 }
 
@@ -18413,14 +18412,8 @@ body {
 }
 
 @media screen and (display-mode: standalone) {
-  #toast-alert {
-    top: 90px !important;
-  }
   section {
     padding-bottom: 90px !important;
-  }
-  #nprogress .bar {
-    top: 88px !important;
   }
 }
 main {
@@ -18432,9 +18425,14 @@ main {
 
 section {
   padding-bottom: 75px;
-  padding-top: 45px;
+  padding-top: 60px;
 }
 
+@media only screen and (max-width: 767px) {
+  section {
+    padding-top: 45px;
+  }
+}
 #toast-alert {
   position: fixed !important;
   top: 45px;
@@ -19306,9 +19304,6 @@ footer {
 
 /*    mobile filter and sort bottons   **/
 @media screen and (display-mode: standalone) {
-  .mobile-shop-page-header {
-    top: 88px !important;
-  }
   .mobile-offcanvas-filter-footer {
     padding: 20px 10px !important;
   }
@@ -20088,9 +20083,6 @@ ul.shop-sidebar-categories {
 
 /******** categories page *************/
 @media screen and (display-mode: standalone) {
-  .categories-page-container .categories-page-header {
-    top: 88px !important;
-  }
   .categories-page-container .categories-page-body {
     padding-top: 88px !important;
   }

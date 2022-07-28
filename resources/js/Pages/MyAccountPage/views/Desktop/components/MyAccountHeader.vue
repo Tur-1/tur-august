@@ -3,7 +3,7 @@
         <div class="">
             <Component
                 :is="$page.props.user.isNotCustomer ? 'a' : 'span'"
-                :href="route('admin.dashboardPage')"
+                href="admin/dashboard"
                 v-html="'Dashboard'"
             />
         </div>
