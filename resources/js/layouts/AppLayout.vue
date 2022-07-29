@@ -16,14 +16,15 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import DesktopLayout from "@/layouts/Desktop/DesktopLayout.vue";
 import MobileLayout from "@/layouts/Mobile/MobileLayout.vue";
 import Toast from "@/components/Toast.vue";
 
-defineProps({
+const props = defineProps({
     title: String,
     backUrl: String,
+    backgroundColor: String,
 });
 
 let isDesktop = ref(true);
@@ -35,4 +36,13 @@ if (mediaQueryWidth.matches) {
     isMobile.value = true;
     isDesktop.value = false;
 }
+onMounted(() => {
+    if (props.backgroundColor) {
+        document.querySelector("body").classList.remove("app-bg-primary");
+        document.querySelector("body").classList.add(props.backgroundColor);
+    } else {
+        document.querySelector("body").classList.remove(props.backgroundColor);
+        document.querySelector("body").classList.add("app-bg-primary");
+    }
+});
 </script>

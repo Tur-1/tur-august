@@ -1,39 +1,38 @@
 <template>
-    <div
-        class="modal fade base-modal"
-        :id="id"
-        data-bs-backdrop="static"
-        data-bs-keyboard="false"
-        tabindex="-1"
-        :aria-labelledby="'static-' + id"
-        aria-hidden="true"
-    >
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-body position-relative">
-                    <button
-                        type="button"
-                        data-bs-dismiss="modal"
-                        class="close-modal-btn text-white"
-                        @click="$emit('closeModal')"
-                    >
-                        <i class="bi bi-x-lg"></i>
-                    </button>
-                    <h6
-                        v-show="title"
-                        class="modal-title mb-2 text-uppercase"
-                        :id="'title-' + id"
-                    >
-                        {{ title }}
-                    </h6>
-
-                    <slot />
+    <Teleport to="#base-modal-container">
+        <Transition name="modal">
+            <div :id="id" class="base-modal-bg" v-if="isModalOpen">
+                <div class="base-modal">
+                    <div class="base-modal-content">
+                        <div class="base-modal-header">
+                            <button
+                                type="button"
+                                @click="$emit('closeModal')"
+                                class="base-modal-close-btn btn-close btn-close-white"
+                            ></button>
+                        </div>
+                        <span class="base-modal-title" v-show="title">
+                            {{ title }}
+                        </span>
+                        <slot />
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </Transition>
+    </Teleport>
 </template>
 <script setup>
-const porps = defineProps(["id", "title"]);
+const porps = defineProps(["id", "title", "isModalOpen"]);
 const emit = defineEmits(["closeModal"]);
 </script>
+<style>
+.modal-enter-active,
+.modal-leave-active {
+    transition: all 0.25s ease;
+}
+.modal-enter-from,
+.modal-leave-to {
+    opacity: 0;
+    transform: scale(1.1);
+}
+</style>

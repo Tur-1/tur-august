@@ -1,7 +1,9 @@
 <script setup>
 import { useForm } from "@inertiajs/inertia-vue3";
-import BaseFormModal from "@/components/Base/BaseFormModal.vue";
 import AccountPasswordForm from "./../../MyAccountSettings/AccountPassword/AccountPasswordForm.vue";
+import BaseForm from "@/components/Base/BaseForm.vue";
+import BaseModal from "@/components/Base/BaseModal.vue";
+import { ref } from "vue";
 
 let accountPasswordForm = useForm({
     current_password: "",
@@ -9,19 +11,20 @@ let accountPasswordForm = useForm({
     new_password_confirmation: "",
 });
 
+let isPasswordModalOpen = ref(false);
 // methods
 const openAccountPasswordModal = () => {
-    $("#account-password-modal").modal("show");
+    isPasswordModalOpen.value = true;
 };
 const updateAccountPassword = () => {
     accountPasswordForm.post(route("updateAccountPassword"), {
         onSuccess: (page) => {
-            hideAccountPasswordModal();
+            closeAccountPasswordModal();
         },
     });
 };
-const hideAccountPasswordModal = () => {
-    $("#account-password-modal").modal("hide");
+const closeAccountPasswordModal = () => {
+    isPasswordModalOpen.value = false;
 
     accountPasswordForm.reset().clearErrors();
 };
@@ -52,16 +55,20 @@ const hideAccountPasswordModal = () => {
         </div>
     </div>
 
-    <!-- Modal -->
-    <BaseFormModal
+    <BaseModal
         id="account-password-modal"
         title="update account passwrod"
-        submitButtonTitle="save changes"
-        cancelButtonTitle="cancel"
-        @formSubmited="updateAccountPassword"
-        @cancelRequest="hideAccountPasswordModal"
-        :formProcessing="accountPasswordForm.processing"
+        :isModalOpen="isPasswordModalOpen"
+        @closeModal="closeAccountPasswordModal"
     >
-        <AccountPasswordForm :accountPasswordForm="accountPasswordForm" />
-    </BaseFormModal>
+        <BaseForm
+            submitButtonTitle="save changes"
+            cancelButtonTitle="cancel"
+            @formSubmited="updateAccountPassword"
+            @cancelRequest="closeAccountPasswordModal"
+            :formProcessing="accountPasswordForm.processing"
+        >
+            <AccountPasswordForm :accountPasswordForm="accountPasswordForm" />
+        </BaseForm>
+    </BaseModal>
 </template>

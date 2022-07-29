@@ -1,7 +1,9 @@
 <script setup>
 import AccountInformationForm from "./AccountInformationForm.vue";
-import BaseFormModal from "@/components/Base/BaseFormModal.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
+import BaseModal from "@/components/Base/BaseModal.vue";
+import BaseForm from "@/components/Base/BaseForm.vue";
+import { ref } from "vue";
 const props = defineProps({
     userInfo: Object,
 });
@@ -12,10 +14,11 @@ let accountInfoForm = useForm({
     gender: props.userInfo.gender,
 });
 
+let isAccountInfoModalOpen = ref(false);
 // action methods
 
 const openAccountInfoModal = () => {
-    $("#account-info-modal").modal("show");
+    isAccountInfoModalOpen.value = true;
 };
 const updateAccountInfo = () => {
     accountInfoForm.post(route("updateAccountInformation"), {
@@ -26,7 +29,7 @@ const updateAccountInfo = () => {
 };
 
 const closeAccountInfoModal = () => {
-    $("#account-info-modal").modal("hide");
+    isAccountInfoModalOpen.value = false;
 
     accountInfoForm
         .reset({
@@ -36,7 +39,7 @@ const closeAccountInfoModal = () => {
         })
         .clearErrors();
 };
-const cancelUpdateingAccountInfoRequest = () => {
+const cancelUpdateingRequest = () => {
     accountInfoForm.cancel();
     closeAccountInfoModal();
 };
@@ -80,15 +83,21 @@ const cancelUpdateingAccountInfoRequest = () => {
     </div>
 
     <!-- Modal -->
-    <BaseFormModal
+
+    <BaseModal
         id="account-info-modal"
         title="update account information"
-        submitButtonTitle="save changes"
-        cancelButtonTitle="cancel"
-        @formSubmited="updateAccountInfo"
-        @cancelRequest="cancelUpdateingAccountInfoRequest"
-        :formProcessing="accountInfoForm.processing"
+        :isModalOpen="isAccountInfoModalOpen"
+        @closeModal="cancelUpdateingRequest"
     >
-        <AccountInformationForm :accountInfoForm="accountInfoForm" />
-    </BaseFormModal>
+        <BaseForm
+            submitButtonTitle="save changes"
+            cancelButtonTitle="cancel"
+            @formSubmited="updateAccountInfo"
+            @cancelRequest="cancelUpdateingRequest"
+            :formProcessing="accountInfoForm.processing"
+        >
+            <AccountInformationForm :accountInfoForm="accountInfoForm" />
+        </BaseForm>
+    </BaseModal>
 </template>

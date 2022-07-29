@@ -1,5 +1,9 @@
 <template>
-    <app-layout title="checkout" :backUrl="$page.props.cartPageUrl">
+    <app-layout
+        title="checkout"
+        :backUrl="$page.props.cartPageUrl"
+        backgroundColor="app-bg-secondary"
+    >
         <section>
             <Breadcrumb pageTitle="checkout" v-if="isDesktop" />
             <div class="container mt-3">
@@ -61,7 +65,4 @@ const mediaQueryWidth = window.matchMedia("(max-width: 756px)");
 if (mediaQueryWidth.matches) {
     isDesktop.value = false;
 }
-onMounted(() => {
-    document.querySelector("body").style.backgroundColor = "#F9F9F9";
-});
 </script>

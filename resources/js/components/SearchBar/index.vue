@@ -1,6 +1,7 @@
 <template>
     <div class="search-box" v-show="route().current('homePage')">
         <i class="bi bi-search" @click="openSearchModal"></i>
+
         <div class="search-input">
             <input
                 type="text"
@@ -19,7 +20,7 @@
         @openSearchModal="openSearchModal"
         @clearSearchResults="clearSearchResults"
     />
-    <SearchBox />
+    <SearchBox :isShown="isShown" />
 </template>
 
 <script setup>
@@ -29,43 +30,25 @@ import { ref } from "vue";
 import ShopSearchBar from "@/components/SearchBar/ShopSearchBar.vue";
 import SearchBox from "@/components/SearchBar/SearchBox.vue";
 
+let isShown = ref(false);
+
 let search = ref(
     usePage().props.value.queryString
         ? usePage().props.value.queryString.search
         : ""
 );
 const openSearchModal = () => {
-    $(".collapse").collapse("show");
+    isShown.value = true;
+
     $(".search-box").addClass("show-box");
     $(".search-input").addClass("show-input");
     $(".page-title").addClass("hide");
 };
-const getSearchResults = () => {
-    // if (search.value) {
-    //     Inertia.get(
-    //         route("shop.categoryPage", {
-    //             category_slug: usePage().props.value.category.slug,
-    //         }),
-    //         {
-    //             search: search.value,
-    //         },
-    //         {
-    //             preserveState: true,
-    //             replace: true,
-    //         }
-    //     );
-    // }
-};
+const getSearchResults = () => {};
 const clearSearchResults = () => {
     search.value = "";
-    // if (usePage().props.value.queryString.search) {
-    //     Inertia.get(
-    //         route("shop.categoryPage", {
-    //             category_slug: usePage().props.value.category.slug,
-    //         })
-    //     );
-    // }
-    $(".collapse").collapse("hide");
+
+    isShown.value = false;
     $(".search-box").removeClass("show-box");
     $(".search-input").removeClass("show-input");
     $(".page-title").removeClass("hide");

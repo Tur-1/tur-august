@@ -8,30 +8,40 @@
     <CheckoutAddNewAddress
         @openMyAddressBookModal="openMyAddressBookModal(null)"
     />
-    <BaseFormModal
+
+    <BaseModal
         id="checkout-address-book-modal"
-        title="new address"
-        submitButtonTitle="save changes"
-        cancelButtonTitle="cancel"
-        @formSubmited="!editMode ? storeNewAddress() : updateUserAddress()"
-        @cancelRequest="closeMyAddressBookModal"
-        :formProcessing="myAddressForm.processing"
+        :title="!editMode ? 'new address' : 'update address'"
+        :isModalOpen="isAddressBookModalOpen"
+        @closeModal="closeMyAddressBookModal"
     >
-        <MyAddressForm :myAddressForm="myAddressForm" />
-    </BaseFormModal>
+        <BaseForm
+            submitButtonTitle="save changes"
+            cancelButtonTitle="cancel"
+            @formSubmited="!editMode ? storeNewAddress() : updateUserAddress()"
+            @cancelRequest="closeMyAddressBookModal"
+            :formProcessing="myAddressForm.processing"
+        >
+            <MyAddressForm :myAddressForm="myAddressForm" />
+        </BaseForm>
+    </BaseModal>
 </template>
 <script setup>
 import { ref } from "vue";
 import MyAddressForm from "@/Pages/MyAccountPage/components/MyAddressBook/MyAddressForm.vue";
-import BaseFormModal from "@/components/Base/BaseFormModal.vue";
 import { useForm } from "@inertiajs/inertia-vue3";
 import { Inertia } from "@inertiajs/inertia";
 import CheckoutAddressesList from "@/Pages/CheckoutPage/components/CheckoutUserAddresses/CheckoutAddressesList.vue";
 import CheckoutAddNewAddress from "@/Pages/CheckoutPage/components/CheckoutUserAddresses/CheckoutAddNewAddress.vue";
+import BaseForm from "@/components/Base/BaseForm.vue";
+import BaseModal from "@/components/Base/BaseModal.vue";
 
 defineProps(["checkoutForm"]);
 
 let editMode = ref(false);
+
+let isAddressBookModalOpen = ref(false);
+
 let myAddressForm = useForm({
     address_id: "",
     full_name: "",
@@ -52,12 +62,12 @@ const openMyAddressBookModal = (address) => {
         editMode.value = true;
     }
 
-    $("#checkout-address-book-modal").modal("show");
+    isAddressBookModalOpen.value = true;
 };
 
 const closeMyAddressBookModal = () => {
     editMode.value = false;
-    $("#checkout-address-book-modal").modal("hide");
+    isAddressBookModalOpen.value = false;
     myAddressForm.reset();
 };
 

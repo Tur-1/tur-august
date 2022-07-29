@@ -1,45 +1,24 @@
 <template>
     <div>
-        <div class="collapse search-collapse-body" id="collapseExample">
-            <div class="card card-body border-0 flex-column">
-                <Link class="mb-1">
-                    <span>addidas</span>
-                </Link>
-                <Link class="mb-1">
-                    <span>addidas</span>
-                </Link>
-                <Link class="mb-1">
-                    <span>addidas</span>
-                </Link>
-                <Link class="mb-1">
-                    <span>addidas</span>
-                </Link>
-                <Link class="mb-1">
-                    <span>addidas</span>
-                </Link>
-                <Link class="mb-1">
-                    <span>addidas</span>
-                </Link>
-                <Link class="mb-1">
-                    <span>addidas</span>
-                </Link>
-                <Link class="mb-1">
-                    <span>addidas</span>
-                </Link>
-                <Link class="mb-1">
-                    <span>addidas</span>
-                </Link>
-                <Link class="mb-1">
-                    <span>addidas</span>
-                </Link>
-                <Link class="mb-1">
-                    <span>addidas</span>
-                </Link>
-                <Link class="mb-1">
-                    <span>addidas</span>
-                </Link>
+        <transition name="fade">
+            <div
+                aria-hidden="true"
+                class="search-collapse-body"
+                v-if="isShown"
+                id="collapseExample"
+            >
+                <div class="flex-column p-0 pb-3">
+                    <Link
+                        class="pt-1 pb-1 ps-3 pe-3 mb-1 d-flex justify-content-between align-items-center border-bottom"
+                    >
+                        <span>addidas puma </span>
+                        <i class="bi bi-arrow-up-left"></i>
+                    </Link>
+                </div>
             </div>
-        </div>
+        </transition>
     </div>
 </template>
-<script setup></script>
+<script setup>
+defineProps(["isShown"]);
+</script>

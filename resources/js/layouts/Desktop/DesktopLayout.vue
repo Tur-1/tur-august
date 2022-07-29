@@ -21,9 +21,8 @@ onMounted(() => {
         <Transition name="fade" mode="out-in">
             <slot v-if="contentTrigger" />
         </Transition>
-
-        <AuthDesktop />
         <LayoutFooter />
+        <AuthDesktop />
     </main>
 </template>
 

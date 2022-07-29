@@ -4,30 +4,21 @@
         class="carousel slide"
         data-bs-ride="carousel"
     >
-        <Suspense>
-            <template #default>
-                <div class="carousel-inner">
-                    <div
-                        v-for="(banner, index) in $page.props.largeBanners"
-                        class="carousel-item w-100 h-100"
-                        :class="{ active: index == 0 }"
-                    >
-                        <Link :href="banner.link">
-                            <img
-                                :src="banner.image_url"
-                                loading="lazy"
-                                class="d-block w-100 h-100"
-                                alt="..."
-                            />
-                        </Link>
-                    </div>
-                </div>
-            </template>
-            <template #fallback>
-                <BannersSkeleton />
-            </template>
-        </Suspense>
-
+        <div class="carousel-inner">
+            <div
+                v-for="(banner, index) in $page.props.largeBanners"
+                class="carousel-item w-100 h-100"
+                :class="{ active: index == 0 }"
+            >
+                <Link :href="banner.link">
+                    <img
+                        :src="banner.image_url"
+                        class="d-block w-100 h-100"
+                        alt="..."
+                    />
+                </Link>
+            </div>
+        </div>
         <button
             class="carousel-control-prev"
             type="button"
@@ -48,6 +39,3 @@
         </button>
     </div>
 </template>
-<script setup>
-import BannersSkeleton from "@/Pages/HomePage/components/BannersSkeleton.vue";
-</script>

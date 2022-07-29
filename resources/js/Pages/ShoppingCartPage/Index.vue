@@ -1,5 +1,5 @@
 <template>
-    <app-layout title="shopping cart">
+    <app-layout title="shopping cart" backgroundColor="app-bg-secondary">
         <section>
             <Breadcrumb pageTitle="shopping cart" v-if="isDesktop" />
             <div class="container mt-3">
@@ -26,7 +26,7 @@ import CartProducts from "@/Pages/ShoppingCartPage/components/CartProducts";
 import CartDetails from "@/Pages/ShoppingCartPage/components/CartDetails";
 import ProductsNoLongerInStock from "@/Pages/ShoppingCartPage/components/ProductsNoLongerInStock.vue";
 
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
 import CartEmpty from "@/Pages/ShoppingCartPage/components/CartEmpty.vue";
 
 let isDesktop = ref(true);
@@ -38,7 +38,4 @@ if (mediaQueryWidth.matches) {
     isMobile.value = true;
     isDesktop.value = false;
 }
-onMounted(() => {
-    document.querySelector("body").style.backgroundColor = "#F9F9F9";
-});
 </script>

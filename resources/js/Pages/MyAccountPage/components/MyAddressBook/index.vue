@@ -1,13 +1,15 @@
 <script setup>
-import BaseFormModal from "@/components/Base/BaseFormModal.vue";
 import { Inertia } from "@inertiajs/inertia";
 import { useForm } from "@inertiajs/inertia-vue3";
 import { ref } from "vue";
 import MyAddressForm from "./MyAddressForm.vue";
 import MyAddressList from "@/Pages/MyAccountPage/components/MyAddressBook/MyAddressList.vue";
 import AddNewAddress from "./AddNewAddress.vue";
+import BaseForm from "@/components/Base/BaseForm.vue";
+import BaseModal from "@/components/Base/BaseModal.vue";
 
 let editMode = ref(false);
+let isAddressBookModalOpen = ref(false);
 let myAddressForm = useForm({
     address_id: "",
     full_name: "",
@@ -28,12 +30,12 @@ const openMyAddressBookModal = (address) => {
         editMode.value = true;
     }
 
-    $("#my-address-book-modal").modal("show");
+    isAddressBookModalOpen.value = true;
 };
 
 const closeMyAddressBookModal = () => {
     editMode.value = false;
-    $("#my-address-book-modal").modal("hide");
+    isAddressBookModalOpen.value = false;
     myAddressForm.reset();
 };
 
@@ -68,16 +70,20 @@ const destroyUserAddress = (address_id) => {
         @destroyUserAddress="destroyUserAddress"
     />
 
-    <!-- Modal -->
-    <BaseFormModal
+    <BaseModal
         id="my-address-book-modal"
-        title="new address"
-        submitButtonTitle="save changes"
-        cancelButtonTitle="cancel"
-        @formSubmited="!editMode ? storeNewAddress() : updateUserAddress()"
-        @cancelRequest="closeMyAddressBookModal"
-        :formProcessing="myAddressForm.processing"
+        :title="!editMode ? 'new address' : 'update address'"
+        :isModalOpen="isAddressBookModalOpen"
+        @closeModal="closeMyAddressBookModal"
     >
-        <MyAddressForm :myAddressForm="myAddressForm" />
-    </BaseFormModal>
+        <BaseForm
+            submitButtonTitle="save changes"
+            cancelButtonTitle="cancel"
+            @formSubmited="!editMode ? storeNewAddress() : updateUserAddress()"
+            @cancelRequest="closeMyAddressBookModal"
+            :formProcessing="myAddressForm.processing"
+        >
+            <MyAddressForm :myAddressForm="myAddressForm" />
+        </BaseForm>
+    </BaseModal>
 </template>

@@ -34,7 +34,12 @@ body {
 #app {
     height: 100%;
 }
-
+.app-bg-secondary {
+    background-color: $bg-secondary !important;
+}
+.app-bg-primary {
+    background-color: $bg-primary !important;
+}
 //components
 
 @import "./components/search-box.scss";

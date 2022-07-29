@@ -1,28 +1,30 @@
 <script setup>
 import { useForm } from "@inertiajs/inertia-vue3";
 import AccountPhoneNumberForm from "@/Pages/MyAccountPage/components/MyAccountSettings/AccountPhoneNumber/AccountPhoneNumberForm.vue";
-import BaseFormModal from "@/components/Base/BaseFormModal.vue";
+import { ref } from "vue";
+import BaseModal from "@/components/Base/BaseModal.vue";
+import BaseForm from "@/components/Base/BaseForm.vue";
 
 const props = defineProps({
     userPhoneNumber: Number,
 });
-
+let isPhoneNumberModalOpen = ref(false);
 let accountPhoneNumberForm = useForm({
     phone_number: props.userPhoneNumber,
 });
 
 const openAccountPhoneNumberModal = () => {
-    $("#account-phone-number-modal").modal("show");
+    isPhoneNumberModalOpen.value = true;
 };
 const updateAccountPhoneNumber = () => {
     accountPhoneNumberForm.post(route("updateAccountPhoneNumber"), {
         onSuccess: (page) => {
-            hideAccountPhoneNumberModal();
+            closeAccountPhoneNumberModal();
         },
     });
 };
-const hideAccountPhoneNumberModal = () => {
-    $("#account-phone-number-modal").modal("hide");
+const closeAccountPhoneNumberModal = () => {
+    isPhoneNumberModalOpen.value = false;
     accountPhoneNumberForm
         .reset({ phone_number: props.userPhoneNumber })
         .clearErrors();
@@ -53,18 +55,22 @@ const hideAccountPhoneNumberModal = () => {
         </div>
     </div>
 
-    <!-- Modal -->
-    <BaseFormModal
+    <BaseModal
         id="account-phone-number-modal"
         title="update account phone number"
-        submitButtonTitle="save changes"
-        cancelButtonTitle="cancel"
-        @formSubmited="updateAccountPhoneNumber"
-        @cancelRequest="hideAccountPhoneNumberModal"
-        :formProcessing="accountPhoneNumberForm.processing"
+        :isModalOpen="isPhoneNumberModalOpen"
+        @closeModal="closeAccountPhoneNumberModal"
     >
-        <AccountPhoneNumberForm
-            :accountPhoneNumberForm="accountPhoneNumberForm"
-        />
-    </BaseFormModal>
+        <BaseForm
+            submitButtonTitle="save changes"
+            cancelButtonTitle="cancel"
+            @formSubmited="updateAccountPhoneNumber"
+            @cancelRequest="closeAccountPhoneNumberModal"
+            :formProcessing="accountPhoneNumberForm.processing"
+        >
+            <AccountPhoneNumberForm
+                :accountPhoneNumberForm="accountPhoneNumberForm"
+            />
+        </BaseForm>
+    </BaseModal>
 </template>
