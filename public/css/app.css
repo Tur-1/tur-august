@@ -18509,7 +18509,7 @@ section {
   visibility: visible;
   font-size: 0.875rem;
   pointer-events: auto;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: white;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
@@ -18648,9 +18648,10 @@ ul {
 }
 
 .page-title {
-  font-weight: 600;
+  font-weight: 600 !important;
   text-align: center !important;
   flex: 1 1 auto;
+  font-size: 18px !important;
 }
 
 /******** desktop navbar *************/
@@ -19121,8 +19122,8 @@ footer {
 }
 
 @media screen and (display-mode: standalone) {
-  .base-right-offcanvas .offcanvas-header {
-    padding-top: 7px !important;
+  .base-right-offcanvas {
+    top: 44px !important;
   }
 }
 @media only screen and (max-width: 700px) {
@@ -19130,10 +19131,6 @@ footer {
     width: 100% !important;
   }
 }
-.base-right-offcanvas .offcanvas-header i {
-  font-size: 17px !important;
-}
-
 .base-right-offcanvas {
   border-left: none !important;
 }

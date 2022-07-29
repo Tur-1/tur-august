@@ -34,7 +34,7 @@ section {
     visibility: visible;
     font-size: 0.875rem;
     pointer-events: auto;
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: $bg-primary;
     background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);

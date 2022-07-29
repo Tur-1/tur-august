@@ -24,7 +24,6 @@ const porps = defineProps({
             <span class="page-title" :id="'staticBackdropLabel-' + id">
                 {{ title }}
             </span>
-            <div></div>
         </div>
         <div class="offcanvas-body bg-light">
             <slot />
