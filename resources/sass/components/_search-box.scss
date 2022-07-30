@@ -2,6 +2,10 @@
     .search-box,
     .shop-search-bar {
         height: 38px !important;
+        width: 38px !important;
+    }
+    .search-collapse-body {
+        top: 50px !important;
     }
 }
 
@@ -28,18 +32,19 @@
 .search-box {
     display: flex;
     align-items: center;
-    border: 1px solid #ccccccde;
     padding: 0 8px;
     height: 30px;
     border-radius: 20px;
     font-size: 14px;
-    background-color: $bg-secondary;
+    background-color: transparent;
+
     transition: all 0.5s;
     width: 30px;
 }
 
 .search-box.show-box {
     width: 100% !important;
+    border: 1px solid #ccccccde !important;
 }
 .page-title {
     transition: all 0.5s;
@@ -60,7 +65,7 @@
 .search-collapse-body {
     position: fixed;
     border: none;
-    top: 43px;
+    top: 44px;
     left: 0;
     right: 0;
     width: 100%;

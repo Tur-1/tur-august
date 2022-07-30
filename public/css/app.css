@@ -18397,6 +18397,10 @@ body {
   .search-box,
 .shop-search-bar {
     height: 38px !important;
+    width: 38px !important;
+  }
+  .search-collapse-body {
+    top: 50px !important;
   }
 }
 .shop-search-bar {
@@ -18422,18 +18426,18 @@ body {
 .search-box {
   display: flex;
   align-items: center;
-  border: 1px solid rgba(204, 204, 204, 0.8705882353);
   padding: 0 8px;
   height: 30px;
   border-radius: 20px;
   font-size: 14px;
-  background-color: #f9f9f9;
+  background-color: transparent;
   transition: all 0.5s;
   width: 30px;
 }
 
 .search-box.show-box {
   width: 100% !important;
+  border: 1px solid rgba(204, 204, 204, 0.8705882353) !important;
 }
 
 .page-title {
@@ -18458,7 +18462,7 @@ body {
 .search-collapse-body {
   position: fixed;
   border: none;
-  top: 43px;
+  top: 44px;
   left: 0;
   right: 0;
   width: 100%;
@@ -18482,7 +18486,7 @@ body {
     padding-top: 51px !important;
   }
   #nprogress .bar {
-    top: 52px !important;
+    top: 50px !important;
   }
 }
 main {
