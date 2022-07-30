@@ -18397,7 +18397,6 @@ body {
   .search-box,
 .shop-search-bar {
     height: 38px !important;
-    width: 38px !important;
   }
   .search-collapse-body {
     top: 50px !important;
@@ -18433,6 +18432,10 @@ body {
   background-color: transparent;
   transition: all 0.5s;
   width: 30px;
+}
+
+.search-box {
+  width: 38px;
 }
 
 .search-box.show-box {
