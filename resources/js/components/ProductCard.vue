@@ -7,13 +7,16 @@
             :key="product.id"
         >
             <div class="card product-card">
-                <Link :href="product.product_link">
+                <Link :href="product.product_link" class="product-card-image">
                     <img
                         loading="lazy"
                         :src="product.main_image_url"
                         class="card-img-top"
                         alt="..."
                     />
+                    <span class="product-out-of-stock" v-if="!product.in_stock">
+                        out of stock
+                    </span>
                 </Link>
 
                 <button
@@ -56,12 +59,6 @@
                                 v-if="product.in_stock"
                             >
                                 {{ product.discounted_price }}
-                            </span>
-                            <span
-                                class="product-out-of-stock"
-                                v-if="!product.in_stock"
-                            >
-                                out of stock
                             </span>
                         </div>
                     </div>

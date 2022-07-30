@@ -1,5 +1,5 @@
 <template>
-    <app-layout title="August">
+    <app-layout title="August" backgroundColor="app-bg-secondary">
         <section>
             <div class="categories-page-container">
                 <CategoriesTabsHeader />
@@ -14,8 +14,4 @@ import AppLayout from "@/layouts/AppLayout";
 import CategoriesTabsHeader from "@/Pages/CategoriesPage/components/CategoriesTabsHeader.vue";
 import CategoriesTabsContent from "@/Pages/CategoriesPage/components/CategoriesTabsContent.vue";
 import { onMounted } from "vue";
-
-onMounted(() => {
-    document.querySelector("body").style.backgroundColor = "#F9F9F9";
-});
 </script>

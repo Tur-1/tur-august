@@ -1,6 +1,6 @@
 <template>
-    <div class="categories-page-body">
-        <div class="tab-content w-100" id="nav-tabContent">
+    <div class="categories-page-body h-100">
+        <div class="tab-content w-100 h-100" id="nav-tabContent">
             <div
                 v-for="(section, index) in $page.props.sections"
                 :key="section.id"
@@ -10,7 +10,7 @@
                 role="tabpanel"
                 aria-labelledby="nav-home-tab"
             >
-                <div class="row w-100 tab-buttons-content">
+                <div class="row w-100 h-100 tab-buttons-content">
                     <div
                         class="nav flex-column nav-pills col-4 ps-0 pe-0"
                         id="v-pills-tab"

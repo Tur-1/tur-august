@@ -18393,25 +18393,27 @@ body {
   background-color: white !important;
 }
 
+@media screen and (display-mode: standalone) {
+  .search-box,
+.shop-search-bar {
+    height: 38px !important;
+  }
+}
 .shop-search-bar {
   display: flex;
   align-items: center;
   border: 1px solid rgba(204, 204, 204, 0.8705882353);
   width: 90%;
-  padding: 3px;
+  padding: 0 8px;
+  height: 30px;
   border-radius: 20px;
   font-size: 14px;
   background-color: #f9f9f9;
 }
 
-.shop-search-bar i,
-.search-box i {
-  margin-right: 10px;
-  padding-left: 5px;
-}
-
 .shop-search-bar input,
 .search-box input {
+  margin: 0 7px;
   width: 100%;
   background-color: transparent;
   border-radius: 0 20px 0 0;
@@ -18421,12 +18423,13 @@ body {
   display: flex;
   align-items: center;
   border: 1px solid rgba(204, 204, 204, 0.8705882353);
-  padding: 3px;
+  padding: 0 8px;
+  height: 30px;
   border-radius: 20px;
   font-size: 14px;
   background-color: #f9f9f9;
   transition: all 0.5s;
-  width: 9%;
+  width: 30px;
 }
 
 .search-box.show-box {
@@ -18476,9 +18479,10 @@ body {
 @media screen and (display-mode: standalone) {
   section {
     padding-bottom: 90px !important;
+    padding-top: 51px !important;
   }
   #nprogress .bar {
-    top: 44px !important;
+    top: 52px !important;
   }
 }
 main {
@@ -18628,6 +18632,11 @@ ul {
 @media only screen and (max-width: 760px) {
   .section-title {
     font-size: 14px !important;
+  }
+}
+@media screen and (display-mode: standalone) {
+  .mobile-navbar nav {
+    height: 50px !important;
   }
 }
 /******* mobile navbar ********/
@@ -18936,7 +18945,7 @@ footer {
 
 @media only screen and (max-width: 400px) {
   .slick-slide .product-out-of-stock {
-    font-size: 9px;
+    font-size: 10px;
   }
   .slick-slide .product-price span:first-child {
     font-weight: 600;
@@ -19057,15 +19066,23 @@ footer {
   text-decoration: line-through !important;
 }
 
+.product-item .product-card-image {
+  position: relative;
+}
+
 .product-out-of-stock {
   font-size: 13px;
   color: rgb(220, 53, 69);
   padding: 0 4px;
-  border-radius: 5px;
-  background-color: #f8d7da;
+  border-radius: 0 0 5px 5px;
+  background-color: rgba(248, 215, 218, 0.9490196078);
   border-color: #f5c2c7;
-  display: flex;
-  align-items: center;
+  position: absolute;
+  bottom: 0px;
+  right: 0;
+  left: 0;
+  width: 100%;
+  text-align: center !important;
 }
 
 /************ breadcrumb *************/
@@ -19121,11 +19138,6 @@ footer {
   padding: 0 !important;
 }
 
-@media screen and (display-mode: standalone) {
-  .base-right-offcanvas {
-    top: 44px !important;
-  }
-}
 @media only screen and (max-width: 700px) {
   .base-right-offcanvas {
     width: 100% !important;
@@ -19135,11 +19147,22 @@ footer {
   border-left: none !important;
 }
 
+.base-right-offcanvas .offcanvas-header {
+  height: 44px;
+  padding-right: 9px !important;
+  padding-left: 9px !important;
+}
+
 .close-offcanvas-btn {
   background-color: transparent !important;
   font-size: 18px;
 }
 
+@media screen and (display-mode: standalone) {
+  .base-right-offcanvas .offcanvas-header {
+    height: 50px !important;
+  }
+}
 @media only screen and (max-width: 767px) {
   .title-detail {
     font-size: 18px !important;
@@ -19409,7 +19432,10 @@ footer {
     padding: 20px 10px !important;
   }
   .shop-page-mobile-section {
-    padding-top: 93px !important;
+    padding-top: 96px !important;
+  }
+  .mobile-shop-page-header {
+    top: 50px !important;
   }
 }
 .shop-page-mobile-section {
@@ -20188,7 +20214,13 @@ ul.shop-sidebar-categories {
 /******** categories page *************/
 @media screen and (display-mode: standalone) {
   .categories-page-container .categories-page-body {
-    padding-top: 88px !important;
+    padding-top: 93px !important;
+  }
+  .categories-page-container .categories-page-header {
+    top: 50px !important;
+  }
+  .categories-page-container .categories-page-body {
+    padding-top: 46px !important;
   }
 }
 .categories-page-container .categories-page-header {
@@ -20228,7 +20260,7 @@ ul.shop-sidebar-categories {
 }
 
 .categories-page-container .categories-page-body {
-  padding-top: 40px !important;
+  padding-top: 40px;
 }
 
 .categories-page-container .categories-page-body .tab-content .tab-pane .tab-buttons-content .nav {
@@ -20329,15 +20361,6 @@ ul.shop-sidebar-categories {
 
 .account-item-title {
   font-weight: 500;
-}
-
-.offcanvas {
-  z-index: 99999999999;
-}
-
-.offcanvas .offcanvas-header {
-  border-bottom: 1px solid rgba(150, 150, 150, 0.1882352941);
-  padding-bottom: 5px !important;
 }
 
 .order-card .card .card-body h5, .order-card .card .card-body .h5 {

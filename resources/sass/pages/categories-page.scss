@@ -1,7 +1,13 @@
 /******** categories page *************/
 @media screen and (display-mode: standalone) {
     .categories-page-container .categories-page-body {
-        padding-top: 88px !important;
+        padding-top: 93px !important;
+    }
+    .categories-page-container .categories-page-header {
+        top: 50px !important;
+    }
+    .categories-page-container .categories-page-body {
+        padding-top: 46px !important;
     }
 }
 .categories-page-container .categories-page-header {
@@ -40,7 +46,7 @@
 }
 
 .categories-page-container .categories-page-body {
-    padding-top: 40px !important;
+    padding-top: 40px;
 }
 .categories-page-container .categories-page-body .tab-content .tab-pane .tab-buttons-content .nav {
     background-color: #d8d8d8 !important;

@@ -29,8 +29,17 @@
 .base-right-offcanvas {
     border-left: none !important;
 }
-
+.base-right-offcanvas .offcanvas-header {
+    height: 44px;
+    padding-right: 9px !important;
+    padding-left: 9px !important;
+}
 .close-offcanvas-btn {
     background-color: transparent !important;
     font-size: 18px;
+}
+@media screen and (display-mode: standalone) {
+    .base-right-offcanvas .offcanvas-header {
+        height: 50px !important;
+    }
 }

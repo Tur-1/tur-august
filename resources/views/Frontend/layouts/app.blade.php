@@ -7,7 +7,7 @@
 
 <body>
     @inertia
-    <div id="base-modal-container"></div>
+    
 </body>
 
 </html>

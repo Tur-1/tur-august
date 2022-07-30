@@ -242,9 +242,6 @@ __webpack_require__.r(__webpack_exports__);
   setup: function setup(__props, _ref) {
     var expose = _ref.expose;
     expose();
-    (0,vue__WEBPACK_IMPORTED_MODULE_3__.onMounted)(function () {
-      document.querySelector("body").style.backgroundColor = "#F9F9F9";
-    });
     var __returned__ = {
       AppLayout: _layouts_AppLayout__WEBPACK_IMPORTED_MODULE_0__["default"],
       CategoriesTabsHeader: _Pages_CategoriesPage_components_CategoriesTabsHeader_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -1544,7 +1541,8 @@ var _hoisted_1 = {
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["AppLayout"], {
-    title: "August"
+    title: "August",
+    backgroundColor: "app-bg-secondary"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("section", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CategoriesTabsHeader"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["CategoriesTabsContent"])])])];
@@ -1570,15 +1568,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "categories-page-body"
+  "class": "categories-page-body h-100"
 };
 var _hoisted_2 = {
-  "class": "tab-content w-100",
+  "class": "tab-content w-100 h-100",
   id: "nav-tabContent"
 };
 var _hoisted_3 = ["id"];
 var _hoisted_4 = {
-  "class": "row w-100 tab-buttons-content"
+  "class": "row w-100 h-100 tab-buttons-content"
 };
 var _hoisted_5 = {
   "class": "nav flex-column nav-pills col-4 ps-0 pe-0",
@@ -1907,9 +1905,7 @@ var _hoisted_4 = {
   "class": "base-modal-header"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Teleport, {
-    to: "#base-modal-container"
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
     name: "modal"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -1934,7 +1930,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
     /* FORWARDED */
 
-  })]);
+  });
 }
 
 /***/ }),
@@ -1974,7 +1970,7 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
     name: "fade"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
@@ -1992,7 +1988,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
     /* STABLE */
 
-  })]);
+  });
 }
 
 /***/ }),

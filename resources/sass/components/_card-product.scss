@@ -1,6 +1,6 @@
 @media only screen and (max-width: 400px) {
     .slick-slide .product-out-of-stock {
-        font-size: 9px;
+        font-size: 10px;
     }
     .slick-slide .product-price span:first-child {
         font-weight: 600;
@@ -120,14 +120,20 @@
     color: #90908e;
     text-decoration: line-through !important;
 }
-
+.product-item .product-card-image {
+    position: relative;
+}
 .product-out-of-stock {
     font-size: 13px;
     color: rgb(220, 53, 69);
     padding: 0 4px;
-    border-radius: 5px;
-    background-color: #f8d7da;
+    border-radius: 0 0 5px 5px;
+    background-color: #f8d7daf2;
     border-color: #f5c2c7;
-    display: flex;
-    align-items: center;
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    left: 0;
+    width: 100%;
+    text-align: center !important;
 }
