@@ -18773,19 +18773,9 @@ nav {
 }
 
 /******** footer *************/
-@media screen and (display-mode: fullscreen) {
-  #mobile-footer {
-    padding-bottom: 28px !important;
-  }
-}
 @media screen and (display-mode: standalone) {
   #mobile-footer {
     padding-bottom: 28px !important;
-  }
-}
-@media screen and (display-mode: minimal-ui) {
-  #mobile-footer {
-    padding-top: 20px !important;
   }
 }
 footer {
@@ -18801,14 +18791,6 @@ footer {
 }
 
 #mobile-footer:-webkit-full-screen {
-  padding-bottom: 28px !important;
-}
-
-#mobile-footer:-ms-fullscreen {
-  padding-bottom: 28px !important;
-}
-
-#mobile-footer:fullscreen {
   padding-bottom: 28px !important;
 }
 
