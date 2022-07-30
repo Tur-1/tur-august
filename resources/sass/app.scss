@@ -28,12 +28,11 @@ body {
 @media only screen and (max-width: 760px) {
     body::-webkit-scrollbar {
         display: none !important;
+        width: 0 !important;
         z-index: 99999999999999999;
     }
 }
-#app {
-    height: 100%;
-}
+
 .app-bg-secondary {
     background-color: $bg-secondary !important;
 }

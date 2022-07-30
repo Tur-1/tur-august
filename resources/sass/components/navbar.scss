@@ -1,36 +1,49 @@
 @media screen and (display-mode: standalone) {
-    .mobile-navbar nav {
+    .mobile-header {
         height: 50px !important;
     }
 }
 
-/******* mobile navbar ********/
-
-.mobile-navbar nav {
+/******* mobile header ********/
+.mobile-header {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 44px;
+    z-index: 999999999999999;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #cccccc75;
+    background-color: $bg-primary;
+}
+.mobile-header .navigation {
     color: #1a1a1a !important;
     position: relative;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    margin: 0 9px;
-    font-size: 18px;
-    height: 44px;
+    font-size: 16px;
+    width: 100%;
+    padding: 0 9px;
 }
-.mobile-navbar nav a {
+.hidden {
+    visibility: hidden;
+}
+.mobile-header .navigation a {
     color: #1a1a1a !important;
 }
 
 .page-title {
     font-weight: 600 !important;
     text-align: center !important;
-    flex: 1 1 auto;
     font-size: 18px !important;
+    flex: 1;
 }
 
-/******** desktop navbar *************/
-.desktop-navbar,
-.mobile-navbar {
+/******** desktop header *************/
+.desktop-navbar {
     position: fixed !important;
     border-bottom: 1px solid #cccccc75;
     top: 0 !important;

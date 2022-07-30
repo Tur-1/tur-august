@@ -1,9 +1,9 @@
 <template>
-    <header class="mobile-navbar">
-        <nav>
-            <div class="nav-back-button">
+    <header class="mobile-header">
+        <nav class="navigation">
+            <div class="nav-back-button" :class="{ hidden: !backUrl }">
                 <Link :href="backUrl">
-                    <i class="bi bi-chevron-left" v-show="backUrl"></i>
+                    <i class="bi bi-chevron-left"></i>
                 </Link>
             </div>
             <span class="page-title" v-if="!route().current('shop.*')">

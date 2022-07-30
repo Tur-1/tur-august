@@ -4,14 +4,12 @@
         :backUrl="$page.props.previousPageUrl"
         backgroundColor="app-bg-secondary"
     >
-        <section class="container mt-3">
-            <div class="row d-flex justify-content-center">
-                <div class="col-lg-6">
-                    <div class="d-flex flex-column justify-content-center">
-                        <OrderDetails />
-                        <OrderAddress />
-                        <OrderProducts />
-                    </div>
+        <section>
+            <div class="container mt-3">
+                <div class="col-lg-6 m-auto">
+                    <OrderDetails />
+                    <OrderAddress />
+                    <OrderProducts />
                 </div>
             </div>
         </section>

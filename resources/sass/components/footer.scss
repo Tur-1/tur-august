@@ -21,17 +21,23 @@ footer {
 }
 
 .desktop-footer {
-    padding: 15px;
+    height: 65px;
     margin-top: auto;
+    display: flex;
+    align-items: center;
 }
-
+#mobile-footer:fullscreen {
+    padding-bottom: 28px !important;
+}
 #mobile-footer {
-    padding: 1px 10px 5px 10px;
-    z-index: 1;
+    height: 45px;
     position: fixed !important;
+    z-index: 999999999999999999;
     left: 0;
     right: 0;
     bottom: 0;
+    padding: 0px 10px;
+    z-index: 1;
 }
 
 #mobile-footer .footer-items {

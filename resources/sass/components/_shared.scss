@@ -1,33 +1,39 @@
 @media screen and (display-mode: standalone) {
     section {
-        padding-bottom: 90px !important;
+        padding-bottom: 80px !important;
         padding-top: 51px !important;
+        min-height: calc(100vh - 73px) !important;
     }
     #nprogress .bar {
         top: 50px !important;
     }
+    #toast-alert {
+        top: 52px !important;
+    }
 }
 
 main {
-    height: 100% !important;
     display: flex;
     flex-direction: column;
     overflow-x: hidden !important;
 }
 
 section {
-    padding-bottom: 75px;
+    padding-bottom: 65px;
     padding-top: 60px;
+    min-height: calc(100vh - 70px);
 }
 @media only screen and (max-width: 767px) {
     section {
         padding-top: 45px;
+        padding-bottom: 60px;
+        min-height: calc(100vh - 45px);
     }
 }
 #toast-alert {
     position: fixed !important;
     top: 45px;
-    z-index: 999999999999999999999999999999999999999999999999999999999 !important;
+    z-index: 99999999999999999999999999999999999999999999999999999999999999999999999999999 !important;
     right: 15px;
     color: white;
     width: 350px;
