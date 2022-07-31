@@ -26,15 +26,10 @@ footer {
     right: 0;
     bottom: 0;
     padding: 0px 10px;
+    padding-bottom: calc(28px + env(safe-area-inset-bottom)) !important;
     z-index: 1;
 }
-@media only screen and (max-width: 700px) {
-    _::-webkit-full-page-media,
-    _:future,
-    :root .safari {
-        padding-bottom: 28px;
-    }
-}
+
 #mobile-footer .footer-items {
     display: flex;
     justify-content: space-between;
