@@ -18793,7 +18793,7 @@ footer {
   right: 0;
   bottom: 0;
   padding: 0px 10px;
-  height: calc(78px + env(safe-area-inset-bottom)) !important;
+  height: calc(23px + env(safe-area-inset-bottom));
   z-index: 1;
 }
 
