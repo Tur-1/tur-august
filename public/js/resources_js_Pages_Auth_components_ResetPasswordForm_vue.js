@@ -2500,7 +2500,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _hoisted_1 = {
   id: "mobile-footer",
-  "class": "footer"
+  "class": "footer safari"
 };
 var _hoisted_2 = {
   "class": "footer-items"
