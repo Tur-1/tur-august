@@ -1,5 +1,11 @@
 /******** footer *************/
 
+@media screen and (display-mode: standalone) {
+    #mobile-footer {
+        height: 73px !important;
+    }
+}
+
 footer {
     background-color: $bg-primary;
     border-top: 1px solid #96969630;
@@ -20,7 +26,7 @@ footer {
     right: 0;
     bottom: 0;
     padding: 0px 10px;
-    height: calc(23px + env(safe-area-inset-bottom));
+    height: calc(60px + env(safe-area-inset-bottom));
     z-index: 1;
 }
 

@@ -18773,6 +18773,11 @@ nav {
 }
 
 /******** footer *************/
+@media screen and (display-mode: standalone) {
+  #mobile-footer {
+    height: 73px !important;
+  }
+}
 footer {
   background-color: white;
   border-top: 1px solid rgba(150, 150, 150, 0.1882352941);
@@ -18793,7 +18798,7 @@ footer {
   right: 0;
   bottom: 0;
   padding: 0px 10px;
-  height: calc(23px + env(safe-area-inset-bottom));
+  height: calc(60px + env(safe-area-inset-bottom));
   z-index: 1;
 }
 
