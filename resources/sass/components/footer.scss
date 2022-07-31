@@ -1,11 +1,5 @@
 /******** footer *************/
 
-@media screen and (display-mode: standalone) {
-    #mobile-footer {
-        padding-bottom: 28px !important;
-    }
-}
-
 footer {
     background-color: $bg-primary;
     border-top: 1px solid #96969630;
@@ -26,7 +20,7 @@ footer {
     right: 0;
     bottom: 0;
     padding: 0px 10px;
-    padding-bottom: calc(28px + env(safe-area-inset-bottom)) !important;
+    height: calc(78px + env(safe-area-inset-bottom)) !important;
     z-index: 1;
 }
 
