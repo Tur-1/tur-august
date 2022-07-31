@@ -55,14 +55,16 @@ watch(
     search,
 
     debounce(function (value) {
-        Inertia.post(
-            route("shop.searchProducts"),
-            { search: value },
-            {
-                preserveState: true,
-                preserveScroll: true,
-            }
-        );
+        if (value !== "") {
+            Inertia.post(
+                route("shop.searchProducts"),
+                { search: value },
+                {
+                    preserveState: true,
+                    preserveScroll: true,
+                }
+            );
+        }
     }, 400)
 );
 </script>
