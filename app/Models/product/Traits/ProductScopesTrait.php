@@ -119,6 +119,12 @@ trait ProductScopesTrait
             ->when(request()->has('search'), fn ($query) => $this->filterBySearching($query))
             ->when(request()->has('status'), fn ($query) => $this->filterByStatus($query));
     }
+    public function scopeWithSearchResult($query)
+    {
+
+        return $query->when(request()->has('search'), fn ($query) => $this->filterBySearching($query));
+    }
+
     public function scopeWhereCategory($query, $category_id)
     {
         return $query->whereHas('categories', fn ($query) => $query->where('categories.id', $category_id)->select('categories.id'));

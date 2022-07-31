@@ -3,16 +3,20 @@
 namespace App\Modules\Frontend\Shop\Http\Controllers;
 
 use Inertia\Inertia;
+use Illuminate\Http\Request;
+use App\Models\product\Brand;
+use App\Models\product\Color;
+use App\Models\product\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
 use App\Exceptions\PageNotFoundException;
+use App\Modules\Frontend\Shop\Http\Resources\SearchSuggestionResultsResource;
 use App\Modules\Frontend\Shop\Services\ShopPageService;
-
 
 class ShopPageController extends Controller
 {
 
-    public function index()
+    public function categoriesPage()
     {
         Session::put('categoriesPageUrl', url()->current());
         return Inertia::render('CategoriesPage/Index');
@@ -55,5 +59,13 @@ class ShopPageController extends Controller
 
 
         ]);
+    }
+
+    public function searchProducts(Request $request)
+    {
+
+        $searchResults = Product::select('name')->WithSearchResult()->Active()->get();
+
+        return redirect()->back()->with(['searchResults' => SearchSuggestionResultsResource::collection($searchResults)->resolve()]);
     }
 }

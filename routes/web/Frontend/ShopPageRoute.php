@@ -16,7 +16,8 @@ use App\Modules\Frontend\Shop\Http\Controllers\ShopPageController;
 
 Route::controller(ShopPageController::class)->name('shop.')->group(function () {
 
-    Route::get('/shop', 'index')->name('shopPage');
+    Route::get('/categories', 'categoriesPage')->name('shopPage');
 
-    Route::get('/shop/{category_slug}', 'categoryPage')->name('categoryPage');
+    Route::get('/shop/{category_slug?}', 'categoryPage')->name('categoryPage');
+    Route::post('/shop/search', 'searchProducts')->name('searchProducts');
 });

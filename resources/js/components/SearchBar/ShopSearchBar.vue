@@ -14,5 +14,10 @@
 </template>
 <script setup>
 defineProps(["modelValue"]);
-defineEmits(["getSearchResults", "openSearchModal", "clearSearchResults"]);
+defineEmits([
+    "getSearchResults",
+    "update:modelValue",
+    "openSearchModal",
+    "clearSearchResults",
+]);
 </script>

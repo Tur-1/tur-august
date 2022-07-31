@@ -28,4 +28,8 @@ class Color extends Model
     {
         return $this->hasMany(Product::class);
     }
+    public function scopeSearch($query)
+    {
+        return $query->when(request()->input('search'),  fn ($query) => $query->where('name', 'LIKE', "%" . request()->input('search') . "%"));
+    }
 }

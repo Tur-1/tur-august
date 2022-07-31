@@ -3,13 +3,7 @@
         <i class="bi bi-search" @click="openSearchModal"></i>
 
         <div class="search-input">
-            <input
-                type="text"
-                placeholder="search"
-                @keyup.enter="getSearchResults"
-                @click="openSearchModal"
-                v-model="search"
-            />
+            <input type="text" placeholder="search" v-model="search" />
             <i class="bi bi-x-lg" @click="clearSearchResults"></i>
         </div>
     </div>
@@ -26,11 +20,14 @@
 <script setup>
 import { Inertia } from "@inertiajs/inertia";
 import { usePage } from "@inertiajs/inertia-vue3";
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import ShopSearchBar from "@/components/SearchBar/ShopSearchBar.vue";
 import SearchBox from "@/components/SearchBar/SearchBox.vue";
+import debounce from "lodash/debounce";
 
 let isShown = ref(false);
+
+let progress = ref(false);
 
 let search = ref(
     usePage().props.value.queryString
@@ -44,7 +41,7 @@ const openSearchModal = () => {
     $(".search-input").addClass("show-input");
     $(".page-title").addClass("hide");
 };
-const getSearchResults = () => {};
+
 const clearSearchResults = () => {
     search.value = "";
 
@@ -53,4 +50,19 @@ const clearSearchResults = () => {
     $(".search-input").removeClass("show-input");
     $(".page-title").removeClass("hide");
 };
+
+watch(
+    search,
+
+    debounce(function (value) {
+        Inertia.post(
+            route("shop.searchProducts"),
+            { search: value },
+            {
+                preserveState: true,
+                preserveScroll: true,
+            }
+        );
+    }, 400)
+);
 </script>

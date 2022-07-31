@@ -9,8 +9,10 @@
             <div class="flex-column p-0 pb-3">
                 <Link
                     class="pt-1 pb-1 ps-3 pe-3 mb-1 d-flex justify-content-between align-items-center border-bottom"
+                    v-for="(value, index) in $page.props.searchResults"
+                    :href="value.link"
                 >
-                    <span>addidas puma </span>
+                    <span>{{ value.name }}</span>
                     <i class="bi bi-arrow-up-left"></i>
                 </Link>
             </div>

@@ -28,4 +28,8 @@ class Brand extends Model
     {
         return $this->hasMany(Product::class)->select('id', 'brand_id');
     }
+    public function scopeSearch($query)
+    {
+        return $query->when(request()->input('search'),  fn ($query) => $query->where('name', 'LIKE', "%" . request()->input('search') . "%"));
+    }
 }
