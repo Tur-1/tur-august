@@ -19,14 +19,13 @@ footer {
 }
 
 #mobile-footer {
-    height: 45px;
     position: fixed !important;
     z-index: 999999999999999999;
     left: 0;
     right: 0;
     bottom: 0;
     padding: 0px 10px;
-    height: calc(45px + env(safe-area-inset-bottom));
+    height: calc(49px + env(safe-area-inset-bottom));
     z-index: 1;
 }
 

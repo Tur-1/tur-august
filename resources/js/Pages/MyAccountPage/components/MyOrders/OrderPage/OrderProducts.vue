@@ -1,5 +1,5 @@
 <template>
-    <div class="card border-0 mt-4">
+    <div class="card border-0 mt-4 mb-5">
         <span class="p-2 text-uppercase">
             {{ $page.props.products.length }} items</span
         >

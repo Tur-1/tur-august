@@ -18791,14 +18791,13 @@ footer {
 }
 
 #mobile-footer {
-  height: 45px;
   position: fixed !important;
   z-index: 1000000000000000100;
   left: 0;
   right: 0;
   bottom: 0;
   padding: 0px 10px;
-  height: calc(45px + env(safe-area-inset-bottom));
+  height: calc(49px + env(safe-area-inset-bottom));
   z-index: 1;
 }
 
@@ -20285,6 +20284,7 @@ ul.shop-sidebar-categories {
 
 .categories-page-container .categories-page-body .tab-content .tab-pane .tab-buttons-content .nav {
   background-color: #d8d8d8 !important;
+  min-height: calc(100vh - 140px);
 }
 
 .categories-page-container .categories-page-body .tab-content .tab-pane .tab-buttons-content .nav button.nav-link {
@@ -20305,6 +20305,7 @@ ul.shop-sidebar-categories {
 .categories-page-container .categories-page-body .tab-content .tab-pane .tab-buttons-content #v-pills-tabContent .tab-pane.active.show {
   display: grid !important;
   grid-template-columns: 1fr 1fr 1fr;
+  min-height: calc(100vh - 140px);
 }
 
 .categories-page-container .categories-page-body .card-category {
